@@ -3,4 +3,4 @@ project(mediaFW)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(mediaFW main.cpp)
+add_executable(mediaFW main.cpp Cli.cpp Cli.h Connection.cpp Connection.h)

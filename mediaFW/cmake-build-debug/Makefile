@@ -123,6 +123,60 @@ mediaFW/fast:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/build
 .PHONY : mediaFW/fast
 
+Cli.o: Cli.cpp.o
+
+.PHONY : Cli.o
+
+# target to build an object file
+Cli.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.o
+.PHONY : Cli.cpp.o
+
+Cli.i: Cli.cpp.i
+
+.PHONY : Cli.i
+
+# target to preprocess a source file
+Cli.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.i
+.PHONY : Cli.cpp.i
+
+Cli.s: Cli.cpp.s
+
+.PHONY : Cli.s
+
+# target to generate assembly for a file
+Cli.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.s
+.PHONY : Cli.cpp.s
+
+Connection.o: Connection.cpp.o
+
+.PHONY : Connection.o
+
+# target to build an object file
+Connection.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.o
+.PHONY : Connection.cpp.o
+
+Connection.i: Connection.cpp.i
+
+.PHONY : Connection.i
+
+# target to preprocess a source file
+Connection.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.i
+.PHONY : Connection.cpp.i
+
+Connection.s: Connection.cpp.s
+
+.PHONY : Connection.s
+
+# target to generate assembly for a file
+Connection.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.s
+.PHONY : Connection.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... mediaFW"
+	@echo "... Cli.o"
+	@echo "... Cli.i"
+	@echo "... Cli.s"
+	@echo "... Connection.o"
+	@echo "... Connection.i"
+	@echo "... Connection.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

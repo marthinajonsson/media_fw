@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/mjonsson/repo/mediaFW/Cli.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/Cli.cpp.o"
+  "/home/mjonsson/repo/mediaFW/Connection.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/Connection.cpp.o"
   "/home/mjonsson/repo/mediaFW/main.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
