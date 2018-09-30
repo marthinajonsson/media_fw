@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/mediaFW.dir/main.cpp.o  -o mediaFW 
