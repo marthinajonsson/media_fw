@@ -8,14 +8,14 @@
 class Connection{
 public:
     Connection(){
-        connect();
+        tryConnect();
         instantiateCli();
     }
     ~Connection() = default;
 
 private:
-    void connect();
-
+    void tryConnect();
+    bool ssh2Echo();
     void instantiateCli();
 
 };
