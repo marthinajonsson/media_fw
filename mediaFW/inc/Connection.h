@@ -5,18 +5,23 @@
 #ifndef MEDIAFW_CONNECTION_H
 #define MEDIAFW_CONNECTION_H
 
+#include <string>
+
 class Connection{
 public:
     Connection(){
         tryConnect();
-        instantiateCli();
     }
+
+    std::string pullResult();
+
     ~Connection() = default;
 
 private:
     void tryConnect();
     bool ssh2Echo();
-    void instantiateCli();
+    void write(std::string message);
+    std::string read();
 
 };
 

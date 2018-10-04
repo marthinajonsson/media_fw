@@ -34,14 +34,39 @@
 #include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
+
+
+//#include <boost/asio/io_service.hpp>
+//#include <boost/asio/write.hpp>
+//#include <boost/asio/buffer.hpp>
+//#include <boost/asio/ip/tcp.hpp>
+#include <array>
+#include <string>
+#include <iostream>
+//using namespace boost::asio;
+//using namespace boost::asio::ip;
+//
+//io_service ioservice;
+//tcp::resolver resolv{ioservice};
+//tcp::socket tcp_socket{ioservice};
+//std::array<char, 4096> bytes;
+
+
 /* END OF THIRD LIB */
 
 #include "Connection.h"
 #include "Cli.h"
 
-void Connection::instantiateCli() {
-    Cli cli;
+void write(std::string message){
+
+    message = "Hej";
+
 }
+std::string read(){
+    return "";
+}
+
+
 
 static int waitsocket(int socket_fd, LIBSSH2_SESSION *session) {
     struct timeval timeout{};
@@ -75,18 +100,52 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session) {
 void Connection::tryConnect() {
     std::cout << "Connecting.." << std::endl;
     //TODO: Setup connection to Network
-    if(!ssh2Echo()) {
-        std::cout << "SSH2 echo went wrong" << std::endl;
-    }
+//    tcp::resolver::query q{"theboostcpplibraries.com", "80"};
+//    resolv.async_resolve(q, resolve_handler);
+//    ioservice.run();
+
+    //if(!ssh2Echo()) {
+      //  std::cout << "SSH2 echo went wrong" << std::endl;
+    //}
 
 }
-
+//
+//void read_handler(const boost::system::error_code &ec,
+//                  std::size_t bytes_transferred)
+//{
+//    if (!ec)
+//    {
+//        std::cout.write(bytes.data(), bytes_transferred);
+//        tcp_socket.async_read_some(buffer(bytes), read_handler);
+//    }
+//}
+//
+//void connect_handler(const boost::system::error_code &ec)
+//{
+//    if (!ec)
+//    {
+//        std::string r =
+//                "GET / HTTP/1.1\r\nHost: theboostcpplibraries.com\r\n\r\n";
+//        write(tcp_socket, buffer(r));
+//        tcp_socket.async_read_some(buffer(bytes), read_handler);
+//    }
+//}
+//
+//void resolve_handler(const boost::system::error_code &ec,
+//                     tcp::resolver::iterator it)
+//{
+//    if (!ec)
+//        tcp_socket.async_connect(*it, connect_handler);
+//}
 
 bool Connection::ssh2Echo(){
-    const char *hostname = "127.0.0.1";
+
+    return true;
+
+    const char *hostname =  "127.0.0.1"; //"10.40.188.250";
     const char *commandline = "cat";
-    const char *username    = "user";
-    const char *password    = "password";
+    const char *username    = "a501822";
+    const char *password    = "xhfypf6Q";
     const int BUFSIZE = 32000;
     in_addr_t hostaddr;
     int sock;
@@ -107,20 +166,21 @@ bool Connection::ssh2Echo(){
         fprintf (stderr, "libssh2 initialization failed (%d)\n", rc);
     }
 
-    hostaddr = inet_addr(hostname);
 
+    hostaddr = inet_addr(hostname);
     /* Ultra basic "connect to port 22 on localhost"
-     * Your code is responsible for creating the socket establishing the
-     * connection
-     */
+    * Your code is responsible for creating the socket establishing the
+    * connection
+    */
     sock = socket(AF_INET, SOCK_STREAM, 0);
 
     sin.sin_family = AF_INET;
     sin.sin_port = htons(22);
     sin.sin_addr.s_addr = hostaddr;
-    int result = connect(sock, (struct sockaddr*)(&sin), sizeof(struct sockaddr_in));
-    if(result != 0){
-        fprintf(stderr, "Failed to connect! %d \n", errno);
+    if (connect(sock, (struct sockaddr*)(&sin),
+                sizeof(struct sockaddr_in)) != 0) {
+        fprintf(stderr, "Failed to connect!\n");
+        return -1;
     }
 
     /* Create a session instance */
