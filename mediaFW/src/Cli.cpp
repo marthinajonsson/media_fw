@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include "Cli.h"
+#include "../inc/Cli.h"
 
 
 void Cli::handleInput(std::string input) {

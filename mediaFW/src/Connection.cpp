@@ -12,7 +12,7 @@
  *
  */
 /* START OF THIRD LIB */
-#include "libssh2_config.h"
+#include "../inc/libssh2_config.h"
 #include <libssh2.h>
 
 #ifdef HAVE_SYS_SELECT_H
@@ -54,8 +54,8 @@
 
 /* END OF THIRD LIB */
 
-#include "Connection.h"
-#include "Cli.h"
+#include "../inc/Connection.h"
+#include "../inc/Cli.h"
 
 void write(std::string message){
 

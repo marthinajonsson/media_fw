@@ -2,7 +2,7 @@
 // Created by mjonsson on 10/4/18.
 //
 
-#include "MovieDatabase.h"
+#include "../inc/MovieDatabase.h"
 
 
 void MovieDatabase::findByPattern(){}

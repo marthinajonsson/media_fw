@@ -7,6 +7,7 @@
 
 
 #include "Database.h"
+#include "MovieDatabase.h"
 
 class Client {
 public:
@@ -19,14 +20,8 @@ public:
         Series = 1
     };
 
-    void initiateDatabase(DbType type) {
-        if(type = Movie){
-            Database *db = new MovieDatabase;
-        }
-        else {
-            //Database *db = new SeriesDatabase;
-        }
-    }
+    void initiateDatabase(DbType type);
+
 
 
 

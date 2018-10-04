@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Connection.h"
-#include "Cli.h"
-#include "Database.h"
+#include "../inc/Connection.h"
+#include "../inc/Cli.h"
+#include "../inc/Database.h"
 
 
 int main() {

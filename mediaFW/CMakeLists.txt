@@ -4,10 +4,26 @@ project(mediaFW)
 set(CMAKE_CXX_STANDARD 17)
 find_package(Libssh2 REQUIRED CONFIG)
 
-subdirs(src)
-include_directories(${MyProject_SOURCE_DIR}/inc)
+set(SrcFilesToInclude
+        ${CMAKE_CURRENT_LIST_DIR}/src/Cli.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/Connection.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/Client.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/MovieDatabase.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
+        )
 
-add_executable(mediaFW main.cpp Cli.cpp Cli.h Connection.cpp Connection.h Database.h DatabaseItem.h Client.cpp Client.h MovieDatabase.cpp MovieDatabase.h)
+set(IncFilesToInclude
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Cli.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Connection.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Client.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/MovieDatabase.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Database.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/DatabaseItem.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/libssh2_config.h
+        )
+
+
+add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
 
 target_link_libraries(mediaFW Libssh2::libssh2)
 

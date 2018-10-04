@@ -2,10 +2,16 @@
 // Created by mjonsson on 10/4/18.
 //
 
-#include "Client.h"
+#include "../inc/Client.h"
 
 
-Client::void initiateDatabase() {
-        Database *db = new MovieDatabase;
+void Client::initiateDatabase(DbType type) {
+
+    if(type = Movie){
+       // Database *db new MovieDatabase;
+    }
+    else {
+        //Database *db = new SeriesDatabase;
+    }
 }
 
