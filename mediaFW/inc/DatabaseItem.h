@@ -2,6 +2,10 @@
 // Created by mjonsson on 10/3/18.
 //
 
+/*
+ *  The purpose of this module is to hold the information of a database item
+ * */
+
 #ifndef MEDIAFW_DATABASEITEM_H
 #define MEDIAFW_DATABASEITEM_H
 
@@ -18,6 +22,7 @@ struct Tags{
 class DatabaseItem{
 public:
 
+    DatabaseItem () {};
     DatabaseItem(std::vector<std::string> _actors, std::string _title, std::string _genre, std::string _director)
         : m_actors(_actors), m_title("defaultTitle"), m_genre(_genre), m_director(_director)
     {
@@ -26,7 +31,7 @@ public:
 
     ~DatabaseItem() = default;
 
-    void setFeature(Tags &&feature){
+    void setFeature(Tags feature){
         this->m_actors = feature.s_actors;
         this->m_director = feature.s_director;
         this->m_title = feature.s_title;
@@ -34,7 +39,7 @@ public:
     };
 
     std::vector<std::string> getActors(){ return m_actors;}
-    std::string gettitle(){ return m_title;}
+    std::string getTitle(){ return m_title;}
     std::string getDirector(){ return m_director;}
     std::string getGenre(){ return m_genre;}
     std::string getDir(){ return directory;}

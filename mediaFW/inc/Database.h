@@ -2,10 +2,15 @@
 // Created by mjonsson on 10/3/18.
 //
 
+
+
 #ifndef MEDIAFW_DATABASE_H
 #define MEDIAFW_DATABASE_H
 
-//#ifndef MEDIAFW_DATABASEITEM_H
+/*
+ *  The purpose of this module is to work as an interface for subclasses and let them perform database actions
+ * */
+
 #include "DatabaseItem.h"
 
 #include <string>
@@ -16,11 +21,13 @@ class Database {
 public:
     Database() = default;
     ~Database() = default;
-    std::queue<DatabaseItem> _items;
 
-    virtual void pushItem(DatabaseItem _item){}
 
-    virtual DatabaseItem fetchItem(int id) {}
+    virtual void pushItem(DatabaseItem _item){};
+
+    virtual DatabaseItem fetchItem(int id) {};
+
+    virtual int getNumberOfItem(){};
 
     enum Pattern {
         TITLE = 4,
@@ -28,6 +35,9 @@ public:
         GENRE = 2,
         DIRECTOR
     };
+
+protected:
+    std::queue<DatabaseItem> _items;
 };
 
 

@@ -5,10 +5,18 @@
 #include "../inc/MovieDatabase.h"
 
 
-void MovieDatabase::findByPattern(){}
+std::vector<std::string> MovieDatabase::findByPattern() {
+
+    return {""};
+}
 
 void MovieDatabase::pushItem(DatabaseItem _item) {
     _items.push(_item);
+}
+
+int MovieDatabase::getNumberOfItem() {
+
+    // return number of items of given pattern
 }
 
 DatabaseItem MovieDatabase::fetchItem(int id)  {

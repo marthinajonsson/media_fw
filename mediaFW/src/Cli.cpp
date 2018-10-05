@@ -2,23 +2,27 @@
 // Created by mjonsson on 9/30/18.
 //
 
+/*
+ * This module should only wait and process keyboard input
+ * */
+
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include "../inc/Cli.h"
 
 
-void Cli::handleInput(std::string input) {
+void Cli::handleInput(std::string input, std::string &choice, std::vector<std::string> &args) {
     std::string original (input);
     CHOICE ch;
     ch = NO_OPTION;
 
-    std::vector<std::string> _args = parseArg(input);
-    if("help" == _args.front() || "-h") {
+    args = parseArg(input);
+    if("help" == args.front() || "-h") {
         printOptions();
     }
 
-    std::string choice = _args.front();
+    choice = args.front();
     if( choice == "upload") {
         ch = UPLOAD;
         std::cout << "you have chosen to upload" << std::endl;
@@ -35,19 +39,22 @@ void Cli::handleInput(std::string input) {
         std::cout << "this choice is not recognizable" << std::endl;
     }
 
-
-    for(std::string arg : _args) {
-        if(ch == SEARCH) {
-
-        }else if (ch == UPLOAD || ch == DOWNLOAD) {
-
-        }
-    }
+//
+//    for(std::string arg : args) {
+//        if(ch == SEARCH) {
+//
+//        }else if (ch == UPLOAD || ch == DOWNLOAD) {
+//
+//        }
+//    }
 }
 
 void Cli::daemon() {
     std::cout<<"cli daemon started" <<std::endl;
-    std::string quit = "q";
+    std::string choice;
+    std::vector<std::string> args;
+
+    const std::string quit = "q";
 
     for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
     {
@@ -57,9 +64,10 @@ void Cli::daemon() {
             break;
         }
         else if (!line.empty()) {
-            handleInput(line);
+            handleInput(line, choice, args);
         }
     }
+
 }
 
 std::vector<std::string> Cli::parseArg(std::string &input) {
@@ -78,4 +86,5 @@ void Cli::printOptions() {
     std::string header {"<choice> <optional arg1>.. <optimal arg2>.."};
     std::string choice {"upload, download, search"};
     std::string opt {"title, genre, director, list of actors"};
+    std::cout << header << "\n" << choice << "\n" << opt << std::endl;
 }

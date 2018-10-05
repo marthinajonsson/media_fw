@@ -15,9 +15,11 @@ public:
         daemon();
     };
     ~Cli() = default;
+
+    void start();
 private:
     std::vector<std::string> parseArg(std::string &input);
-    void handleInput(std::string input);
+    void handleInput(std::string input, std::string &choice, std::vector<std::string> &args);
     void daemon();
     void printOptions();
 
