@@ -4,6 +4,9 @@ project(mediaFW)
 set(CMAKE_CXX_STANDARD 17)
 find_package(Libssh2 REQUIRED CONFIG)
 
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
 set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/Cli.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/Connection.cpp
@@ -23,8 +26,13 @@ set(IncFilesToInclude
         )
 
 
-add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
+enable_testing()
 
+add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
+add_subdirectory("contrib/googletest")
+include_directories(inc)
+include_directories(contrib/googletest)
+add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
 target_link_libraries(mediaFW Libssh2::libssh2)
 
 ## add the binary tree to the search path for include files

@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-#include "../inc/Cli.h"
+#include "Cli.h"
 
 
 void Cli::handleInput(std::string input, std::string &choice, std::vector<std::string> &args) {
@@ -84,7 +84,7 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
 void Cli::printOptions() {
 
     std::string header {"<choice> <optional arg1>.. <optimal arg2>.."};
-    std::string choice {"upload, download, search"};
-    std::string opt {"title, genre, director, list of actors"};
+    std::string choice {"<choice> = upload, download, search"};
+    std::string opt {"<arg> = title, genre, director, list of actors"};
     std::cout << header << "\n" << choice << "\n" << opt << std::endl;
 }

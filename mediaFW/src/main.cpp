@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../inc/Client.h"
+#include "Client.h"
+#include "gtest/gtest.h"
 
 
 int main() {

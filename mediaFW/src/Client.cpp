@@ -3,10 +3,10 @@
 //
 #include <future>
 
-#include "../inc/Client.h"
-#include "../inc/Cli.h"
-#include "../inc/DatabaseItem.h"
-#include "../inc/Connection.h"
+#include "Client.h"
+#include "Cli.h"
+#include "DatabaseItem.h"
+#include "Connection.h"
 
 
 void Client::initiateDatabase(DbType type) {
@@ -23,7 +23,7 @@ void Client::setup()
 {
     //Connection conn;
     Cli cli;
-    cli;
+    cli.start();
 
 }
 

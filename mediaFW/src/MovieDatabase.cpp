@@ -2,7 +2,7 @@
 // Created by mjonsson on 10/4/18.
 //
 
-#include "../inc/MovieDatabase.h"
+#include "MovieDatabase.h"
 
 
 std::vector<std::string> MovieDatabase::findByPattern() {

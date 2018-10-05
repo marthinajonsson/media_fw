@@ -54,8 +54,8 @@
 
 /* END OF THIRD LIB */
 
-#include "../inc/Connection.h"
-#include "../inc/Cli.h"
+#include "Connection.h"
+#include "Cli.h"
 
 void write(std::string message){
 
