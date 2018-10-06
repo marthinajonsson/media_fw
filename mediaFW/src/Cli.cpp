@@ -67,7 +67,7 @@ void Cli::daemon() {
             handleInput(line, choice, args);
         }
     }
-
+    // push to notify result from this to client
 }
 
 std::vector<std::string> Cli::parseArg(std::string &input) {

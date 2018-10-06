@@ -16,18 +16,26 @@
 #include <string>
 #include <queue>
 #include <iostream>
+#include <mutex>
+#include <future>
+#include <thread>
 
 class Database {
 public:
+
     Database() = default;
     ~Database() = default;
 
 
-    virtual void pushItem(DatabaseItem _item){};
+    virtual void pushItem(DatabaseItem m_item){};   // DatabaseItem
 
     virtual DatabaseItem fetchItem(int id) {};
 
-    virtual int getNumberOfItem(){};
+    virtual long getNumberOfItem(){};
+
+    virtual void purgeItem(DatabaseItem m_item){};
+
+    virtual void addItem(DatabaseItem m_item) {};
 
     enum Pattern {
         TITLE = 4,
@@ -37,7 +45,9 @@ public:
     };
 
 protected:
-    std::queue<DatabaseItem> _items;
+    std::queue<DatabaseItem> m_items;
+    mutable std::mutex m_lock;
+    std::condition_variable m_emptyQueue;
 };
 
 

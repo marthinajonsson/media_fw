@@ -11,7 +11,6 @@ set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/Cli.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/Connection.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/Client.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/MovieDatabase.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
         )
 

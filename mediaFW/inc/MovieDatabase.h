@@ -12,17 +12,43 @@
 
 #include "Database.h"
 
+
 class MovieDatabase : public Database {
 public:
 
+    void pushItem(DatabaseItem m_item) override {
+        std::unique_lock<std::mutex> guard(m_lock);
+        if(m_items.empty()) {
+            m_emptyQueue.notify_one();
+        }
+        m_items.push(m_item);
+    }
+
+    DatabaseItem fetchItem(int id) override {
+        std::unique_lock<std::mutex>  (m_lock);
+        if(m_items.empty()){
+            std::cout << "Database is empty" << std::endl;
+        }
+        return m_items.front();
+    }
+
+    long getNumberOfItem() override {
+        std::unique_lock<std::mutex>  (m_lock);
+        return m_items.size();
+    }
+
+    void purgeItem(DatabaseItem m_item) override {
+
+    }
+
+    void addItem(DatabaseItem  m_item) override {
+
+    }
+
+
     std::vector<std::string> findByPattern();
-    void pushItem(DatabaseItem _item) override;
-    DatabaseItem fetchItem(int id) override;
-    int getNumberOfItem() override;
 
 private:
-
-
 
 };
 

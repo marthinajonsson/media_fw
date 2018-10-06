@@ -23,8 +23,6 @@ void Client::setup()
 {
     //Connection conn;
     Cli cli;
-    cli.start();
-
 }
 
 void Client::handleCliCallback(std::string request) {

@@ -7,8 +7,6 @@ int main() {
     std::cout << "Hello, Worlds!" << std::endl;
 
     Client client;
-    client.setup();
-
     DbType type = Movie;
     client.initiateDatabase(type);
 
@@ -16,6 +14,6 @@ int main() {
         std::cout << "type is not working" << std::endl;
     }
 
-
+    client.setup();
     return 0;
 }
