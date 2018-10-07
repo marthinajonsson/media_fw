@@ -2,434 +2,172 @@
 // Created by mjonsson on 9/30/18.
 //
 
-/*
- * Run it like this:
- *
- * $ ./ssh2_echo 127.0.0.1 user password
- *
- * The code sends a 'cat' command, and then writes a lot of data to it only to
- * check that reading the returned data sums up to the same amount.
- *
+/**
+ *  This module shall setup ssh connection to the server and sen remoote commands
  */
-/* START OF THIRD LIB */
-#include "../inc/libssh2_config.h"
-#include <libssh2.h>
-
-#ifdef HAVE_SYS_SELECT_H
-#include <sys/select.h>
-#endif
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <unistd.h>
-#include <arpa/inet.h>
-#ifdef HAVE_SYS_TIME_H
-#include <sys/time.h>
-#endif
-#include <sys/types.h>
-#ifdef HAVE_STDLIB_H
-#include <stdlib.h>
-#endif
-
-#include <fcntl.h>
-#include <errno.h>
-#include <stdio.h>
-#include <ctype.h>
-
-
-//#include <boost/asio/io_service.hpp>
-//#include <boost/asio/write.hpp>
-//#include <boost/asio/buffer.hpp>
-//#include <boost/asio/ip/tcp.hpp>
-#include <array>
-#include <string>
-#include <iostream>
-//using namespace boost::asio;
-//using namespace boost::asio::ip;
-//
-//io_service ioservice;
-//tcp::resolver resolv{ioservice};
-//tcp::socket tcp_socket{ioservice};
-//std::array<char, 4096> bytes;
-
-
-/* END OF THIRD LIB */
-
 #include "Connection.h"
-#include "Cli.h"
-
-void write(std::string message){
-
-    message = "Hej";
-
-}
-std::string read(){
-    return "";
-}
 
 
-
-static int waitsocket(int socket_fd, LIBSSH2_SESSION *session) {
-    struct timeval timeout{};
-    int rc;
-    fd_set fd;
-    fd_set *writefd = nullptr;
-    fd_set *readfd = nullptr;
-    int dir;
-
-    timeout.tv_sec = 10;
-    timeout.tv_usec = 0;
-
-    FD_ZERO(&fd);
-
-    FD_SET(socket_fd, &fd);
-
-    /* now make sure we wait in the correct direction */
-    dir = libssh2_session_block_directions(session);
-
-    if (dir & LIBSSH2_SESSION_BLOCK_INBOUND){
-        readfd = &fd;
-    }
-
-    if (dir & LIBSSH2_SESSION_BLOCK_OUTBOUND){
-        writefd = &fd;
-    }
-    rc = select(socket_fd + 1, readfd, writefd, nullptr, &timeout);
-    return rc;
-}
 
 void Connection::tryConnect() {
-    std::cout << "Connecting.." << std::endl;
-    //TODO: Setup connection to Network
-//    tcp::resolver::query q{"theboostcpplibraries.com", "80"};
-//    resolv.async_resolve(q, resolve_handler);
-//    ioservice.run();
 
-    //if(!ssh2Echo()) {
-      //  std::cout << "SSH2 echo went wrong" << std::endl;
-    //}
+    my_ssh_session = ssh_new();
+    if (my_ssh_session == nullptr){
+        exit(-1);
+    }
+    ssh_options_set(my_ssh_session, SSH_OPTIONS_HOST, "localhost");
+
+    rc = ssh_connect(my_ssh_session);
+    if (rc != SSH_OK)
+    {
+        fprintf(stderr, "Error connecting to localhost: %s\n",
+                ssh_get_error(my_ssh_session));
+        ssh_free(my_ssh_session);
+        exit(-1);
+    }
+    // Verify the server's identity
+    // For the source code of verify_knowhost(), check previous example
+    if (verify_knownhost(my_ssh_session) < 0)
+    {
+        ssh_disconnect(my_ssh_session);
+        ssh_free(my_ssh_session);
+        exit(-1);
+    }
+    // Authenticate ourselves
+    password = getpass("Password: ");
+    rc = ssh_userauth_password(my_ssh_session, nullptr, password);
+    if (rc != SSH_AUTH_SUCCESS)
+    {
+        fprintf(stderr, "Error authenticating with password: %s\n",
+                ssh_get_error(my_ssh_session));
+        ssh_disconnect(my_ssh_session);
+        ssh_free(my_ssh_session);
+        exit(-1);
+    }
+}
+
+int Connection::sendRemoteCommands(std::string command) {
+
+    ssh_channel channel;
+    int rc;
+    char buffer[256];
+    int nbytes;
+
+    channel = ssh_channel_new(my_ssh_session);
+    if (channel == nullptr) {
+        return SSH_ERROR;
+    }
+
+    rc = ssh_channel_open_session(channel);
+    if (rc != SSH_OK)
+    {
+        ssh_channel_free(channel);
+        return rc;
+    }
+
+    rc = ssh_channel_request_exec(channel, "ps aux");
+    if (rc != SSH_OK)
+    {
+        ssh_channel_close(channel);
+        ssh_channel_free(channel);
+        return rc;
+    }
+    nbytes = ssh_channel_read(channel, buffer, sizeof(buffer), 0);
+    while (nbytes > 0)
+    {
+        if (write(1, buffer, nbytes) != (unsigned int) nbytes)
+        {
+            ssh_channel_close(channel);
+            ssh_channel_free(channel);
+            return SSH_ERROR;
+        }
+        nbytes = ssh_channel_read(channel, buffer, sizeof(buffer), 0);
+    }
+
+    if (nbytes < 0)
+    {
+        ssh_channel_close(channel);
+        ssh_channel_free(channel);
+        return SSH_ERROR;
+    }
+    ssh_channel_send_eof(channel);
+    ssh_channel_close(channel);
+    ssh_channel_free(channel);
+    return SSH_OK;
 
 }
-//
-//void read_handler(const boost::system::error_code &ec,
-//                  std::size_t bytes_transferred)
-//{
-//    if (!ec)
-//    {
-//        std::cout.write(bytes.data(), bytes_transferred);
-//        tcp_socket.async_read_some(buffer(bytes), read_handler);
-//    }
-//}
-//
-//void connect_handler(const boost::system::error_code &ec)
-//{
-//    if (!ec)
-//    {
-//        std::string r =
-//                "GET / HTTP/1.1\r\nHost: theboostcpplibraries.com\r\n\r\n";
-//        write(tcp_socket, buffer(r));
-//        tcp_socket.async_read_some(buffer(bytes), read_handler);
-//    }
-//}
-//
-//void resolve_handler(const boost::system::error_code &ec,
-//                     tcp::resolver::iterator it)
-//{
-//    if (!ec)
-//        tcp_socket.async_connect(*it, connect_handler);
-//}
 
-bool Connection::ssh2Echo(){
-
-    return true;
-
-    const char *hostname =  "127.0.0.1"; //"10.40.188.250";
-    const char *commandline = "cat";
-    const char *username    = "a501822";
-    const char *password    = "xhfypf6Q";
-    const int BUFSIZE = 32000;
-    in_addr_t hostaddr;
-    int sock;
-    struct sockaddr_in sin{};
-    const char *fingerprint;
-    LIBSSH2_SESSION *session;
-    LIBSSH2_CHANNEL *channel;
+int Connection::verify_knownhost(ssh_session session)
+{
+    enum ssh_known_hosts_e state;
+    unsigned char *hash = nullptr;
+    ssh_key srv_pubkey = nullptr;
+    size_t hlen;
+    char buf[10];
+    char *hexa;
+    char *p;
+    int cmp;
     int rc;
-    char *exitsignal=(char *)"none";
-    size_t len;
-    LIBSSH2_KNOWNHOSTS *nh;
-    int type;
-
-
-    rc = libssh2_init (0);
-
-    if (rc != 0) {
-        fprintf (stderr, "libssh2 initialization failed (%d)\n", rc);
-    }
-
-
-    hostaddr = inet_addr(hostname);
-    /* Ultra basic "connect to port 22 on localhost"
-    * Your code is responsible for creating the socket establishing the
-    * connection
-    */
-    sock = socket(AF_INET, SOCK_STREAM, 0);
-
-    sin.sin_family = AF_INET;
-    sin.sin_port = htons(22);
-    sin.sin_addr.s_addr = hostaddr;
-    if (connect(sock, (struct sockaddr*)(&sin),
-                sizeof(struct sockaddr_in)) != 0) {
-        fprintf(stderr, "Failed to connect!\n");
+    rc = ssh_get_server_publickey(session, &srv_pubkey);
+    if (rc < 0) {
         return -1;
     }
-
-    /* Create a session instance */
-    session = libssh2_session_init();
-    if (!session)
-    {
-        fprintf(stderr, "Failed to create session instance\n");
-        return false;
+    rc = ssh_get_publickey_hash(srv_pubkey,
+                                SSH_PUBLICKEY_HASH_SHA1,
+                                &hash,
+                                &hlen);
+    ssh_key_free(srv_pubkey);
+    if (rc < 0) {
+        return -1;
     }
-
-    /* tell libssh2 we want it all done non-blocking */
-    libssh2_session_set_blocking(session, 0);
-
-
-    /* ... start it up. This will trade welcome banners, exchange keys,
-     * and setup crypto, compression, and MAC layers
-     */
-    while ((rc = libssh2_session_handshake(session, sock)) ==
-
-           LIBSSH2_ERROR_EAGAIN);
-    if (rc) {
-        fprintf(stderr, "Failure establishing SSH session: %d\n", rc);
-        return false;
-    }
-
-    nh = libssh2_knownhost_init(session);
-
-    if(!nh) {
-        /* eeek, do cleanup here */
-        return false;
-    }
-
-    /* read all hosts from here */
-    libssh2_knownhost_readfile(nh, "known_hosts",
-
-                               LIBSSH2_KNOWNHOST_FILE_OPENSSH);
-
-    /* store all known hosts to here */
-    libssh2_knownhost_writefile(nh, "dumpfile",
-
-                                LIBSSH2_KNOWNHOST_FILE_OPENSSH);
-
-    fingerprint = libssh2_session_hostkey(session, &len, &type);
-
-    if(fingerprint) {
-        struct libssh2_knownhost *host;
-        int check = libssh2_knownhost_checkp(nh, hostname, 22,
-
-                                             fingerprint, len,
-                                             LIBSSH2_KNOWNHOST_TYPE_PLAIN|
-                                             LIBSSH2_KNOWNHOST_KEYENC_RAW,
-                                             &host);
-
-        fprintf(stderr, "Host check: %d, key: %s\n", check,
-                (check <= LIBSSH2_KNOWNHOST_CHECK_MISMATCH)?
-                host->key:"<none>");
-
-        /*****
-         * At this point, we could verify that 'check' tells us the key is
-         * fine or bail out.
-         *****/
-    }
-    else {
-        /* eeek, do cleanup here */
-        return false;
-    }
-    libssh2_knownhost_free(nh);
-
-
-    if ( strlen(password) != 0 ) {
-        /* We could authenticate via password */
-        while ((rc = libssh2_userauth_password(session, username, password)) ==
-
-               LIBSSH2_ERROR_EAGAIN);
-        if (rc) {
-            fprintf(stderr, "Authentication by password failed.\n");
-            exit(1);
-        }
-    }
-
-    libssh2_trace(session, LIBSSH2_TRACE_SOCKET);
-
-
-    /* Exec non-blocking on the remove host */
-    while( (channel = libssh2_channel_open_session(session)) == nullptr &&
-
-           libssh2_session_last_error(session,nullptr,nullptr,0) ==
-
-           LIBSSH2_ERROR_EAGAIN ) {
-        waitsocket(sock, session);
-    }
-    if( channel == nullptr ) {
-        fprintf(stderr,"Error\n");
-        exit( 1 );
-    }
-    while( (rc = libssh2_channel_exec(channel, commandline)) ==
-
-           LIBSSH2_ERROR_EAGAIN )
-        waitsocket(sock, session);
-
-    if( rc != 0 ) {
-        fprintf(stderr, "exec error\n");
-        exit( 1 );
-    }
-    else {
-        LIBSSH2_POLLFD *fds;
-        int running = 1;
-        int bufsize = BUFSIZE;
-        char buffer[BUFSIZE];
-        int totsize = 1500000;
-        int totwritten = 0;
-        int totread = 0;
-        int partials = 0;
-        int rereads = 0;
-        int rewrites = 0;
-        int i;
-
-        for (i = 0; i < BUFSIZE; i++)
-            buffer[i] = 'A';
-//
-//        if ((fds = malloc (sizeof (LIBSSH2_POLLFD))) == NULL) {
-//            fprintf(stderr, "malloc failed\n");
-//            exit(1);
-//        }
-
-        fds[0].type = LIBSSH2_POLLFD_CHANNEL;
-        fds[0].fd.channel = channel;
-        fds[0].events = LIBSSH2_POLLFD_POLLIN | LIBSSH2_POLLFD_POLLOUT;
-
-        do {
-            int rc = (libssh2_poll(fds, 1, 10));
-
-            int act = 0;
-
-            if (rc < 1)
-                continue;
-
-            if (fds[0].revents & LIBSSH2_POLLFD_POLLIN) {
-                ssize_t n = libssh2_channel_read(channel, buffer, sizeof(buffer));
-
-                act++;
-
-                if (n == LIBSSH2_ERROR_EAGAIN) {
-                    rereads++;
-                    fprintf(stderr, "will read again\n");
-                }
-                else if (n < 0) {
-                    fprintf(stderr, "read failed\n");
-                    exit(1);
-                }
-                else {
-                    totread += n;
-                    fprintf(stderr, "read %zd bytes (%d in total)\n",
-                            n, totread);
-                }
+    state = ssh_session_is_known_server(session);
+    switch (state) {
+        case SSH_KNOWN_HOSTS_OK:
+            /* OK */
+            break;
+        case SSH_KNOWN_HOSTS_CHANGED:
+            fprintf(stderr, "Host key for server changed: it is now:\n");
+            ssh_print_hexa("Public key hash", hash, hlen);
+            fprintf(stderr, "For security reasons, connection will be stopped\n");
+            ssh_clean_pubkey_hash(&hash);
+            return -1;
+        case SSH_KNOWN_HOSTS_OTHER:
+            fprintf(stderr, "The host key for this server was not found but an other"
+                            "type of key exists.\n");
+            fprintf(stderr, "An attacker might change the default server key to"
+                            "confuse your client into thinking the key does not exist\n");
+            ssh_clean_pubkey_hash(&hash);
+            return -1;
+        case SSH_KNOWN_HOSTS_NOT_FOUND:
+            fprintf(stderr, "Could not find known host file.\n");
+            fprintf(stderr, "If you accept the host key here, the file will be"
+                            "automatically created.\n");
+            /* FALL THROUGH to SSH_SERVER_NOT_KNOWN behavior */
+        case SSH_KNOWN_HOSTS_UNKNOWN:
+            hexa = ssh_get_hexa(hash, hlen);
+            fprintf(stderr,"The server is unknown. Do you trust the host key?\n");
+            fprintf(stderr, "Public key hash: %s\n", hexa);
+            ssh_string_free_char(hexa);
+            ssh_clean_pubkey_hash(&hash);
+            p = fgets(buf, sizeof(buf), stdin);
+            if (p == nullptr) {
+                return -1;
             }
-
-            if (fds[0].revents & LIBSSH2_POLLFD_POLLOUT) {
-                act++;
-
-                if (totwritten < totsize) {
-                    /* we have not written all data yet */
-                    int left = totsize - totwritten;
-                    size_t size = (left < bufsize) ? left : bufsize;
-                    ssize_t n = libssh2_channel_write_ex(channel, 0, buffer, size);
-
-
-                    if (n == LIBSSH2_ERROR_EAGAIN) {
-                        rewrites++;
-                        fprintf(stderr, "will write again\n");
-                    }
-                    else if (n < 0) {
-                        fprintf(stderr, "write failed\n");
-                        exit(1);
-                    }
-                    else {
-                        totwritten += n;
-                        fprintf(stderr, "wrote %zd bytes (%d in total)",
-                                n, totwritten);
-                        if (left >= bufsize && n != bufsize) {
-                            partials++;
-                            fprintf(stderr, " PARTIAL");
-                        }
-                        fprintf(stderr, "\n");
-                    }
-                } else {
-                    /* all data written, send EOF */
-                    rc = libssh2_channel_send_eof(channel);
-
-
-                    if (rc == LIBSSH2_ERROR_EAGAIN) {
-                        fprintf(stderr, "will send eof again\n");
-                    }
-                    else if (rc < 0) {
-                        fprintf(stderr, "send eof failed\n");
-                        exit(1);
-                    }
-                    else {
-                        fprintf(stderr, "sent eof\n");
-                        /* we're done writing, stop listening for OUT events */
-                        fds[0].events &= ~LIBSSH2_POLLFD_POLLOUT;
-                    }
-                }
+            cmp = strncasecmp(buf, "yes", 3);
+            if (cmp != 0) {
+                return -1;
             }
-
-            if (fds[0].revents & LIBSSH2_POLLFD_CHANNEL_CLOSED) {
-                if (!act) /* don't leave loop until we have read all data */
-                    running = 0;
+            rc = ssh_session_update_known_hosts(session);
+            if (rc < 0) {
+                fprintf(stderr, "Error %s\n", strerror(errno));
+                return -1;
             }
-        } while(running);
-
-        int exitcode = 127;
-        while( (rc = libssh2_channel_close(channel)) == LIBSSH2_ERROR_EAGAIN )
-
-            waitsocket(sock, session);
-
-        if( rc == 0 ) {
-            exitcode = libssh2_channel_get_exit_status( channel );
-
-            libssh2_channel_get_exit_signal(channel, &exitsignal,
-
-                                            nullptr, nullptr, nullptr, nullptr, nullptr);
-        }
-
-        if (exitsignal)
-            fprintf(stderr, "\nGot signal: %s\n", exitsignal);
-
-        libssh2_channel_free(channel);
-
-        channel = nullptr;
-
-        fprintf(stderr, "\nrereads: %d rewrites: %d totwritten %d\n",
-                rereads, rewrites, totwritten);
-
-        if (totwritten != totread) {
-            fprintf(stderr, "\n*** FAIL bytes written: %d bytes "
-                            "read: %d ***\n", totwritten, totread);
-            exit(1);
-        }
+            break;
+        case SSH_KNOWN_HOSTS_ERROR:
+            fprintf(stderr, "Error %s", ssh_get_error(session));
+            ssh_clean_pubkey_hash(&hash);
+            return -1;
     }
-
-    libssh2_session_disconnect(session,
-
-                               "Normal Shutdown, Thank you for playing");
-    libssh2_session_free(session);
-
-
-    close(sock);
-    fprintf(stderr, "all done\n");
-    libssh2_exit();
-    return true;
+    ssh_clean_pubkey_hash(&hash);
+    return 0;
 }

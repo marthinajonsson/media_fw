@@ -6,8 +6,8 @@
 #define MEDIAFW_CLIENT_H
 
 
-#include "Database.h"
 #include "MovieDatabase.h"
+#include "Connection.h"
 
 enum DbType{
     Movie = 2,
@@ -31,6 +31,7 @@ public:
 
 private:
     Database *db;
+    Connection *conn;
 };
 
 

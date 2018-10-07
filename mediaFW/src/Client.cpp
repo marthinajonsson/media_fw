@@ -21,7 +21,7 @@ void Client::initiateDatabase(DbType type) {
 
 void Client::setup()
 {
-    //Connection conn;
+    Connection conn;
     Cli cli;
 }
 
@@ -43,4 +43,7 @@ void Client::handleCliCallback(std::string request) {
     }
     db->pushItem(item);
 
+    if(request == "print processes") {
+        conn->sendRemoteCommands(request);
+    }
 }
