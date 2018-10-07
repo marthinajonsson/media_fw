@@ -12,59 +12,39 @@
 #include "Cli.h"
 
 
-void Cli::handleInput(std::string input, std::string &choice, std::vector<std::string> &args) {
+std::vector<std::string> Cli::handleInput(std::string input, std::string &choice, std::vector<std::string> &args) {
     std::string original (input);
     CHOICE ch;
     ch = NO_OPTION;
 
     args = parseArg(input);
+
+    std::cout << args.size() << std::endl;
+
     if("help" == args.front() || "-h") {
         printOptions();
     }
 
-    choice = args.front();
-    if( choice == "upload") {
-        ch = UPLOAD;
-        std::cout << "you have chosen to upload" << std::endl;
-    }
-    else if (choice == "download") {
-        ch = DOWNLOAD;
-        std::cout << "you have chosen to download" << std::endl;
-    }
-    else if (choice == "search") {
-        ch = SEARCH;
-        std::cout << "you have chosen to search" << std::endl;
-    }
-    else{
-        std::cout << "this choice is not recognizable" << std::endl;
-    }
+    std::cout << args.front() << std::endl;
 
-//
-//    for(std::string arg : args) {
-//        if(ch == SEARCH) {
-//
-//        }else if (ch == UPLOAD || ch == DOWNLOAD) {
-//
-//        }
-//    }
+    return args;
 }
 
-void Cli::daemon() {
+std::vector<std::string> Cli::daemon(std::string &choice) {
     std::cout<<"cli daemon started" <<std::endl;
-    std::string choice;
+    //std::string choice;
     std::vector<std::string> args;
 
     const std::string quit = "q";
 
     for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
     {
-
         if(line == quit){
             std::cout<<"cli daemon stopped" <<std::endl;
             break;
         }
         else if (!line.empty()) {
-            handleInput(line, choice, args);
+            return handleInput(line, choice, args);
         }
     }
     // push to notify result from this to client
@@ -73,7 +53,9 @@ void Cli::daemon() {
 std::vector<std::string> Cli::parseArg(std::string &input) {
     std::stringstream test(input);
     std::string segment;
-    std::vector<std::string> seglist;
+    std::vector<std::string> seglist{};
+
+    seglist.push_back("upload");
 
     while(std::getline(test, segment, ' '))
     {

@@ -11,15 +11,14 @@
 class Cli
 {
 public:
-    Cli() {
-        daemon();
-    };
+    Cli() = default;
     ~Cli() = default;
+
+    std::vector<std::string> daemon(std::string &choice);
 
 private:
     std::vector<std::string> parseArg(std::string &input);
-    void handleInput(std::string input, std::string &choice, std::vector<std::string> &args);
-    void daemon();
+    std::vector<std::string> handleInput(std::string input, std::string &choice, std::vector<std::string> &args);
     void printOptions();
 
     enum CHOICE {

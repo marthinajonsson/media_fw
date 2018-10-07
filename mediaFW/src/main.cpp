@@ -3,18 +3,22 @@
 #include "gtest/gtest.h"
 
 int main(int argc, char **argv) {
+    Client client;
+    client.initiateDatabase(Movie);
+    client.setup();
 //    ::testing::InitGoogleTest(&argc, argv);
 //    return RUN_ALL_TESTS();
 }
 
+
+TEST(Client, initMovieDb){
+    Client client;
+    client.initiateDatabase(Movie);
+    client.setup(); // TODO: mock cli result
+    ASSERT_NO_THROW(client.setup());
+}
 //
-//TEST(ClientSetup, initMovieDb){
-//    Client client;
-//    client.initiateDatabase(Movie);
-//    ASSERT_EQ(client.getCurrentDbType(), Movie);
-//}
-//
-//TEST(ClientSetup, setup1Client){
+//TEST(Client, setup1Client){
 //    Client client;
 //    client.initiateDatabase(Movie);
 //    ASSERT_NO_THROW(client.setup());

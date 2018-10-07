@@ -5,13 +5,15 @@
 #ifndef MEDIAFW_CLIENT_H
 #define MEDIAFW_CLIENT_H
 
+#include <typeinfo>
 
 #include "MovieDatabase.h"
 #include "Connection.h"
 
 enum DbType{
     Movie = 2,
-    Series = 1
+    Series = 1,
+    Undefined = 0
 };
 
 class Client {
@@ -25,9 +27,7 @@ public:
     void handleCliCallback(std::string);
     void setup();
 
-    DbType getCurrentDbType(){
-        return this->type;
-    }
+    const DbType getCurrentDbType();
 
 private:
     Database *db;

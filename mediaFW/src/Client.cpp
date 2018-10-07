@@ -2,7 +2,7 @@
 // Created by mjonsson on 10/4/18.
 //
 #include <future>
-
+#include <thread>
 #include "Client.h"
 #include "Cli.h"
 #include "DatabaseItem.h"
@@ -19,16 +19,32 @@ void Client::initiateDatabase(DbType type) {
     }
 }
 
+const DbType Client::getCurrentDbType() {
+    return this->type;
+}
+
 void Client::setup()
 {
-    Connection conn;
+    std::vector<std::string> resultVector;
+    std::string choice;
+    //Connection conn;
     Cli cli;
+
+    auto popper = std::async(std::launch::async, cli.daemon, choice);
+    //
+//    auto popper = std::async(std::launch::async, [&](){
+//        return cli.daemon(choice);
+//    });
+
+    resultVector = popper.get();
+
+    std::cout << "choice is " << &resultVector.front() << std::endl;
+
+    handleCliCallback(choice);
 }
 
 void Client::handleCliCallback(std::string request) {
-
-    //std::string request {""};
-
+        
     Tags tag;
     tag.s_actors = {"Matt Damon, Julia Roberts"};
     tag.s_director = "Marthina";
@@ -44,6 +60,6 @@ void Client::handleCliCallback(std::string request) {
     db->pushItem(item);
 
     if(request == "print processes") {
-        conn->sendRemoteCommands(request);
+       // conn->sendRemoteCommands(request);
     }
 }

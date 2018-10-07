@@ -23,7 +23,8 @@ void Connection::tryConnect() {
         fprintf(stderr, "Error connecting to localhost: %s\n",
                 ssh_get_error(my_ssh_session));
         ssh_free(my_ssh_session);
-        exit(-1);
+        return;
+        //exit(-1);
     }
     // Verify the server's identity
     // For the source code of verify_knowhost(), check previous example
@@ -31,7 +32,8 @@ void Connection::tryConnect() {
     {
         ssh_disconnect(my_ssh_session);
         ssh_free(my_ssh_session);
-        exit(-1);
+        return;
+        //exit(-1);
     }
     // Authenticate ourselves
     password = getpass("Password: ");

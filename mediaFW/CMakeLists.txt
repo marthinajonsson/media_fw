@@ -35,7 +35,7 @@ include_directories(inc)
 include_directories(contrib/googletest)
 
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
-
+target_link_libraries(mediaFW googletest)
 target_link_libraries(mediaFW ssh)
 ## add the binary tree to the search path for include files
 ## so that we will find TutorialConfig.h
