@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/mediaFW.dir/main.cpp.o CMakeFiles/mediaFW.dir/Cli.cpp.o CMakeFiles/mediaFW.dir/Connection.cpp.o  -o mediaFW 
