@@ -14,19 +14,12 @@ public:
     Cli() = default;
     ~Cli() = default;
 
-    std::vector<std::string> daemon(std::string &choice);
+    std::vector<std::string> daemon();
 
 private:
     std::vector<std::string> parseArg(std::string &input);
-    std::vector<std::string> handleInput(std::string input, std::string &choice, std::vector<std::string> &args);
+    std::vector<std::string> handleInput(std::string input, std::vector<std::string> &args);
     void printOptions();
-
-    enum CHOICE {
-        UPLOAD = 3,
-        DOWNLOAD,
-        SEARCH = 1,
-        NO_OPTION
-    };
 };
 
 #endif //MEDIAFW_CLI_H

@@ -12,55 +12,52 @@
 #include "Cli.h"
 
 
-std::vector<std::string> Cli::handleInput(std::string input, std::string &choice, std::vector<std::string> &args) {
-    std::string original (input);
-    CHOICE ch;
-    ch = NO_OPTION;
+std::vector<std::string> Cli::handleInput(std::string input, std::vector<std::string> &args) {
 
     args = parseArg(input);
-
-    std::cout << args.size() << std::endl;
-
-    if("help" == args.front() || "-h") {
-        printOptions();
-    }
-
-    std::cout << args.front() << std::endl;
-
+    std::cout << "Choice by cli " << args.front() << std::endl;
     return args;
 }
 
-std::vector<std::string> Cli::daemon(std::string &choice) {
-    std::cout<<"cli daemon started" <<std::endl;
-    //std::string choice;
-    std::vector<std::string> args;
+std::vector<std::string> Cli::daemon() {
+    printOptions();
+    std::string p_choice;
+    std::vector<std::string> m_args;
+    m_args.clear();
+    m_args.reserve(10);
 
     const std::string quit = "q";
+    const std::string help = "help";
 
     for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
     {
         if(line == quit){
-            std::cout<<"cli daemon stopped" <<std::endl;
+            std::cout<<"Bye bye" <<std::endl;
             break;
         }
+        else if (line == help) {
+            printOptions();
+        }
         else if (!line.empty()) {
-            return handleInput(line, choice, args);
+            return handleInput(line, m_args);
         }
     }
     // push to notify result from this to client
 }
 
 std::vector<std::string> Cli::parseArg(std::string &input) {
-    std::stringstream test(input);
+    std::stringstream m_stream(input);
     std::string segment;
-    std::vector<std::string> seglist{};
+    std::vector<std::string> seglist;
+    seglist.reserve(15);
+    seglist.clear();
 
-    seglist.push_back("upload");
-
-    while(std::getline(test, segment, ' '))
+    while(std::getline(m_stream, segment, ' '))
     {
         seglist.push_back(segment);
     }
+    std::cout << "Number of arguments: " << seglist.size() << std::endl;
+    return seglist;
 }
 
 void Cli::printOptions() {
@@ -68,5 +65,5 @@ void Cli::printOptions() {
     std::string header {"<choice> <optional arg1>.. <optimal arg2>.."};
     std::string choice {"<choice> = upload, download, search"};
     std::string opt {"<arg> = title, genre, director, list of actors"};
-    std::cout << header << "\n" << choice << "\n" << opt << std::endl;
+    std::cout << header << "\n" << choice << "\n" << opt << "\n" << "\n" << std::endl;
 }

@@ -67,6 +67,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/opt/clion-2018.2.4/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -123,86 +134,139 @@ mediaFW/fast:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/build
 .PHONY : mediaFW/fast
 
-Cli.o: Cli.cpp.o
+#=============================================================================
+# Target rules for targets named check
 
-.PHONY : Cli.o
+# Build rule for target.
+check: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 check
+.PHONY : check
 
-# target to build an object file
-Cli.cpp.o:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.o
-.PHONY : Cli.cpp.o
+# fast build rule for target.
+check/fast:
+	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
+.PHONY : check/fast
 
-Cli.i: Cli.cpp.i
+#=============================================================================
+# Target rules for targets named googletest
 
-.PHONY : Cli.i
+# Build rule for target.
+googletest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 googletest
+.PHONY : googletest
 
-# target to preprocess a source file
-Cli.cpp.i:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.i
-.PHONY : Cli.cpp.i
+# fast build rule for target.
+googletest/fast:
+	$(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
+.PHONY : googletest/fast
 
-Cli.s: Cli.cpp.s
+src/Cli.o: src/Cli.cpp.o
 
-.PHONY : Cli.s
-
-# target to generate assembly for a file
-Cli.cpp.s:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Cli.cpp.s
-.PHONY : Cli.cpp.s
-
-Connection.o: Connection.cpp.o
-
-.PHONY : Connection.o
-
-# target to build an object file
-Connection.cpp.o:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.o
-.PHONY : Connection.cpp.o
-
-Connection.i: Connection.cpp.i
-
-.PHONY : Connection.i
-
-# target to preprocess a source file
-Connection.cpp.i:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.i
-.PHONY : Connection.cpp.i
-
-Connection.s: Connection.cpp.s
-
-.PHONY : Connection.s
-
-# target to generate assembly for a file
-Connection.cpp.s:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/Connection.cpp.s
-.PHONY : Connection.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
+.PHONY : src/Cli.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/Cli.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Cli.cpp.o
+.PHONY : src/Cli.cpp.o
 
-main.i: main.cpp.i
+src/Cli.i: src/Cli.cpp.i
 
-.PHONY : main.i
+.PHONY : src/Cli.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/Cli.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Cli.cpp.i
+.PHONY : src/Cli.cpp.i
 
-main.s: main.cpp.s
+src/Cli.s: src/Cli.cpp.s
 
-.PHONY : main.s
+.PHONY : src/Cli.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/Cli.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Cli.cpp.s
+.PHONY : src/Cli.cpp.s
+
+src/Client.o: src/Client.cpp.o
+
+.PHONY : src/Client.o
+
+# target to build an object file
+src/Client.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Client.cpp.o
+.PHONY : src/Client.cpp.o
+
+src/Client.i: src/Client.cpp.i
+
+.PHONY : src/Client.i
+
+# target to preprocess a source file
+src/Client.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Client.cpp.i
+.PHONY : src/Client.cpp.i
+
+src/Client.s: src/Client.cpp.s
+
+.PHONY : src/Client.s
+
+# target to generate assembly for a file
+src/Client.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Client.cpp.s
+.PHONY : src/Client.cpp.s
+
+src/Connection.o: src/Connection.cpp.o
+
+.PHONY : src/Connection.o
+
+# target to build an object file
+src/Connection.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.o
+.PHONY : src/Connection.cpp.o
+
+src/Connection.i: src/Connection.cpp.i
+
+.PHONY : src/Connection.i
+
+# target to preprocess a source file
+src/Connection.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.i
+.PHONY : src/Connection.cpp.i
+
+src/Connection.s: src/Connection.cpp.s
+
+.PHONY : src/Connection.s
+
+# target to generate assembly for a file
+src/Connection.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.s
+.PHONY : src/Connection.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -211,17 +275,23 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... mediaFW"
-	@echo "... Cli.o"
-	@echo "... Cli.i"
-	@echo "... Cli.s"
-	@echo "... Connection.o"
-	@echo "... Connection.i"
-	@echo "... Connection.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... check"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... googletest"
+	@echo "... src/Cli.o"
+	@echo "... src/Cli.i"
+	@echo "... src/Cli.s"
+	@echo "... src/Client.o"
+	@echo "... src/Client.i"
+	@echo "... src/Client.s"
+	@echo "... src/Connection.o"
+	@echo "... src/Connection.i"
+	@echo "... src/Connection.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

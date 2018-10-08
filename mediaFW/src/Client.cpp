@@ -26,40 +26,65 @@ const DbType Client::getCurrentDbType() {
 void Client::setup()
 {
     std::vector<std::string> resultVector;
+    resultVector.reserve(10);
+    resultVector.clear();
     std::string choice;
-    //Connection conn;
-    Cli cli;
+    Connection conn;
 
-    auto popper = std::async(std::launch::async, cli.daemon, choice);
-    //
-//    auto popper = std::async(std::launch::async, [&](){
-//        return cli.daemon(choice);
-//    });
+    std::cout << "Welcome to client setup" << std::endl;
 
-    resultVector = popper.get();
+    auto popper = std::async(std::launch::async, [&resultVector]() -> std::vector<std::string> {
+        Cli cli;
+        return cli.daemon();
+    });
 
-    std::cout << "choice is " << &resultVector.front() << std::endl;
+    auto result = popper.get();
+    for(std::string s : result){
+        std::cout << "Caught choice: " << s << std::endl;
+    }
 
-    handleCliCallback(choice);
+    handleCliCallback(result, conn.getConnectionStatus());
+
 }
 
-void Client::handleCliCallback(std::string request) {
-        
-    Tags tag;
-    tag.s_actors = {"Matt Damon, Julia Roberts"};
-    tag.s_director = "Marthina";
-    tag.s_genre = "Thriller";
-    tag.s_title = "In the dark";
-    DatabaseItem item;
-    item.setFeature(tag);
-
-    std::string test = item.getTitle();
-    if(test == tag.s_title){
-        std::cout << "title worked" << std::endl;
+void Client::handleCliCallback(std::vector<std::string> request, bool connected)
+{
+    std::string choice = request.front();
+    std::string command;
+    if (choice == "upload") {
+        command = "ls";
+    }else if (choice == "download") {
+        command = "ps aux";
     }
-    db->pushItem(item);
-
-    if(request == "print processes") {
-       // conn->sendRemoteCommands(request);
+    else if (choice == "search") {
+        command = "ifconfig";
+    }else {
+        std::cerr << "Unknown request" << std::endl;
     }
+
+
+    std::string result {""};
+    if(connected) {
+        conn->sendRemoteCommands(command, result);
+    }
+
+    std::cout << "Request sent: " << command << std::endl;
+//
+//    Tags tag;
+//    tag.s_title = request.back();
+//    request.pop_back();
+//
+//    tag.s_actors = {request.back()};
+//    request.pop_back();
+//
+//    tag.s_director = request.back();
+//    request.pop_back();
+//
+//    tag.s_genre = request.back();
+//    request.pop_back();
+//
+//    DatabaseItem item;
+//    item.setFeature(tag);
+//
+//    db->pushItem(item);
 }

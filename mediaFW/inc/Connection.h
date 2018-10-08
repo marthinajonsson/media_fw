@@ -15,25 +15,26 @@
 
 class Connection{
 public:
-    Connection(){
-        tryConnect();
+    Connection() : m_currentlyConnected(false){
+        establishSshConnect();
     }
 
     ~Connection() {
-        ssh_disconnect(my_ssh_session);
-        ssh_free(my_ssh_session);
+        ssh_disconnect(m_ssh_session);
+        ssh_free(m_ssh_session);
+        m_currentlyConnected = false;
     };
 
-    int sendRemoteCommands(std::string command);
+    bool getConnectionStatus() { return m_currentlyConnected; }
+    bool sendRemoteCommands(std::string request, std::string &result);
 
 private:
-    ssh_session my_ssh_session;
-    int rc;
-    char *password;
-
-    void tryConnect();
-    int verify_knownhost(ssh_session session);
-
+    ssh_session m_ssh_session;
+    int m_result;
+    bool m_currentlyConnected;
+    char *m_password;
+    void establishSshConnect();
+    int verifyHost(ssh_session session);
 };
 
 #endif //MEDIAFW_CONNECTION_H

@@ -4,18 +4,23 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mjonsson/repo/mediaFW/Cli.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/Cli.cpp.o"
-  "/home/mjonsson/repo/mediaFW/Connection.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/Connection.cpp.o"
-  "/home/mjonsson/repo/mediaFW/main.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/main.cpp.o"
+  "/home/mjonsson/repo/mediaFW/src/Cli.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Cli.cpp.o"
+  "/home/mjonsson/repo/mediaFW/src/Client.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o"
+  "/home/mjonsson/repo/mediaFW/src/Connection.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
+  "/home/mjonsson/repo/mediaFW/src/main.cpp" "/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../inc"
+  "../contrib/googletest"
+  "../contrib/googletest/."
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/mjonsson/repo/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

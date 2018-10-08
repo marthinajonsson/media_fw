@@ -24,7 +24,7 @@ public:
     DbType type;
 
     void initiateDatabase(DbType type);
-    void handleCliCallback(std::string);
+    void handleCliCallback(std::vector<std::string>, bool);
     void setup();
 
     const DbType getCurrentDbType();

@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mediaFW.dir/main.cpp.o"
-  "CMakeFiles/mediaFW.dir/Cli.cpp.o"
-  "CMakeFiles/mediaFW.dir/Connection.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/Cli.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/Client.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/main.cpp.o"
   "mediaFW.pdb"
   "mediaFW"
 )

@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/mediaFW.dir/main.cpp.o CMakeFiles/mediaFW.dir/Cli.cpp.o CMakeFiles/mediaFW.dir/Connection.cpp.o  -o mediaFW 
+/usr/bin/c++  -g   CMakeFiles/mediaFW.dir/src/Cli.cpp.o CMakeFiles/mediaFW.dir/src/Connection.cpp.o CMakeFiles/mediaFW.dir/src/Client.cpp.o CMakeFiles/mediaFW.dir/src/main.cpp.o  -o mediaFW contrib/googletest/libgoogletest.a -lssh -pthread 

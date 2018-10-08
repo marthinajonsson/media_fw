@@ -57,60 +57,76 @@ include CMakeFiles/mediaFW.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mediaFW.dir/flags.make
 
-CMakeFiles/mediaFW.dir/main.cpp.o: CMakeFiles/mediaFW.dir/flags.make
-CMakeFiles/mediaFW.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mediaFW.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/main.cpp.o -c /home/mjonsson/repo/mediaFW/main.cpp
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: CMakeFiles/mediaFW.dir/flags.make
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../src/Cli.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mediaFW.dir/src/Cli.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/Cli.cpp.o -c /home/mjonsson/repo/mediaFW/src/Cli.cpp
 
-CMakeFiles/mediaFW.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/main.cpp > CMakeFiles/mediaFW.dir/main.cpp.i
+CMakeFiles/mediaFW.dir/src/Cli.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/Cli.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/src/Cli.cpp > CMakeFiles/mediaFW.dir/src/Cli.cpp.i
 
-CMakeFiles/mediaFW.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/main.cpp -o CMakeFiles/mediaFW.dir/main.cpp.s
+CMakeFiles/mediaFW.dir/src/Cli.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/Cli.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/src/Cli.cpp -o CMakeFiles/mediaFW.dir/src/Cli.cpp.s
 
-CMakeFiles/mediaFW.dir/Cli.cpp.o: CMakeFiles/mediaFW.dir/flags.make
-CMakeFiles/mediaFW.dir/Cli.cpp.o: ../Cli.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mediaFW.dir/Cli.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/Cli.cpp.o -c /home/mjonsson/repo/mediaFW/Cli.cpp
+CMakeFiles/mediaFW.dir/src/Connection.cpp.o: CMakeFiles/mediaFW.dir/flags.make
+CMakeFiles/mediaFW.dir/src/Connection.cpp.o: ../src/Connection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/Connection.cpp.o -c /home/mjonsson/repo/mediaFW/src/Connection.cpp
 
-CMakeFiles/mediaFW.dir/Cli.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/Cli.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/Cli.cpp > CMakeFiles/mediaFW.dir/Cli.cpp.i
+CMakeFiles/mediaFW.dir/src/Connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/Connection.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/src/Connection.cpp > CMakeFiles/mediaFW.dir/src/Connection.cpp.i
 
-CMakeFiles/mediaFW.dir/Cli.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/Cli.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/Cli.cpp -o CMakeFiles/mediaFW.dir/Cli.cpp.s
+CMakeFiles/mediaFW.dir/src/Connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/Connection.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/src/Connection.cpp -o CMakeFiles/mediaFW.dir/src/Connection.cpp.s
 
-CMakeFiles/mediaFW.dir/Connection.cpp.o: CMakeFiles/mediaFW.dir/flags.make
-CMakeFiles/mediaFW.dir/Connection.cpp.o: ../Connection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mediaFW.dir/Connection.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/Connection.cpp.o -c /home/mjonsson/repo/mediaFW/Connection.cpp
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: CMakeFiles/mediaFW.dir/flags.make
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../src/Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mediaFW.dir/src/Client.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/Client.cpp.o -c /home/mjonsson/repo/mediaFW/src/Client.cpp
 
-CMakeFiles/mediaFW.dir/Connection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/Connection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/Connection.cpp > CMakeFiles/mediaFW.dir/Connection.cpp.i
+CMakeFiles/mediaFW.dir/src/Client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/Client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/src/Client.cpp > CMakeFiles/mediaFW.dir/src/Client.cpp.i
 
-CMakeFiles/mediaFW.dir/Connection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/Connection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/Connection.cpp -o CMakeFiles/mediaFW.dir/Connection.cpp.s
+CMakeFiles/mediaFW.dir/src/Client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/Client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/src/Client.cpp -o CMakeFiles/mediaFW.dir/src/Client.cpp.s
+
+CMakeFiles/mediaFW.dir/src/main.cpp.o: CMakeFiles/mediaFW.dir/flags.make
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mediaFW.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/main.cpp.o -c /home/mjonsson/repo/mediaFW/src/main.cpp
+
+CMakeFiles/mediaFW.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/mediaFW/src/main.cpp > CMakeFiles/mediaFW.dir/src/main.cpp.i
+
+CMakeFiles/mediaFW.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/mediaFW/src/main.cpp -o CMakeFiles/mediaFW.dir/src/main.cpp.s
 
 # Object files for target mediaFW
 mediaFW_OBJECTS = \
-"CMakeFiles/mediaFW.dir/main.cpp.o" \
-"CMakeFiles/mediaFW.dir/Cli.cpp.o" \
-"CMakeFiles/mediaFW.dir/Connection.cpp.o"
+"CMakeFiles/mediaFW.dir/src/Cli.cpp.o" \
+"CMakeFiles/mediaFW.dir/src/Connection.cpp.o" \
+"CMakeFiles/mediaFW.dir/src/Client.cpp.o" \
+"CMakeFiles/mediaFW.dir/src/main.cpp.o"
 
 # External object files for target mediaFW
 mediaFW_EXTERNAL_OBJECTS =
 
-mediaFW: CMakeFiles/mediaFW.dir/main.cpp.o
-mediaFW: CMakeFiles/mediaFW.dir/Cli.cpp.o
-mediaFW: CMakeFiles/mediaFW.dir/Connection.cpp.o
+mediaFW: CMakeFiles/mediaFW.dir/src/Cli.cpp.o
+mediaFW: CMakeFiles/mediaFW.dir/src/Connection.cpp.o
+mediaFW: CMakeFiles/mediaFW.dir/src/Client.cpp.o
+mediaFW: CMakeFiles/mediaFW.dir/src/main.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/build.make
+mediaFW: contrib/googletest/libgoogletest.a
 mediaFW: CMakeFiles/mediaFW.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mediaFW"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable mediaFW"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mediaFW.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
