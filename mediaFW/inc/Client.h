@@ -9,6 +9,7 @@
 
 #include "MovieDatabase.h"
 #include "Connection.h"
+#include "Cli.h"
 
 enum DbType{
     Movie = 2,
@@ -19,19 +20,22 @@ enum DbType{
 class Client {
 public:
 
-    Client() = default;
-    ~Client() = default;
+    Client() {
+        type = Movie;
+        p_db = new MovieDatabase();
+    };
+    ~Client() {
+        delete p_db;
+    };
     DbType type;
-
-    void initiateDatabase(DbType type);
-    void handleCliCallback(std::vector<std::string>, bool);
     void setup();
 
-    const DbType getCurrentDbType();
-
 private:
-    Database *db;
-    Connection *conn;
+    Database *p_db;
+    Connection *p_conn;
+    Cli *p_cli;
+
+    void handleCliCallback(std::vector<std::string>, bool);
 };
 
 

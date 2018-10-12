@@ -20,6 +20,7 @@ public:
     }
 
     ~Connection() {
+        std::cout << "Deconstruct ssh connection" << std::endl;
         ssh_disconnect(m_ssh_session);
         ssh_free(m_ssh_session);
         m_currentlyConnected = false;

@@ -8,43 +8,34 @@
 #include "DatabaseItem.h"
 #include "Connection.h"
 
-
-void Client::initiateDatabase(DbType type) {
-
-    if(type = Movie){
-       db  = new MovieDatabase;
-    }
-    else {
-        //Database *db = new SeriesDatabase;
-    }
+std::vector<std::string> getCliInput(Cli* p_cli) {
+    return p_cli->daemon();
 }
 
-const DbType Client::getCurrentDbType() {
-    return this->type;
-}
 
 void Client::setup()
 {
     std::vector<std::string> resultVector;
-    resultVector.reserve(10);
-    resultVector.clear();
     std::string choice;
-    Connection conn;
-
+    std::string exit = "exit";
+    Connection *p_conn;
     std::cout << "Welcome to client setup" << std::endl;
+    std::future<std::vector<std::string>> fut;
 
-    auto popper = std::async(std::launch::async, [&resultVector]() -> std::vector<std::string> {
-        Cli cli;
-        return cli.daemon();
-    });
-
-    auto result = popper.get();
-    for(std::string s : result){
-        std::cout << "Caught choice: " << s << std::endl;
+    while(true)
+    {
+        resultVector.clear();
+        //fut = std::async([&](auto *cli) -> std::vector<std::string> { return cli.daemon(); });
+        fut = std::async(getCliInput, p_cli);
+        auto result = fut.get();
+        choice = result.front();
+        std::cout << "Caught choice: " << choice << std::endl;
+        if(choice.find(exit) != std::string::npos) {
+            std::cout << "Caught exit: " << choice << std::endl;
+            break;
+        }
+        //handleCliCallback(result, p_conn->getConnectionStatus());
     }
-
-    handleCliCallback(result, conn.getConnectionStatus());
-
 }
 
 void Client::handleCliCallback(std::vector<std::string> request, bool connected)
@@ -64,9 +55,9 @@ void Client::handleCliCallback(std::vector<std::string> request, bool connected)
 
 
     std::string result {""};
-    if(connected) {
-        conn->sendRemoteCommands(command, result);
-    }
+//    if(connected == false) {
+//        p_conn->sendRemoteCommands(command, result);
+//    }
 
     std::cout << "Request sent: " << command << std::endl;
 //

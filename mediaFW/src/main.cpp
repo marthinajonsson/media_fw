@@ -4,7 +4,6 @@
 
 int main(int argc, char **argv) {
     Client client;
-    client.initiateDatabase(Movie);
     client.setup();
 //    ::testing::InitGoogleTest(&argc, argv);
 //    return RUN_ALL_TESTS();
@@ -13,7 +12,6 @@ int main(int argc, char **argv) {
 
 TEST(Client, initMovieDb){
     Client client;
-    client.initiateDatabase(Movie);
     client.setup(); // TODO: mock cli result
     ASSERT_NO_THROW(client.setup());
 }

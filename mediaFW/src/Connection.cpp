@@ -16,8 +16,8 @@ void Connection::establishSshConnect() {
 
         std::cerr << "Failed to initiate ssh session" << std::endl;
     }
-    ssh_options_set(m_ssh_session, SSH_OPTIONS_HOST, "localhost");
-
+    ssh_options_set(m_ssh_session, SSH_OPTIONS_HOST, "192.168.0.107");
+    ssh_options_set(m_ssh_session, SSH_OPTIONS_USER, "mjonsson");
     m_result = ssh_connect(m_ssh_session);
     if (m_result != SSH_OK)
     {
@@ -34,8 +34,8 @@ void Connection::establishSshConnect() {
         return;
     }
 
-    m_password = getpass("Password: ");
-    m_result = ssh_userauth_password(m_ssh_session, nullptr, m_password);
+    m_password = getpass("Password: "); // atc6OxHYFU3qYe2
+    m_result = ssh_userauth_password(m_ssh_session, "mjonsson", "atc6OxHYFU3qYe2");
     if (m_result != SSH_AUTH_SUCCESS)
     {
         std::cerr << "Failed to authenticate password with error code " << ssh_get_error(m_ssh_session) << std::endl;
@@ -53,7 +53,18 @@ bool Connection::sendRemoteCommands(std::string request, std::string &result) {
     char buffer[256];
     int nbytes;
 
-    p_channel = ssh_channel_new(m_ssh_session);
+    if(m_ssh_session == nullptr) {
+        std::cerr << "Connection lost" << std::endl;
+    }
+
+    try {
+        p_channel = ssh_channel_new(m_ssh_session);
+    }catch (std::exception) {
+        ssh_disconnect(m_ssh_session);
+        ssh_free(m_ssh_session);
+        return false;
+    }
+
     if (p_channel == nullptr) {
         std::cerr << "Failed to initiate channel with error code " << ssh_get_error(m_ssh_session) << std::endl;
         return false;
@@ -67,7 +78,7 @@ bool Connection::sendRemoteCommands(std::string request, std::string &result) {
         return false;
     }
 
-    p_result = ssh_channel_request_exec(p_channel, "ps aux");
+    p_result = ssh_channel_request_exec(p_channel, request.c_str());
     if (p_result != SSH_OK)
     {
         std::cerr << "Failed to request execution with error code " << ssh_get_error(m_ssh_session) << std::endl;
