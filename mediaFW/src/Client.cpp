@@ -34,7 +34,8 @@ void Client::setup()
             std::cout << "Caught exit: " << choice << std::endl;
             break;
         }
-        //handleCliCallback(result, p_conn->getConnectionStatus());
+
+        handleCliCallback(result, p_conn->getConnectionStatus());
     }
 }
 
@@ -53,12 +54,12 @@ void Client::handleCliCallback(std::vector<std::string> request, bool connected)
         std::cerr << "Unknown request" << std::endl;
     }
 
-
+#ifndef UNIT_TEST
     std::string result {""};
-//    if(connected == false) {
-//        p_conn->sendRemoteCommands(command, result);
-//    }
-
+    if(connected == false) {
+        p_conn->sendRemoteCommands(command, result);
+    }
+#endif
     std::cout << "Request sent: " << command << std::endl;
 //
 //    Tags tag;

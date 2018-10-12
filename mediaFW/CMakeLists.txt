@@ -14,6 +14,7 @@ set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/Connection.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/Client.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/JsonParser.cpp
         )
 
 set(IncFilesToInclude
@@ -23,7 +24,8 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/MovieDatabase.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/DatabaseItem.h
-        )
+        ${CMAKE_CURRENT_LIST_DIR}/inc/JsonParser.h
+        ${CMAKE_CURRENT_LIST_DIR}/test/fixtures.h test/mocks.h test/TestClass.h)
 
 
 enable_testing()

@@ -18,6 +18,7 @@ std::vector<std::string> Cli::daemon() {
     std::string p_choice;
 
     printOptions();
+#ifndef UNIT_TEST
 
     for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
     {
@@ -28,6 +29,8 @@ std::vector<std::string> Cli::daemon() {
             return parseArg(line);
         }
     }
+
+#endif
 }
 
 std::vector<std::string> Cli::parseArg(std::string &input) {

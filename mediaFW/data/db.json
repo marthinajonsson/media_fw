@@ -1,7 +1,18 @@
 {
   "name": "databaseContent",
   "version": "1.0.0",
-  "dependencies": {
-    
-  }
+  "items":[
+    {
+      "title": "Anna",
+      "genre": "comedy",
+      "director": "hitchcock",
+      "actors": "julia roberts"
+    },
+    {
+      "title": "Anna2",
+      "genre": "horror",
+      "director": "tomten",
+      "actors": "puh"
+    }
+  ]
 }

@@ -45,9 +45,6 @@ public:
 
     }
 
-
-    std::vector<std::string> findByPattern();
-
 private:
 
 };

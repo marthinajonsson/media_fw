@@ -12,6 +12,7 @@
  * */
 
 #include "DatabaseItem.h"
+#include "JsonParser.h"
 
 #include <string>
 #include <queue>
@@ -23,8 +24,13 @@
 class Database {
 public:
 
-    Database() = default;
-    ~Database() = default;
+    Database() {
+        json.parser();
+        std::cout << "Database constructor" << std::endl;
+    }
+    ~Database() {
+        std::cout << "Database deconstructor" << std::endl;
+    };
 
 
     virtual void pushItem(DatabaseItem m_item){};   // DatabaseItem
@@ -43,6 +49,8 @@ public:
         GENRE = 2,
         DIRECTOR
     };
+
+    JsonParser json;
 
 protected:
     std::queue<DatabaseItem> m_items;
