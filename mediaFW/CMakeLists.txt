@@ -15,6 +15,7 @@ set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/Client.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/JsonParser.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/jsoncpp.cpp
         )
 
 set(IncFilesToInclude
@@ -25,6 +26,7 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/DatabaseItem.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/JsonParser.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/json/json.h
         ${CMAKE_CURRENT_LIST_DIR}/test/fixtures.h test/mocks.h test/TestClass.h)
 
 
@@ -34,11 +36,13 @@ add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory("contrib/googletest")
 
 include_directories(inc)
+include_directories(inc/json)
 include_directories(contrib/googletest)
 
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
 target_link_libraries(mediaFW googletest)
 target_link_libraries(mediaFW ssh)
+target_link_libraries(mediaFW jsoncpp)
 ## add the binary tree to the search path for include files
 ## so that we will find TutorialConfig.h
 #include_directories("${PROJECT_BINARY_DIR}")

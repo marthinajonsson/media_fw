@@ -25,13 +25,33 @@ class Database {
 public:
 
     Database() {
-        json.parser();
         std::cout << "Database constructor" << std::endl;
+        syncDatabase();
     }
-    ~Database() {
-        std::cout << "Database deconstructor" << std::endl;
-    };
+    ~Database() = default;
 
+    void syncDatabase() {
+
+        JsonParser json;
+        json.parser();
+        m_saved = json.getParsed();
+
+        for(auto s : m_saved) {
+            std::string title = s.first;
+            std::string genre = s.second[0];
+            std::string director = s.second[1];
+            //s.second.erase(s.second.begin(), s.second.begin());
+            std::vector<std::string> actors;
+            for(auto a : s.second) {
+                actors.push_back(a);
+                std::cout << "sec " << a << std::endl;
+            }
+            DatabaseItem newItem {actors, title, genre, director};
+            pushItem(newItem);
+        }
+
+
+    }
 
     virtual void pushItem(DatabaseItem m_item){};   // DatabaseItem
 
@@ -50,10 +70,9 @@ public:
         DIRECTOR
     };
 
-    JsonParser json;
-
 protected:
     std::queue<DatabaseItem> m_items;
+    std::map<std::string, std::vector<std::string>>  m_saved;
     mutable std::mutex m_lock;
     std::condition_variable m_emptyQueue;
 };

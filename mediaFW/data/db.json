@@ -1,18 +1,31 @@
 {
   "name": "databaseContent",
   "version": "1.0.0",
-  "items":[
+  "items":
     {
-      "title": "Anna",
-      "genre": "comedy",
-      "director": "hitchcock",
-      "actors": "julia roberts"
-    },
-    {
-      "title": "Anna2",
-      "genre": "horror",
-      "director": "tomten",
-      "actors": "puh"
+      "Movies": [
+        {
+          "title": "The Proposal",
+          "genre": "Romance",
+          "director": "Anne Fletcher",
+          "actors": "Sandra Bullock, Ryan Reynolds, Betty White, Mary Steenburgen, Malin Akerman"
+        },
+
+        {
+          "title": "The Spirit of Christmas",
+          "genre": "Romance",
+          "director": "David Jackson",
+          "actors": "Thomas Beaudoin, Jen Lilley"
+        }
+      ],
+
+      "Series": [
+        {
+          "title": "11.22.63",
+          "genre": "Mystery",
+          "director": "James Franco",
+          "actors": "James Franco"
+        }
+      ]
     }
-  ]
 }

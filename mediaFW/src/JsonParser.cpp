@@ -5,24 +5,44 @@
 #include <fstream>
 #include <iostream>
 #include "JsonParser.h"
+#include "json/json.h"
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
+
+/*
+ *
+ */
 
 void JsonParser::parser()
 {
-//    std::ifstream db_file("db.json", std::ifstream::binary);
-//    Json::Value items;
-//    db_file >> items;
-//
-//    std::cout << items; //This will print the entire json object.
-//
-////The following lines will let you access the indexed objects.
-//    std::cout << items["Anna"]; //Prints the value for "Anna"
-//    std::cout << items["ben"]; //Prints the value for "Ben"
-//    std::cout << items["Anna"]["profession"]; //Prints the value corresponding to "profession" in the json for "Anna"
-//
-//    std::cout << items["profession"]; //NULL! There is no e
-//
-//
-//    std::string serverIP = items["Config"]["server-ip"].asString();
-//    std::string serverPort = items["Config"]["server-port"].asString();
-//    unsigned int bufferLen = items["Config"]["buffer-length"].asUInt();
+    Json::Value root;
+    std::string actors;
+    std::ifstream db_file("../data/db.json", std::ifstream::binary);
+    db_file >> root;
+    _map.clear();
+
+    for (int i = 0; root["items"]["Movies"].isValidIndex(i) == true; i++) {
+        _parsed.clear();
+        std::string title = root["items"]["Movies"][i]["title"].asString();
+        std::string genre = root["items"]["Movies"][i]["genre"].asString();
+        std::string director = root["items"]["Movies"][i]["director"].asString();
+        actors = root["items"]["Movies"][i]["actors"].asString();
+
+        _parsed.push_back(genre);
+        _parsed.push_back(director);
+        std::cout << "parser" << title << " " << genre << " " << director << std::endl;
+        _map[title] = _parsed;
+    }
+
+    std::stringstream ss(actors);
+    std::string str;
+    while (ss >> str)
+    {
+        //std::cout << "act " << str << std::endl;
+        _parsed.push_back(str);
+        if (ss.peek() == ',' || ss.peek() == ' ')
+            ss.ignore();
+    }
 }
