@@ -48,10 +48,10 @@ RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,14 +91,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles /home/mjonsson/repo/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/progress.marks
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles 0
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/progress.marks
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/clean
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,22 +108,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/preinstall
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/preinstall
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 contrib/googletest/CMakeFiles/googletest.dir/rule:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/CMakeFiles/googletest.dir/rule
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/CMakeFiles/googletest.dir/rule
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/rule
 
 # Convenience name for target.
@@ -133,7 +133,7 @@ googletest: contrib/googletest/CMakeFiles/googletest.dir/rule
 
 # fast build rule for target.
 googletest/fast:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
 .PHONY : googletest/fast
 
 src/gtest-all.o: src/gtest-all.cc.o
@@ -142,7 +142,7 @@ src/gtest-all.o: src/gtest-all.cc.o
 
 # target to build an object file
 src/gtest-all.cc.o:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o
 .PHONY : src/gtest-all.cc.o
 
 src/gtest-all.i: src/gtest-all.cc.i
@@ -151,7 +151,7 @@ src/gtest-all.i: src/gtest-all.cc.i
 
 # target to preprocess a source file
 src/gtest-all.cc.i:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.i
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.i
 .PHONY : src/gtest-all.cc.i
 
 src/gtest-all.s: src/gtest-all.cc.s
@@ -160,7 +160,7 @@ src/gtest-all.s: src/gtest-all.cc.s
 
 # target to generate assembly for a file
 src/gtest-all.cc.s:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.s
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.s
 .PHONY : src/gtest-all.cc.s
 
 # Help Target
@@ -187,6 +187,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

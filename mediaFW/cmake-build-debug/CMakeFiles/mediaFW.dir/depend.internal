@@ -3,18 +3,26 @@
 
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o
  ../inc/Cli.h
- /home/mjonsson/repo/mediaFW/src/Cli.cpp
+ /home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp
 CMakeFiles/mediaFW.dir/src/Client.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
  ../inc/Database.h
  ../inc/DatabaseItem.h
+ ../inc/JsonParser.h
  ../inc/MovieDatabase.h
- /home/mjonsson/repo/mediaFW/src/Client.cpp
+ /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o
  ../inc/Connection.h
- /home/mjonsson/repo/mediaFW/src/Connection.cpp
+ /home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp
+CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
+ ../inc/JsonParser.h
+ ../inc/json/json.h
+ /home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp
+CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o
+ ../inc/json/json.h
+ /home/mjonsson/repo/cppAdv/mediaFW/src/jsoncpp.cpp
 CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../contrib/googletest/gtest/gtest-death-test.h
  ../contrib/googletest/gtest/gtest-message.h
@@ -38,9 +46,11 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../contrib/googletest/gtest/internal/gtest-string.h
  ../contrib/googletest/gtest/internal/gtest-tuple.h
  ../contrib/googletest/gtest/internal/gtest-type-util.h
+ ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
  ../inc/Database.h
  ../inc/DatabaseItem.h
+ ../inc/JsonParser.h
  ../inc/MovieDatabase.h
- /home/mjonsson/repo/mediaFW/src/main.cpp
+ /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp

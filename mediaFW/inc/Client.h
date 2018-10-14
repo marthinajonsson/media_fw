@@ -5,8 +5,6 @@
 #ifndef MEDIAFW_CLIENT_H
 #define MEDIAFW_CLIENT_H
 
-#include <typeinfo>
-
 #include "MovieDatabase.h"
 #include "Connection.h"
 #include "Cli.h"
@@ -23,6 +21,7 @@ public:
     Client() {
         type = Movie;
         p_db = new MovieDatabase();
+        p_db->printAll();
     };
     ~Client() {
         delete p_db;

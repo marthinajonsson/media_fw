@@ -15,6 +15,7 @@ public:
     ~JsonParser() = default;
 
     void parser();
+    void updateDB();
     std::map<std::string, std::vector<std::string>> getParsed() { return  _map; }
 
 private:

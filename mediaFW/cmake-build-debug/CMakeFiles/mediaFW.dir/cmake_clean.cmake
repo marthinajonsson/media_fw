@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
   "CMakeFiles/mediaFW.dir/src/Client.cpp.o"
   "CMakeFiles/mediaFW.dir/src/main.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o"
+  "CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o"
   "mediaFW.pdb"
   "mediaFW"
 )

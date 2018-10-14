@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -pthread -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/mjonsson/repo/mediaFW/contrib/googletest/. 
+CXX_INCLUDES = -I/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/. 
 

@@ -14,11 +14,10 @@ public:
     Cli() = default;
     ~Cli() = default;
 
-    std::vector<std::string> daemon();
+    virtual std::vector<std::string> process();
 
 private:
     std::vector<std::string> parseArg(std::string &input);
-    std::vector<std::string> handleInput(std::string input, std::vector<std::string> &args);
     void printOptions();
 };
 

@@ -48,10 +48,10 @@ RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,9 +91,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -241,6 +241,60 @@ src/Connection.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.s
 .PHONY : src/Connection.cpp.s
 
+src/JsonParser.o: src/JsonParser.cpp.o
+
+.PHONY : src/JsonParser.o
+
+# target to build an object file
+src/JsonParser.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
+.PHONY : src/JsonParser.cpp.o
+
+src/JsonParser.i: src/JsonParser.cpp.i
+
+.PHONY : src/JsonParser.i
+
+# target to preprocess a source file
+src/JsonParser.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/JsonParser.cpp.i
+.PHONY : src/JsonParser.cpp.i
+
+src/JsonParser.s: src/JsonParser.cpp.s
+
+.PHONY : src/JsonParser.s
+
+# target to generate assembly for a file
+src/JsonParser.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/JsonParser.cpp.s
+.PHONY : src/JsonParser.cpp.s
+
+src/jsoncpp.o: src/jsoncpp.cpp.o
+
+.PHONY : src/jsoncpp.o
+
+# target to build an object file
+src/jsoncpp.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o
+.PHONY : src/jsoncpp.cpp.o
+
+src/jsoncpp.i: src/jsoncpp.cpp.i
+
+.PHONY : src/jsoncpp.i
+
+# target to preprocess a source file
+src/jsoncpp.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.i
+.PHONY : src/jsoncpp.cpp.i
+
+src/jsoncpp.s: src/jsoncpp.cpp.s
+
+.PHONY : src/jsoncpp.s
+
+# target to generate assembly for a file
+src/jsoncpp.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.s
+.PHONY : src/jsoncpp.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -289,6 +343,12 @@ help:
 	@echo "... src/Connection.o"
 	@echo "... src/Connection.i"
 	@echo "... src/Connection.s"
+	@echo "... src/JsonParser.o"
+	@echo "... src/JsonParser.i"
+	@echo "... src/JsonParser.s"
+	@echo "... src/jsoncpp.o"
+	@echo "... src/jsoncpp.i"
+	@echo "... src/jsoncpp.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

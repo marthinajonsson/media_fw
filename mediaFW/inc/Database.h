@@ -15,17 +15,17 @@
 #include "JsonParser.h"
 
 #include <string>
-#include <queue>
+#include <list>
 #include <iostream>
 #include <mutex>
 #include <future>
 #include <thread>
 
+
 class Database {
 public:
 
     Database() {
-        std::cout << "Database constructor" << std::endl;
         syncDatabase();
     }
     ~Database() = default;
@@ -40,7 +40,7 @@ public:
             std::string title = s.first;
             std::string genre = s.second[0];
             std::string director = s.second[1];
-            //s.second.erase(s.second.begin(), s.second.begin());
+            s.second.erase(s.second.begin(), s.second.begin()+2);
             std::vector<std::string> actors;
             for(auto a : s.second) {
                 actors.push_back(a);
@@ -49,32 +49,24 @@ public:
             DatabaseItem newItem {actors, title, genre, director};
             pushItem(newItem);
         }
-
-
     }
 
-    virtual void pushItem(DatabaseItem m_item){};   // DatabaseItem
+    virtual void pushItem(const DatabaseItem &m_item){};
 
-    virtual DatabaseItem fetchItem(int id) {};
+    virtual DatabaseItem fetchItem(const std::string &title){};
+
+    virtual void purgeItem(const DatabaseItem &m_item){};
+
+    virtual void printAll(){};
 
     virtual long getNumberOfItem(){};
 
-    virtual void purgeItem(DatabaseItem m_item){};
-
-    virtual void addItem(DatabaseItem m_item) {};
-
-    enum Pattern {
-        TITLE = 4,
-        ACTOR,
-        GENRE = 2,
-        DIRECTOR
-    };
 
 protected:
-    std::queue<DatabaseItem> m_items;
+    std::list<DatabaseItem> m_items;
     std::map<std::string, std::vector<std::string>>  m_saved;
     mutable std::mutex m_lock;
-    std::condition_variable m_emptyQueue;
+    std::condition_variable m_emptyList;
 };
 
 

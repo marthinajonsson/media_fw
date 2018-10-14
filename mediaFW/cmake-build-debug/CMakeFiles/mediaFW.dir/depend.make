@@ -9,11 +9,19 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Database.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/MovieDatabase.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../src/Client.cpp
 
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o: ../src/Connection.cpp
+
+CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/JsonParser.h
+CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/json/json.h
+CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../src/JsonParser.cpp
+
+CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o: ../inc/json/json.h
+CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o: ../src/jsoncpp.cpp
 
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/gtest-death-test.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/gtest-message.h
@@ -37,10 +45,12 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/internal/gtes
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/internal/gtest-string.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/internal/gtest-tuple.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/internal/gtest-type-util.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/MovieDatabase.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../src/main.cpp
 

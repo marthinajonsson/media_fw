@@ -43,10 +43,10 @@ RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
 
 # Utility rule file for check.
 
@@ -71,6 +71,6 @@ CMakeFiles/check.dir/clean:
 .PHONY : CMakeFiles/check.dir/clean
 
 CMakeFiles/check.dir/depend:
-	cd /home/mjonsson/repo/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/mediaFW /home/mjonsson/repo/mediaFW /home/mjonsson/repo/mediaFW/cmake-build-debug /home/mjonsson/repo/mediaFW/cmake-build-debug /home/mjonsson/repo/mediaFW/cmake-build-debug/CMakeFiles/check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/cppAdv/mediaFW /home/mjonsson/repo/cppAdv/mediaFW /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/check.dir/depend
 

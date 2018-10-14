@@ -26,7 +26,6 @@ public:
     DatabaseItem(std::vector<std::string> _actors, std::string _title, std::string _genre, std::string _director)
         : m_actors(_actors), m_title("defaultTitle"), m_genre(_genre), m_director(_director)
     {
-        generateId();
     };
 
     ~DatabaseItem() = default;
@@ -39,24 +38,17 @@ public:
     };
 
     std::vector<std::string> getActors(){ return m_actors;}
-    std::string getTitle(){ return m_title;}
+    std::string getTitle() const { return m_title;}
     std::string getDirector(){ return m_director;}
     std::string getGenre(){ return m_genre;}
     std::string getDir(){ return directory;}
 
 private:
-    uint16_t id;
     std::string directory;
     std::string m_title;
     std::string m_genre;
     std::string m_director;
     std::vector<std::string> m_actors;
-
-    void generateId(){
-        // check available
-        // set id
-        this->id = 1;
-    }
 };
 
 

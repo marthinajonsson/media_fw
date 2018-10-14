@@ -9,7 +9,7 @@
 #include "Connection.h"
 
 std::vector<std::string> getCliInput(Cli* p_cli) {
-    return p_cli->daemon();
+    return p_cli->process();
 }
 
 
@@ -19,7 +19,6 @@ void Client::setup()
     std::string choice;
     std::string exit = "exit";
     Connection *p_conn;
-    std::cout << "Welcome to client setup" << std::endl;
     std::future<std::vector<std::string>> fut;
 
     while(true)
@@ -31,7 +30,6 @@ void Client::setup()
         choice = result.front();
         std::cout << "Caught choice: " << choice << std::endl;
         if(choice.find(exit) != std::string::npos) {
-            std::cout << "Caught exit: " << choice << std::endl;
             break;
         }
 
@@ -39,6 +37,8 @@ void Client::setup()
     }
 }
 
+
+// TODO: finish..
 void Client::handleCliCallback(std::vector<std::string> request, bool connected)
 {
     std::string choice = request.front();
@@ -61,22 +61,22 @@ void Client::handleCliCallback(std::vector<std::string> request, bool connected)
     }
 #endif
     std::cout << "Request sent: " << command << std::endl;
-//
-//    Tags tag;
-//    tag.s_title = request.back();
-//    request.pop_back();
-//
-//    tag.s_actors = {request.back()};
-//    request.pop_back();
-//
-//    tag.s_director = request.back();
-//    request.pop_back();
-//
-//    tag.s_genre = request.back();
-//    request.pop_back();
-//
-//    DatabaseItem item;
-//    item.setFeature(tag);
-//
-//    db->pushItem(item);
+
+    Tags tag;
+    tag.s_title = request.back();
+    request.pop_back();
+
+    tag.s_actors = {request.back()};
+    request.pop_back();
+
+    tag.s_director = request.back();
+    request.pop_back();
+
+    tag.s_genre = request.back();
+    request.pop_back();
+
+    DatabaseItem item;
+    item.setFeature(tag);
+
+    p_db->pushItem(item);
 }
