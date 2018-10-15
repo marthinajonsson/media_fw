@@ -10,10 +10,11 @@
 #include <vector>
 #include <sstream>
 #include "Cli.h"
+/// <summary>
+/// All methods implements Class Cli defined in Cli.h.
+/// </summary>
 
-/*
- * PUBLIC methods
- * */
+/*! Public method processing input from stdin. */
 std::vector<std::string> Cli::process() {
     const std::string exit = "exit";
     const std::string help = "help";
@@ -32,10 +33,7 @@ std::vector<std::string> Cli::process() {
 }
 
 
-/*
- * PRIVATE methods
- * @
- * */
+/*! Private method used by Cli::process() to split input to separate strings.*/
 std::vector<std::string> Cli::parseArg(std::string &input) {
     std::stringstream m_stream(input);
     std::vector<std::string> seglist;
@@ -51,6 +49,7 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
     return seglist;
 }
 
+/*! Private method used by Cli::process() to print valid commands to the user.*/
 void Cli::printOptions() {
     std::cout << "\n" << std::endl;
     std::string header {"<choice> <optional arg1>.. <optimal arg2>.."};

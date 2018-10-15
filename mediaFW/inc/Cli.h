@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-
+/*! Module handling everythin related to our Command line interface.  */
 class Cli
 {
 public:
