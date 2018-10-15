@@ -38,7 +38,11 @@ void Client::setup()
 }
 
 
-// TODO: finish..
+/*
+ * @param - Incoming request from CLI
+ * @param - Boolean flag indicating if ssh connection is established and remote command can be sent.
+ *
+ * */
 void Client::handleCliCallback(std::vector<std::string> request, bool connected)
 {
     std::string choice = request.front();

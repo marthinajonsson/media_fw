@@ -14,3 +14,4 @@ int main(int argc, char **argv) {
 // TODO: divide into submodules to allow better structure and unit tests
 // TODO: install doxygen and gmock
 // TODO: consider removing vector<string> and just add strings
+

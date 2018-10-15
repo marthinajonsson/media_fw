@@ -29,6 +29,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-C.cmake"
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU-CXX.cmake"
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/Compiler/GNU.cmake"
+  "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindDoxygen.cmake"
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake"
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindPackageMessage.cmake"
   "/opt/clion-2018.2.4/bin/cmake/linux/share/cmake-3.12/Modules/FindThreads.cmake"
