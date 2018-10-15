@@ -19,6 +19,16 @@ Inherits \fBJson::CharReader\fP\&.
 .br
 .RI "Read a \fBValue\fP from a \fCJSON\fP document\&. The document must be a UTF-8 encoded string containing the document to read\&. "
 .in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool const \fBcollectComments_\fP"
+.br
+.ti -1c
+.RI "\fBOurReader\fP \fBreader_\fP"
+.br
+.in -1c
 .SH "Member Function Documentation"
 .PP 
 .SS "bool Json::OurCharReader::parse (char const * beginDoc, char const * endDoc, \fBValue\fP * root, JSONCPP_STRING * errs)\fC [inline]\fP, \fC [virtual]\fP"

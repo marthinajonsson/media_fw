@@ -1,9 +1,18 @@
 var searchData=
 [
-  ['reader',['Reader',['../classJson_1_1Reader.html',1,'Json::Reader'],['../classJson_1_1Reader.html#a0b3c4e24c8393354bab57a6ba3ffc27f',1,'Json::Reader::Reader()'],['../classJson_1_1Reader.html#a45f17831118337309180313e93ac33f8',1,'Json::Reader::Reader(const Features &amp;features)']]],
-  ['realvalue',['realValue',['../namespaceJson.html#a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e',1,'Json']]],
-  ['removeindex',['removeIndex',['../classJson_1_1Value.html#a64160c23c1f2f8b33913364f25d6c58d',1,'Json::Value']]],
-  ['removemember',['removeMember',['../classJson_1_1Value.html#a92e165f04105d27a930fb3a18a053585',1,'Json::Value::removeMember(const char *key)'],['../classJson_1_1Value.html#a8a660202bbad35857b39e85bd35ec78a',1,'Json::Value::removeMember(const JSONCPP_STRING &amp;key)'],['../classJson_1_1Value.html#a708e599489adf30d65bf85a8ee16e6fb',1,'Json::Value::removeMember(const char *key, Value *removed)'],['../classJson_1_1Value.html#ae385ecef98427970df525ee876e9f54a',1,'Json::Value::removeMember(JSONCPP_STRING const &amp;key, Value *removed)'],['../classJson_1_1Value.html#a49c91af727d6b4eb0af02a81bb2def87',1,'Json::Value::removeMember(const char *begin, const char *end, Value *removed)']]],
-  ['resize',['resize',['../classJson_1_1Value.html#a7a064d8aa47fde09a268be2aea992134',1,'Json::Value']]],
-  ['runtimeerror',['RuntimeError',['../classJson_1_1RuntimeError.html',1,'Json']]]
+  ['p_5fcli',['p_cli',['../classClient.html#a48826e6a4fbfb261da3782405cd2558e',1,'Client']]],
+  ['p_5fconn',['p_conn',['../classClient.html#a086555f6a435428891d5f237cd454c88',1,'Client']]],
+  ['p_5fdb',['p_db',['../classClient.html#ac7963f918414b58d4c752fcbcc12d965',1,'Client']]],
+  ['parse',['parse',['../classJson_1_1Reader.html#af1da6c976ad1e96c742804c3853eef94',1,'Json::Reader::parse(const std::string &amp;document, Value &amp;root, bool collectComments=true)'],['../classJson_1_1Reader.html#ac71ef2b64c7c27b062052e692af3fb32',1,'Json::Reader::parse(const char *beginDoc, const char *endDoc, Value &amp;root, bool collectComments=true)'],['../classJson_1_1Reader.html#a6d5d0e23f68749d2f17feece4ccf504d',1,'Json::Reader::parse(JSONCPP_ISTREAM &amp;is, Value &amp;root, bool collectComments=true)'],['../classJson_1_1CharReader.html#a7983680d50fd0745f371c43b162e78e1',1,'Json::CharReader::parse()'],['../classJson_1_1OurCharReader.html#a547f08ec5a9951ca69e8bb2e90296c83',1,'Json::OurCharReader::parse()']]],
+  ['parsearg',['parseArg',['../classCli.html#a8c364ee0c6abe9589a4e0c8758d17f88',1,'Cli']]],
+  ['parsefromstream',['parseFromStream',['../namespaceJson.html#aab0cf1ecf81d1aeca12be2a416a84352',1,'Json']]],
+  ['path',['Path',['../classJson_1_1Path.html',1,'Json']]],
+  ['pathargument',['PathArgument',['../classJson_1_1PathArgument.html',1,'Json']]],
+  ['precisiontype',['PrecisionType',['../namespaceJson.html#af6e1447a3c43e3a62e11050dd0a11ce8',1,'Json']]],
+  ['printall',['printAll',['../classDatabase.html#afa345da530fd5c8dfe0c978917cd6049',1,'Database::printAll()'],['../classMovieDatabase.html#af1e13b6fc0fd7186e98edbe2cf187618',1,'MovieDatabase::printAll()']]],
+  ['printoptions',['printOptions',['../classCli.html#a8251d6c89698aaf128318fc3ad4b2906',1,'Cli']]],
+  ['process',['process',['../classCli.html#a9788fa4a19943c09af95b4653822d690',1,'Cli']]],
+  ['purgeitem',['purgeItem',['../classDatabase.html#a5d232b9f62079682dd7fe7983b252e5e',1,'Database::purgeItem()'],['../classMovieDatabase.html#a85faa4c33b3ab2dc0d1f4939bb034797',1,'MovieDatabase::purgeItem()']]],
+  ['pusherror',['pushError',['../classJson_1_1Reader.html#af5fa7099083f01706635ade1d0f8ddb5',1,'Json::Reader::pushError(const Value &amp;value, const JSONCPP_STRING &amp;message)'],['../classJson_1_1Reader.html#a3568be9db568ff57bd3fcc373143dff3',1,'Json::Reader::pushError(const Value &amp;value, const JSONCPP_STRING &amp;message, const Value &amp;extra)']]],
+  ['pushitem',['pushItem',['../classDatabase.html#a80fa14ab9f4deadc9a2ab7493f1919a4',1,'Database::pushItem()'],['../classMovieDatabase.html#a203b9b5c1b325997ce519859a436b6ce',1,'MovieDatabase::pushItem()']]]
 ];

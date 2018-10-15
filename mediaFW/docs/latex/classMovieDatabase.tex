@@ -2,6 +2,15 @@
 \label{classMovieDatabase}\index{Movie\+Database@{Movie\+Database}}
 
 
+A module that implements the functionality of \hyperlink{Database_8h_source}{Database.\+h} and helps the client to perform database actions.  
+
+
+
+
+{\ttfamily \#include $<$Movie\+Database.\+h$>$}
+
+
+
 Inheritance diagram for Movie\+Database\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,24 +32,118 @@ Collaboration diagram for Movie\+Database\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}\label{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}} 
-void {\bfseries push\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
-\item 
-\mbox{\Hypertarget{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}\label{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}} 
-\hyperlink{classDatabaseItem}{Database\+Item} {\bfseries fetch\+Item} (const std\+::string \&title) override
-\item 
-\mbox{\Hypertarget{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}\label{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}} 
-long {\bfseries get\+Number\+Of\+Item} () override
-\item 
-\mbox{\Hypertarget{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}\label{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}} 
-void {\bfseries purge\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
-\item 
-\mbox{\Hypertarget{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}\label{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}} 
-void {\bfseries print\+All} () override
-\end{DoxyCompactItemize}
+void \hyperlink{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}{push\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Uploads the requested database item. \end{DoxyCompactList}\item 
+\hyperlink{classDatabaseItem}{Database\+Item} \hyperlink{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}{fetch\+Item} (const std\+::string \&title) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Fetch the requested database item. \end{DoxyCompactList}\item 
+long \hyperlink{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}{get\+Number\+Of\+Item} () override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that return the size of the database. \end{DoxyCompactList}\item 
+void \hyperlink{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}{purge\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Delete the requested database item. \end{DoxyCompactList}\item 
+void \hyperlink{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}{print\+All} () override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Prints the entire database content. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A module that implements the functionality of \hyperlink{Database_8h_source}{Database.\+h} and helps the client to perform database actions. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}\label{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}} 
+\index{Movie\+Database@{Movie\+Database}!fetch\+Item@{fetch\+Item}}
+\index{fetch\+Item@{fetch\+Item}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{fetch\+Item()}{fetchItem()}}
+{\footnotesize\ttfamily \hyperlink{classDatabaseItem}{Database\+Item} Movie\+Database\+::fetch\+Item (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Fetch the requested database item. 
+
+A const reference to a title
+
+\begin{DoxyReturn}{Returns}
+The requested \hyperlink{classDatabaseItem}{Database\+Item}
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a40254eec69c7d7cc15da24a9f0b072b3}{Database}.
+
+\mbox{\Hypertarget{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}\label{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}} 
+\index{Movie\+Database@{Movie\+Database}!get\+Number\+Of\+Item@{get\+Number\+Of\+Item}}
+\index{get\+Number\+Of\+Item@{get\+Number\+Of\+Item}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{get\+Number\+Of\+Item()}{getNumberOfItem()}}
+{\footnotesize\ttfamily long Movie\+Database\+::get\+Number\+Of\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that return the size of the database. 
+
+\begin{DoxyReturn}{Returns}
+Size of the database (long).
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a230225cb341eb23a99a83ef3d1abae53}{Database}.
+
+\mbox{\Hypertarget{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}\label{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}} 
+\index{Movie\+Database@{Movie\+Database}!print\+All@{print\+All}}
+\index{print\+All@{print\+All}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{print\+All()}{printAll()}}
+{\footnotesize\ttfamily void Movie\+Database\+::print\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Prints the entire database content. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_afa345da530fd5c8dfe0c978917cd6049}{Database}.
+
+\mbox{\Hypertarget{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}\label{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}} 
+\index{Movie\+Database@{Movie\+Database}!purge\+Item@{purge\+Item}}
+\index{purge\+Item@{purge\+Item}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{purge\+Item()}{purgeItem()}}
+{\footnotesize\ttfamily void Movie\+Database\+::purge\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{classDatabaseItem}{Database\+Item} \&}]{m\+\_\+item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Delete the requested database item. 
+
+A const reference to a database item
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a5d232b9f62079682dd7fe7983b252e5e}{Database}.
+
+\mbox{\Hypertarget{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}\label{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}} 
+\index{Movie\+Database@{Movie\+Database}!push\+Item@{push\+Item}}
+\index{push\+Item@{push\+Item}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{push\+Item()}{pushItem()}}
+{\footnotesize\ttfamily void Movie\+Database\+::push\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{classDatabaseItem}{Database\+Item} \&}]{m\+\_\+item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Uploads the requested database item. 
+
+A const reference to a database item
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a80fa14ab9f4deadc9a2ab7493f1919a4}{Database}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/Movie\+Database.\+h\end{DoxyCompactItemize}
+/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/\+Database/Movie\+Database.\+h\end{DoxyCompactItemize}

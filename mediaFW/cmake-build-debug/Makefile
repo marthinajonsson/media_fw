@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/opt/clion-2018.2.4/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -88,6 +77,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/opt/clion-2018.2.4/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,17 +122,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mediaFW
+# Target rules for targets named apidoc
 
 # Build rule for target.
-mediaFW: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mediaFW
-.PHONY : mediaFW
+apidoc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 apidoc
+.PHONY : apidoc
 
 # fast build rule for target.
-mediaFW/fast:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/build
-.PHONY : mediaFW/fast
+apidoc/fast:
+	$(MAKE) -f CMakeFiles/apidoc.dir/build.make CMakeFiles/apidoc.dir/build
+.PHONY : apidoc/fast
 
 #=============================================================================
 # Target rules for targets named check
@@ -146,6 +146,32 @@ check: cmake_check_build_system
 check/fast:
 	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
 .PHONY : check/fast
+
+#=============================================================================
+# Target rules for targets named mediaFW
+
+# Build rule for target.
+mediaFW: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mediaFW
+.PHONY : mediaFW
+
+# fast build rule for target.
+mediaFW/fast:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/build
+.PHONY : mediaFW/fast
+
+#=============================================================================
+# Target rules for targets named apidoc_forced
+
+# Build rule for target.
+apidoc_forced: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 apidoc_forced
+.PHONY : apidoc_forced
+
+# fast build rule for target.
+apidoc_forced/fast:
+	$(MAKE) -f CMakeFiles/apidoc_forced.dir/build.make CMakeFiles/apidoc_forced.dir/build
+.PHONY : apidoc_forced/fast
 
 #=============================================================================
 # Target rules for targets named googletest
@@ -268,32 +294,32 @@ src/JsonParser.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/JsonParser.cpp.s
 .PHONY : src/JsonParser.cpp.s
 
-src/jsoncpp.o: src/jsoncpp.cpp.o
+src/json/jsoncpp.o: src/json/jsoncpp.cpp.o
 
-.PHONY : src/jsoncpp.o
+.PHONY : src/json/jsoncpp.o
 
 # target to build an object file
-src/jsoncpp.cpp.o:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o
-.PHONY : src/jsoncpp.cpp.o
+src/json/jsoncpp.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o
+.PHONY : src/json/jsoncpp.cpp.o
 
-src/jsoncpp.i: src/jsoncpp.cpp.i
+src/json/jsoncpp.i: src/json/jsoncpp.cpp.i
 
-.PHONY : src/jsoncpp.i
+.PHONY : src/json/jsoncpp.i
 
 # target to preprocess a source file
-src/jsoncpp.cpp.i:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.i
-.PHONY : src/jsoncpp.cpp.i
+src/json/jsoncpp.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.i
+.PHONY : src/json/jsoncpp.cpp.i
 
-src/jsoncpp.s: src/jsoncpp.cpp.s
+src/json/jsoncpp.s: src/json/jsoncpp.cpp.s
 
-.PHONY : src/jsoncpp.s
+.PHONY : src/json/jsoncpp.s
 
 # target to generate assembly for a file
-src/jsoncpp.cpp.s:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.s
-.PHONY : src/jsoncpp.cpp.s
+src/json/jsoncpp.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.s
+.PHONY : src/json/jsoncpp.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -329,10 +355,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... mediaFW"
-	@echo "... check"
-	@echo "... test"
 	@echo "... edit_cache"
+	@echo "... apidoc"
+	@echo "... test"
+	@echo "... check"
+	@echo "... mediaFW"
+	@echo "... apidoc_forced"
 	@echo "... googletest"
 	@echo "... src/Cli.o"
 	@echo "... src/Cli.i"
@@ -346,9 +374,9 @@ help:
 	@echo "... src/JsonParser.o"
 	@echo "... src/JsonParser.i"
 	@echo "... src/JsonParser.s"
-	@echo "... src/jsoncpp.o"
-	@echo "... src/jsoncpp.i"
-	@echo "... src/jsoncpp.s"
+	@echo "... src/json/jsoncpp.o"
+	@echo "... src/json/jsoncpp.i"
+	@echo "... src/json/jsoncpp.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

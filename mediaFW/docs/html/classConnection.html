@@ -60,6 +60,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classConnection-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Connection Class Reference</div>  </div>
@@ -74,7 +76,57 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>getConnectionStatus</
 <tr class="memitem:ab59a9e6d364eff3f116e60b6ccc60f1b"><td class="memItemLeft" align="right" valign="top"><a id="ab59a9e6d364eff3f116e60b6ccc60f1b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>sendRemoteCommands</b> (std::string request, std::string &amp;result)</td></tr>
 <tr class="separator:ab59a9e6d364eff3f116e60b6ccc60f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6ff354280eacd558865f34d95a1bfa95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConnection.html#a6ff354280eacd558865f34d95a1bfa95">establishSshConnect</a> ()</td></tr>
+<tr class="separator:a6ff354280eacd558865f34d95a1bfa95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f148113eae10ea69fd54af1f2c6d8ad"><td class="memItemLeft" align="right" valign="top"><a id="a1f148113eae10ea69fd54af1f2c6d8ad"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>verifyHost</b> (ssh_session session)</td></tr>
+<tr class="separator:a1f148113eae10ea69fd54af1f2c6d8ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af70967306ab56018b8303a1330aa3f7f"><td class="memItemLeft" align="right" valign="top"><a id="af70967306ab56018b8303a1330aa3f7f"></a>
+ssh_session&#160;</td><td class="memItemRight" valign="bottom"><b>m_ssh_session</b></td></tr>
+<tr class="separator:af70967306ab56018b8303a1330aa3f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4432476199b9da0ac58496c0578cd89"><td class="memItemLeft" align="right" valign="top"><a id="ac4432476199b9da0ac58496c0578cd89"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_result</b></td></tr>
+<tr class="separator:ac4432476199b9da0ac58496c0578cd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ab118f67d8c509b92ab6c565a149eb"><td class="memItemLeft" align="right" valign="top"><a id="ac9ab118f67d8c509b92ab6c565a149eb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_currentlyConnected</b></td></tr>
+<tr class="separator:ac9ab118f67d8c509b92ab6c565a149eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e09ae763001b83819c2b249a867802"><td class="memItemLeft" align="right" valign="top"><a id="a53e09ae763001b83819c2b249a867802"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_password</b></td></tr>
+<tr class="separator:a53e09ae763001b83819c2b249a867802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6ff354280eacd558865f34d95a1bfa95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff354280eacd558865f34d95a1bfa95">&#9670;&nbsp;</a></span>establishSshConnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Connection::establishSshConnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This module shall setup ssh connection to the server and sen remoote commands </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mjonsson/repo/cppAdv/mediaFW/inc/<a class="el" href="Connection_8h_source.html">Connection.h</a></li>
 <li>/home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp</li>

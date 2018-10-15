@@ -2,10 +2,13 @@
 .ad l
 .nh
 .SH NAME
-MovieDatabase
+MovieDatabase \- A module that implements the functionality of \fBDatabase\&.h\fP and helps the client to perform database actions\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <MovieDatabase\&.h>\fP
 .PP
 Inherits \fBDatabase\fP\&.
 .SS "Public Member Functions"
@@ -14,21 +17,95 @@ Inherits \fBDatabase\fP\&.
 .ti -1c
 .RI "void \fBpushItem\fP (const \fBDatabaseItem\fP &m_item) override"
 .br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Uploads the requested database item\&. "
 .ti -1c
 .RI "\fBDatabaseItem\fP \fBfetchItem\fP (const std::string &title) override"
 .br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Fetch the requested database item\&. "
 .ti -1c
 .RI "long \fBgetNumberOfItem\fP () override"
 .br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that return the size of the database\&. "
 .ti -1c
 .RI "void \fBpurgeItem\fP (const \fBDatabaseItem\fP &m_item) override"
 .br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Delete the requested database item\&. "
 .ti -1c
 .RI "void \fBprintAll\fP () override"
 .br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Prints the entire database content\&. "
 .in -1c
 .SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+A module that implements the functionality of \fBDatabase\&.h\fP and helps the client to perform database actions\&. 
 
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBDatabaseItem\fP MovieDatabase::fetchItem (const std::string & title)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Fetch the requested database item\&. A const reference to a title
+.PP
+\fBReturns:\fP
+.RS 4
+The requested \fBDatabaseItem\fP
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "long MovieDatabase::getNumberOfItem ()\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that return the size of the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Size of the database (long)\&.
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void MovieDatabase::printAll ()\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Prints the entire database content\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void MovieDatabase::purgeItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Delete the requested database item\&. A const reference to a database item
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void MovieDatabase::pushItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Uploads the requested database item\&. A const reference to a database item
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
 
 .SH "Author"
 .PP 

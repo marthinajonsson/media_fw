@@ -9,6 +9,19 @@ Json::Value \- Represents a \fCJSON\fP value\&.
 .PP
 .PP
 \fC#include <json\&.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCommentInfo\fP"
+.br
+.ti -1c
+.RI "class \fBCZString\fP"
+.br
+.ti -1c
+.RI "union \fBValueHolder\fP"
+.br
+.in -1c
 .SS "Public Types"
 
 .in +1c
@@ -46,7 +59,7 @@ Json::Value \- Represents a \fCJSON\fP value\&.
 .RI "typedef std::string \fBvalue_type\fP"
 .br
 .ti -1c
-.RI "typedef std::map< CZString, \fBValue\fP > \fBObjectValues\fP"
+.RI "typedef std::map< \fBCZString\fP, \fBValue\fP > \fBObjectValues\fP"
 .br
 .in -1c
 .SS "Public Member Functions"
@@ -425,6 +438,50 @@ Json::Value \- Represents a \fCJSON\fP value\&.
 .RI "static const UInt \fBdefaultRealPrecision\fP = 17"
 .br
 .RI "Default precision for real value for string representation\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitBasic\fP (\fBValueType\fP type, bool allocated=false)"
+.br
+.ti -1c
+.RI "void \fBdupPayload\fP (const \fBValue\fP &other)"
+.br
+.ti -1c
+.RI "void \fBreleasePayload\fP ()"
+.br
+.ti -1c
+.RI "void \fBdupMeta\fP (const \fBValue\fP &other)"
+.br
+.ti -1c
+.RI "\fBValue\fP & \fBresolveReference\fP (const char *key)"
+.br
+.ti -1c
+.RI "\fBValue\fP & \fBresolveReference\fP (const char *key, const char *end)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "union \fBJson::Value::ValueHolder\fP \fBvalue_\fP"
+.br
+.ti -1c
+.RI "\fBValueType\fP \fBtype_\fP: 8"
+.br
+.ti -1c
+.RI "unsigned int \fBallocated_\fP: 1"
+.br
+.ti -1c
+.RI "\fBCommentInfo\fP * \fBcomments_\fP"
+.br
+.ti -1c
+.RI "ptrdiff_t \fBstart_\fP"
+.br
+.ti -1c
+.RI "ptrdiff_t \fBlimit_\fP"
+.br
 .in -1c
 .SS "Friends"
 

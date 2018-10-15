@@ -22,6 +22,26 @@ Json::PathArgument \- Experimental and untested: represents an element of the 'p
 .RI "\fBPathArgument\fP (const JSONCPP_STRING &key)"
 .br
 .in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBKind\fP { \fBkindNone\fP = 0, \fBkindIndex\fP, \fBkindKey\fP }"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "JSONCPP_STRING \fBkey_\fP"
+.br
+.ti -1c
+.RI "ArrayIndex \fBindex_\fP"
+.br
+.ti -1c
+.RI "Kind \fBkind_\fP"
+.br
+.in -1c
 .SS "Friends"
 
 .in +1c

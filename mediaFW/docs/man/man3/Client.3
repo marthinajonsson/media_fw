@@ -2,38 +2,137 @@
 .ad l
 .nh
 .SH NAME
-Client
+Client \- Class implementing the functionality of a client\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBDbType_e\fP { \fBMovie\fP = 2, \fBSeries\fP = 1, \fBUndefined\fP = 0 }"
+.br
+.in -1c
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
+.RI "\fBClient\fP ()"
+.br
+.RI "Instantiates database type DbType_e and corresponding \fBDatabase\fP\&. "
+.ti -1c
+.RI "\fB~Client\fP ()"
+.br
+.RI "deletes previous instantiated \fBDatabase\fP\&. "
+.ti -1c
 .RI "void \fBsetup\fP ()"
 .br
-.RI "A method that waits CLI input from method getCliInput\&. The method will break if input is interpreted as exit or continue by sending the request to be handled\&. "
+.RI "A method that waits for input from private method \fBClient::getCliInput()\fP\&. The method will break if input is interpreted as exit or continues by having the request handled in \fBClient::handleCallback()\fP\&. "
 .in -1c
 .SS "Public Attributes"
 
 .in +1c
 .ti -1c
-.RI "DbType \fBtype\fP"
+.RI "enum Client::DbType_e \fBtype\fP"
 .br
 .in -1c
-.SH "Member Function Documentation"
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBhandleCallback\fP (std::vector< std::string > request, bool connected)"
+.br
+.RI "handles the clients requests to the server\&. "
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static std::vector< std::string > \fBgetCliInput\fP (\fBCli\fP *\fBp_cli\fP)"
+.br
+.RI "A method that waits for CLI to process incoming request\&. Used by std::future\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBDatabase\fP * \fBp_db\fP"
+.br
+.RI "Private pointer ot \fBDatabase\fP object\&. "
+.ti -1c
+.RI "\fBConnection\fP * \fBp_conn\fP"
+.br
+.RI "Private pointer to database object\&. "
+.ti -1c
+.RI "\fBCli\fP * \fBp_cli\fP"
+.br
+.RI "Private pointer to a cli object\&. "
+.in -1c
+.SH "Detailed Description"
 .PP 
-.SS "void Client::setup ()"
+Class implementing the functionality of a client\&. 
+
+Receives and interpretes information from stdin and sends requests to the server\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Client::Client ()\fC [inline]\fP"
 
 .PP
-A method that waits CLI input from method getCliInput\&. The method will break if input is interpreted as exit or continue by sending the request to be handled\&. 
+Instantiates database type DbType_e and corresponding \fBDatabase\fP\&. \fBClient\fP constructor() 
+.SS "Client::~Client ()\fC [inline]\fP"
+
+.PP
+deletes previous instantiated \fBDatabase\fP\&. \fBClient\fP deconstructor() 
+.SH "Member Function Documentation"
+.PP 
+.SS "static std::vector<std::string> Client::getCliInput (\fBCli\fP * p_cli)\fC [inline]\fP, \fC [static]\fP, \fC [private]\fP"
+
+.PP
+A method that waits for CLI to process incoming request\&. Used by std::future\&. \fBClient::getCliInput(Cli* p_cli)\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp_cli\fP 
+.RE
 .PP
 \fBReturns:\fP
 .RS 4
-
+A vector of strings containing the result of CLI process 
 .RE
 .PP
 
+.SS "void Client::handleCallback (std::vector< std::string > request, bool connected)\fC [private]\fP"
+
+.PP
+handles the clients requests to the server\&. Client::handleCallback(std::vector<std::string request , bool connected) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP - String containing all information needed for the server request\&. 
+.br
+\fIconnected\fP - Boolean parameter indicating we have an established ssh connection\&. 
+.RE
+.PP
+
+.SS "void Client::setup ()"
+
+.PP
+A method that waits for input from private method \fBClient::getCliInput()\fP\&. The method will break if input is interpreted as exit or continues by having the request handled in \fBClient::handleCallback()\fP\&. \fBClient::setup()\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBCli\fP* Client::p_cli\fC [private]\fP"
+
+.PP
+Private pointer to a cli object\&. Cli* p_cli\&. 
+.SS "\fBConnection\fP* Client::p_conn\fC [private]\fP"
+
+.PP
+Private pointer to database object\&. Database* p_db 
+.SS "\fBDatabase\fP* Client::p_db\fC [private]\fP"
+
+.PP
+Private pointer ot \fBDatabase\fP object\&. \fBClient\fP *p_db 
 
 .SH "Author"
 .PP 

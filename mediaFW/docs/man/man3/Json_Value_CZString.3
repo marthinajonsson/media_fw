@@ -1,0 +1,86 @@
+.TH "Json::Value::CZString" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Json::Value::CZString
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStringStorage\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBDuplicationPolicy\fP { \fBnoDuplication\fP = 0, \fBduplicate\fP, \fBduplicateOnCopy\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCZString\fP (ArrayIndex index)"
+.br
+.ti -1c
+.RI "\fBCZString\fP (char const *str, unsigned length, DuplicationPolicy allocate)"
+.br
+.ti -1c
+.RI "\fBCZString\fP (\fBCZString\fP const &other)"
+.br
+.ti -1c
+.RI "\fBCZString\fP & \fBoperator=\fP (const \fBCZString\fP &other)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (\fBCZString\fP const &other) const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (\fBCZString\fP const &other) const"
+.br
+.ti -1c
+.RI "ArrayIndex \fBindex\fP () const"
+.br
+.ti -1c
+.RI "char const  * \fBdata\fP () const"
+.br
+.ti -1c
+.RI "unsigned \fBlength\fP () const"
+.br
+.ti -1c
+.RI "bool \fBisStaticString\fP () const"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBswap\fP (\fBCZString\fP &other)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "char const  * \fBcstr_\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   ArrayIndex \fBindex_\fP"
+.br
+.ti -1c
+.RI "   \fBStringStorage\fP \fBstorage_\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

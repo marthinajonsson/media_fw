@@ -157,6 +157,14 @@ J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG J\+S\+O\+N\+\_\+\+A\+PI {\bfseries val
 \item 
 J\+S\+O\+N\+\_\+\+A\+PI J\+S\+O\+N\+C\+P\+P\+\_\+\+O\+S\+T\+R\+E\+AM \& \hyperlink{namespaceJson_a975d1dbca8aa7a06f38d373edcb9081c}{operator$<$$<$} (J\+S\+O\+N\+C\+P\+P\+\_\+\+O\+S\+T\+R\+E\+AM \&, const \hyperlink{classJson_1_1Value}{Value} \&root)
 \begin{DoxyCompactList}\small\item\em Output using the Styled\+Stream\+Writer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceJson_ac99d7a5551039dfa712dd1d143c25a16}\label{namespaceJson_ac99d7a5551039dfa712dd1d143c25a16}} 
+static char {\bfseries get\+Decimal\+Point} ()
+\item 
+\mbox{\Hypertarget{namespaceJson_a33f8bda65a5b1fc4f5ddc39cb03dc742}\label{namespaceJson_a33f8bda65a5b1fc4f5ddc39cb03dc742}} 
+static J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG \hyperlink{namespaceJson_a33f8bda65a5b1fc4f5ddc39cb03dc742}{code\+Point\+To\+U\+T\+F8} (unsigned int cp)
+\begin{DoxyCompactList}\small\item\em Converts a unicode code-\/point to U\+T\+F-\/8. \end{DoxyCompactList}\item 
+static void \hyperlink{namespaceJson_ac1ffd21a9e55122014353c773ccc496e}{uint\+To\+String} (Largest\+U\+Int value, char $\ast$\&current)
+\item 
 {\footnotesize template$<$typename Iter $>$ }\\Iter \hyperlink{namespaceJson_a4f93f184c2890cb99b07afeed10a89ec}{fix\+Numeric\+Locale} (Iter begin, Iter end)
 \item 
 \mbox{\Hypertarget{namespaceJson_adc6272a7aca28093bc7232ada8607fe4}\label{namespaceJson_adc6272a7aca28093bc7232ada8607fe4}} 
@@ -164,8 +172,50 @@ J\+S\+O\+N\+\_\+\+A\+PI J\+S\+O\+N\+C\+P\+P\+\_\+\+O\+S\+T\+R\+E\+AM \& \hyperli
 \item 
 {\footnotesize template$<$typename Iter $>$ }\\Iter \hyperlink{namespaceJson_ae7b26e19e40cb18a11568cb477ff1743}{fix\+Zeros\+In\+The\+End} (Iter begin, Iter end)
 \item 
+\mbox{\Hypertarget{namespaceJson_a8c38450840f3d88e9b981ae132f7ad0a}\label{namespaceJson_a8c38450840f3d88e9b981ae132f7ad0a}} 
+static void {\bfseries get\+Valid\+Reader\+Keys} (std\+::set$<$ J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG $>$ $\ast$valid\+\_\+keys)
+\item 
 \mbox{\Hypertarget{namespaceJson_a38f903cfdb57a6c4e86a7dcc42f3712c}\label{namespaceJson_a38f903cfdb57a6c4e86a7dcc42f3712c}} 
 bool {\bfseries parse\+From\+Stream} (\hyperlink{classJson_1_1CharReader_1_1Factory}{Char\+Reader\+::\+Factory} const \&fact, J\+S\+O\+N\+C\+P\+P\+\_\+\+I\+S\+T\+R\+E\+AM \&sin, \hyperlink{classJson_1_1Value}{Value} $\ast$root, J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG $\ast$errs)
+\item 
+\mbox{\Hypertarget{namespaceJson_aff0180507262a244de61b961178d7443}\label{namespaceJson_aff0180507262a244de61b961178d7443}} 
+{\footnotesize template$<$typename T , typename U $>$ }\\static bool {\bfseries In\+Range} (double d, T min, U max)
+\item 
+static char $\ast$ \hyperlink{namespaceJson_a678ac3a60cd70ec0fb4c9abfd40eb0c4}{duplicate\+String\+Value} (const char $\ast$value, size\+\_\+t length)
+\item 
+\mbox{\Hypertarget{namespaceJson_a9795a09a0141d1f12d307c4386aeaee6}\label{namespaceJson_a9795a09a0141d1f12d307c4386aeaee6}} 
+static char $\ast$ {\bfseries duplicate\+And\+Prefix\+String\+Value} (const char $\ast$value, unsigned int length)
+\item 
+\mbox{\Hypertarget{namespaceJson_aad8b4982c1acd164f541fba396ac9fb1}\label{namespaceJson_aad8b4982c1acd164f541fba396ac9fb1}} 
+static void {\bfseries decode\+Prefixed\+String} (bool is\+Prefixed, char const $\ast$prefixed, unsigned $\ast$length, char const $\ast$$\ast$value)
+\item 
+static void \hyperlink{namespaceJson_a48f4e3ea655e3b4a5d7f892c81f00511}{release\+Prefixed\+String\+Value} (char $\ast$value)
+\item 
+\mbox{\Hypertarget{namespaceJson_a3e0d81d514d0e8bddf33b08074214abd}\label{namespaceJson_a3e0d81d514d0e8bddf33b08074214abd}} 
+static void {\bfseries release\+String\+Value} (char $\ast$value, unsigned)
+\item 
+\mbox{\Hypertarget{namespaceJson_a1a04cc9d31e64b5912dade003c9b99b5}\label{namespaceJson_a1a04cc9d31e64b5912dade003c9b99b5}} 
+static bool {\bfseries Is\+Integral} (double d)
+\item 
+\mbox{\Hypertarget{namespaceJson_ae281325b4cbb7c2127c1ac90172261b5}\label{namespaceJson_ae281325b4cbb7c2127c1ac90172261b5}} 
+static bool {\bfseries is\+Any\+Char\+Required\+Quoting} (char const $\ast$s, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{namespaceJson_a09f2caaead38dd396b21affdf87230ae}\label{namespaceJson_a09f2caaead38dd396b21affdf87230ae}} 
+static unsigned int {\bfseries utf8\+To\+Codepoint} (const char $\ast$\&s, const char $\ast$e)
+\item 
+\mbox{\Hypertarget{namespaceJson_a32516165138491f1689956be8e4e7212}\label{namespaceJson_a32516165138491f1689956be8e4e7212}} 
+static J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG {\bfseries to\+Hex16\+Bit} (unsigned int x)
+\item 
+\mbox{\Hypertarget{namespaceJson_a29aff81733b8fdaabf3f1acfc3ad339f}\label{namespaceJson_a29aff81733b8fdaabf3f1acfc3ad339f}} 
+static J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG {\bfseries value\+To\+Quoted\+StringN} (const char $\ast$value, unsigned length)
+\item 
+\mbox{\Hypertarget{namespaceJson_a77ffcc6bb405332d84c260d304d4384e}\label{namespaceJson_a77ffcc6bb405332d84c260d304d4384e}} 
+static void {\bfseries get\+Valid\+Writer\+Keys} (std\+::set$<$ J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG $>$ $\ast$valid\+\_\+keys)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char {\bfseries hex2} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -274,6 +324,22 @@ object\+Value&object value (collection of name/value pairs). \\
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceJson_a678ac3a60cd70ec0fb4c9abfd40eb0c4}\label{namespaceJson_a678ac3a60cd70ec0fb4c9abfd40eb0c4}} 
+\index{Json@{Json}!duplicate\+String\+Value@{duplicate\+String\+Value}}
+\index{duplicate\+String\+Value@{duplicate\+String\+Value}!Json@{Json}}
+\subsubsection{\texorpdfstring{duplicate\+String\+Value()}{duplicateStringValue()}}
+{\footnotesize\ttfamily static char$\ast$ Json\+::duplicate\+String\+Value (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Duplicates the specified string value. 
+\begin{DoxyParams}{Parameters}
+{\em value} & Pointer to the string to duplicate. Must be zero-\/terminated if length is \char`\"{}unknown\char`\"{}. \\
+\hline
+{\em length} & Length of the value. if equals to unknown, then it will be computed using strlen(value). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer on the duplicate instance of string. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{namespaceJson_a4f93f184c2890cb99b07afeed10a89ec}\label{namespaceJson_a4f93f184c2890cb99b07afeed10a89ec}} 
 \index{Json@{Json}!fix\+Numeric\+Locale@{fix\+Numeric\+Locale}}
 \index{fix\+Numeric\+Locale@{fix\+Numeric\+Locale}!Json@{Json}}
@@ -436,4 +502,50 @@ cout << root;
 \subsubsection{\texorpdfstring{parse\+From\+Stream()}{parseFromStream()}}
 {\footnotesize\ttfamily bool J\+S\+O\+N\+\_\+\+A\+PI Json\+::parse\+From\+Stream (\begin{DoxyParamCaption}\item[{\hyperlink{classJson_1_1CharReader_1_1Factory}{Char\+Reader\+::\+Factory} const \&}]{,  }\item[{J\+S\+O\+N\+C\+P\+P\+\_\+\+I\+S\+T\+R\+E\+AM \&}]{,  }\item[{\hyperlink{classJson_1_1Value}{Value} $\ast$}]{root,  }\item[{std\+::string $\ast$}]{errs }\end{DoxyParamCaption})}
 
-Consume entire stream and use its begin/end. Someday we might have a real Stream\+Reader, but for now this is convenient. 
+Consume entire stream and use its begin/end. Someday we might have a real Stream\+Reader, but for now this is convenient. \mbox{\Hypertarget{namespaceJson_a48f4e3ea655e3b4a5d7f892c81f00511}\label{namespaceJson_a48f4e3ea655e3b4a5d7f892c81f00511}} 
+\index{Json@{Json}!release\+Prefixed\+String\+Value@{release\+Prefixed\+String\+Value}}
+\index{release\+Prefixed\+String\+Value@{release\+Prefixed\+String\+Value}!Json@{Json}}
+\subsubsection{\texorpdfstring{release\+Prefixed\+String\+Value()}{releasePrefixedStringValue()}}
+{\footnotesize\ttfamily static void Json\+::release\+Prefixed\+String\+Value (\begin{DoxyParamCaption}\item[{char $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Free the string duplicated by \hyperlink{namespaceJson_a678ac3a60cd70ec0fb4c9abfd40eb0c4}{duplicate\+String\+Value()}/duplicate\+And\+Prefix\+String\+Value(). \mbox{\Hypertarget{namespaceJson_ac1ffd21a9e55122014353c773ccc496e}\label{namespaceJson_ac1ffd21a9e55122014353c773ccc496e}} 
+\index{Json@{Json}!uint\+To\+String@{uint\+To\+String}}
+\index{uint\+To\+String@{uint\+To\+String}!Json@{Json}}
+\subsubsection{\texorpdfstring{uint\+To\+String()}{uintToString()}}
+{\footnotesize\ttfamily static void Json\+::uint\+To\+String (\begin{DoxyParamCaption}\item[{Largest\+U\+Int}]{value,  }\item[{char $\ast$\&}]{current }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Converts an unsigned integer to string. 
+\begin{DoxyParams}{Parameters}
+{\em value} & Unsigned integer to convert to string \\
+\hline
+{\em current} & Input/\+Output string buffer. Must have at least uint\+To\+String\+Buffer\+Size chars free. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceJson_a05aed54518637ec00aac59b03eb855a1}\label{namespaceJson_a05aed54518637ec00aac59b03eb855a1}} 
+\index{Json@{Json}!hex2@{hex2}}
+\index{hex2@{hex2}!Json@{Json}}
+\subsubsection{\texorpdfstring{hex2}{hex2}}
+{\footnotesize\ttfamily const char Json\+::hex2\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"000102030405060708090a0b0c0d0e0f"}
+                           \textcolor{stringliteral}{"101112131415161718191a1b1c1d1e1f"}
+                           \textcolor{stringliteral}{"202122232425262728292a2b2c2d2e2f"}
+                           \textcolor{stringliteral}{"303132333435363738393a3b3c3d3e3f"}
+                           \textcolor{stringliteral}{"404142434445464748494a4b4c4d4e4f"}
+                           \textcolor{stringliteral}{"505152535455565758595a5b5c5d5e5f"}
+                           \textcolor{stringliteral}{"606162636465666768696a6b6c6d6e6f"}
+                           \textcolor{stringliteral}{"707172737475767778797a7b7c7d7e7f"}
+                           \textcolor{stringliteral}{"808182838485868788898a8b8c8d8e8f"}
+                           \textcolor{stringliteral}{"909192939495969798999a9b9c9d9e9f"}
+                           \textcolor{stringliteral}{"a0a1a2a3a4a5a6a7a8a9aaabacadaeaf"}
+                           \textcolor{stringliteral}{"b0b1b2b3b4b5b6b7b8b9babbbcbdbebf"}
+                           \textcolor{stringliteral}{"c0c1c2c3c4c5c6c7c8c9cacbcccdcecf"}
+                           \textcolor{stringliteral}{"d0d1d2d3d4d5d6d7d8d9dadbdcdddedf"}
+                           \textcolor{stringliteral}{"e0e1e2e3e4e5e6e7e8e9eaebecedeeef"}
+                           \textcolor{stringliteral}{"f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff"}
+\end{DoxyCode}

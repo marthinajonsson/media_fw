@@ -9,7 +9,39 @@ bool {\bfseries get\+Connection\+Status} ()
 \mbox{\Hypertarget{classConnection_ab59a9e6d364eff3f116e60b6ccc60f1b}\label{classConnection_ab59a9e6d364eff3f116e60b6ccc60f1b}} 
 bool {\bfseries send\+Remote\+Commands} (std\+::string request, std\+::string \&result)
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classConnection_a6ff354280eacd558865f34d95a1bfa95}{establish\+Ssh\+Connect} ()
+\item 
+\mbox{\Hypertarget{classConnection_a1f148113eae10ea69fd54af1f2c6d8ad}\label{classConnection_a1f148113eae10ea69fd54af1f2c6d8ad}} 
+int {\bfseries verify\+Host} (ssh\+\_\+session session)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnection_af70967306ab56018b8303a1330aa3f7f}\label{classConnection_af70967306ab56018b8303a1330aa3f7f}} 
+ssh\+\_\+session {\bfseries m\+\_\+ssh\+\_\+session}
+\item 
+\mbox{\Hypertarget{classConnection_ac4432476199b9da0ac58496c0578cd89}\label{classConnection_ac4432476199b9da0ac58496c0578cd89}} 
+int {\bfseries m\+\_\+result}
+\item 
+\mbox{\Hypertarget{classConnection_ac9ab118f67d8c509b92ab6c565a149eb}\label{classConnection_ac9ab118f67d8c509b92ab6c565a149eb}} 
+bool {\bfseries m\+\_\+currently\+Connected}
+\item 
+\mbox{\Hypertarget{classConnection_a53e09ae763001b83819c2b249a867802}\label{classConnection_a53e09ae763001b83819c2b249a867802}} 
+char $\ast$ {\bfseries m\+\_\+password}
+\end{DoxyCompactItemize}
 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classConnection_a6ff354280eacd558865f34d95a1bfa95}\label{classConnection_a6ff354280eacd558865f34d95a1bfa95}} 
+\index{Connection@{Connection}!establish\+Ssh\+Connect@{establish\+Ssh\+Connect}}
+\index{establish\+Ssh\+Connect@{establish\+Ssh\+Connect}!Connection@{Connection}}
+\subsubsection{\texorpdfstring{establish\+Ssh\+Connect()}{establishSshConnect()}}
+{\footnotesize\ttfamily void Connection\+::establish\+Ssh\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This module shall setup ssh connection to the server and sen remoote commands 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

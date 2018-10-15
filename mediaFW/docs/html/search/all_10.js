@@ -1,18 +1,10 @@
 var searchData=
 [
-  ['setcomment',['setComment',['../classJson_1_1Value.html#a29f3a30f7e5d3af6f38d57999bf5b480',1,'Json::Value::setComment(const char *comment, CommentPlacement placement)'],['../classJson_1_1Value.html#a2900152a2887b410a9ddabe278b9d492',1,'Json::Value::setComment(const char *comment, size_t len, CommentPlacement placement)'],['../classJson_1_1Value.html#a2c5d13a5f45eb77e912008778e65b27f',1,'Json::Value::setComment(const JSONCPP_STRING &amp;comment, CommentPlacement placement)']]],
-  ['setdefaults',['setDefaults',['../classJson_1_1CharReaderBuilder.html#a03ff031e06aabff989ab4addc87294ab',1,'Json::CharReaderBuilder::setDefaults()'],['../classJson_1_1StreamWriterBuilder.html#a53bf106b141e28637b01ad0ecd2acbf6',1,'Json::StreamWriterBuilder::setDefaults()']]],
-  ['settings_5f',['settings_',['../classJson_1_1CharReaderBuilder.html#ac69b7911ad64c171c51ebaf2ea26d958',1,'Json::CharReaderBuilder::settings_()'],['../classJson_1_1StreamWriterBuilder.html#a79bdf2e639a52f4e758c0b95bd1d3423',1,'Json::StreamWriterBuilder::settings_()']]],
-  ['setup',['setup',['../classClient.html#a33b0b1f7391689c68fa125549e8c5dcc',1,'Client']]],
-  ['significantdigits',['significantDigits',['../namespaceJson.html#af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a',1,'Json']]],
-  ['size',['size',['../classJson_1_1Value.html#a0ec2808e1d7efa4e9fad938d6667be44',1,'Json::Value']]],
-  ['staticstring',['StaticString',['../classJson_1_1StaticString.html',1,'Json']]],
-  ['streamwriter',['StreamWriter',['../classJson_1_1StreamWriter.html',1,'Json']]],
-  ['streamwriterbuilder',['StreamWriterBuilder',['../classJson_1_1StreamWriterBuilder.html',1,'Json']]],
-  ['strictmode',['strictMode',['../classJson_1_1Features.html#ae23176c14b2e79e81fb61fb1a8ab58ee',1,'Json::Features::strictMode()'],['../classJson_1_1CharReaderBuilder.html#a9c19e3c5475f9072d527810d4bf56749',1,'Json::CharReaderBuilder::strictMode()']]],
-  ['strictroot_5f',['strictRoot_',['../classJson_1_1Features.html#a1162c37a1458adc32582b585b552f9c3',1,'Json::Features']]],
-  ['stringvalue',['stringValue',['../namespaceJson.html#a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258',1,'Json']]],
-  ['structurederror',['StructuredError',['../structJson_1_1OurReader_1_1StructuredError.html',1,'Json::OurReader::StructuredError'],['../structJson_1_1Reader_1_1StructuredError.html',1,'Json::Reader::StructuredError']]],
-  ['swap',['swap',['../classJson_1_1Value.html#aab841120d78e296e1bc06a373345e822',1,'Json::Value']]],
-  ['swappayload',['swapPayload',['../classJson_1_1Value.html#a5263476047f20e2fc6de470e4de34fe5',1,'Json::Value']]]
+  ['reader',['Reader',['../classJson_1_1Reader.html',1,'Json::Reader'],['../classJson_1_1Reader.html#a0b3c4e24c8393354bab57a6ba3ffc27f',1,'Json::Reader::Reader()'],['../classJson_1_1Reader.html#a45f17831118337309180313e93ac33f8',1,'Json::Reader::Reader(const Features &amp;features)']]],
+  ['realvalue',['realValue',['../namespaceJson.html#a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e',1,'Json']]],
+  ['releaseprefixedstringvalue',['releasePrefixedStringValue',['../namespaceJson.html#a48f4e3ea655e3b4a5d7f892c81f00511',1,'Json']]],
+  ['removeindex',['removeIndex',['../classJson_1_1Value.html#a64160c23c1f2f8b33913364f25d6c58d',1,'Json::Value']]],
+  ['removemember',['removeMember',['../classJson_1_1Value.html#a92e165f04105d27a930fb3a18a053585',1,'Json::Value::removeMember(const char *key)'],['../classJson_1_1Value.html#a8a660202bbad35857b39e85bd35ec78a',1,'Json::Value::removeMember(const JSONCPP_STRING &amp;key)'],['../classJson_1_1Value.html#a708e599489adf30d65bf85a8ee16e6fb',1,'Json::Value::removeMember(const char *key, Value *removed)'],['../classJson_1_1Value.html#ae385ecef98427970df525ee876e9f54a',1,'Json::Value::removeMember(JSONCPP_STRING const &amp;key, Value *removed)'],['../classJson_1_1Value.html#a49c91af727d6b4eb0af02a81bb2def87',1,'Json::Value::removeMember(const char *begin, const char *end, Value *removed)']]],
+  ['resize',['resize',['../classJson_1_1Value.html#a7a064d8aa47fde09a268be2aea992134',1,'Json::Value']]],
+  ['runtimeerror',['RuntimeError',['../classJson_1_1RuntimeError.html',1,'Json']]]
 ];

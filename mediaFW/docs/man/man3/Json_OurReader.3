@@ -10,7 +10,13 @@ Json::OurReader
 
 .in +1c
 .ti -1c
+.RI "class \fBErrorInfo\fP"
+.br
+.ti -1c
 .RI "struct \fBStructuredError\fP"
+.br
+.ti -1c
+.RI "class \fBToken\fP"
 .br
 .in -1c
 .SS "Public Types"
@@ -46,6 +52,166 @@ Json::OurReader
 .br
 .ti -1c
 .RI "bool \fBgood\fP () const"
+.br
+.in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTokenType\fP { \fBtokenEndOfStream\fP = 0, \fBtokenObjectBegin\fP, \fBtokenObjectEnd\fP, \fBtokenArrayBegin\fP, \fBtokenArrayEnd\fP, \fBtokenString\fP, \fBtokenNumber\fP, \fBtokenTrue\fP, \fBtokenFalse\fP, \fBtokenNull\fP, \fBtokenNaN\fP, \fBtokenPosInf\fP, \fBtokenNegInf\fP, \fBtokenArraySeparator\fP, \fBtokenMemberSeparator\fP, \fBtokenComment\fP, \fBtokenError\fP }"
+.br
+.ti -1c
+.RI "typedef std::deque< \fBErrorInfo\fP > \fBErrors\fP"
+.br
+.ti -1c
+.RI "typedef std::stack< \fBValue\fP * > \fBNodes\fP"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOurReader\fP (\fBOurReader\fP const &)"
+.br
+.ti -1c
+.RI "void \fBoperator=\fP (\fBOurReader\fP const &)"
+.br
+.ti -1c
+.RI "bool \fBreadToken\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "void \fBskipSpaces\fP ()"
+.br
+.ti -1c
+.RI "bool \fBmatch\fP (Location pattern, int patternLength)"
+.br
+.ti -1c
+.RI "bool \fBreadComment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadCStyleComment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadCppStyleComment\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadString\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadStringSingleQuote\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadNumber\fP (bool checkInf)"
+.br
+.ti -1c
+.RI "bool \fBreadValue\fP ()"
+.br
+.ti -1c
+.RI "bool \fBreadObject\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBreadArray\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBdecodeNumber\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBdecodeNumber\fP (\fBToken\fP &token, \fBValue\fP &decoded)"
+.br
+.ti -1c
+.RI "bool \fBdecodeString\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBdecodeString\fP (\fBToken\fP &token, JSONCPP_STRING &decoded)"
+.br
+.ti -1c
+.RI "bool \fBdecodeDouble\fP (\fBToken\fP &token)"
+.br
+.ti -1c
+.RI "bool \fBdecodeDouble\fP (\fBToken\fP &token, \fBValue\fP &decoded)"
+.br
+.ti -1c
+.RI "bool \fBdecodeUnicodeCodePoint\fP (\fBToken\fP &token, Location &current, Location end, unsigned int &unicode)"
+.br
+.ti -1c
+.RI "bool \fBdecodeUnicodeEscapeSequence\fP (\fBToken\fP &token, Location &current, Location end, unsigned int &unicode)"
+.br
+.ti -1c
+.RI "bool \fBaddError\fP (const JSONCPP_STRING &message, \fBToken\fP &token, Location extra=0)"
+.br
+.ti -1c
+.RI "bool \fBrecoverFromError\fP (TokenType skipUntilToken)"
+.br
+.ti -1c
+.RI "bool \fBaddErrorAndRecover\fP (const JSONCPP_STRING &message, \fBToken\fP &token, TokenType skipUntilToken)"
+.br
+.ti -1c
+.RI "void \fBskipUntilSpace\fP ()"
+.br
+.ti -1c
+.RI "\fBValue\fP & \fBcurrentValue\fP ()"
+.br
+.ti -1c
+.RI "Char \fBgetNextChar\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetLocationLineAndColumn\fP (Location location, int &line, int &column) const"
+.br
+.ti -1c
+.RI "JSONCPP_STRING \fBgetLocationLineAndColumn\fP (Location location) const"
+.br
+.ti -1c
+.RI "void \fBaddComment\fP (Location begin, Location end, \fBCommentPlacement\fP placement)"
+.br
+.ti -1c
+.RI "void \fBskipCommentTokens\fP (\fBToken\fP &token)"
+.br
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static JSONCPP_STRING \fBnormalizeEOL\fP (Location begin, Location end)"
+.br
+.ti -1c
+.RI "static bool \fBcontainsNewLine\fP (Location begin, Location end)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "Nodes \fBnodes_\fP"
+.br
+.ti -1c
+.RI "Errors \fBerrors_\fP"
+.br
+.ti -1c
+.RI "JSONCPP_STRING \fBdocument_\fP"
+.br
+.ti -1c
+.RI "Location \fBbegin_\fP"
+.br
+.ti -1c
+.RI "Location \fBend_\fP"
+.br
+.ti -1c
+.RI "Location \fBcurrent_\fP"
+.br
+.ti -1c
+.RI "Location \fBlastValueEnd_\fP"
+.br
+.ti -1c
+.RI "\fBValue\fP * \fBlastValue_\fP"
+.br
+.ti -1c
+.RI "JSONCPP_STRING \fBcommentsBefore_\fP"
+.br
+.ti -1c
+.RI "\fBOurFeatures\fP const \fBfeatures_\fP"
+.br
+.ti -1c
+.RI "bool \fBcollectComments_\fP"
 .br
 .in -1c
 

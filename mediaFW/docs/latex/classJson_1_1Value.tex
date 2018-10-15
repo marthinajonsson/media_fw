@@ -16,9 +16,18 @@ Collaboration diagram for Json\+:\+:Value\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=202pt]{classJson_1_1Value__coll__graph}
+\includegraphics[width=350pt]{classJson_1_1Value__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structJson_1_1Value_1_1CommentInfo}{Comment\+Info}
+\item 
+class \hyperlink{classJson_1_1Value_1_1CZString}{C\+Z\+String}
+\item 
+union \hyperlink{unionJson_1_1Value_1_1ValueHolder}{Value\+Holder}
+\end{DoxyCompactItemize}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,7 +65,7 @@ typedef Json\+::\+Array\+Index {\bfseries Array\+Index}
 typedef std\+::string {\bfseries value\+\_\+type}
 \item 
 \mbox{\Hypertarget{classJson_1_1Value_a08b6c80c3af7071d908dabf044de5388}\label{classJson_1_1Value_a08b6c80c3af7071d908dabf044de5388}} 
-typedef std\+::map$<$ C\+Z\+String, \hyperlink{classJson_1_1Value}{Value} $>$ {\bfseries Object\+Values}
+typedef std\+::map$<$ \hyperlink{classJson_1_1Value_1_1CZString}{C\+Z\+String}, \hyperlink{classJson_1_1Value}{Value} $>$ {\bfseries Object\+Values}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -360,6 +369,48 @@ static const U\+Int64 \hyperlink{classJson_1_1Value_ae1eb89c305c39516696ff305cff
 \mbox{\Hypertarget{classJson_1_1Value_aaece556f282980ec2be4b39b9576075f}\label{classJson_1_1Value_aaece556f282980ec2be4b39b9576075f}} 
 static const U\+Int \hyperlink{classJson_1_1Value_aaece556f282980ec2be4b39b9576075f}{default\+Real\+Precision} = 17
 \begin{DoxyCompactList}\small\item\em Default precision for real value for string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a32b86b71564157f40f880f5736be822a}\label{classJson_1_1Value_a32b86b71564157f40f880f5736be822a}} 
+void {\bfseries init\+Basic} (\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4e}{Value\+Type} type, bool allocated=false)
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a13a986e39651853469b6c3ef39898b0a}\label{classJson_1_1Value_a13a986e39651853469b6c3ef39898b0a}} 
+void {\bfseries dup\+Payload} (const \hyperlink{classJson_1_1Value}{Value} \&other)
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_ac47cca0abfc24071b1c5caa98d752862}\label{classJson_1_1Value_ac47cca0abfc24071b1c5caa98d752862}} 
+void {\bfseries release\+Payload} ()
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a0a277596eda744a8d1ffb6dec43b8627}\label{classJson_1_1Value_a0a277596eda744a8d1ffb6dec43b8627}} 
+void {\bfseries dup\+Meta} (const \hyperlink{classJson_1_1Value}{Value} \&other)
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a9ff9cdae2c8f4155bab603d750b0b3f1}\label{classJson_1_1Value_a9ff9cdae2c8f4155bab603d750b0b3f1}} 
+\hyperlink{classJson_1_1Value}{Value} \& {\bfseries resolve\+Reference} (const char $\ast$key)
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a5f6b3aaf4f2e952a33dd823db008c333}\label{classJson_1_1Value_a5f6b3aaf4f2e952a33dd823db008c333}} 
+\hyperlink{classJson_1_1Value}{Value} \& {\bfseries resolve\+Reference} (const char $\ast$key, const char $\ast$end)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_aef578244546212705b9f81eb84d7e151}\label{classJson_1_1Value_aef578244546212705b9f81eb84d7e151}} 
+union \hyperlink{unionJson_1_1Value_1_1ValueHolder}{Json\+::\+Value\+::\+Value\+Holder} {\bfseries value\+\_\+}
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_abd222c2536dc88bf330dedcd076d2356}\label{classJson_1_1Value_abd222c2536dc88bf330dedcd076d2356}} 
+\hyperlink{namespaceJson_a7d654b75c16a57007925868e38212b4e}{Value\+Type} {\bfseries type\+\_\+}\+: 8
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_ae0126c80dc4907aad94088553fc7632b}\label{classJson_1_1Value_ae0126c80dc4907aad94088553fc7632b}} 
+unsigned int {\bfseries allocated\+\_\+}\+: 1
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a2016564cabc7a29208e97bd0b782a4e4}\label{classJson_1_1Value_a2016564cabc7a29208e97bd0b782a4e4}} 
+\hyperlink{structJson_1_1Value_1_1CommentInfo}{Comment\+Info} $\ast$ {\bfseries comments\+\_\+}
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_a1c3aeb0fa8fefe93776cb347c76a25a8}\label{classJson_1_1Value_a1c3aeb0fa8fefe93776cb347c76a25a8}} 
+ptrdiff\+\_\+t {\bfseries start\+\_\+}
+\item 
+\mbox{\Hypertarget{classJson_1_1Value_afe377e25f6d3b5b8ea7221c84f29412a}\label{classJson_1_1Value_afe377e25f6d3b5b8ea7221c84f29412a}} 
+ptrdiff\+\_\+t {\bfseries limit\+\_\+}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -767,4 +818,4 @@ just a kludge for binary-\/compatibility; same as null
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 /home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/json/json.\+h\item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/jsoncpp.\+cpp\end{DoxyCompactItemize}
+/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/json/jsoncpp.\+cpp\end{DoxyCompactItemize}

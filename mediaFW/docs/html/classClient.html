@@ -59,27 +59,225 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classClient-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Client Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class implementing the functionality of a client.  
+ <a href="classClient.html#details">More...</a></p>
+<div class="dynheader">
+Collaboration diagram for Client:</div>
+<div class="dyncontent">
+<div class="center"><img src="classClient__coll__graph.png" border="0" usemap="#Client_coll__map" alt="Collaboration graph"/></div>
+<map name="Client_coll__map" id="Client_coll__map">
+<area shape="rect" id="node2" href="classDatabase.html" title="Database" alt="" coords="87,500,171,527"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="183,96,270,123"/>
+<area shape="rect" id="node8" href="classDatabaseItem.html" title="DatabaseItem" alt="" coords="235,314,349,341"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="157,5,296,47"/>
+<area shape="rect" id="node9" href="classCli.html" title="Class implementing the functionality of a command line interface. " alt="" coords="195,500,234,527"/>
+<area shape="rect" id="node10" href="classConnection.html" title="Connection" alt="" coords="258,500,353,527"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7312758312581aa3b543c2b65852d193"><td class="memItemLeft" align="right" valign="top"><a id="a7312758312581aa3b543c2b65852d193"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>DbType_e</b> { <b>Movie</b> = 2, 
+<b>Series</b> = 1, 
+<b>Undefined</b> = 0
+ }</td></tr>
+<tr class="separator:a7312758312581aa3b543c2b65852d193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae51af7aa6b8f591496a8f6a4a87a14bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf">Client</a> ()</td></tr>
+<tr class="memdesc:ae51af7aa6b8f591496a8f6a4a87a14bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates database type DbType_e and corresponding <a class="el" href="classDatabase.html">Database</a>.  <a href="#ae51af7aa6b8f591496a8f6a4a87a14bf">More...</a><br /></td></tr>
+<tr class="separator:ae51af7aa6b8f591496a8f6a4a87a14bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840e519ca781888cbd54181572ebe3a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a840e519ca781888cbd54181572ebe3a7">~Client</a> ()</td></tr>
+<tr class="memdesc:a840e519ca781888cbd54181572ebe3a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">deletes previous instantiated <a class="el" href="classDatabase.html">Database</a>.  <a href="#a840e519ca781888cbd54181572ebe3a7">More...</a><br /></td></tr>
+<tr class="separator:a840e519ca781888cbd54181572ebe3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33b0b1f7391689c68fa125549e8c5dcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a33b0b1f7391689c68fa125549e8c5dcc">setup</a> ()</td></tr>
-<tr class="memdesc:a33b0b1f7391689c68fa125549e8c5dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that waits CLI input from method getCliInput. The method will break if input is interpreted as exit or continue by sending the request to be handled.  <a href="#a33b0b1f7391689c68fa125549e8c5dcc">More...</a><br /></td></tr>
+<tr class="memdesc:a33b0b1f7391689c68fa125549e8c5dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that waits for input from private method <a class="el" href="classClient.html#a62807c316030505b03b90186d3b06a25" title="A method that waits for CLI to process incoming request. Used by std::future. ">Client::getCliInput()</a>. The method will break if input is interpreted as exit or continues by having the request handled in <a class="el" href="classClient.html#a12334d98c376fbdf577d1dfa6bf9a4c0" title="handles the clients requests to the server. ">Client::handleCallback()</a>.  <a href="#a33b0b1f7391689c68fa125549e8c5dcc">More...</a><br /></td></tr>
 <tr class="separator:a33b0b1f7391689c68fa125549e8c5dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4c99f07fc4be08870e1067ba876e08fb"><td class="memItemLeft" align="right" valign="top"><a id="a4c99f07fc4be08870e1067ba876e08fb"></a>
-DbType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
-<tr class="separator:a4c99f07fc4be08870e1067ba876e08fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f36c2ec59a9d6840acbc89911e61d98"><td class="memItemLeft" align="right" valign="top"><a id="a3f36c2ec59a9d6840acbc89911e61d98"></a>
+enum Client::DbType_e&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="separator:a3f36c2ec59a9d6840acbc89911e61d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a12334d98c376fbdf577d1dfa6bf9a4c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a12334d98c376fbdf577d1dfa6bf9a4c0">handleCallback</a> (std::vector&lt; std::string &gt; request, bool connected)</td></tr>
+<tr class="memdesc:a12334d98c376fbdf577d1dfa6bf9a4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">handles the clients requests to the server.  <a href="#a12334d98c376fbdf577d1dfa6bf9a4c0">More...</a><br /></td></tr>
+<tr class="separator:a12334d98c376fbdf577d1dfa6bf9a4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a62807c316030505b03b90186d3b06a25"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a62807c316030505b03b90186d3b06a25">getCliInput</a> (<a class="el" href="classCli.html">Cli</a> *<a class="el" href="classClient.html#a48826e6a4fbfb261da3782405cd2558e">p_cli</a>)</td></tr>
+<tr class="memdesc:a62807c316030505b03b90186d3b06a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that waits for CLI to process incoming request. Used by std::future.  <a href="#a62807c316030505b03b90186d3b06a25">More...</a><br /></td></tr>
+<tr class="separator:a62807c316030505b03b90186d3b06a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac7963f918414b58d4c752fcbcc12d965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDatabase.html">Database</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#ac7963f918414b58d4c752fcbcc12d965">p_db</a></td></tr>
+<tr class="memdesc:ac7963f918414b58d4c752fcbcc12d965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private pointer ot <a class="el" href="classDatabase.html">Database</a> object.  <a href="#ac7963f918414b58d4c752fcbcc12d965">More...</a><br /></td></tr>
+<tr class="separator:ac7963f918414b58d4c752fcbcc12d965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086555f6a435428891d5f237cd454c88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classConnection.html">Connection</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a086555f6a435428891d5f237cd454c88">p_conn</a></td></tr>
+<tr class="memdesc:a086555f6a435428891d5f237cd454c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private pointer to database object.  <a href="#a086555f6a435428891d5f237cd454c88">More...</a><br /></td></tr>
+<tr class="separator:a086555f6a435428891d5f237cd454c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48826e6a4fbfb261da3782405cd2558e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCli.html">Cli</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient.html#a48826e6a4fbfb261da3782405cd2558e">p_cli</a></td></tr>
+<tr class="memdesc:a48826e6a4fbfb261da3782405cd2558e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private pointer to a cli object.  <a href="#a48826e6a4fbfb261da3782405cd2558e">More...</a><br /></td></tr>
+<tr class="separator:a48826e6a4fbfb261da3782405cd2558e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class implementing the functionality of a client. </p>
+<p>Receives and interpretes information from stdin and sends requests to the server. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae51af7aa6b8f591496a8f6a4a87a14bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51af7aa6b8f591496a8f6a4a87a14bf">&#9670;&nbsp;</a></span>Client()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Client::Client </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Instantiates database type DbType_e and corresponding <a class="el" href="classDatabase.html">Database</a>. </p>
+<p><a class="el" href="classClient.html" title="Class implementing the functionality of a client. ">Client</a> constructor() </p>
+
+</div>
+</div>
+<a id="a840e519ca781888cbd54181572ebe3a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840e519ca781888cbd54181572ebe3a7">&#9670;&nbsp;</a></span>~Client()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Client::~Client </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>deletes previous instantiated <a class="el" href="classDatabase.html">Database</a>. </p>
+<p><a class="el" href="classClient.html" title="Class implementing the functionality of a client. ">Client</a> deconstructor() </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a62807c316030505b03b90186d3b06a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62807c316030505b03b90186d3b06a25">&#9670;&nbsp;</a></span>getCliInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::vector&lt;std::string&gt; Client::getCliInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCli.html">Cli</a> *&#160;</td>
+          <td class="paramname"><em>p_cli</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A method that waits for CLI to process incoming request. Used by std::future. </p>
+<p><a class="el" href="classClient.html#a62807c316030505b03b90186d3b06a25" title="A method that waits for CLI to process incoming request. Used by std::future. ">Client::getCliInput(Cli* p_cli)</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_cli</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of strings containing the result of CLI process </dd></dl>
+
+</div>
+</div>
+<a id="a12334d98c376fbdf577d1dfa6bf9a4c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12334d98c376fbdf577d1dfa6bf9a4c0">&#9670;&nbsp;</a></span>handleCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::handleCallback </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>connected</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>handles the clients requests to the server. </p>
+<p>Client::handleCallback(std::vector&lt;std::string request , bool connected) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>- String containing all information needed for the server request. </td></tr>
+    <tr><td class="paramname">connected</td><td>- Boolean parameter indicating we have an established ssh connection. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a33b0b1f7391689c68fa125549e8c5dcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33b0b1f7391689c68fa125549e8c5dcc">&#9670;&nbsp;</a></span>setup()</h2>
 
@@ -95,8 +293,84 @@ DbType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A method that waits CLI input from method getCliInput. The method will break if input is interpreted as exit or continue by sending the request to be handled. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>A method that waits for input from private method <a class="el" href="classClient.html#a62807c316030505b03b90186d3b06a25" title="A method that waits for CLI to process incoming request. Used by std::future. ">Client::getCliInput()</a>. The method will break if input is interpreted as exit or continues by having the request handled in <a class="el" href="classClient.html#a12334d98c376fbdf577d1dfa6bf9a4c0" title="handles the clients requests to the server. ">Client::handleCallback()</a>. </p>
+<p><a class="el" href="classClient.html#a33b0b1f7391689c68fa125549e8c5dcc" title="A method that waits for input from private method Client::getCliInput(). The method will break if inp...">Client::setup()</a> </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a48826e6a4fbfb261da3782405cd2558e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48826e6a4fbfb261da3782405cd2558e">&#9670;&nbsp;</a></span>p_cli</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCli.html">Cli</a>* Client::p_cli</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private pointer to a cli object. </p>
+<p>Cli* p_cli. </p>
+
+</div>
+</div>
+<a id="a086555f6a435428891d5f237cd454c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086555f6a435428891d5f237cd454c88">&#9670;&nbsp;</a></span>p_conn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classConnection.html">Connection</a>* Client::p_conn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private pointer to database object. </p>
+<p>Database* p_db </p>
+
+</div>
+</div>
+<a id="ac7963f918414b58d4c752fcbcc12d965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7963f918414b58d4c752fcbcc12d965">&#9670;&nbsp;</a></span>p_db</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDatabase.html">Database</a>* Client::p_db</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private pointer ot <a class="el" href="classDatabase.html">Database</a> object. </p>
+<p><a class="el" href="classClient.html" title="Class implementing the functionality of a client. ">Client</a> *p_db </p>
 
 </div>
 </div>

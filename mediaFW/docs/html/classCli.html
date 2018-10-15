@@ -60,31 +60,166 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classCli-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Cli Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Class implementing the functionality of a command line interface.  
+ <a href="classCli.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Cli_8h_source.html">Cli.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Cli:</div>
-<div class="dyncontent">
-<div class="center"><img src="classCli__inherit__graph.png" border="0" usemap="#Cli_inherit__map" alt="Inheritance graph"/></div>
-<map name="Cli_inherit__map" id="Cli_inherit__map">
-<area shape="rect" id="node2" href="classMockRng.html" title="MockRng" alt="" coords="5,80,87,107"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8f7e5909bf64db25f1f264d206d61140"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a8f7e5909bf64db25f1f264d206d61140">Cli</a> ()=default</td></tr>
+<tr class="memdesc:a8f7e5909bf64db25f1f264d206d61140"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCli.html" title="Class implementing the functionality of a command line interface. ">Cli</a> default constructor.  <a href="#a8f7e5909bf64db25f1f264d206d61140">More...</a><br /></td></tr>
+<tr class="separator:a8f7e5909bf64db25f1f264d206d61140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516ed9664c99d6275d7675194f5564bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a516ed9664c99d6275d7675194f5564bf">~Cli</a> ()=default</td></tr>
+<tr class="memdesc:a516ed9664c99d6275d7675194f5564bf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCli.html" title="Class implementing the functionality of a command line interface. ">Cli</a> default deconstructor.  <a href="#a516ed9664c99d6275d7675194f5564bf">More...</a><br /></td></tr>
+<tr class="separator:a516ed9664c99d6275d7675194f5564bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9788fa4a19943c09af95b4653822d690"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a9788fa4a19943c09af95b4653822d690">process</a> ()</td></tr>
-<tr class="memdesc:a9788fa4a19943c09af95b4653822d690"><td class="mdescLeft">&#160;</td><td class="mdescRight">All methods implements Class <a class="el" href="classCli.html">Cli</a> defined in <a class="el" href="Cli_8h_source.html">Cli.h</a>.  <a href="#a9788fa4a19943c09af95b4653822d690">More...</a><br /></td></tr>
+<tr class="memdesc:a9788fa4a19943c09af95b4653822d690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public method processing input from stdin.  <a href="#a9788fa4a19943c09af95b4653822d690">More...</a><br /></td></tr>
 <tr class="separator:a9788fa4a19943c09af95b4653822d690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8c364ee0c6abe9589a4e0c8758d17f88"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a8c364ee0c6abe9589a4e0c8758d17f88">parseArg</a> (std::string &amp;input)</td></tr>
+<tr class="memdesc:a8c364ee0c6abe9589a4e0c8758d17f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses argv and splits into strings.  <a href="#a8c364ee0c6abe9589a4e0c8758d17f88">More...</a><br /></td></tr>
+<tr class="separator:a8c364ee0c6abe9589a4e0c8758d17f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8251d6c89698aaf128318fc3ad4b2906"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a8251d6c89698aaf128318fc3ad4b2906">printOptions</a> ()</td></tr>
+<tr class="memdesc:a8251d6c89698aaf128318fc3ad4b2906"><td class="mdescLeft">&#160;</td><td class="mdescRight">A private method that prints all valid options for stdin.  <a href="#a8251d6c89698aaf128318fc3ad4b2906">More...</a><br /></td></tr>
+<tr class="separator:a8251d6c89698aaf128318fc3ad4b2906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Module handling everythin related to our Command line interface. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Class implementing the functionality of a command line interface. </p>
+<p>Module handling everything related to our Command line interface.</p>
+<p>Receives inputs from STDIN and splits the result into strings. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8f7e5909bf64db25f1f264d206d61140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7e5909bf64db25f1f264d206d61140">&#9670;&nbsp;</a></span>Cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cli::Cli </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCli.html" title="Class implementing the functionality of a command line interface. ">Cli</a> default constructor. </p>
+<p><a class="el" href="classClient.html" title="Class implementing the functionality of a client. ">Client()</a> </p>
+
+</div>
+</div>
+<a id="a516ed9664c99d6275d7675194f5564bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a516ed9664c99d6275d7675194f5564bf">&#9670;&nbsp;</a></span>~Cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cli::~Cli </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classCli.html" title="Class implementing the functionality of a command line interface. ">Cli</a> default deconstructor. </p>
+<p>~Client() </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8c364ee0c6abe9589a4e0c8758d17f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c364ee0c6abe9589a4e0c8758d17f88">&#9670;&nbsp;</a></span>parseArg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Cli::parseArg </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses argv and splits into strings. </p>
+<p>Test Parses argv and splits into strings.</p>
+<p><a class="el" href="classCli.html#a8c364ee0c6abe9589a4e0c8758d17f88" title="Parses argv and splits into strings. ">Cli::parseArg(std::string &amp;input)</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>A long input string containing argv from stdin. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Private vector of strings containing parsed words from stdin. </dd></dl>
+
+</div>
+</div>
+<a id="a8251d6c89698aaf128318fc3ad4b2906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8251d6c89698aaf128318fc3ad4b2906">&#9670;&nbsp;</a></span>printOptions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cli::printOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A private method that prints all valid options for stdin. </p>
+<p>Test A private method that prints all valid options for stdin.</p>
+<p><a class="el" href="classCli.html#a8251d6c89698aaf128318fc3ad4b2906" title="A private method that prints all valid options for stdin. ">Cli::printOptions()</a> </p>
+
+</div>
+</div>
 <a id="a9788fa4a19943c09af95b4653822d690"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9788fa4a19943c09af95b4653822d690">&#9670;&nbsp;</a></span>process()</h2>
 
@@ -108,8 +243,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>All methods implements Class <a class="el" href="classCli.html">Cli</a> defined in <a class="el" href="Cli_8h_source.html">Cli.h</a>. </p>
 <p>Public method processing input from stdin. </p>
+<p>Client::process() </p><dl class="section return"><dt>Returns</dt><dd>Vector of strings containing output from stdin. </dd></dl>
 
 </div>
 </div>

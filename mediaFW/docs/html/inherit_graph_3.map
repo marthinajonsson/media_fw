@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classDatabase.html" title="Database" alt="" coords="5,5,89,32"/>
-<area shape="rect" id="node2" href="$classMovieDatabase.html" title="MovieDatabase" alt="" coords="137,5,260,32"/>
+<area shape="rect" id="node2" href="$classMovieDatabase.html" title="A module that implements the functionality of Database.h and helps the client to perform database act..." alt="" coords="137,5,260,32"/>
 </map>

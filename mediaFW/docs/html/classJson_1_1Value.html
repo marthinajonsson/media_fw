@@ -68,6 +68,8 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classJson_1_1Value-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -84,9 +86,21 @@ Collaboration diagram for Json::Value:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJson_1_1Value__coll__graph.png" border="0" usemap="#Json_1_1Value_coll__map" alt="Collaboration graph"/></div>
 <map name="Json_1_1Value_coll__map" id="Json_1_1Value_coll__map">
+<area shape="rect" id="node2" href="structJson_1_1Value_1_1CommentInfo.html" title="Json::Value::CommentInfo" alt="" coords="5,184,196,211"/>
+<area shape="rect" id="node3" href="unionJson_1_1Value_1_1ValueHolder.html" title="Json::Value::ValueHolder" alt="" coords="220,184,400,211"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="243,95,377,121"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJson_1_1Value_1_1CommentInfo.html">CommentInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJson_1_1Value_1_1CZString.html">CZString</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionJson_1_1Value_1_1ValueHolder.html">ValueHolder</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a9ae9069983fc38f1928d76f9c79ac64d"><td class="memItemLeft" align="right" valign="top"><a id="a9ae9069983fc38f1928d76f9c79ac64d"></a>
@@ -123,7 +137,7 @@ typedef Json::ArrayIndex&#160;</td><td class="memItemRight" valign="bottom"><b>A
 typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
 <tr class="separator:a9e071ef3c135a2c9602e893b6005d0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08b6c80c3af7071d908dabf044de5388"><td class="memItemLeft" align="right" valign="top"><a id="a08b6c80c3af7071d908dabf044de5388"></a>
-typedef std::map&lt; CZString, <a class="el" href="classJson_1_1Value.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectValues</b></td></tr>
+typedef std::map&lt; <a class="el" href="classJson_1_1Value_1_1CZString.html">CZString</a>, <a class="el" href="classJson_1_1Value.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectValues</b></td></tr>
 <tr class="separator:a08b6c80c3af7071d908dabf044de5388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -465,6 +479,48 @@ static const UInt64&#160;</td><td class="memItemRight" valign="bottom"><a class=
 static const UInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJson_1_1Value.html#aaece556f282980ec2be4b39b9576075f">defaultRealPrecision</a> = 17</td></tr>
 <tr class="memdesc:aaece556f282980ec2be4b39b9576075f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default precision for real value for string representation. <br /></td></tr>
 <tr class="separator:aaece556f282980ec2be4b39b9576075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a32b86b71564157f40f880f5736be822a"><td class="memItemLeft" align="right" valign="top"><a id="a32b86b71564157f40f880f5736be822a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initBasic</b> (<a class="el" href="namespaceJson.html#a7d654b75c16a57007925868e38212b4e">ValueType</a> type, bool allocated=false)</td></tr>
+<tr class="separator:a32b86b71564157f40f880f5736be822a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a986e39651853469b6c3ef39898b0a"><td class="memItemLeft" align="right" valign="top"><a id="a13a986e39651853469b6c3ef39898b0a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>dupPayload</b> (const <a class="el" href="classJson_1_1Value.html">Value</a> &amp;other)</td></tr>
+<tr class="separator:a13a986e39651853469b6c3ef39898b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac47cca0abfc24071b1c5caa98d752862"><td class="memItemLeft" align="right" valign="top"><a id="ac47cca0abfc24071b1c5caa98d752862"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>releasePayload</b> ()</td></tr>
+<tr class="separator:ac47cca0abfc24071b1c5caa98d752862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a277596eda744a8d1ffb6dec43b8627"><td class="memItemLeft" align="right" valign="top"><a id="a0a277596eda744a8d1ffb6dec43b8627"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>dupMeta</b> (const <a class="el" href="classJson_1_1Value.html">Value</a> &amp;other)</td></tr>
+<tr class="separator:a0a277596eda744a8d1ffb6dec43b8627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff9cdae2c8f4155bab603d750b0b3f1"><td class="memItemLeft" align="right" valign="top"><a id="a9ff9cdae2c8f4155bab603d750b0b3f1"></a>
+<a class="el" href="classJson_1_1Value.html">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>resolveReference</b> (const char *key)</td></tr>
+<tr class="separator:a9ff9cdae2c8f4155bab603d750b0b3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6b3aaf4f2e952a33dd823db008c333"><td class="memItemLeft" align="right" valign="top"><a id="a5f6b3aaf4f2e952a33dd823db008c333"></a>
+<a class="el" href="classJson_1_1Value.html">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>resolveReference</b> (const char *key, const char *end)</td></tr>
+<tr class="separator:a5f6b3aaf4f2e952a33dd823db008c333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aef578244546212705b9f81eb84d7e151"><td class="memItemLeft" align="right" valign="top"><a id="aef578244546212705b9f81eb84d7e151"></a>
+union <a class="el" href="unionJson_1_1Value_1_1ValueHolder.html">Json::Value::ValueHolder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>value_</b></td></tr>
+<tr class="separator:aef578244546212705b9f81eb84d7e151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd222c2536dc88bf330dedcd076d2356"><td class="memItemLeft" align="right" valign="top"><a id="abd222c2536dc88bf330dedcd076d2356"></a>
+<a class="el" href="namespaceJson.html#a7d654b75c16a57007925868e38212b4e">ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b>: 8</td></tr>
+<tr class="separator:abd222c2536dc88bf330dedcd076d2356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0126c80dc4907aad94088553fc7632b"><td class="memItemLeft" align="right" valign="top"><a id="ae0126c80dc4907aad94088553fc7632b"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>allocated_</b>: 1</td></tr>
+<tr class="separator:ae0126c80dc4907aad94088553fc7632b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2016564cabc7a29208e97bd0b782a4e4"><td class="memItemLeft" align="right" valign="top"><a id="a2016564cabc7a29208e97bd0b782a4e4"></a>
+<a class="el" href="structJson_1_1Value_1_1CommentInfo.html">CommentInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>comments_</b></td></tr>
+<tr class="separator:a2016564cabc7a29208e97bd0b782a4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3aeb0fa8fefe93776cb347c76a25a8"><td class="memItemLeft" align="right" valign="top"><a id="a1c3aeb0fa8fefe93776cb347c76a25a8"></a>
+ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><b>start_</b></td></tr>
+<tr class="separator:a1c3aeb0fa8fefe93776cb347c76a25a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe377e25f6d3b5b8ea7221c84f29412a"><td class="memItemLeft" align="right" valign="top"><a id="afe377e25f6d3b5b8ea7221c84f29412a"></a>
+ptrdiff_t&#160;</td><td class="memItemRight" valign="bottom"><b>limit_</b></td></tr>
+<tr class="separator:afe377e25f6d3b5b8ea7221c84f29412a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -1319,7 +1375,7 @@ key may contain embedded nulls. </dd></dl>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mjonsson/repo/cppAdv/mediaFW/inc/json/<a class="el" href="json_8h_source.html">json.h</a></li>
-<li>/home/mjonsson/repo/cppAdv/mediaFW/src/jsoncpp.cpp</li>
+<li>/home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

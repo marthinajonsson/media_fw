@@ -57,7 +57,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/mediaFW.dir/DependInfo.cmake"
+  "CMakeFiles/apidoc.dir/DependInfo.cmake"
   "CMakeFiles/check.dir/DependInfo.cmake"
+  "CMakeFiles/mediaFW.dir/DependInfo.cmake"
+  "CMakeFiles/apidoc_forced.dir/DependInfo.cmake"
   "contrib/googletest/CMakeFiles/googletest.dir/DependInfo.cmake"
   )

@@ -1,0 +1,8 @@
+<map id="Client" name="Client">
+<area shape="rect" id="node2" href="$classDatabase.html" title="Database" alt="" coords="87,500,171,527"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="183,96,270,123"/>
+<area shape="rect" id="node8" href="$classDatabaseItem.html" title="DatabaseItem" alt="" coords="235,314,349,341"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="157,5,296,47"/>
+<area shape="rect" id="node9" href="$classCli.html" title="Class implementing the functionality of a command line interface. " alt="" coords="195,500,234,527"/>
+<area shape="rect" id="node10" href="$classConnection.html" title="Connection" alt="" coords="258,500,353,527"/>
+</map>

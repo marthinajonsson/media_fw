@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['parse',['parse',['../classJson_1_1Reader.html#af1da6c976ad1e96c742804c3853eef94',1,'Json::Reader::parse(const std::string &amp;document, Value &amp;root, bool collectComments=true)'],['../classJson_1_1Reader.html#ac71ef2b64c7c27b062052e692af3fb32',1,'Json::Reader::parse(const char *beginDoc, const char *endDoc, Value &amp;root, bool collectComments=true)'],['../classJson_1_1Reader.html#a6d5d0e23f68749d2f17feece4ccf504d',1,'Json::Reader::parse(JSONCPP_ISTREAM &amp;is, Value &amp;root, bool collectComments=true)'],['../classJson_1_1CharReader.html#a7983680d50fd0745f371c43b162e78e1',1,'Json::CharReader::parse()'],['../classJson_1_1OurCharReader.html#a547f08ec5a9951ca69e8bb2e90296c83',1,'Json::OurCharReader::parse()']]],
-  ['parsefromstream',['parseFromStream',['../namespaceJson.html#aab0cf1ecf81d1aeca12be2a416a84352',1,'Json']]],
-  ['path',['Path',['../classJson_1_1Path.html',1,'Json']]],
-  ['pathargument',['PathArgument',['../classJson_1_1PathArgument.html',1,'Json']]],
-  ['precisiontype',['PrecisionType',['../namespaceJson.html#af6e1447a3c43e3a62e11050dd0a11ce8',1,'Json']]],
-  ['process',['process',['../classCli.html#a9788fa4a19943c09af95b4653822d690',1,'Cli']]],
-  ['pusherror',['pushError',['../classJson_1_1Reader.html#af5fa7099083f01706635ade1d0f8ddb5',1,'Json::Reader::pushError(const Value &amp;value, const JSONCPP_STRING &amp;message)'],['../classJson_1_1Reader.html#a3568be9db568ff57bd3fcc373143dff3',1,'Json::Reader::pushError(const Value &amp;value, const JSONCPP_STRING &amp;message, const Value &amp;extra)']]]
+  ['objectvalue',['objectValue',['../namespaceJson.html#a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6',1,'Json']]],
+  ['operator_20bool',['operator bool',['../classJson_1_1Value.html#a2addc2bcedbd6f8a1eafa49e9adcc729',1,'Json::Value']]],
+  ['operator_3c',['operator&lt;',['../classJson_1_1Value.html#aac6bd14155b88ed2d39ef54820b39e49',1,'Json::Value']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../namespaceJson.html#a975d1dbca8aa7a06f38d373edcb9081c',1,'Json']]],
+  ['operator_3d',['operator=',['../classJson_1_1Value.html#a795acb28772da4c5d85ae8f4af36c69f',1,'Json::Value']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../namespaceJson.html#a244ed0996aba750c40c1641c06bba449',1,'Json']]],
+  ['operator_5b_5d',['operator[]',['../classJson_1_1Value.html#a7d99f5dba388cdaa152ce6ef933d64ef',1,'Json::Value::operator[](ArrayIndex index)'],['../classJson_1_1Value.html#ac9182982c361e0ab621134d406e5f250',1,'Json::Value::operator[](int index)'],['../classJson_1_1Value.html#a46607236038b29695ed80c15895271e4',1,'Json::Value::operator[](ArrayIndex index) const'],['../classJson_1_1Value.html#a0b42557a95621a4676b46a21ffc5e949',1,'Json::Value::operator[](int index) const'],['../classJson_1_1Value.html#acb912f4ec40a25ea6eb387730885f3d9',1,'Json::Value::operator[](const char *key)'],['../classJson_1_1Value.html#a1b0498b7b2a520a68137f682d91abdd5',1,'Json::Value::operator[](const char *key) const'],['../classJson_1_1Value.html#aedd1e152756a4cc8c1ebac0dd7aeeb78',1,'Json::Value::operator[](const JSONCPP_STRING &amp;key)'],['../classJson_1_1Value.html#aba60f69dcd85e935aa85e7a517e03427',1,'Json::Value::operator[](const JSONCPP_STRING &amp;key) const'],['../classJson_1_1Value.html#ac3763d7d315ca65dc188e273722f7955',1,'Json::Value::operator[](const StaticString &amp;key)'],['../classJson_1_1CharReaderBuilder.html#a84b35ef443340c06c0aa7b47851d8d86',1,'Json::CharReaderBuilder::operator[]()'],['../classJson_1_1StreamWriterBuilder.html#af68f6b59cb20b074052ed12bb3d336a3',1,'Json::StreamWriterBuilder::operator[]()']]],
+  ['ourcharreader',['OurCharReader',['../classJson_1_1OurCharReader.html',1,'Json']]],
+  ['ourfeatures',['OurFeatures',['../classJson_1_1OurFeatures.html',1,'Json']]],
+  ['ourreader',['OurReader',['../classJson_1_1OurReader.html',1,'Json']]]
 ];

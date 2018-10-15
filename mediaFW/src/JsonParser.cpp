@@ -1,20 +1,16 @@
 //
 // Created by mjonsson on 10/12/18.
 //
-//#include <json/value.h>
-#include <fstream>
-#include <iostream>
+//
+
 #include "JsonParser.h"
 #include "json/json.h"
-#include <vector>
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 
-// TODO: finish..
-/*
- *
- */
+
 
 void JsonParser::parser()
 {
@@ -49,4 +45,6 @@ void JsonParser::parser()
     _map[title] = _parsed;
 }
 
-void JsonParser::updateDB () {}
+void JsonParser::updateDB () {
+
+}

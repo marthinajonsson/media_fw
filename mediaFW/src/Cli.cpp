@@ -2,19 +2,19 @@
 // Created by mjonsson on 9/30/18.
 //
 
-/*
- * This module should only wait and process keyboard input
- * */
 
 #include <iostream>
-#include <vector>
 #include <sstream>
 #include "Cli.h"
-/// <summary>
-/// All methods implements Class Cli defined in Cli.h.
-/// </summary>
 
-/*! Public method processing input from stdin. */
+
+/*! \class Cli cli.h "inc/cli.h"
+ *  \brief Class implementing the functionality of a command line interface.
+ *
+ * Receives inputs from STDIN and splits the result into strings.
+ */
+
+
 std::vector<std::string> Cli::process() {
     const std::string exit = "exit";
     const std::string help = "help";
@@ -32,8 +32,11 @@ std::vector<std::string> Cli::process() {
     }
 }
 
-
-/*! Private method used by Cli::process() to split input to separate strings.*/
+/*! \private Cli::parseArg(std::string &input)
+     * @brief Test Parses argv and splits into strings.
+     * @param input A long input string containing argv from stdin.
+     * @return Private vector of strings containing parsed words from stdin.
+     */
 std::vector<std::string> Cli::parseArg(std::string &input) {
     std::stringstream m_stream(input);
     std::vector<std::string> seglist;
@@ -49,7 +52,9 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
     return seglist;
 }
 
-/*! Private method used by Cli::process() to print valid commands to the user.*/
+/*! \private Cli::printOptions()
+ * @brief Test A private method that prints all valid options for stdin.
+ */
 void Cli::printOptions() {
     std::cout << "\n" << std::endl;
     std::string header {"<choice> <optional arg1>.. <optimal arg2>.."};

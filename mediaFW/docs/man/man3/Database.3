@@ -2,7 +2,8 @@
 .ad l
 .nh
 .SH NAME
-Database
+Database \-  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -12,23 +13,37 @@ Inherited by \fBMovieDatabase\fP\&.
 
 .in +1c
 .ti -1c
+.RI "\fBDatabase\fP ()"
+.br
+.RI "Default constructor\&. "
+.ti -1c
+.RI "\fB~Database\fP ()=default"
+.br
+.RI "Default deconstructor\&. "
+.ti -1c
 .RI "void \fBsyncDatabase\fP ()"
 .br
+.RI "Sync info from json file and saves it to a list of database objects\&. "
 .ti -1c
 .RI "virtual void \fBpushItem\fP (const \fBDatabaseItem\fP &m_item)"
 .br
+.RI "Uploads the requested database item\&. "
 .ti -1c
 .RI "virtual \fBDatabaseItem\fP \fBfetchItem\fP (const std::string &title)"
 .br
+.RI "Fetch the requested database item\&. "
 .ti -1c
 .RI "virtual void \fBpurgeItem\fP (const \fBDatabaseItem\fP &m_item)"
 .br
+.RI "Delete the requested database item\&. "
 .ti -1c
 .RI "virtual void \fBprintAll\fP ()"
 .br
+.RI "Prints the entire database content\&. "
 .ti -1c
 .RI "virtual long \fBgetNumberOfItem\fP ()"
 .br
+.RI "Method that return the size of the database\&. "
 .in -1c
 .SS "Protected Attributes"
 
@@ -36,16 +51,124 @@ Inherited by \fBMovieDatabase\fP\&.
 .ti -1c
 .RI "std::list< \fBDatabaseItem\fP > \fBm_items\fP"
 .br
+.RI "A protected list of DatabaseItems\&. "
 .ti -1c
 .RI "std::map< std::string, std::vector< std::string > > \fBm_saved\fP"
 .br
+.RI "A protected vector of strings with info for the DatabaseItems\&. "
 .ti -1c
 .RI "std::mutex \fBm_lock\fP"
 .br
+.RI "A protected mutex for threadsafe r/w of DatabaseItems\&. "
 .ti -1c
 .RI "std::condition_variable \fBm_emptyList\fP"
 .br
+.RI "A protected condittion variable for the mutex and \fBDatabase\fP list\&. "
 .in -1c
+.SH "Detailed Description"
+.PP 
+
+
+A module that works as an interface for subclasses and let them perform database actions 
+.PP
+Defines methods for database implementations\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Database::Database ()\fC [inline]\fP"
+
+.PP
+Default constructor\&. \fBDatabase()\fP 
+.SS "Database::~Database ()\fC [default]\fP"
+
+.PP
+Default deconstructor\&. \fB~Database()\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBDatabaseItem\fP Database::fetchItem (const std::string & title)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Fetch the requested database item\&. A const reference to a title
+.PP
+\fBReturns:\fP
+.RS 4
+The requested \fBDatabaseItem\fP
+.RE
+.PP
+
+.PP
+Reimplemented in \fBMovieDatabase\fP\&.
+.SS "virtual long Database::getNumberOfItem ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Method that return the size of the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Size of the database (long)\&.
+.RE
+.PP
+
+.PP
+Reimplemented in \fBMovieDatabase\fP\&.
+.SS "virtual void Database::printAll ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Prints the entire database content\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Reimplemented in \fBMovieDatabase\fP\&.
+.SS "virtual void Database::purgeItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Delete the requested database item\&. A const reference to a database item
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented in \fBMovieDatabase\fP\&.
+.SS "virtual void Database::pushItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Uploads the requested database item\&. A const reference to a database item
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented in \fBMovieDatabase\fP\&.
+.SS "void Database::syncDatabase ()\fC [inline]\fP"
+
+.PP
+Sync info from json file and saves it to a list of database objects\&. \fBDatabase::syncDatabase()\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "std::condition_variable Database::m_emptyList\fC [protected]\fP"
+
+.PP
+A protected condittion variable for the mutex and \fBDatabase\fP list\&. 
+.SS "std::list<\fBDatabaseItem\fP> Database::m_items\fC [protected]\fP"
+
+.PP
+A protected list of DatabaseItems\&. 
+.SS "std::mutex Database::m_lock\fC [mutable]\fP, \fC [protected]\fP"
+
+.PP
+A protected mutex for threadsafe r/w of DatabaseItems\&. 
+.SS "std::map<std::string, std::vector<std::string> > Database::m_saved\fC [protected]\fP"
+
+.PP
+A protected vector of strings with info for the DatabaseItems\&. 
 
 .SH "Author"
 .PP 

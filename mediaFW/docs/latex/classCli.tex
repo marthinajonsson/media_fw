@@ -2,30 +2,95 @@
 \label{classCli}\index{Cli@{Cli}}
 
 
+Class implementing the functionality of a command line interface.  
+
+
+
+
 {\ttfamily \#include $<$Cli.\+h$>$}
 
-
-
-Inheritance diagram for Cli\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=141pt]{classCli__inherit__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classCli_a8f7e5909bf64db25f1f264d206d61140}{Cli} ()=default
+\begin{DoxyCompactList}\small\item\em \hyperlink{classCli}{Cli} default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classCli_a516ed9664c99d6275d7675194f5564bf}{$\sim$\+Cli} ()=default
+\begin{DoxyCompactList}\small\item\em \hyperlink{classCli}{Cli} default deconstructor. \end{DoxyCompactList}\item 
 virtual std\+::vector$<$ std\+::string $>$ \hyperlink{classCli_a9788fa4a19943c09af95b4653822d690}{process} ()
-\begin{DoxyCompactList}\small\item\em All methods implements Class \hyperlink{classCli}{Cli} defined in \hyperlink{Cli_8h_source}{Cli.\+h}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Public method processing input from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}{parse\+Arg} (std\+::string \&input)
+\begin{DoxyCompactList}\small\item\em Parses argv and splits into strings. \end{DoxyCompactList}\item 
+void \hyperlink{classCli_a8251d6c89698aaf128318fc3ad4b2906}{print\+Options} ()
+\begin{DoxyCompactList}\small\item\em A private method that prints all valid options for stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Module handling everythin related to our Command line interface. 
+Class implementing the functionality of a command line interface. 
+
+Module handling everything related to our Command line interface.
+
+Receives inputs from S\+T\+D\+IN and splits the result into strings. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCli_a8f7e5909bf64db25f1f264d206d61140}\label{classCli_a8f7e5909bf64db25f1f264d206d61140}} 
+\index{Cli@{Cli}!Cli@{Cli}}
+\index{Cli@{Cli}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{Cli()}{Cli()}}
+{\footnotesize\ttfamily Cli\+::\+Cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\hyperlink{classCli}{Cli} default constructor. 
+
+\hyperlink{classClient}{Client()} \mbox{\Hypertarget{classCli_a516ed9664c99d6275d7675194f5564bf}\label{classCli_a516ed9664c99d6275d7675194f5564bf}} 
+\index{Cli@{Cli}!````~Cli@{$\sim$\+Cli}}
+\index{````~Cli@{$\sim$\+Cli}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{$\sim$\+Cli()}{~Cli()}}
+{\footnotesize\ttfamily Cli\+::$\sim$\+Cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\hyperlink{classCli}{Cli} default deconstructor. 
+
+$\sim$\+Client() 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classCli_a9788fa4a19943c09af95b4653822d690}\label{classCli_a9788fa4a19943c09af95b4653822d690}} 
+\mbox{\Hypertarget{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}\label{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}} 
+\index{Cli@{Cli}!parse\+Arg@{parse\+Arg}}
+\index{parse\+Arg@{parse\+Arg}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{parse\+Arg()}{parseArg()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Cli\+::parse\+Arg (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses argv and splits into strings. 
+
+Test Parses argv and splits into strings.
+
+\hyperlink{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}{Cli\+::parse\+Arg(std\+::string \&input)} 
+\begin{DoxyParams}{Parameters}
+{\em input} & A long input string containing argv from stdin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Private vector of strings containing parsed words from stdin. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCli_a8251d6c89698aaf128318fc3ad4b2906}\label{classCli_a8251d6c89698aaf128318fc3ad4b2906}} 
+\index{Cli@{Cli}!print\+Options@{print\+Options}}
+\index{print\+Options@{print\+Options}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{print\+Options()}{printOptions()}}
+{\footnotesize\ttfamily void Cli\+::print\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A private method that prints all valid options for stdin. 
+
+Test A private method that prints all valid options for stdin.
+
+\hyperlink{classCli_a8251d6c89698aaf128318fc3ad4b2906}{Cli\+::print\+Options()} \mbox{\Hypertarget{classCli_a9788fa4a19943c09af95b4653822d690}\label{classCli_a9788fa4a19943c09af95b4653822d690}} 
 \index{Cli@{Cli}!process@{process}}
 \index{process@{process}!Cli@{Cli}}
 \subsubsection{\texorpdfstring{process()}{process()}}
@@ -33,9 +98,12 @@ Module handling everythin related to our Command line interface.
 
 
 
-All methods implements Class \hyperlink{classCli}{Cli} defined in \hyperlink{Cli_8h_source}{Cli.\+h}. 
-
 Public method processing input from stdin. 
+
+Client\+::process() \begin{DoxyReturn}{Returns}
+Vector of strings containing output from stdin. 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

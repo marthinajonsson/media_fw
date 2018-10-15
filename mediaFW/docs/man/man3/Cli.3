@@ -2,31 +2,95 @@
 .ad l
 .nh
 .SH NAME
-Cli
+Cli \- Class implementing the functionality of a command line interface\&.  
+
 .SH SYNOPSIS
 .br
 .PP
 .PP
 \fC#include <Cli\&.h>\fP
-.PP
-Inherited by \fBMockRng\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
+.RI "\fBCli\fP ()=default"
+.br
+.RI "\fBCli\fP default constructor\&. "
+.ti -1c
+.RI "\fB~Cli\fP ()=default"
+.br
+.RI "\fBCli\fP default deconstructor\&. "
+.ti -1c
 .RI "virtual std::vector< std::string > \fBprocess\fP ()"
 .br
-.RI "All methods implements Class \fBCli\fP defined in \fBCli\&.h\fP\&. "
+.RI "Public method processing input from stdin\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "std::vector< std::string > \fBparseArg\fP (std::string &input)"
+.br
+.RI "Parses argv and splits into strings\&. "
+.ti -1c
+.RI "void \fBprintOptions\fP ()"
+.br
+.RI "A private method that prints all valid options for stdin\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
-Module handling everythin related to our Command line interface\&. 
+Class implementing the functionality of a command line interface\&. 
+
+Module handling everything related to our Command line interface\&.
+.PP
+Receives inputs from STDIN and splits the result into strings\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Cli::Cli ()\fC [default]\fP"
+
+.PP
+\fBCli\fP default constructor\&. \fBClient()\fP 
+.SS "Cli::~Cli ()\fC [default]\fP"
+
+.PP
+\fBCli\fP default deconstructor\&. ~Client() 
 .SH "Member Function Documentation"
 .PP 
+.SS "std::vector< std::string > Cli::parseArg (std::string & input)\fC [private]\fP"
+
+.PP
+Parses argv and splits into strings\&. Test Parses argv and splits into strings\&.
+.PP
+\fBCli::parseArg(std::string &input)\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP A long input string containing argv from stdin\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Private vector of strings containing parsed words from stdin\&. 
+.RE
+.PP
+
+.SS "void Cli::printOptions ()\fC [private]\fP"
+
+.PP
+A private method that prints all valid options for stdin\&. Test A private method that prints all valid options for stdin\&.
+.PP
+\fBCli::printOptions()\fP 
 .SS "std::vector< std::string > Cli::process ()\fC [virtual]\fP"
 
 .PP
-All methods implements Class \fBCli\fP defined in \fBCli\&.h\fP\&. Public method processing input from stdin\&. 
+Public method processing input from stdin\&. Client::process() 
+.PP
+\fBReturns:\fP
+.RS 4
+Vector of strings containing output from stdin\&. 
+.RE
+.PP
+
 
 .SH "Author"
 .PP 

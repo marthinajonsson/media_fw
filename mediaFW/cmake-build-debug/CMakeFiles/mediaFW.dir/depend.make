@@ -7,10 +7,10 @@ CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../src/Cli.cpp
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Connection.h
-CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Database.h
-CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Database/Database.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Database/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Database/MovieDatabase.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/JsonParser.h
-CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/MovieDatabase.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../src/Client.cpp
 
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o: ../inc/Connection.h
@@ -20,8 +20,8 @@ CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../src/JsonParser.cpp
 
-CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o: ../inc/json/json.h
-CMakeFiles/mediaFW.dir/src/jsoncpp.cpp.o: ../src/jsoncpp.cpp
+CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o: ../inc/json/json.h
+CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o: ../src/json/jsoncpp.cpp
 
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/gtest-death-test.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/gtest-message.h
@@ -48,9 +48,10 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o: ../contrib/googletest/gtest/internal/gtes
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Connection.h
-CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database.h
-CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database/Database.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database/MovieDatabase.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Database/Test_Database.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/JsonParser.h
-CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/MovieDatabase.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../src/main.cpp
 

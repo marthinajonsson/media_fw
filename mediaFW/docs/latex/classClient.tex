@@ -1,19 +1,129 @@
 \hypertarget{classClient}{}\section{Client Class Reference}
 \label{classClient}\index{Client@{Client}}
+
+
+Class implementing the functionality of a client.  
+
+
+
+
+Collaboration diagram for Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classClient__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClient_a7312758312581aa3b543c2b65852d193}\label{classClient_a7312758312581aa3b543c2b65852d193}} 
+enum {\bfseries Db\+Type\+\_\+e} \{ {\bfseries Movie} = 2, 
+{\bfseries Series} = 1, 
+{\bfseries Undefined} = 0
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}{Client} ()
+\begin{DoxyCompactList}\small\item\em Instantiates database type Db\+Type\+\_\+e and corresponding \hyperlink{classDatabase}{Database}. \end{DoxyCompactList}\item 
+\hyperlink{classClient_a840e519ca781888cbd54181572ebe3a7}{$\sim$\+Client} ()
+\begin{DoxyCompactList}\small\item\em deletes previous instantiated \hyperlink{classDatabase}{Database}. \end{DoxyCompactList}\item 
 void \hyperlink{classClient_a33b0b1f7391689c68fa125549e8c5dcc}{setup} ()
-\begin{DoxyCompactList}\small\item\em A method that waits C\+LI input from method get\+Cli\+Input. The method will break if input is interpreted as exit or continue by sending the request to be handled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A method that waits for input from private method \hyperlink{classClient_a62807c316030505b03b90186d3b06a25}{Client\+::get\+Cli\+Input()}. The method will break if input is interpreted as exit or continues by having the request handled in \hyperlink{classClient_a12334d98c376fbdf577d1dfa6bf9a4c0}{Client\+::handle\+Callback()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classClient_a4c99f07fc4be08870e1067ba876e08fb}\label{classClient_a4c99f07fc4be08870e1067ba876e08fb}} 
-Db\+Type {\bfseries type}
+\mbox{\Hypertarget{classClient_a3f36c2ec59a9d6840acbc89911e61d98}\label{classClient_a3f36c2ec59a9d6840acbc89911e61d98}} 
+enum Client\+::\+Db\+Type\+\_\+e {\bfseries type}
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classClient_a12334d98c376fbdf577d1dfa6bf9a4c0}{handle\+Callback} (std\+::vector$<$ std\+::string $>$ request, bool connected)
+\begin{DoxyCompactList}\small\item\em handles the clients requests to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ std\+::string $>$ \hyperlink{classClient_a62807c316030505b03b90186d3b06a25}{get\+Cli\+Input} (\hyperlink{classCli}{Cli} $\ast$\hyperlink{classClient_a48826e6a4fbfb261da3782405cd2558e}{p\+\_\+cli})
+\begin{DoxyCompactList}\small\item\em A method that waits for C\+LI to process incoming request. Used by std\+::future. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatabase}{Database} $\ast$ \hyperlink{classClient_ac7963f918414b58d4c752fcbcc12d965}{p\+\_\+db}
+\begin{DoxyCompactList}\small\item\em Private pointer ot \hyperlink{classDatabase}{Database} object. \end{DoxyCompactList}\item 
+\hyperlink{classConnection}{Connection} $\ast$ \hyperlink{classClient_a086555f6a435428891d5f237cd454c88}{p\+\_\+conn}
+\begin{DoxyCompactList}\small\item\em Private pointer to database object. \end{DoxyCompactList}\item 
+\hyperlink{classCli}{Cli} $\ast$ \hyperlink{classClient_a48826e6a4fbfb261da3782405cd2558e}{p\+\_\+cli}
+\begin{DoxyCompactList}\small\item\em Private pointer to a cli object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class implementing the functionality of a client. 
+
+Receives and interpretes information from stdin and sends requests to the server. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}\label{classClient_ae51af7aa6b8f591496a8f6a4a87a14bf}} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\subsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Instantiates database type Db\+Type\+\_\+e and corresponding \hyperlink{classDatabase}{Database}. 
+
+\hyperlink{classClient}{Client} constructor() \mbox{\Hypertarget{classClient_a840e519ca781888cbd54181572ebe3a7}\label{classClient_a840e519ca781888cbd54181572ebe3a7}} 
+\index{Client@{Client}!````~Client@{$\sim$\+Client}}
+\index{````~Client@{$\sim$\+Client}!Client@{Client}}
+\subsubsection{\texorpdfstring{$\sim$\+Client()}{~Client()}}
+{\footnotesize\ttfamily Client\+::$\sim$\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+deletes previous instantiated \hyperlink{classDatabase}{Database}. 
+
+\hyperlink{classClient}{Client} deconstructor() 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_a62807c316030505b03b90186d3b06a25}\label{classClient_a62807c316030505b03b90186d3b06a25}} 
+\index{Client@{Client}!get\+Cli\+Input@{get\+Cli\+Input}}
+\index{get\+Cli\+Input@{get\+Cli\+Input}!Client@{Client}}
+\subsubsection{\texorpdfstring{get\+Cli\+Input()}{getCliInput()}}
+{\footnotesize\ttfamily static std\+::vector$<$std\+::string$>$ Client\+::get\+Cli\+Input (\begin{DoxyParamCaption}\item[{\hyperlink{classCli}{Cli} $\ast$}]{p\+\_\+cli }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+A method that waits for C\+LI to process incoming request. Used by std\+::future. 
+
+\hyperlink{classClient_a62807c316030505b03b90186d3b06a25}{Client\+::get\+Cli\+Input(\+Cli$\ast$ p\+\_\+cli)} 
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+cli} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings containing the result of C\+LI process 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_a12334d98c376fbdf577d1dfa6bf9a4c0}\label{classClient_a12334d98c376fbdf577d1dfa6bf9a4c0}} 
+\index{Client@{Client}!handle\+Callback@{handle\+Callback}}
+\index{handle\+Callback@{handle\+Callback}!Client@{Client}}
+\subsubsection{\texorpdfstring{handle\+Callback()}{handleCallback()}}
+{\footnotesize\ttfamily void Client\+::handle\+Callback (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{request,  }\item[{bool}]{connected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+handles the clients requests to the server. 
+
+Client\+::handle\+Callback(std\+::vector$<$std\+::string request , bool connected) 
+\begin{DoxyParams}{Parameters}
+{\em request} & -\/ String containing all information needed for the server request. \\
+\hline
+{\em connected} & -\/ Boolean parameter indicating we have an established ssh connection. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classClient_a33b0b1f7391689c68fa125549e8c5dcc}\label{classClient_a33b0b1f7391689c68fa125549e8c5dcc}} 
 \index{Client@{Client}!setup@{setup}}
 \index{setup@{setup}!Client@{Client}}
@@ -22,12 +132,42 @@ Db\+Type {\bfseries type}
 
 
 
-A method that waits C\+LI input from method get\+Cli\+Input. The method will break if input is interpreted as exit or continue by sending the request to be handled. 
+A method that waits for input from private method \hyperlink{classClient_a62807c316030505b03b90186d3b06a25}{Client\+::get\+Cli\+Input()}. The method will break if input is interpreted as exit or continues by having the request handled in \hyperlink{classClient_a12334d98c376fbdf577d1dfa6bf9a4c0}{Client\+::handle\+Callback()}. 
 
-\begin{DoxyReturn}{Returns}
+\hyperlink{classClient_a33b0b1f7391689c68fa125549e8c5dcc}{Client\+::setup()} 
 
-\end{DoxyReturn}
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classClient_a48826e6a4fbfb261da3782405cd2558e}\label{classClient_a48826e6a4fbfb261da3782405cd2558e}} 
+\index{Client@{Client}!p\+\_\+cli@{p\+\_\+cli}}
+\index{p\+\_\+cli@{p\+\_\+cli}!Client@{Client}}
+\subsubsection{\texorpdfstring{p\+\_\+cli}{p\_cli}}
+{\footnotesize\ttfamily \hyperlink{classCli}{Cli}$\ast$ Client\+::p\+\_\+cli\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Private pointer to a cli object. 
+
+Cli$\ast$ p\+\_\+cli. \mbox{\Hypertarget{classClient_a086555f6a435428891d5f237cd454c88}\label{classClient_a086555f6a435428891d5f237cd454c88}} 
+\index{Client@{Client}!p\+\_\+conn@{p\+\_\+conn}}
+\index{p\+\_\+conn@{p\+\_\+conn}!Client@{Client}}
+\subsubsection{\texorpdfstring{p\+\_\+conn}{p\_conn}}
+{\footnotesize\ttfamily \hyperlink{classConnection}{Connection}$\ast$ Client\+::p\+\_\+conn\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private pointer to database object. 
+
+Database$\ast$ p\+\_\+db \mbox{\Hypertarget{classClient_ac7963f918414b58d4c752fcbcc12d965}\label{classClient_ac7963f918414b58d4c752fcbcc12d965}} 
+\index{Client@{Client}!p\+\_\+db@{p\+\_\+db}}
+\index{p\+\_\+db@{p\+\_\+db}!Client@{Client}}
+\subsubsection{\texorpdfstring{p\+\_\+db}{p\_db}}
+{\footnotesize\ttfamily \hyperlink{classDatabase}{Database}$\ast$ Client\+::p\+\_\+db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private pointer ot \hyperlink{classDatabase}{Database} object. 
+
+\hyperlink{classClient}{Client} $\ast$p\+\_\+db 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

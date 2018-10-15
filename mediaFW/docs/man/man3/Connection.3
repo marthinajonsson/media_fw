@@ -16,6 +16,36 @@ Connection
 .RI "bool \fBsendRemoteCommands\fP (std::string request, std::string &result)"
 .br
 .in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBestablishSshConnect\fP ()"
+.br
+.ti -1c
+.RI "int \fBverifyHost\fP (ssh_session session)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "ssh_session \fBm_ssh_session\fP"
+.br
+.ti -1c
+.RI "int \fBm_result\fP"
+.br
+.ti -1c
+.RI "bool \fBm_currentlyConnected\fP"
+.br
+.ti -1c
+.RI "char * \fBm_password\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "void Connection::establishSshConnect ()\fC [private]\fP"
+This module shall setup ssh connection to the server and sen remoote commands 
 
 .SH "Author"
 .PP 

@@ -9,6 +9,16 @@ Experimental and untested\+: represents a \char`\"{}path\char`\"{} to access a n
 
 {\ttfamily \#include $<$json.\+h$>$}
 
+
+
+Collaboration diagram for Json\+:\+:Path\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classJson_1_1Path__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,6 +32,36 @@ const \hyperlink{classJson_1_1Value}{Value} \& {\bfseries resolve} (const \hyper
 \hyperlink{classJson_1_1Value}{Value} {\bfseries resolve} (const \hyperlink{classJson_1_1Value}{Value} \&root, const \hyperlink{classJson_1_1Value}{Value} \&default\+Value) const
 \item 
 \hyperlink{classJson_1_1Value}{Value} \& \hyperlink{classJson_1_1Path_a858f9426f0f7bbe0450644d72b44e26b}{make} (\hyperlink{classJson_1_1Value}{Value} \&root) const
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_ab29d7b2fc896c7d3c5ed4609af3a3f23}\label{classJson_1_1Path_ab29d7b2fc896c7d3c5ed4609af3a3f23}} 
+typedef std\+::vector$<$ const \hyperlink{classJson_1_1PathArgument}{Path\+Argument} $\ast$ $>$ {\bfseries In\+Args}
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_a27d96232d034d7a78286468676f9cb3e}\label{classJson_1_1Path_a27d96232d034d7a78286468676f9cb3e}} 
+typedef std\+::vector$<$ \hyperlink{classJson_1_1PathArgument}{Path\+Argument} $>$ {\bfseries Args}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_a362a420a47acb1a1f9c79173cbfef94d}\label{classJson_1_1Path_a362a420a47acb1a1f9c79173cbfef94d}} 
+void {\bfseries make\+Path} (const J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG \&path, const In\+Args \&in)
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_ae65717a5fbc35b1336cbf783b15aad2e}\label{classJson_1_1Path_ae65717a5fbc35b1336cbf783b15aad2e}} 
+void {\bfseries add\+Path\+In\+Arg} (const J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG \&path, const In\+Args \&in, In\+Args\+::const\+\_\+iterator \&it\+In\+Arg, Path\+Argument\+::\+Kind kind)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_a0fa77fc0cefefcfcf2f1242c79009dd9}\label{classJson_1_1Path_a0fa77fc0cefefcfcf2f1242c79009dd9}} 
+static void {\bfseries invalid\+Path} (const J\+S\+O\+N\+C\+P\+P\+\_\+\+S\+T\+R\+I\+NG \&path, int location)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJson_1_1Path_af33d0de7ee9f99d3e361bdf504dc2bc7}\label{classJson_1_1Path_af33d0de7ee9f99d3e361bdf504dc2bc7}} 
+Args {\bfseries args\+\_\+}
 \end{DoxyCompactItemize}
 
 
@@ -51,4 +91,4 @@ Creates the \char`\"{}path\char`\"{} to access the specified node and returns a 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 /home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/json/json.\+h\item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/jsoncpp.\+cpp\end{DoxyCompactItemize}
+/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/json/jsoncpp.\+cpp\end{DoxyCompactItemize}
