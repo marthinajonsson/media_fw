@@ -1,0 +1,66 @@
+.TH "testing::Test" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+testing::Test
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBfixtures\fP, and \fBtesting::TestWithParam< T >\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef internal::SetUpTestCaseFunc \fBSetUpTestCaseFunc\fP"
+.br
+.ti -1c
+.RI "typedef internal::TearDownTestCaseFunc \fBTearDownTestCaseFunc\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBSetUpTestCase\fP ()"
+.br
+.ti -1c
+.RI "static void \fBTearDownTestCase\fP ()"
+.br
+.ti -1c
+.RI "static bool \fBHasFatalFailure\fP ()"
+.br
+.ti -1c
+.RI "static bool \fBHasNonfatalFailure\fP ()"
+.br
+.ti -1c
+.RI "static bool \fBHasFailure\fP ()"
+.br
+.ti -1c
+.RI "static void \fBRecordProperty\fP (const std::string &key, const std::string &value)"
+.br
+.ti -1c
+.RI "static void \fBRecordProperty\fP (const std::string &key, int value)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBSetUp\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBTearDown\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBTestInfo\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

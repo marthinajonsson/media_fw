@@ -1,0 +1,52 @@
+.TH "Database" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Database
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBMovieDatabase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsyncDatabase\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBpushItem\fP (const \fBDatabaseItem\fP &m_item)"
+.br
+.ti -1c
+.RI "virtual \fBDatabaseItem\fP \fBfetchItem\fP (const std::string &title)"
+.br
+.ti -1c
+.RI "virtual void \fBpurgeItem\fP (const \fBDatabaseItem\fP &m_item)"
+.br
+.ti -1c
+.RI "virtual void \fBprintAll\fP ()"
+.br
+.ti -1c
+.RI "virtual long \fBgetNumberOfItem\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::list< \fBDatabaseItem\fP > \fBm_items\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_saved\fP"
+.br
+.ti -1c
+.RI "std::mutex \fBm_lock\fP"
+.br
+.ti -1c
+.RI "std::condition_variable \fBm_emptyList\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

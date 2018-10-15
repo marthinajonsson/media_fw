@@ -1,0 +1,48 @@
+\hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo}{}\section{testing\+:\+:internal\+:\+:Parameterized\+Test\+Case\+Info$<$ Test\+Case $>$ Class Template Reference}
+\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo}\index{testing\+::internal\+::\+Parameterized\+Test\+Case\+Info$<$ Test\+Case $>$@{testing\+::internal\+::\+Parameterized\+Test\+Case\+Info$<$ Test\+Case $>$}}
+
+
+Inheritance diagram for testing\+:\+:internal\+:\+:Parameterized\+Test\+Case\+Info$<$ Test\+Case $>$\+:
+% FIG 0
+
+
+Collaboration diagram for testing\+:\+:internal\+:\+:Parameterized\+Test\+Case\+Info$<$ Test\+Case $>$\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a643a87e178bf92a4246ce21054e44b96}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a643a87e178bf92a4246ce21054e44b96}} 
+typedef Test\+Case\+::\+Param\+Type {\bfseries Param\+Type}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_aed6c5184cb8f94cec73e9d7c4b7fa2ce}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_aed6c5184cb8f94cec73e9d7c4b7fa2ce}} 
+typedef \hyperlink{structtesting_1_1internal_1_1ParamNameGenFunc}{Param\+Name\+Gen\+Func}$<$ Param\+Type $>$\+::Type {\bfseries Param\+Name\+Generator\+Func}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a2f6a423f7ae8c7ac24b468538693aa26}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a2f6a423f7ae8c7ac24b468538693aa26}} 
+typedef {\bfseries Param\+Generator} (Generator\+Creation\+Func)()
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a6d19f368428260bd5c6e608b4d3fc6af}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a6d19f368428260bd5c6e608b4d3fc6af}} 
+{\bfseries Parameterized\+Test\+Case\+Info} (const char $\ast$name, \hyperlink{structtesting_1_1internal_1_1CodeLocation}{Code\+Location} code\+\_\+location)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a8a9eafc7654b154165f131974397e200}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a8a9eafc7654b154165f131974397e200}} 
+virtual const std\+::string \& {\bfseries Get\+Test\+Case\+Name} () const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a16ed77e95a6042c722d0029744acfc33}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a16ed77e95a6042c722d0029744acfc33}} 
+virtual Type\+Id {\bfseries Get\+Test\+Case\+Type\+Id} () const
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a3e557c888ec5e23b138c2ff254db15e5}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a3e557c888ec5e23b138c2ff254db15e5}} 
+void {\bfseries Add\+Test\+Pattern} (const char $\ast$test\+\_\+case\+\_\+name, const char $\ast$test\+\_\+base\+\_\+name, \hyperlink{classtesting_1_1internal_1_1TestMetaFactoryBase}{Test\+Meta\+Factory\+Base}$<$ Param\+Type $>$ $\ast$meta\+\_\+factory)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_adefded091e3f20ac3a758029caea3eab}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_adefded091e3f20ac3a758029caea3eab}} 
+int {\bfseries Add\+Test\+Case\+Instantiation} (const std\+::string \&instantiation\+\_\+name, Generator\+Creation\+Func $\ast$func, Param\+Name\+Generator\+Func $\ast$name\+\_\+func, const char $\ast$file, int line)
+\item 
+\mbox{\Hypertarget{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a7e118820b3074ce70c0440e2e49a50a1}\label{classtesting_1_1internal_1_1ParameterizedTestCaseInfo_a7e118820b3074ce70c0440e2e49a50a1}} 
+virtual void {\bfseries Register\+Tests} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mjonsson/repo/cpp\+Adv/media\+F\+W/contrib/googletest/gtest/internal/gtest-\/param-\/util.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,74 @@
+.TH "testing::TestCase" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+testing::TestCase
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTestCase\fP (const char *name, const char *a_type_param, Test::SetUpTestCaseFunc set_up_tc, Test::TearDownTestCaseFunc tear_down_tc)"
+.br
+.ti -1c
+.RI "const char * \fBname\fP () const"
+.br
+.ti -1c
+.RI "const char * \fBtype_param\fP () const"
+.br
+.ti -1c
+.RI "bool \fBshould_run\fP () const"
+.br
+.ti -1c
+.RI "int \fBsuccessful_test_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBfailed_test_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBreportable_disabled_test_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBdisabled_test_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBreportable_test_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBtest_to_run_count\fP () const"
+.br
+.ti -1c
+.RI "int \fBtotal_test_count\fP () const"
+.br
+.ti -1c
+.RI "bool \fBPassed\fP () const"
+.br
+.ti -1c
+.RI "bool \fBFailed\fP () const"
+.br
+.ti -1c
+.RI "TimeInMillis \fBelapsed_time\fP () const"
+.br
+.ti -1c
+.RI "const \fBTestInfo\fP * \fBGetTestInfo\fP (int i) const"
+.br
+.ti -1c
+.RI "const \fBTestResult\fP & \fBad_hoc_test_result\fP () const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBTest\fP"
+.br
+.ti -1c
+.RI "class \fBinternal::UnitTestImpl\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

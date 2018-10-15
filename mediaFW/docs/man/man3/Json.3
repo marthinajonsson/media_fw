@@ -1,0 +1,474 @@
+.TH "Json" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Json \- JSON (JavaScript Object Notation)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBBuiltStyledStreamWriter\fP"
+.br
+.ti -1c
+.RI "class \fBCharReader\fP"
+.br
+.ti -1c
+.RI "class \fBCharReaderBuilder\fP"
+.br
+.RI "Build a \fBCharReader\fP implementation\&. "
+.ti -1c
+.RI "struct \fBCommentStyle\fP"
+.br
+.RI "Scoped enums are not available until C++11\&. "
+.ti -1c
+.RI "class \fBException\fP"
+.br
+.ti -1c
+.RI "class \fBFeatures\fP"
+.br
+.RI "Configuration passed to reader and writer\&. This configuration object can be used to force the \fBReader\fP or Writer to behave in a standard conforming way\&. "
+.ti -1c
+.RI "class \fBLogicError\fP"
+.br
+.ti -1c
+.RI "class \fBOurCharReader\fP"
+.br
+.ti -1c
+.RI "class \fBOurFeatures\fP"
+.br
+.ti -1c
+.RI "class \fBOurReader\fP"
+.br
+.ti -1c
+.RI "class \fBPath\fP"
+.br
+.RI "Experimental and untested: represents a 'path' to access a node\&. "
+.ti -1c
+.RI "class \fBPathArgument\fP"
+.br
+.RI "Experimental and untested: represents an element of the 'path' to access a node\&. "
+.ti -1c
+.RI "class \fBReader\fP"
+.br
+.RI "Unserialize a \fCJSON\fP document into a \fBValue\fP\&. "
+.ti -1c
+.RI "class \fBRuntimeError\fP"
+.br
+.ti -1c
+.RI "class \fBStaticString\fP"
+.br
+.RI "Lightweight wrapper to tag static string\&. "
+.ti -1c
+.RI "class \fBStreamWriter\fP"
+.br
+.ti -1c
+.RI "class \fBStreamWriterBuilder\fP"
+.br
+.RI "Build a \fBStreamWriter\fP implementation\&. "
+.ti -1c
+.RI "class \fBValue\fP"
+.br
+.RI "Represents a \fCJSON\fP value\&. "
+.ti -1c
+.RI "class \fBValueConstIterator\fP"
+.br
+.RI "const iterator for object and array value\&. "
+.ti -1c
+.RI "class \fBValueIterator\fP"
+.br
+.RI "Iterator for object and array value\&. "
+.ti -1c
+.RI "class \fBValueIteratorBase\fP"
+.br
+.RI "base class for \fBValue\fP iterators\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int \fBInt\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBUInt\fP"
+.br
+.ti -1c
+.RI "typedef int64_t \fBInt64\fP"
+.br
+.ti -1c
+.RI "typedef uint64_t \fBUInt64\fP"
+.br
+.ti -1c
+.RI "typedef Int64 \fBLargestInt\fP"
+.br
+.ti -1c
+.RI "typedef UInt64 \fBLargestUInt\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBArrayIndex\fP"
+.br
+.ti -1c
+.RI "typedef char \fBUIntToStringBuffer\fP[\fBuintToStringBufferSize\fP]"
+.br
+.ti -1c
+.RI "typedef std::auto_ptr< \fBCharReader\fP > \fBCharReaderPtr\fP"
+.br
+.ti -1c
+.RI "typedef std::auto_ptr< \fBStreamWriter\fP > \fBStreamWriterPtr\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBValueType\fP { \fBnullValue\fP = 0, \fBintValue\fP, \fBuintValue\fP, \fBrealValue\fP, \fBstringValue\fP, \fBbooleanValue\fP, \fBarrayValue\fP, \fBobjectValue\fP }
+.RI "Type of the value held by a Value object\&. ""
+.br
+.ti -1c
+.RI "enum \fBCommentPlacement\fP { \fBcommentBefore\fP = 0, \fBcommentAfterOnSameLine\fP, \fBcommentAfter\fP, \fBnumberOfCommentPlacement\fP }"
+.br
+.ti -1c
+.RI "enum \fBPrecisionType\fP { \fBsignificantDigits\fP = 0, \fBdecimalPlaces\fP }
+.RI "Type of precision for formatting of real values\&. ""
+.br
+.ti -1c
+.RI "enum { \fBuintToStringBufferSize\fP = 3 * sizeof(LargestUInt) + 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "JSONCPP_NORETURN void \fBthrowRuntimeError\fP (JSONCPP_STRING const &msg)"
+.br
+.RI "used internally "
+.ti -1c
+.RI "JSONCPP_NORETURN void \fBthrowLogicError\fP (JSONCPP_STRING const &msg)"
+.br
+.RI "used internally "
+.ti -1c
+.RI "void \fBswap\fP (\fBValue\fP &a, \fBValue\fP &b)"
+.br
+.ti -1c
+.RI "bool JSON_API \fBparseFromStream\fP (\fBCharReader::Factory\fP const &, JSONCPP_ISTREAM &, \fBValue\fP *root, std::string *errs)"
+.br
+.ti -1c
+.RI "JSON_API JSONCPP_ISTREAM & \fBoperator>>\fP (JSONCPP_ISTREAM &, \fBValue\fP &)"
+.br
+.RI "Read from 'sin' into 'root'\&. "
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBwriteString\fP (\fBStreamWriter::Factory\fP const &factory, \fBValue\fP const &root)"
+.br
+.RI "Write into stringstream, then return string, for convenience\&. A \fBStreamWriter\fP will be created from the factory, used, and then deleted\&. "
+.ti -1c
+.RI "class \fBJSONCPP_DEPRECATED\fP ('Use \fBStreamWriter\fP instead') JSON_API Writer"
+.br
+.RI "Abstract class for writers\&. "
+.ti -1c
+.RI "class JSONCPP_DEPRECATED('Use \fBStreamWriterBuilder\fP instead') JSON_API FastWriter class JSONCPP_DEPRECATED('Use \fBStreamWriterBuilder\fP instead') JSON_API StyledWriter class \fBJSONCPP_DEPRECATED\fP ('Use \fBStreamWriterBuilder\fP instead') JSON_API StyledStreamWriter"
+.br
+.RI "Outputs a \fBValue\fP in \fCJSON\fP format without formatting (not human friendly)\&. "
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (Int value)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (UInt value)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (LargestInt value)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (LargestUInt value)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (double value, unsigned int precision=\fBValue::defaultRealPrecision\fP, \fBPrecisionType\fP precisionType=PrecisionType::significantDigits)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToString\fP (bool value)"
+.br
+.ti -1c
+.RI "JSONCPP_STRING JSON_API \fBvalueToQuotedString\fP (const char *value)"
+.br
+.ti -1c
+.RI "JSON_API JSONCPP_OSTREAM & \fBoperator<<\fP (JSONCPP_OSTREAM &, const \fBValue\fP &root)"
+.br
+.RI "Output using the StyledStreamWriter\&. "
+.ti -1c
+.RI "template<typename Iter > Iter \fBfixNumericLocale\fP (Iter begin, Iter end)"
+.br
+.ti -1c
+.RI "template<typename Iter > void \fBfixNumericLocaleInput\fP (Iter begin, Iter end)"
+.br
+.ti -1c
+.RI "template<typename Iter > Iter \fBfixZerosInTheEnd\fP (Iter begin, Iter end)"
+.br
+.ti -1c
+.RI "bool \fBparseFromStream\fP (\fBCharReader::Factory\fP const &fact, JSONCPP_ISTREAM &sin, \fBValue\fP *root, JSONCPP_STRING *errs)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+JSON (JavaScript Object Notation)\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIuintToStringBufferSize \fP\fP
+Constant that specify the size of the buffer that must be passed to uintToString\&. 
+.SS "enum \fBJson::CommentPlacement\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIcommentBefore \fP\fP
+a comment placed on the line before a value 
+.TP
+\fB\fIcommentAfterOnSameLine \fP\fP
+a comment just after a value on the same line 
+.TP
+\fB\fIcommentAfter \fP\fP
+a comment on the line after a value (only make sense for 
+.TP
+\fB\fInumberOfCommentPlacement \fP\fP
+root value) 
+.SS "enum \fBJson::PrecisionType\fP"
+
+.PP
+Type of precision for formatting of real values\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIsignificantDigits \fP\fP
+we set max number of significant digits in string 
+.TP
+\fB\fIdecimalPlaces \fP\fP
+we set max number of digits after '\&.' in string 
+.SS "enum \fBJson::ValueType\fP"
+
+.PP
+Type of the value held by a \fBValue\fP object\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fInullValue \fP\fP
+'null' value 
+.TP
+\fB\fIintValue \fP\fP
+signed integer value 
+.TP
+\fB\fIuintValue \fP\fP
+unsigned integer value 
+.TP
+\fB\fIrealValue \fP\fP
+double value 
+.TP
+\fB\fIstringValue \fP\fP
+UTF-8 string value\&. 
+.TP
+\fB\fIbooleanValue \fP\fP
+bool value 
+.TP
+\fB\fIarrayValue \fP\fP
+array value (ordered list) 
+.TP
+\fB\fIobjectValue \fP\fP
+object value (collection of name/value pairs)\&. 
+.SH "Function Documentation"
+.PP 
+.SS "template<typename Iter > Iter Json::fixNumericLocale (Iter begin, Iter end)"
+Change ',' to '\&.' everywhere in buffer\&.
+.PP
+We had a sophisticated way, but it did not work in WinCE\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+https://github.com/open-source-parsers/jsoncpp/pull/9 
+.RE
+.PP
+
+.SS "template<typename Iter > Iter Json::fixZerosInTheEnd (Iter begin, Iter end)"
+Return iterator that would be the new end of the range [begin,end), if we were to delete zeros in the end of string, but not the last zero before '\&.'\&. 
+.SS "class Json::JSONCPP_DEPRECATED ('Use \fBStreamWriter\fP instead')"
+
+.PP
+Abstract class for writers\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBStreamWriter\fP\&. (And really, this is an implementation detail\&.) 
+.RE
+.PP
+
+.SS "class JSONCPP_DEPRECATED ('Use \fBStreamWriterBuilder\fP instead') JSON_API FastWriter class JSONCPP_DEPRECATED ('Use \fBStreamWriterBuilder\fP instead') JSON_API StyledWriter class Json::JSONCPP_DEPRECATED ('Use \fBStreamWriterBuilder\fP instead')"
+
+.PP
+Outputs a \fBValue\fP in \fCJSON\fP format without formatting (not human friendly)\&. The JSON document is written in a single line\&. It is not intended for 'human' consumption, but may be useful to support feature such as RPC where bandwidth is limited\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBReader\fP, \fBValue\fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBStreamWriterBuilder\fP\&. 
+.RE
+.PP
+Writes a \fBValue\fP in \fCJSON\fP format in a human friendly way\&.
+.PP
+The rules for line break and indent are as follow:
+.IP "\(bu" 2
+Object value:
+.IP "  \(bu" 4
+if empty then print {} without indent and line break
+.IP "  \(bu" 4
+if not empty the print '{', line break & indent, print one value per line and then unindent and line break and print '}'\&.
+.PP
+
+.IP "\(bu" 2
+Array value:
+.IP "  \(bu" 4
+if empty then print [] without indent and line break
+.IP "  \(bu" 4
+if the array contains no object value, empty array or some other value types, and all the values fit on one lines, then print the array on a single line\&.
+.IP "  \(bu" 4
+otherwise, it the values do not fit on one line, or the array contains object or non empty array, then print one value per line\&.
+.PP
+
+.PP
+.PP
+If the \fBValue\fP have comments then they are outputed according to their \fBCommentPlacement\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBReader\fP, \fBValue\fP, \fBValue::setComment()\fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBStreamWriterBuilder\fP\&. 
+.RE
+.PP
+Writes a \fBValue\fP in \fCJSON\fP format in a human friendly way, to a stream rather than to a string\&.
+.PP
+The rules for line break and indent are as follow:
+.IP "\(bu" 2
+Object value:
+.IP "  \(bu" 4
+if empty then print {} without indent and line break
+.IP "  \(bu" 4
+if not empty the print '{', line break & indent, print one value per line and then unindent and line break and print '}'\&.
+.PP
+
+.IP "\(bu" 2
+Array value:
+.IP "  \(bu" 4
+if empty then print [] without indent and line break
+.IP "  \(bu" 4
+if the array contains no object value, empty array or some other value types, and all the values fit on one lines, then print the array on a single line\&.
+.IP "  \(bu" 4
+otherwise, it the values do not fit on one line, or the array contains object or non empty array, then print one value per line\&.
+.PP
+
+.PP
+.PP
+If the \fBValue\fP have comments then they are outputed according to their \fBCommentPlacement\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBReader\fP, \fBValue\fP, \fBValue::setComment()\fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBStreamWriterBuilder\fP\&. 
+.RE
+.PP
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindentation\fP Each level will be indented by this amount extra\&.
+.RE
+.PP
+Serialize a \fBValue\fP in \fCJSON\fP format\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIout\fP Stream to write to\&. (Can be ostringstream, e\&.g\&.) 
+.br
+\fIroot\fP \fBValue\fP to serialize\&. 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+There is no point in deriving from Writer, since write() should not return a value\&.
+.RE
+.PP
+
+.SS "JSONCPP_OSTREAM & Json::operator<< (JSONCPP_OSTREAM & sout, const \fBValue\fP & root)"
+
+.PP
+Output using the StyledStreamWriter\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBJson::operator>>()\fP 
+.RE
+.PP
+
+.SS "JSONCPP_ISTREAM & Json::operator>> (JSONCPP_ISTREAM & sin, \fBValue\fP & root)"
+
+.PP
+Read from 'sin' into 'root'\&. Always keep comments from the input JSON\&.
+.PP
+This can be used to read a file into a particular sub-object\&. For example: 
+.PP
+.nf
+Json::Value root;
+cin >> root["dir"]["file"];
+cout << root;
+
+.fi
+.PP
+ Result: 
+.PP
+.nf
+{
+"dir": {
+    "file": {
+    // The input stream JSON would be nested here.
+    }
+}
+}
+
+.fi
+.PP
+ 
+.PP
+\fBExceptions:\fP
+.RS 4
+\fIstd::exception\fP on parse error\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBJson::operator<<()\fP 
+.RE
+.PP
+
+.SS "bool JSON_API Json::parseFromStream (\fBCharReader::Factory\fP const &, JSONCPP_ISTREAM &, \fBValue\fP * root, std::string * errs)"
+Consume entire stream and use its begin/end\&. Someday we might have a real StreamReader, but for now this is convenient\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

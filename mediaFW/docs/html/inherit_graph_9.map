@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,31,120,57"/>
+<area shape="rect" id="node2" href="$classJson_1_1Exception.html" title="Json::Exception" alt="" coords="168,31,289,57"/>
+<area shape="rect" id="node3" href="$classJson_1_1LogicError.html" title="Json::LogicError" alt="" coords="347,5,470,32"/>
+<area shape="rect" id="node4" href="$classJson_1_1RuntimeError.html" title="Json::RuntimeError" alt="" coords="337,56,480,83"/>
+</map>
