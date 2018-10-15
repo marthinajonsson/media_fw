@@ -31,18 +31,17 @@ void JsonParser::parser()
         _parsed.push_back(genre);
         _parsed.push_back(director);
 
+        std::stringstream ss(actors);
+        std::string str;
+        while (ss >> str)
+        {
+            _parsed.push_back(str);
+            if (ss.peek() == ',')
+                ss.ignore();
+        }
+        _map[title] = _parsed;
     }
 
-    std::stringstream ss(actors);
-    std::string str;
-    while (ss >> str)
-    {
-        //std::cout << "act " << str << std::endl;
-        _parsed.push_back(str);
-        if (ss.peek() == ',' || ss.peek() == ' ')
-            ss.ignore();
-    }
-    _map[title] = _parsed;
 }
 
 void JsonParser::updateDB () {

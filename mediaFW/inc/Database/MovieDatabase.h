@@ -107,7 +107,7 @@ public:
         for(auto item : m_items) {
             std::cout << item.getTitle() << ", " << item.getGenre() << ", " << std::endl;
             for(const auto &s : item.getActors()) {
-                std::cout << s << "\n" << std::endl;
+                std::cout << s << " " << std::endl;
             }
         }
     }

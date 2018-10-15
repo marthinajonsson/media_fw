@@ -24,7 +24,7 @@ public:
 
     DatabaseItem () {};
     DatabaseItem(std::vector<std::string> _actors, std::string _title, std::string _genre, std::string _director)
-        : m_actors(_actors), m_title("defaultTitle"), m_genre(_genre), m_director(_director)
+        : m_actors(_actors), m_title(_title), m_genre(_genre), m_director(_director)
     {
     };
 

@@ -48,7 +48,6 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
     {
         seglist.push_back(segment);
     }
-    std::cout << "Number of arguments: " << seglist.size() << std::endl;
     return seglist;
 }
 

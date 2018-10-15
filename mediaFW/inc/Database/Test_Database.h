@@ -22,10 +22,11 @@ TEST(DatabaseTest, BaseDatabase) {
 TEST(MovieDatabaseTest, HandleStartup) {
     Database *db;
     ASSERT_NO_THROW(db = new MovieDatabase());
+    db->printAll();
     long numberOfItems = db->getNumberOfItem();
     std::cout << numberOfItems << std::endl;
-    ASSERT_TRUE(db->getNumberOfItem() == 1);
-    db->printAll();
+
+    ASSERT_TRUE(db->getNumberOfItem() == 2);
     delete db;
 }
 #endif //MEDIAFW_TEST_DATABASE_H
