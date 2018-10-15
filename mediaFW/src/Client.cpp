@@ -8,11 +8,23 @@
 #include "DatabaseItem.h"
 #include "Connection.h"
 
+
+/// <summary>
+/// A method that waits for CLI to process incoming request.
+/// Used by std::future.
+/// </summary>
+/// <param name="p_cli">A pointer to current CLI object.</param>
+/// <returns>A vector of strings containing the result of CLI process</returns>
 std::vector<std::string> getCliInput(Cli* p_cli) {
     return p_cli->process();
 }
 
-
+/// <summary>
+/// A method that waits CLI input from method getCliInput.
+/// The method will break if input is interpreted as exit or
+/// continue by sending the request to be handled.
+/// </summary>
+/// <returns></returns>
 void Client::setup()
 {
     std::vector<std::string> resultVector;
@@ -38,11 +50,15 @@ void Client::setup()
 }
 
 
-/*
- * @param - Incoming request from CLI
- * @param - Boolean flag indicating if ssh connection is established and remote command can be sent.
- *
- * */
+/// <summary>
+/// This method performs what is requested by CLI.
+/// Both remotely and on local database.
+/// </summary>
+/// <param name="request">A string containing a request (e.g. upload, search)
+/// and also additional information needed to handle the request such as title.</param>
+/// <param name="connected">Boolean parameter indicating wheater or not we are able to
+/// send request remotely (i.e. established ssh connection).</param>
+/// <returns></returns>
 void Client::handleCliCallback(std::vector<std::string> request, bool connected)
 {
     std::string choice = request.front();

@@ -1,14 +1,16 @@
 cmake_minimum_required(VERSION 3.12)
 project(mediaFW)
 
-find_path(LIBSSH_INCLUDE_DIR libssh.h)
-
 set(CMAKE_CXX_STANDARD 17)
+
+# LIBSSH
+find_path(LIBSSH_INCLUDE_DIR libssh.h)
 find_package(LIBSSH REQUIRED CONFIG)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
+# DOXYGEN
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
 
@@ -56,14 +58,16 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/json/json.h
         ${CMAKE_CURRENT_LIST_DIR}/test/fixtures.h test/mocks.h test/TestClass.h)
 
-
+# GOOGLE TEST
 enable_testing()
-
 add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory("contrib/googletest")
 
+# INCLUDE HEADERS
 include_directories(inc)
+# JSON
 include_directories(inc/json)
+# GOOGLE TEST
 include_directories(contrib/googletest)
 
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude})
