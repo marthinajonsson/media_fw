@@ -14,7 +14,6 @@
 
 #include "DatabaseItem.h"
 #include "JsonParser.h"
-
 #include <list>
 #include <iostream>
 #include <mutex>

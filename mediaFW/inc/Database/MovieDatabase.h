@@ -38,7 +38,6 @@ public:
 
             DatabaseItem newItem {actors, title, genre, director};
             pushItem(newItem);
-            std::cout << getNumberOfItem() << std::endl;
         }
     }
 
@@ -67,7 +66,15 @@ public:
         if(m_items.empty()){
             std::cout << "Database is empty" << std::endl;
         }
-        return m_items.front();
+        DatabaseItem noFound;
+        std::list<DatabaseItem>::iterator it;
+        for (it = m_items.begin(); it != m_items.end(); ++it){
+            if(it->getTitle() == title) {
+                noFound = *it;
+                return noFound;
+            }
+        }
+        return *it;
     }
 
     /// <summary>
@@ -85,15 +92,13 @@ public:
     /// Method that deletes the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    void purgeItem(const DatabaseItem &m_item) override {
+    void purgeItem(const DatabaseItem &item) override {
         std::unique_lock<std::mutex>  m_lock;
         std::list<DatabaseItem>::iterator it;
-        int index = 0;
         for (it = m_items.begin(); it != m_items.end(); ++it){
-            if(it->getTitle() == m_item.getTitle()) {
+            if (it->getTitle() == item.getTitle()) {
                 m_items.erase(it);
             }
-            index++;
         }
     }
 
@@ -105,10 +110,11 @@ public:
     {
         std::unique_lock<std::mutex>  m_lock;
         for(auto item : m_items) {
-            std::cout << item.getTitle() << ", " << item.getGenre() << ", " << std::endl;
+            std::string result = item.getTitle() + " " + item.getGenre() + " " + item.getDirector() + " ";
             for(const auto &s : item.getActors()) {
-                std::cout << s << " " << std::endl;
+                result += s + " ";
             }
+            std::cout << result << std::endl;
         }
     }
 };
