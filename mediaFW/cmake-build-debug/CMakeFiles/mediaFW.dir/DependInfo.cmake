@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o"
+  "/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o"
   )

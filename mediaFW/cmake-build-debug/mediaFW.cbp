@@ -221,6 +221,18 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/JsonParser.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaFW.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaHandler.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/StatusLogger.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Logger.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/json/json.h">
 			<Option target="mediaFW"/>
 		</Unit>
@@ -234,6 +246,9 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp">

@@ -293,8 +293,6 @@ vector
 -
 
 ../inc/Client.h
-MovieDatabase.h
-../inc/MovieDatabase.h
 Connection.h
 ../inc/Connection.h
 Cli.h
@@ -358,6 +356,36 @@ vector
 map
 -
 
+../inc/MediaHandler.h
+Database/Database.h
+-
+Database/MovieDatabase.h
+-
+Cli.h
+../inc/Cli.h
+Client.h
+../inc/Client.h
+StatusLogger.h
+../inc/StatusLogger.h
+
+../inc/StatusLogger.h
+ifc/Logger.h
+../inc/ifc/Logger.h
+
+../inc/ifc/Logger.h
+iostream
+-
+map
+-
+
+/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp
+iostream
+-
+sstream
+-
+Cli.h
+/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.h
+
 /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 future
 -
@@ -365,8 +393,14 @@ thread
 -
 Client.h
 /home/mjonsson/repo/cppAdv/mediaFW/src/Client.h
-DatabaseItem.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/DatabaseItem.h
+
+/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
+MediaHandler.h
+/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.h
+future
+-
+thread
+-
 
 /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
 iostream
@@ -377,4 +411,6 @@ Test_Database.h
 /home/mjonsson/repo/cppAdv/mediaFW/src/Test_Database.h
 gtest/gtest.h
 /home/mjonsson/repo/cppAdv/mediaFW/src/gtest/gtest.h
+MediaHandler.h
+/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.h
 

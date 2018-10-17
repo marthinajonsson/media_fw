@@ -56,7 +56,7 @@ set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/JsonParser.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/json/jsoncpp.cpp
-        )
+        ${CMAKE_CURRENT_LIST_DIR}/src/MediaHandler.cpp)
 
 set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Cli.h
@@ -66,7 +66,11 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Database/Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/Database/DatabaseItem.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/JsonParser.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/json/json.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/json/json.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/MediaHandler.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/MediaFW.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Logger.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/StatusLogger.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/test/Fixtures.h

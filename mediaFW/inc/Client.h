@@ -5,7 +5,6 @@
 #ifndef MEDIAFW_CLIENT_H
 #define MEDIAFW_CLIENT_H
 
-#include "MovieDatabase.h"
 #include "Connection.h"
 #include "Cli.h"
 
@@ -16,27 +15,12 @@ public:
     /*! \public Client constructor()
     * @brief Instantiates database type DbType_e and corresponding Database.
     */
-    Client() {
-        type = Movie;
-        p_db = new MovieDatabase();
-        p_db->printAll();
-    };
+    Client() = default;
 
     /*! \public Client deconstructor()
     * @brief deletes previous instantiated Database.
     */
-    ~Client() {
-        delete p_db;
-    };
-
-    /*! \enum Client::DbType_e
-    * @brief Enum describing database type.
-    */
-    enum DbType_e{
-        Movie = 2,
-        Series = 1,
-        Undefined = 0
-    }type;
+    ~Client() = default;
 
     /*! \public Client::setup()
     * @brief A method that waits for input from private method Client::getCliInput().
@@ -45,13 +29,12 @@ public:
     */
     void setup();
 
+    bool getConnectionStatus();
+
 private:
-    /*! \privatesection Client *p_db
-    * @brief Private pointer ot Database object.
-    */
-    Database *p_db;
-    /*! \privatesection Database* p_db
-     * @brief Private pointer to database object.
+
+    /*! \privatesection Connection* p_conn.
+     * @brief Private pointer to connection object.
      */
     Connection *p_conn;
     /*! \privatesection Cli* p_cli.

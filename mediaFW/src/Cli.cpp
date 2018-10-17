@@ -16,7 +16,6 @@
 
 
 std::vector<std::string> Cli::process() {
-    const std::string exit = "exit";
     const std::string help = "help";
     std::string p_choice;
 

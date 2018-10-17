@@ -8,10 +8,6 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
- ../inc/Database/Database.h
- ../inc/Database/DatabaseItem.h
- ../inc/Database/MovieDatabase.h
- ../inc/JsonParser.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o
  ../inc/Connection.h
@@ -20,6 +16,18 @@ CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
  ../inc/JsonParser.h
  ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp
+CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
+ ../inc/Cli.h
+ ../inc/Client.h
+ ../inc/Connection.h
+ ../inc/Database/Database.h
+ ../inc/Database/DatabaseItem.h
+ ../inc/Database/MovieDatabase.h
+ ../inc/JsonParser.h
+ ../inc/MediaHandler.h
+ ../inc/StatusLogger.h
+ ../inc/ifc/Logger.h
+ /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o
  ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp
@@ -54,4 +62,7 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../inc/Database/MovieDatabase.h
  ../inc/Database/Test_Database.h
  ../inc/JsonParser.h
+ ../inc/MediaHandler.h
+ ../inc/StatusLogger.h
+ ../inc/ifc/Logger.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp

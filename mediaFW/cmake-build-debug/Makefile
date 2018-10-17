@@ -294,6 +294,33 @@ src/JsonParser.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/JsonParser.cpp.s
 .PHONY : src/JsonParser.cpp.s
 
+src/MediaHandler.o: src/MediaHandler.cpp.o
+
+.PHONY : src/MediaHandler.o
+
+# target to build an object file
+src/MediaHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
+.PHONY : src/MediaHandler.cpp.o
+
+src/MediaHandler.i: src/MediaHandler.cpp.i
+
+.PHONY : src/MediaHandler.i
+
+# target to preprocess a source file
+src/MediaHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.i
+.PHONY : src/MediaHandler.cpp.i
+
+src/MediaHandler.s: src/MediaHandler.cpp.s
+
+.PHONY : src/MediaHandler.s
+
+# target to generate assembly for a file
+src/MediaHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.s
+.PHONY : src/MediaHandler.cpp.s
+
 src/json/jsoncpp.o: src/json/jsoncpp.cpp.o
 
 .PHONY : src/json/jsoncpp.o
@@ -374,6 +401,9 @@ help:
 	@echo "... src/JsonParser.o"
 	@echo "... src/JsonParser.i"
 	@echo "... src/JsonParser.s"
+	@echo "... src/MediaHandler.o"
+	@echo "... src/MediaHandler.i"
+	@echo "... src/MediaHandler.s"
 	@echo "... src/json/jsoncpp.o"
 	@echo "... src/json/jsoncpp.i"
 	@echo "... src/json/jsoncpp.s"
