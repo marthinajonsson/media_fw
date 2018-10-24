@@ -301,6 +301,12 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Logger.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Observer.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Subject.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/json/json.h">
 			<Option target="mediaFW"/>
 		</Unit>

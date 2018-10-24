@@ -5,20 +5,27 @@
 #ifndef MEDIAFW_MEDIAHANDLER_H
 #define MEDIAFW_MEDIAHANDLER_H
 
+#include <functional>
 #include "database/Database.h"
 #include "database/MovieDatabase.h"
 #include "Cli.h"
 #include "Client.h"
 #include "StatusLogger.h"
 
-class MediaHandler{
+
+class MediaHandler : public Observer{
 public:
     MediaHandler() {
+        Connection *conn;
         logger = new StatusLogger;
         cli = new Cli;
-        client = new Client;
+
+        client = new Client(conn, cli);
         database = new MovieDatabase;
-        sync();
+
+        std::string status;
+        client->registerObserver(this);
+        client->waitCliAsync();
     };
 
     ~MediaHandler() {
@@ -30,9 +37,11 @@ public:
 
 //    StatusLogger* getLoggerInstance() { this->logger; }
 
-    void sync();
+
+    void update(Event event, std::vector<std::string>&) override;
+
     void syncClient(std::string &status);
-    void syncDatabase(std::string &status);
+    void syncDatabase(std::string &status, const std::vector<std::string>&);
 
 
 private:
@@ -42,11 +51,11 @@ private:
     Database *database; // return info to user_
 
     static std::string getClientInfo(Client* p_client, const std::string & status) {
-        return " ";// p_client->getUpdate();
+        return "OK";// p_client->getUpdate();
     }
 
     static std::string getDatabaseInfo(Database* p_db, const std::string &status) {
-        return " ";// p_client->getUpdate();
+        return "OK";// p_client->getUpdate();
     }
 };
 

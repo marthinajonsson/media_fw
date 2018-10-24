@@ -73,7 +73,9 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/MediaHandler.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/MediaFW.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Logger.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/StatusLogger.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/StatusLogger.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Observer.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Subject.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h

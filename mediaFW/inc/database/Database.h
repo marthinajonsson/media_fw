@@ -64,7 +64,7 @@ public:
     /// Delete the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    virtual void purgeItem(const DatabaseItem &m_item) { throw NotImplementedException(); }
+    virtual void purgeItem(DatabaseItem m_item) { throw NotImplementedException(); }
 
     /// <summary>
     /// Prints the entire database content.

@@ -8,6 +8,8 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
+ ../inc/ifc/Observer.h
+ ../inc/ifc/Subject.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 CMakeFiles/mediaFW.dir/src/Connection.cpp.o
  ../inc/Connection.h
@@ -27,6 +29,8 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
  ../inc/database/DatabaseItem.h
  ../inc/database/MovieDatabase.h
  ../inc/ifc/Logger.h
+ ../inc/ifc/Observer.h
+ ../inc/ifc/Subject.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o
  ../inc/json/json.h
@@ -42,6 +46,8 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../inc/database/DatabaseItem.h
  ../inc/database/MovieDatabase.h
  ../inc/ifc/Logger.h
+ ../inc/ifc/Observer.h
+ ../inc/ifc/Subject.h
  ../test/Test_Startup.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o

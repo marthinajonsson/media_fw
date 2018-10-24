@@ -7,26 +7,31 @@
 #include <future>
 #include <thread>
 
-bool timer() {
-    std::this_thread::sleep_for(std::chrono::seconds(30));
-    return true;
-}
 
-
-void MediaHandler::sync()
+void MediaHandler::update(Event event, std::vector<std::string> &args)
 {
     std::string result;
-    while(true)
-    {
-        auto future = std::async(timer);
-        future.get();
-        syncClient(result);
 
-        if(result == "exit") {
-            break;
-        }
-        syncDatabase(result);
+    if(event == Event::UPLOAD) {
+        result = "Upload";
     }
+    else if (event == Event ::DOWNLOAD) {
+        result = "Download";
+    }
+    else if (event == Event ::SEARCH) {
+        result = "Search";
+    }
+    else if (event == Event ::HELP) {
+        result = "Help";
+    }
+    else if (event == Event ::EXIT) {
+        result = "Exit";
+    }
+
+    std::cout << result << std::endl;
+
+    syncClient(result);
+    syncDatabase(result, args);
 }
 
 void MediaHandler::syncClient(std::string &status) {
@@ -60,7 +65,7 @@ void MediaHandler::syncClient(std::string &status) {
 
 }
 
-void MediaHandler::syncDatabase(std::string &status) {
+void MediaHandler::syncDatabase(std::string &status, const std::vector<std::string> &args) {
     //TODO: get db status
     //TODO: update db with new info
     auto fut = std::async(getDatabaseInfo, database, status);
@@ -73,3 +78,4 @@ void MediaHandler::syncDatabase(std::string &status) {
         logger->TRACE(level, "Database is unsynced");
     }
 }
+

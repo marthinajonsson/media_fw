@@ -11,8 +11,7 @@
  * Receives and interpretes information from stdin and sends requests to the server.
  */
 
-//TODO: how should info from getCliInput reach mediaHandler?
-void Client::setup()
+void Client::waitCliAsync()
 {
     std::vector<std::string> resultVector;
     std::string choice;
@@ -26,37 +25,42 @@ void Client::setup()
         fut = std::async(getCliInput, p_cli);
         auto result = fut.get();
         choice = result.front();
-        std::cout << "Caught choice: " << choice << std::endl;
+
         if(choice.find(exit) != std::string::npos) {
             break;
         }
 
-        handleCallback(result, connected);
+        handleRequest(result, connected);
     }
 }
 
-void Client::handleCallback(std::vector<std::string> request, bool connected)
-{
-    std::string choice = request.front();
-    std::string command;
-    if (choice == "upload") {
-        command = "ls";
-    }else if (choice == "download") {
-        command = "ps aux";
+void Client::notifyRequest(std::vector<std::string> &request) {
+
+    if (request.front() == "upload") {
+        notifyObservers(Event::UPLOAD, request);
+    }else if (request.front() == "download") {
+        notifyObservers(Event::DOWNLOAD, request);
     }
-    else if (choice == "search") {
-        command = "ifconfig";
-    }else {
+    else if (request.front() == "search") {
+        notifyObservers(Event::SEARCH, request);
+    }
+    else if (request.front() == "delete") {
+        notifyObservers(Event::DELETE, request);
+    }
+    else if (request.front().find("exit")) {
+        notifyObservers(Event::EXIT, request);
+    }
+    else {
         std::cerr << "Unknown request" << std::endl;
     }
-
-    std::string result {""};
-    if(connected == false) {
-        p_conn->sendRemoteCommands(command, result);
-    }
-    std::cout << "Request sent: " << command << std::endl;
 }
 
-bool Client::getConnectionStatus() {
-    return p_conn->getConnectionStatus();
+void Client::handleRequest(std::vector<std::string> request, bool connected)
+{
+    notifyRequest(request);
+
+    std::string result;
+    if(connected == true) {
+        p_conn->sendRemoteCommands("ls", result);
+    }
 }
