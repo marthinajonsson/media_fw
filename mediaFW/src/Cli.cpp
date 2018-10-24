@@ -14,7 +14,6 @@
  * Receives inputs from STDIN and splits the result into strings.
  */
 
-
 std::vector<std::string> Cli::process() {
     const std::string help = "help";
     std::string p_choice;
@@ -28,6 +27,17 @@ std::vector<std::string> Cli::process() {
         else if (!line.empty()) {
             return parseArg(line);
         }
+    }
+}
+
+std::vector<std::string> Cli::process(std::string &test) {
+    const std::string help = "help";
+    std::string p_choice;
+
+    printOptions();
+    for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
+    {
+        return parseArg(test);
     }
 }
 

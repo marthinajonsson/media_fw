@@ -5,8 +5,8 @@
 #ifndef MEDIAFW_MEDIAHANDLER_H
 #define MEDIAFW_MEDIAHANDLER_H
 
-#include <Database/Database.h>
-#include <Database/MovieDatabase.h>
+#include "database/Database.h"
+#include "database/MovieDatabase.h"
 #include "Cli.h"
 #include "Client.h"
 #include "StatusLogger.h"

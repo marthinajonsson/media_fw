@@ -3,6 +3,8 @@
 //
 
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
+
 
 #ifndef MEDIAFW_MOCKS_H
 #define MEDIAFW_MOCKS_H
@@ -14,6 +16,9 @@
 
 class Mocks_Cli : public Cli {
 public:
+
+   // MOCK_METHOD0(process, std::vector<std::string>());
+
 //    MOCK_METHOD2(generate, double(double, double)); not possible if not virtual method
 //
 //    MockRng rng;

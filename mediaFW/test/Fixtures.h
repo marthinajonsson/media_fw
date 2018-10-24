@@ -1,7 +1,8 @@
 //
 // Created by mjonsson on 10/12/18.
 //
-#include <Client.h>
+
+#include <MediaHandler.h>
 #include "gtest/gtest.h"
 
 #ifndef MEDIAFW_FIXTURES_H
@@ -15,8 +16,7 @@ public:
     }
 
     void SetUp( ) {
-        Client client;
-        client.setup();
+        MediaHandler mediaHandler;
     }
 
     void TearDown( ) {

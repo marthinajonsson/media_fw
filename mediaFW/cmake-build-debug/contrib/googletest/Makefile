@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -88,6 +77,17 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -136,6 +136,48 @@ googletest/fast:
 	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
 .PHONY : googletest/fast
 
+# Convenience name for target.
+contrib/googletest/CMakeFiles/googlemock.dir/rule:
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/CMakeFiles/googlemock.dir/rule
+.PHONY : contrib/googletest/CMakeFiles/googlemock.dir/rule
+
+# Convenience name for target.
+googlemock: contrib/googletest/CMakeFiles/googlemock.dir/rule
+
+.PHONY : googlemock
+
+# fast build rule for target.
+googlemock/fast:
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/build
+.PHONY : googlemock/fast
+
+src/gmock-all.o: src/gmock-all.cc.o
+
+.PHONY : src/gmock-all.o
+
+# target to build an object file
+src/gmock-all.cc.o:
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.o
+.PHONY : src/gmock-all.cc.o
+
+src/gmock-all.i: src/gmock-all.cc.i
+
+.PHONY : src/gmock-all.i
+
+# target to preprocess a source file
+src/gmock-all.cc.i:
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.i
+.PHONY : src/gmock-all.cc.i
+
+src/gmock-all.s: src/gmock-all.cc.s
+
+.PHONY : src/gmock-all.s
+
+# target to generate assembly for a file
+src/gmock-all.cc.s:
+	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.s
+.PHONY : src/gmock-all.cc.s
+
 src/gtest-all.o: src/gtest-all.cc.o
 
 .PHONY : src/gtest-all.o
@@ -170,9 +212,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... googletest"
+	@echo "... test"
+	@echo "... googlemock"
+	@echo "... edit_cache"
+	@echo "... src/gmock-all.o"
+	@echo "... src/gmock-all.i"
+	@echo "... src/gmock-all.s"
 	@echo "... src/gtest-all.o"
 	@echo "... src/gtest-all.i"
 	@echo "... src/gtest-all.s"

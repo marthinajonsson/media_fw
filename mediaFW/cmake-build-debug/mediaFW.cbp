@@ -76,9 +76,11 @@
 				<Compiler>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -105,9 +107,11 @@
 				<Compiler>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
@@ -144,10 +148,11 @@
 				<Compiler>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -173,10 +178,11 @@
 				<Compiler>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
 					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
-					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -193,7 +199,72 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="googlemock">
+				<Option output="/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/libgooglemock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 googlemock"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="googlemock/fast">
+				<Option output="/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/libgooglemock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/test"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/database"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/json"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests"/>
+					<Add directory="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 googlemock/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gmock-all.cc">
+			<Option target="googlemock"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gtest-all.cc">
 			<Option target="googletest"/>
 		</Unit>
@@ -204,18 +275,6 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Connection.h">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/Database.h">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/DatabaseItem.h">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/MovieDatabase.h">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/Test_Database.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/JsonParser.h">
@@ -230,10 +289,22 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/StatusLogger.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/database/Database.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/database/DatabaseItem.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/database/MovieDatabase.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Logger.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/json/json.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Database.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp">
@@ -257,10 +328,19 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/unittests/Test_Cli.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/test/Fixtures.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/test/Mocks.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/test/Test_Startup.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/test/test_main.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/CMakeLists.txt">

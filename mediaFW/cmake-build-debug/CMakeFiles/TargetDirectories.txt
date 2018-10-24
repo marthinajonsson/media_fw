@@ -6,6 +6,7 @@
 /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir
 /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/apidoc_forced.dir
 /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/rebuild_cache.dir
-/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/edit_cache.dir
-/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/test.dir
 /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir
+/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/test.dir
+/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir
+/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/edit_cache.dir

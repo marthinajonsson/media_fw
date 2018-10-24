@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o"
   "/home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o"
+  "/home/mjonsson/repo/cppAdv/mediaFW/test/test_main.cpp" "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/test/test_main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,14 +19,17 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../test"
   "../inc"
-  "../inc/Database"
+  "../inc/database"
   "../inc/json"
   "../contrib/googletest"
+  "../src/unittests"
+  "../inc/unittests"
   "../contrib/googletest/."
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/DependInfo.cmake"
   "/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/DependInfo.cmake"
   )
 

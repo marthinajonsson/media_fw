@@ -186,6 +186,19 @@ googletest/fast:
 	$(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
 .PHONY : googletest/fast
 
+#=============================================================================
+# Target rules for targets named googlemock
+
+# Build rule for target.
+googlemock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 googlemock
+.PHONY : googlemock
+
+# fast build rule for target.
+googlemock/fast:
+	$(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/build
+.PHONY : googlemock/fast
+
 src/Cli.o: src/Cli.cpp.o
 
 .PHONY : src/Cli.o
@@ -375,6 +388,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+test/test_main.o: test/test_main.cpp.o
+
+.PHONY : test/test_main.o
+
+# target to build an object file
+test/test_main.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/test/test_main.cpp.o
+.PHONY : test/test_main.cpp.o
+
+test/test_main.i: test/test_main.cpp.i
+
+.PHONY : test/test_main.i
+
+# target to preprocess a source file
+test/test_main.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/test/test_main.cpp.i
+.PHONY : test/test_main.cpp.i
+
+test/test_main.s: test/test_main.cpp.s
+
+.PHONY : test/test_main.s
+
+# target to generate assembly for a file
+test/test_main.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/test/test_main.cpp.s
+.PHONY : test/test_main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -389,6 +429,7 @@ help:
 	@echo "... mediaFW"
 	@echo "... apidoc_forced"
 	@echo "... googletest"
+	@echo "... googlemock"
 	@echo "... src/Cli.o"
 	@echo "... src/Cli.i"
 	@echo "... src/Cli.s"
@@ -410,6 +451,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... test/test_main.o"
+	@echo "... test/test_main.i"
+	@echo "... test/test_main.s"
 .PHONY : help
 
 

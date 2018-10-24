@@ -8,7 +8,7 @@
 //#include "Mocks.h"
 //#include "Fixtures.h"
 
-#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 #include "Database.h"
 #include "MovieDatabase.h"
 

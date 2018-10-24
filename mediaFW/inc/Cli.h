@@ -25,7 +25,8 @@ public:
      * @brief Public method processing input from stdin.
      * @return Vector of strings containing output from stdin.
      */
-    virtual std::vector<std::string> process();
+    std::vector<std::string> process();
+    std::vector<std::string> process(std::string &test);
 
 private:
     /*! \private Cli::parseArg(std::string &input)

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgooglemock.a  CMakeFiles/googlemock.dir/src/gmock-all.cc.o
+/usr/bin/ranlib libgooglemock.a

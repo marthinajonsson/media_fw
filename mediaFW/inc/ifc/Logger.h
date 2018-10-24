@@ -27,6 +27,7 @@ public:
 
     virtual void TRACE(Level_e level , std::string message) = 0;
     virtual Level_e getEnum(std::string) = 0;
+
 protected:
 
     template<typename T> struct map_init_helper
