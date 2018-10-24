@@ -88,7 +88,6 @@ enable_testing()
 add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory("contrib/googletest")
 
-
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude} ${TestFilesToInclude})
 target_link_libraries(mediaFW googlemock)
 target_link_libraries(mediaFW googletest)

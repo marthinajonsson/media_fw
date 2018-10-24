@@ -478,26 +478,6 @@ string
 vector
 -
 
-../inc/Client.h
-Connection.h
-../inc/Connection.h
-Cli.h
-../inc/Cli.h
-
-../inc/Connection.h
-libssh/libssh.h
--
-iostream
--
-errno.h
--
-unistd.h
--
-cstring
--
-string
--
-
 ../inc/JsonParser.h
 iostream
 -
@@ -505,22 +485,6 @@ vector
 -
 map
 -
-
-../inc/MediaHandler.h
-database/Database.h
-../inc/database/Database.h
-database/MovieDatabase.h
-../inc/database/MovieDatabase.h
-Cli.h
-../inc/Cli.h
-Client.h
-../inc/Client.h
-StatusLogger.h
-../inc/StatusLogger.h
-
-../inc/StatusLogger.h
-ifc/Logger.h
-../inc/ifc/Logger.h
 
 ../inc/database/Database.h
 DatabaseItem.h
@@ -550,12 +514,6 @@ Database.h
 algorithm
 -
 
-../inc/ifc/Logger.h
-iostream
--
-map
--
-
 ../inc/unittests/Test_Database.h
 gmock/gmock.h
 ../inc/unittests/gmock/gmock.h
@@ -565,18 +523,18 @@ MovieDatabase.h
 ../inc/unittests/MovieDatabase.h
 
 ../src/unittests/Test_Cli.h
-Cli.h
--
 gmock/gmock.h
 ../src/unittests/gmock/gmock.h
+Cli.h
+../src/unittests/Cli.h
 
-../test/Test_Startup.h
-
-/home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
-MediaHandler.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.h
-Test_Startup.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/Test_Startup.h
+/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp
+iostream
+-
+sstream
+-
+Cli.h
+/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.h
 
 /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Startup.h
 

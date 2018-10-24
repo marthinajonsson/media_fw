@@ -34,11 +34,12 @@ std::vector<std::string> Cli::process(std::string &test) {
     const std::string help = "help";
     std::string p_choice;
 
-    printOptions();
-    for (std::string line; std::cout << "APP > " && std::getline(std::cin, line); )
-    {
-        return parseArg(test);
+    if(test == help) {
+        printOptions();
+        return {help};
     }
+    return parseArg(test);
+
 }
 
 /*! \private Cli::parseArg(std::string &input)
