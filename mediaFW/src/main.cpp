@@ -14,5 +14,3 @@ int main(int argc, char **argv) {
     }
 }
 
-// TODO: divide into submodules to allow better structure and unit tests
-// TODO: consider removing vector<string> and just add strings

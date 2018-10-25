@@ -253,33 +253,6 @@ src/Client.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Client.cpp.s
 .PHONY : src/Client.cpp.s
 
-src/Connection.o: src/Connection.cpp.o
-
-.PHONY : src/Connection.o
-
-# target to build an object file
-src/Connection.cpp.o:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.o
-.PHONY : src/Connection.cpp.o
-
-src/Connection.i: src/Connection.cpp.i
-
-.PHONY : src/Connection.i
-
-# target to preprocess a source file
-src/Connection.cpp.i:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.i
-.PHONY : src/Connection.cpp.i
-
-src/Connection.s: src/Connection.cpp.s
-
-.PHONY : src/Connection.s
-
-# target to generate assembly for a file
-src/Connection.cpp.s:
-	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/Connection.cpp.s
-.PHONY : src/Connection.cpp.s
-
 src/JsonParser.o: src/JsonParser.cpp.o
 
 .PHONY : src/JsonParser.o
@@ -333,6 +306,33 @@ src/MediaHandler.s: src/MediaHandler.cpp.s
 src/MediaHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.s
 .PHONY : src/MediaHandler.cpp.s
+
+src/SshConnector.o: src/SshConnector.cpp.o
+
+.PHONY : src/SshConnector.o
+
+# target to build an object file
+src/SshConnector.cpp.o:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o
+.PHONY : src/SshConnector.cpp.o
+
+src/SshConnector.i: src/SshConnector.cpp.i
+
+.PHONY : src/SshConnector.i
+
+# target to preprocess a source file
+src/SshConnector.cpp.i:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/SshConnector.cpp.i
+.PHONY : src/SshConnector.cpp.i
+
+src/SshConnector.s: src/SshConnector.cpp.s
+
+.PHONY : src/SshConnector.s
+
+# target to generate assembly for a file
+src/SshConnector.cpp.s:
+	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/src/SshConnector.cpp.s
+.PHONY : src/SshConnector.cpp.s
 
 src/json/jsoncpp.o: src/json/jsoncpp.cpp.o
 
@@ -436,15 +436,15 @@ help:
 	@echo "... src/Client.o"
 	@echo "... src/Client.i"
 	@echo "... src/Client.s"
-	@echo "... src/Connection.o"
-	@echo "... src/Connection.i"
-	@echo "... src/Connection.s"
 	@echo "... src/JsonParser.o"
 	@echo "... src/JsonParser.i"
 	@echo "... src/JsonParser.s"
 	@echo "... src/MediaHandler.o"
 	@echo "... src/MediaHandler.i"
 	@echo "... src/MediaHandler.s"
+	@echo "... src/SshConnector.o"
+	@echo "... src/SshConnector.i"
+	@echo "... src/SshConnector.s"
 	@echo "... src/json/jsoncpp.o"
 	@echo "... src/json/jsoncpp.i"
 	@echo "... src/json/jsoncpp.s"

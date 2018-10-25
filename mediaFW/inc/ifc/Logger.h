@@ -12,7 +12,7 @@
 
 class Logger {
 public:
-    enum Level_e{ INFO = 0, ERR = 1, WARN = 2 } level;
+    static enum Level_e{ INFO = 0, ERR = 1, WARN = 2 } level;
 
     std::map<Level_e, const char*> m_levelMap;
 
@@ -25,7 +25,9 @@ public:
     }
     ~Logger() = default;
 
+    virtual void TRACE(Level_e level , std::string message, std::string errorCode) = 0;
     virtual void TRACE(Level_e level , std::string message) = 0;
+    virtual void write(Level_e level , std::string output)  = 0;
     virtual Level_e getEnum(std::string) = 0;
 
 protected:

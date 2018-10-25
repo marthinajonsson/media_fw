@@ -70,22 +70,9 @@ CMakeFiles/mediaFW.dir/src/Cli.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/Cli.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp -o CMakeFiles/mediaFW.dir/src/Cli.cpp.s
 
-CMakeFiles/mediaFW.dir/src/Connection.cpp.o: CMakeFiles/mediaFW.dir/flags.make
-CMakeFiles/mediaFW.dir/src/Connection.cpp.o: ../src/Connection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mediaFW.dir/src/Connection.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/Connection.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp
-
-CMakeFiles/mediaFW.dir/src/Connection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/Connection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp > CMakeFiles/mediaFW.dir/src/Connection.cpp.i
-
-CMakeFiles/mediaFW.dir/src/Connection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/Connection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp -o CMakeFiles/mediaFW.dir/src/Connection.cpp.s
-
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../src/Client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mediaFW.dir/src/Client.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mediaFW.dir/src/Client.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/Client.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 
 CMakeFiles/mediaFW.dir/src/Client.cpp.i: cmake_force
@@ -98,7 +85,7 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.s: cmake_force
 
 CMakeFiles/mediaFW.dir/src/main.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mediaFW.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mediaFW.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/main.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
 
 CMakeFiles/mediaFW.dir/src/main.cpp.i: cmake_force
@@ -111,7 +98,7 @@ CMakeFiles/mediaFW.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../src/JsonParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp
 
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.i: cmake_force
@@ -124,7 +111,7 @@ CMakeFiles/mediaFW.dir/src/JsonParser.cpp.s: cmake_force
 
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o: ../src/json/jsoncpp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp
 
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.i: cmake_force
@@ -137,7 +124,7 @@ CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.s: cmake_force
 
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../src/MediaHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
 
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.i: cmake_force
@@ -147,6 +134,19 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.i: cmake_force
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp -o CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.s
+
+CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o: CMakeFiles/mediaFW.dir/flags.make
+CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o: ../src/SshConnector.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o -c /home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp
+
+CMakeFiles/mediaFW.dir/src/SshConnector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mediaFW.dir/src/SshConnector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp > CMakeFiles/mediaFW.dir/src/SshConnector.cpp.i
+
+CMakeFiles/mediaFW.dir/src/SshConnector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mediaFW.dir/src/SshConnector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp -o CMakeFiles/mediaFW.dir/src/SshConnector.cpp.s
 
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: CMakeFiles/mediaFW.dir/flags.make
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../test/test_main.cpp
@@ -164,24 +164,24 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.s: cmake_force
 # Object files for target mediaFW
 mediaFW_OBJECTS = \
 "CMakeFiles/mediaFW.dir/src/Cli.cpp.o" \
-"CMakeFiles/mediaFW.dir/src/Connection.cpp.o" \
 "CMakeFiles/mediaFW.dir/src/Client.cpp.o" \
 "CMakeFiles/mediaFW.dir/src/main.cpp.o" \
 "CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o" \
 "CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o" \
 "CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o" \
+"CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o" \
 "CMakeFiles/mediaFW.dir/test/test_main.cpp.o"
 
 # External object files for target mediaFW
 mediaFW_EXTERNAL_OBJECTS =
 
 mediaFW: CMakeFiles/mediaFW.dir/src/Cli.cpp.o
-mediaFW: CMakeFiles/mediaFW.dir/src/Connection.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/src/Client.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/src/main.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
+mediaFW: CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/test/test_main.cpp.o
 mediaFW: CMakeFiles/mediaFW.dir/build.make
 mediaFW: contrib/googletest/libgooglemock.a

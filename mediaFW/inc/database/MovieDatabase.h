@@ -17,10 +17,10 @@ class MovieDatabase : public Database {
 public:
 
     MovieDatabase () {
-        syncDatabase();
+        syncLocalDatabase();
     }
 
-    void syncDatabase() override {
+    void syncLocalDatabase() override {
 
         JsonParser json;
         json.parser();
@@ -32,7 +32,7 @@ public:
             std::string director = s.second[1];
             std::vector<std::string> actors;
 
-            for(std::vector<std::string>::iterator it = s.second.begin()+2; it != s.second.end(); ++it) {
+            for(auto it = s.second.begin() + 2; it != s.second.end(); ++it) {
                 actors.push_back(*it);
             }
 

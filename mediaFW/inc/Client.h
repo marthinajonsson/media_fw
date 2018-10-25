@@ -10,7 +10,6 @@
 #include "Cli.h"
 
 class Client : Subject{
-    std::vector<Observer *> observers; // observers
 
 public:
 
@@ -31,11 +30,12 @@ public:
     */
     void waitCliAsync();
 
-    bool getConnectionStatus() {
-        return p_conn->getConnectionStatus();
-    }
+    bool getConnectionStatus () { return p_conn->getConnectionStatus(); }
 
-    // Overriden methods from subject
+    /*
+     * Overriden methods implementing subject pattern
+     *
+     * */
     void registerObserver(Observer *observer) override {
         observers.push_back(observer);
     }
@@ -54,16 +54,22 @@ public:
         }
     }
 
+protected:
+    std::vector<Observer *> observers;
+
 private:
 
     /*! \privatesection Connection* p_conn.
      * @brief Private pointer to connection object.
      */
     Connection *p_conn;
+
+
     /*! \privatesection Cli* p_cli.
      * @brief Private pointer to a cli object
      */
     Cli *p_cli;
+
 
     /*! \privatesection Client::getCliInput(Cli* p_cli)
      * @brief A method that waits for CLI to process incoming request. Used by std::future.
@@ -79,7 +85,7 @@ private:
      * @param request - String containing all information needed for the server request.
      * @param connected - Boolean parameter indicating we have an established ssh connection.
      */
-    void handleRequest(std::vector<std::string> request, bool connected);
+    void handleRequest(std::vector<std::string> &request);
 
 
     void notifyRequest(std::vector<std::string> &);

@@ -12,23 +12,22 @@
 #include "Client.h"
 #include "StatusLogger.h"
 
+/*! \class MediaHandler - handle for a user instance
+ * @brief Synchronizes information from server and database,
+ * Implements observer pattern.
+ */
 
 class MediaHandler : public Observer{
 public:
-    MediaHandler() {
-        Connection *conn;
-        logger = new StatusLogger;
-        cli = new Cli;
-
+    MediaHandler() : logger(new StatusLogger), cli(new Cli), conn(new Connection) {
         client = new Client(conn, cli);
         database = new MovieDatabase;
-
-        std::string status;
         client->registerObserver(this);
         client->waitCliAsync();
     };
 
     ~MediaHandler() {
+        client->removeObserver(this);
         delete logger;
         delete cli;
         delete client;
@@ -47,6 +46,7 @@ public:
 private:
     StatusLogger* logger;
     Client *client; // return error & status to user?
+    Connection *conn;
     Cli *cli;
     Database *database; // return info to user_
 

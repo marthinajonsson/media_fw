@@ -277,6 +277,9 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Connection.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ConnectionStream.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/JsonParser.h">
 			<Option target="mediaFW"/>
 		</Unit>
@@ -284,6 +287,9 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaHandler.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/SshConnector.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/StatusLogger.h">
@@ -296,6 +302,9 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/database/MovieDatabase.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Connector.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/ifc/Logger.h">
@@ -319,13 +328,13 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp">
-			<Option target="mediaFW"/>
-		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp">

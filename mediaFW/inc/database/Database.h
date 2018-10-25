@@ -45,7 +45,7 @@ public:
     /*! \public Database::syncDatabase()
      * @brief Sync info from json file and saves it to a list of database objects.
      */
-    virtual void syncDatabase() {throw NotImplementedException(); }
+    virtual void syncLocalDatabase() {throw NotImplementedException(); }
 
     /// <summary>
     /// Uploads the requested database item.

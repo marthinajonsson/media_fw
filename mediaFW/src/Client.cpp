@@ -17,7 +17,6 @@ void Client::waitCliAsync()
     std::string choice;
     std::string exit = "exit";
     std::future<std::vector<std::string>> fut;
-    bool connected = p_conn->getConnectionStatus();
     while(true)
     {
         resultVector.clear();
@@ -30,7 +29,7 @@ void Client::waitCliAsync()
             break;
         }
 
-        handleRequest(result, connected);
+        handleRequest(result);
     }
 }
 
@@ -55,12 +54,11 @@ void Client::notifyRequest(std::vector<std::string> &request) {
     }
 }
 
-void Client::handleRequest(std::vector<std::string> request, bool connected)
+void Client::handleRequest(std::vector<std::string> &request)
 {
     notifyRequest(request);
-
     std::string result;
-    if(connected == true) {
-        p_conn->sendRemoteCommands("ls", result);
-    }
+    std::string testcommand = "ls";
+    p_conn->sendServerRequest(testcommand, result);
+    std::cout << result << std::endl;
 }

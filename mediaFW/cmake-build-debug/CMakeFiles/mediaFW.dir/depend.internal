@@ -8,12 +8,14 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
+ ../inc/ConnectionStream.h
+ ../inc/SshConnector.h
+ ../inc/StatusLogger.h
+ ../inc/ifc/Connector.h
+ ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
-CMakeFiles/mediaFW.dir/src/Connection.cpp.o
- ../inc/Connection.h
- /home/mjonsson/repo/cppAdv/mediaFW/src/Connection.cpp
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
  ../inc/JsonParser.h
  ../inc/json/json.h
@@ -22,16 +24,26 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
+ ../inc/ConnectionStream.h
  ../inc/JsonParser.h
  ../inc/MediaHandler.h
+ ../inc/SshConnector.h
  ../inc/StatusLogger.h
  ../inc/database/Database.h
  ../inc/database/DatabaseItem.h
  ../inc/database/MovieDatabase.h
+ ../inc/ifc/Connector.h
  ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
+CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o
+ ../inc/ConnectionStream.h
+ ../inc/SshConnector.h
+ ../inc/StatusLogger.h
+ ../inc/ifc/Connector.h
+ ../inc/ifc/Logger.h
+ /home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp
 CMakeFiles/mediaFW.dir/src/json/jsoncpp.cpp.o
  ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/json/jsoncpp.cpp
@@ -39,12 +51,15 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../inc/Cli.h
  ../inc/Client.h
  ../inc/Connection.h
+ ../inc/ConnectionStream.h
  ../inc/JsonParser.h
  ../inc/MediaHandler.h
+ ../inc/SshConnector.h
  ../inc/StatusLogger.h
  ../inc/database/Database.h
  ../inc/database/DatabaseItem.h
  ../inc/database/MovieDatabase.h
+ ../inc/ifc/Connector.h
  ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h

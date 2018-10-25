@@ -54,12 +54,12 @@ endif(DOXYGEN_FOUND)
 
 set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/Cli.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/Connection.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/Client.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/main.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/JsonParser.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/json/jsoncpp.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/MediaHandler.cpp)
+        ${CMAKE_CURRENT_LIST_DIR}/src/MediaHandler.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/SshConnector.cpp)
 
 set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Cli.h
@@ -75,7 +75,10 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Logger.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/StatusLogger.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Observer.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Subject.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Subject.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Connector.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ConnectionStream.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h

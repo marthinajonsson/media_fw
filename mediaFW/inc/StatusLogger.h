@@ -24,9 +24,20 @@ public:
         return WARN;
     }
 
+    void TRACE(Level_e level, std::string message, std::string errorCode) override{
+        std::string statusLevel  = m_levelMap.at(level);
+        std::string output = statusLevel + message + " (" + errorCode + ") ";
+        write(level, output);
+    }
+
     void TRACE(Level_e level, std::string message) override{
         std::string statusLevel  = m_levelMap.at(level);
         std::string output = statusLevel + message;
+        write(level, output);
+
+    }
+
+    void write(Level_e level, std::string output) override{
         std::string startcode = "\033[";
         std::string endcode = "\033[0m\n";
         if (level == ERR) {

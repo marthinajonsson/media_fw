@@ -15,7 +15,7 @@
 
 TEST(DatabaseTest, BaseDatabase) {
     Database db;
-    ASSERT_ANY_THROW(db.syncDatabase());
+    ASSERT_ANY_THROW(db.syncLocalDatabase());
     ASSERT_ANY_THROW(db.getNumberOfItem());
     ASSERT_ANY_THROW(db.fetchItem("TestTitle"));
 }
@@ -49,13 +49,10 @@ TEST(MovieDatabaseTest, PushAndFetch) {
     ASSERT_EQ(anotherItem.getDirector(), newItem.getDirector());
     ASSERT_EQ(anotherItem.getActors(), newItem.getActors());
 
-
-    db->purgeItem(newItem);
-    ASSERT_TRUE(db->getNumberOfItem() == firstNum);
-
-//    const std::string emptyString{" "};
-//    ASSERT_NE(db->fetchItem("aTitle"), emptyString);
-
     delete db;
+}
+
+TEST(MovieDatabaseTest, PurgeItems) {
+
 }
 #endif //MEDIAFW_TEST_DATABASE_H
