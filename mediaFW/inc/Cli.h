@@ -9,7 +9,9 @@
 #include <vector>
 
 
-/*! Module handling everything related to our Command line interface.  */
+/*! \class Cli
+ * @brief Module handling everything related to our Command line interface.
+ */
 class Cli
 {
 public:
@@ -36,6 +38,23 @@ private:
      * @return Private vector of strings containing parsed words from stdin.
      */
     std::vector<std::string> parseArg(std::string &input);
+
+    /*! \private Cli::verifyParsed(std::vector<std::string> &)
+     * @brief Verify parsed arguments. Varies on choice.
+     */
+    bool verifyParsed(std::vector<std::string> &);
+
+    bool verifyExists(const std::string &s);
+
+    bool verifyDelete(std::vector<std::string> &);
+
+    bool verifySearch(std::vector<std::string> &);
+
+    bool verifyDownload(std::vector<std::string> &);
+
+    bool verifyUpload(std::vector<std::string> &);
+
+    bool cfmUpload(std::vector<std::string> &);
 
     /*! \private Cli::printOptions()
      * @brief A private method that prints all valid options for stdin.

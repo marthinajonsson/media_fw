@@ -37,7 +37,8 @@ void Client::notifyRequest(std::vector<std::string> &request) {
 
     if (request.front() == "upload") {
         notifyObservers(Event::UPLOAD, request);
-    }else if (request.front() == "download") {
+    }
+    else if (request.front() == "download") {
         notifyObservers(Event::DOWNLOAD, request);
     }
     else if (request.front() == "search") {

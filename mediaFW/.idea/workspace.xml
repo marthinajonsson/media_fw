@@ -2,12 +2,12 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="mediaFW" targetName="mediaFW" />
-      <config projectName="mediaFW" targetName="check" />
       <config projectName="mediaFW" targetName="googlemock" />
+      <config projectName="mediaFW" targetName="mediaFW" />
+      <config projectName="mediaFW" targetName="apidoc_forced" />
       <config projectName="mediaFW" targetName="apidoc" />
       <config projectName="mediaFW" targetName="googletest" />
-      <config projectName="mediaFW" targetName="apidoc_forced" />
+      <config projectName="mediaFW" targetName="check" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -17,37 +17,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a30e8a6b-95d9-4ab5-96a6-a40e7b3573ec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/inc/SshConnector.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inc/ifc/Connector.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SshConnector.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Connection.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/test/test_main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/mediaFW.dir/test/test_main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mediaFW" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mediaFW" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mediaFW.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/mediaFW.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/Client.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/Client.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/Connection.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/Connection.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/MediaHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/MediaHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/StatusLogger.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/StatusLogger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/database/Database.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/database/Database.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/database/MovieDatabase.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/database/MovieDatabase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/ifc/Logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/ifc/Logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/unittests/Test_Database.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/unittests/Test_Database.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/mediaFW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/Cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/Cli.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cli.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Connection.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,7 +72,7 @@
     <session id="-1322381623">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="4" />
@@ -107,18 +80,18 @@
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.33" value="2" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="config" value="359" />
-          <entry key="cpp" value="10685" />
-          <entry key="h" value="14359" />
+          <entry key="cpp" value="13589" />
+          <entry key="h" value="14663" />
           <entry key="json" value="570" />
           <entry key="txt" value="797" />
         </counts>
@@ -126,9 +99,9 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="797" />
-          <entry key="Doxygen file" value="68" />
+          <entry key="Doxygen file" value="72" />
           <entry key="JSON" value="570" />
-          <entry key="ObjectiveC" value="24976" />
+          <entry key="ObjectiveC" value="28180" />
           <entry key="PLAIN_TEXT" value="359" />
         </counts>
       </usages-collector>
@@ -138,9 +111,9 @@
           <entry key="cc" value="1" />
           <entry key="chrono" value="1" />
           <entry key="config" value="4" />
-          <entry key="cpp" value="64" />
+          <entry key="cpp" value="65" />
           <entry key="dot" value="1" />
-          <entry key="h" value="170" />
+          <entry key="h" value="174" />
           <entry key="html" value="3" />
           <entry key="json" value="4" />
           <entry key="mediaFW (disassembly)" value="5" />
@@ -156,13 +129,13 @@
           <entry key="HTML" value="3" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="4" />
-          <entry key="ObjectiveC" value="241" />
+          <entry key="ObjectiveC" value="246" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages">
         <counts>
-          <entry key="Google Test" value="34" />
+          <entry key="Google Test" value="38" />
         </counts>
       </usages-collector>
     </session>
@@ -173,31 +146,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/Connection.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="47" />
-              <folding>
-                <element signature="e#101#120#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/SshConnector.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/Client.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
-              <caret line="78" column="57" lean-forward="true" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+              <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
               <folding>
                 <element signature="e#92#112#0" expanded="true" />
               </folding>
@@ -206,22 +158,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/unittests/Test_Database.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-              <folding>
-                <element signature="e#154#178#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#1#26#0" expanded="true" />
               </folding>
@@ -230,12 +170,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MediaHandler.cpp">
+        <entry file="file://$PROJECT_DIR$/inc/Cli.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+            <state relative-caret-position="590">
+              <caret line="52" column="52" lean-forward="true" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
               <folding>
-                <element signature="e#44#69#0" expanded="true" />
+                <element signature="e#87#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Cli.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="165" column="60" selection-start-line="165" selection-start-column="60" selection-end-line="165" selection-end-column="60" />
+              <folding>
+                <element signature="e#43#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/unittests/Test_Cli.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+              <folding>
+                <element signature="e#97#121#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -244,10 +208,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="406">
+              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
               <folding>
                 <element signature="e#41#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/database/MovieDatabase.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="e#248#269#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -257,7 +233,7 @@
         <entry file="file://$PROJECT_DIR$/inc/StatusLogger.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
-              <caret line="40" column="40" lean-forward="true" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -265,8 +241,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/ifc/Logger.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="780">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -338,9 +314,7 @@
         <option value="$PROJECT_DIR$/contrib/googletest/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/test/Fixtures.h" />
         <option value="$PROJECT_DIR$/test/test_main.cpp" />
-        <option value="$PROJECT_DIR$/src/Cli.cpp" />
         <option value="$PROJECT_DIR$/src/unittests/Test_Cli.h" />
-        <option value="$PROJECT_DIR$/inc/Cli.h" />
         <option value="$PROJECT_DIR$/src/Subject.cpp" />
         <option value="$PROJECT_DIR$/inc/Subject.h" />
         <option value="$PROJECT_DIR$/inc/ClientStatus.h" />
@@ -361,9 +335,11 @@
         <option value="$PROJECT_DIR$/inc/ConnectionStream.h" />
         <option value="$PROJECT_DIR$/inc/Connection.h" />
         <option value="$PROJECT_DIR$/inc/Client.h" />
-        <option value="$PROJECT_DIR$/src/Client.cpp" />
         <option value="$PROJECT_DIR$/inc/unittests/Test_Database.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/Client.cpp" />
+        <option value="$PROJECT_DIR$/inc/Cli.h" />
+        <option value="$PROJECT_DIR$/src/Cli.cpp" />
       </list>
     </option>
   </component>
@@ -385,6 +361,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -401,18 +378,29 @@
               <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
               <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
               <item name="inc" type="462c0819:PsiDirectoryNode" />
-              <item name="ifc" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
+              <item name="inc" type="462c0819:PsiDirectoryNode" />
+              <item name="unittests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
               <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="unittests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,7 +424,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.mediaFW">
+  <component name="RunManager" selected="Google Test.CliTest.ParseHelp">
     <configuration name="All in Test_Cli.h" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_PATTERN="CliTest.*:CliTest/*.*:*/CliTest.*/*:*/CliTest/*.*" TEST_MODE="PATTERN">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -452,7 +440,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DatabaseTest.BaseDatabase" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="DatabaseTest" TEST_METHOD="BaseDatabase" TEST_MODE="SUITE_TEST">
+    <configuration name="CliTest.ParseHelp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="CliTest" TEST_METHOD="ParseHelp" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -505,19 +493,19 @@
       <item itemvalue="Application.mediaFW" />
       <item itemvalue="Application.googlemock" />
       <item itemvalue="Application.googletest" />
-      <item itemvalue="Google Test.DatabaseTest.BaseDatabase" />
       <item itemvalue="Google Test.MovieDatabaseTest.HandleStartup" />
       <item itemvalue="Google Test.CliTest.ParseArguments2" />
       <item itemvalue="Google Test.CliTest.ParseArguments3" />
       <item itemvalue="Google Test.All in Test_Cli.h" />
+      <item itemvalue="Google Test.CliTest.ParseHelp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Google Test.CliTest.ParseHelp" />
         <item itemvalue="Google Test.All in Test_Cli.h" />
         <item itemvalue="Google Test.CliTest.ParseArguments2" />
         <item itemvalue="Google Test.CliTest.ParseArguments3" />
         <item itemvalue="Google Test.MovieDatabaseTest.HandleStartup" />
-        <item itemvalue="Google Test.DatabaseTest.BaseDatabase" />
       </list>
     </recent_temporary>
   </component>
@@ -550,22 +538,11 @@
       <workItem from="1540367847212" duration="22016000" />
       <workItem from="1540453964918" duration="3816000" />
       <workItem from="1540458164896" duration="12774000" />
+      <workItem from="1540718312918" duration="7488000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MovieDatabaseTest_HandleStartup - 2018.10.24 at 11h 11m 15s.xml">
-      <configuration name="MovieDatabaseTest.HandleStartup" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="MovieDatabaseTest_HandleStartup - 2018.10.24 at 11h 20m 36s.xml">
-      <configuration name="MovieDatabaseTest.HandleStartup" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="MovieDatabaseTest_HandleStartup - 2018.10.24 at 11h 27m 41s.xml">
-      <configuration name="MovieDatabaseTest.HandleStartup" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="CliTest_ParseArguments2 - 2018.10.24 at 11h 28m 27s.xml">
-      <configuration name="CliTest.ParseArguments2" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="CliTest_ParseArguments3 - 2018.10.24 at 11h 30m 04s.xml">
       <configuration name="CliTest.ParseArguments3" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -584,9 +561,21 @@
     <history-entry file="All_in_Test_Cli_h - 2018.10.24 at 11h 41m 26s.xml">
       <configuration name="All in Test_Cli.h" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="CliTest_ParseHelp - 2018.10.28 at 10h 09m 31s.xml">
+      <configuration name="CliTest.ParseHelp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="CliTest_ParseHelp - 2018.10.28 at 10h 12m 33s.xml">
+      <configuration name="CliTest.ParseHelp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="CliTest_ParseHelp - 2018.10.28 at 10h 13m 57s.xml">
+      <configuration name="CliTest.ParseHelp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="CliTest_ParseHelp - 2018.10.28 at 10h 20m 47s.xml">
+      <configuration name="CliTest.ParseHelp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139518000" />
+    <option name="totallyTimeSpent" value="147006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -601,7 +590,7 @@
     <frame x="0" y="23" width="1920" height="1017" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4951613" visible="true" weight="0.21512248" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4951613" weight="0.2172524" />
       <window_info id="Structure" order="1" sideWeight="0.5048387" side_tool="true" weight="0.21086262" />
       <window_info id="Favorites" order="2" sideWeight="0.5048387" side_tool="true" weight="0.19808307" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -612,7 +601,7 @@
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49946752" visible="true" weight="0.43675676" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.49946752" visible="true" weight="0.43675676" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005325" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -623,7 +612,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4951613" visible="true" weight="0.21512248" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4951613" visible="true" weight="0.2172524" />
       <window_info id="Structure" order="1" sideWeight="0.5048387" side_tool="true" weight="0.21086262" />
       <window_info id="Favorites" order="2" sideWeight="0.5048387" side_tool="true" weight="0.19808307" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -634,7 +623,7 @@
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49946752" visible="true" weight="0.17297298" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49946752" weight="0.43675676" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32972974" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005325" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -720,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/unittests/Test_Cli.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-          <folding>
-            <element signature="e#97#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -781,40 +760,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/database/MovieDatabase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#248#269#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/unistd.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="967" lean-forward="true" selection-start-line="967" selection-end-line="967" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ifc/ConnectionStream.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-          <folding>
-            <element signature="e#114#136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ifc/ConnectionStream.h" />
     <entry file="file://$PROJECT_DIR$/inc/ifc/Connector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="e#100#123#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,13 +785,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Connection.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Connection.cpp" />
     <entry file="file:///usr/include/c++/7/bits/exception.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -856,54 +800,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/Cli.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="e#87#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cli.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ifc/Logger.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/StatusLogger.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="40" lean-forward="true" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MediaHandler.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="e#44#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SshConnector.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#44#69#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -911,16 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#114#139#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/SshConnector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -934,12 +824,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.cpp">
+    <entry file="file://$PROJECT_DIR$/inc/SshConnector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/unittests/Test_Database.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
           <folding>
-            <element signature="e#41#58#0" expanded="true" />
+            <element signature="e#154#178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MediaHandler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+          <folding>
+            <element signature="e#44#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/StatusLogger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ifc/Logger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#1#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/unittests/Test_Cli.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+          <folding>
+            <element signature="e#97#121#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,29 +888,56 @@
     <entry file="file://$PROJECT_DIR$/inc/Client.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
-          <caret line="78" column="57" lean-forward="true" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
           <folding>
             <element signature="e#92#112#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/unittests/Test_Database.h">
+    <entry file="file://$PROJECT_DIR$/src/Client.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        <state relative-caret-position="406">
+          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
           <folding>
-            <element signature="e#154#178#0" expanded="true" />
+            <element signature="e#41#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+    <entry file="file://$PROJECT_DIR$/inc/database/MovieDatabase.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="315">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
           <folding>
-            <element signature="e#1#26#0" expanded="true" />
+            <element signature="e#248#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/unistd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="286" column="8" selection-start-line="286" selection-start-column="8" selection-end-line="286" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/Cli.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="52" column="52" lean-forward="true" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
+          <folding>
+            <element signature="e#87#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cli.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="165" column="60" selection-start-line="165" selection-start-column="60" selection-end-line="165" selection-end-column="60" />
+          <folding>
+            <element signature="e#43#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
