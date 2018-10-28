@@ -1,7 +1,7 @@
 #include "Test_Database.h"
 #include "Test_Cli.h"
 #include "Test_Startup.h"
-
+#include "Test_Json.h"
 
 int StartGoogleTest(int argc, char** argv)
 {

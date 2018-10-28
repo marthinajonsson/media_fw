@@ -11,20 +11,20 @@
 
 class Fixtures : public ::testing::Test {
 public:
-    Database *db;
+
 
     Fixtures( ) {
         // initialization code here
     }
 
     void SetUp( ) {
-        db = new MovieDatabase();
+        JsonParser::getInstance().load();
     }
 
     void TearDown( ) {
         // code here will be called just after the test completes
         // ok to through exceptions from here if need be
-        delete db;
+
     }
 
     ~Fixtures( )  {

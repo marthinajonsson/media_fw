@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 #include "Cli.h"
-
+#include <JsonParser.h>
 
 /*! \class Cli cli.h "inc/cli.h"
  *  \brief Class implementing the functionality of a command line interface.
@@ -36,12 +36,18 @@ std::vector<std::string> Cli::process()
     }
 }
 
-std::vector<std::string> Cli::process(std::string &test) {
-    if (test.find("help") != 0) {
-        printOptions();
-        return {"help"};
+std::vector<std::string> Cli::process(std::string &testinput)
+{
+    std::vector<std::string> parsed;
+    printOptions();
+
+    if (!testinput.empty()) {
+        parsed = parseArg(testinput);
+        if(!verifyParsed(parsed)) {
+            return {""};
+        }
+        return parsed;
     }
-    return parseArg(test);
 }
 
 /*! \private Cli::parseArg(std::string &input)
@@ -56,7 +62,7 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
     seglist.reserve(15);
     seglist.clear();
 
-    while(std::getline(m_stream, segment, ' '))
+    while(std::getline(m_stream, segment, ':'))
     {
         seglist.push_back(segment);
     }
@@ -92,8 +98,8 @@ bool Cli::verifyParsed(std::vector<std::string> &parsed) {
 }
 
 bool Cli::verifyExists(const std::string &s) {
-    //TODO Verfiy exists in json.
-    return true;
+    bool result = JsonParser::getInstance().find(MOVIE, s);
+    return result;
 }
 
 bool Cli::verifyDelete(std::vector<std::string> &parsed) {
@@ -113,7 +119,7 @@ bool Cli::verifySearch(std::vector<std::string> &parsed) {
 
 bool Cli::verifyDownload(std::vector<std::string> &parsed) {
 
-    const auto title = parsed.back();
+    const auto title = parsed.at(1);
     if (title.empty()) { return false; }
 
     return verifyExists(title);
@@ -140,9 +146,7 @@ bool Cli::cfmUpload(std::vector<std::string> &uploadstr) {
     std::cout << "Please confirm <title> " << parsed.front() <<
     "\n <genre> " << parsed.at(1) << " <director> " << parsed.at(2) << " and the following actors: \n" << std::endl;
 
-
-    std::vector<std::string>::iterator it;
-    for (it = uploadstr.begin() + 2; it != uploadstr.end(); ++it){
+    for (auto it = uploadstr.begin() + 2; it != uploadstr.end(); ++it){
         std::cout << *it << std::endl;
     }
 
@@ -158,21 +162,21 @@ bool Cli::cfmUpload(std::vector<std::string> &uploadstr) {
 void Cli::printOptions() {
     std::cout << "\n" << std::endl;
 
-    std::string choice {"<choice> = upload, download, search, delete\n"};
+    auto choice {"<choice> = upload, download, search, delete\n"};
 
-    std::string upload = "<upload> <filename> \n\t*<filename> - absolute path to filename. \n";
-    std::string cmfupload = "\t To confirm your upload add the following info: \n\t <title> <genre> {<actor> <actor>.. } <director>\n\n";
+    auto upload = "<upload> <filename> \n\t*<filename> - absolute path to filename. \n";
+    auto cmfupload = "\t To confirm your upload add the following info: \n\t <title> <genre> {<actor> <actor>.. } <director>\n\n";
 
-    std::string download = "<download> <movie/series> <title> \n";
-    std::string cfmdownload = "\t Title exists or did you mean 'abc'? \n\t Download completed\n\n";
+    auto download = "<download> <movie/series> <title> \n";
+    auto cfmdownload = "\t Title exists or did you mean 'abc'? \n\t Download completed\n\n";
 
-    std::string search {"<search> <args>.. \n \t <args>: title, genre, director, list of actors\n"};
-    std::string cfmsearch = "\t Found the following matches..\n\n";
+    auto search {"<search> <args>.. \n \t <args>: title, genre, director, list of actors\n"};
+    auto cfmsearch = "\t Found the following matches..\n\n";
 
-    std::string deleted {"<delete> <title>\n"};
-    std::string cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
+    auto deleted {"<delete> <title>\n"};
+    auto cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
 
-    std::string disconnect = "Write 'exit' to disconnect\n";
+    auto disconnect = "Write 'exit' to disconnect\n";
 
     std::cout << choice << "\nExample input..\n\n" << upload << cmfupload << download << cfmdownload << search
     << cfmsearch << deleted << cfmdelete << std::endl;

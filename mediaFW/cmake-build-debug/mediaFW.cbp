@@ -322,6 +322,9 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Database.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Json.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp">
 			<Option target="mediaFW"/>
 		</Unit>

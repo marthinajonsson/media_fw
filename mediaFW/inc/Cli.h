@@ -29,7 +29,8 @@ public:
      * @return Vector of strings containing output from stdin.
      */
     std::vector<std::string> process();
-    std::vector<std::string> process(std::string &test);
+
+    std::vector<std::string> process(std::string &testinput);
 
 private:
     /*! \private Cli::parseArg(std::string &input)

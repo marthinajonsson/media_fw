@@ -22,14 +22,13 @@ public:
 
     void syncLocalDatabase() override {
 
-        JsonParser json;
-        json.parser();
-        m_saved = json.getParsed();
+        JsonParser::getInstance().load();
+        m_saved = JsonParser::getInstance().getMovieParsed();
 
         for(auto s : m_saved) {
-            std::string title = s.first;
-            std::string genre = s.second[0];
-            std::string director = s.second[1];
+            auto title = s.first;
+            auto genre = s.second[0];
+            auto director = s.second[1];
             std::vector<std::string> actors;
 
             for(auto it = s.second.begin() + 2; it != s.second.end(); ++it) {

@@ -7,46 +7,51 @@
 #include "gmock/gmock.h"
 
 #include "Cli.h"
+#include "JsonParser.h"
+
+class CliTest : public ::testing::Test
+{
+protected:
+
+    Cli* cli;
+    void SetUp()
+    {
+        JsonParser::getInstance().load();
+    }
+
+    void TearDown()
+    {
+        JsonParser::getInstance().clearMap();
+    }
+};
 
 
-TEST(CliTest, ParseArguments) {
 
-    Cli cli;
-    std::string test = "upload test1 test2 'test test3'";
-    std::vector<std::string> output;
-    output = cli.process(test);
-    ASSERT_TRUE(output.size() == 5);
+TEST_F(CliTest, CliTest_Upload_Test) {
+
+    std::string test = "upload test1.mp4'";
+    auto output = cli->process(test);
     ASSERT_TRUE(output.front() == "upload");
 }
 
 
-TEST(CliTest, ParseArguments2) {
+TEST_F(CliTest, CliTest_Download_Test) {
 
-    Cli cli;
-    std::string test = "download test1 test2 test.test3";
-    std::vector<std::string> output;
-    output = cli.process(test);
-    ASSERT_TRUE(output.size() == 4);
+    std::string test = "download:The Proposal";
+    auto output = cli->process(test);
     ASSERT_TRUE(output.front() == "download");
 }
 
-TEST(CliTest, ParseArguments3) {
+TEST_F(CliTest, CliTest_Download2_Test) {
+    std::string test = "download:Thomas Beaudoin";
+    auto output = cli->process(test);
+    ASSERT_TRUE(output.front() == "download");
+}
 
-    Cli cli;
-    std::string test = "search test1 a.test3";
-    std::vector<std::string> output;
-    output = cli.process(test);
-    ASSERT_TRUE(output.size() == 3);
+TEST_F(CliTest, CliTest_Search__Test) {
+    std::string test = "search:Sandra Bullock";
+    auto output = cli->process(test);
     ASSERT_TRUE(output.front() == "search");
 }
 
-TEST(CliTest, ParseHelp) {
-
-    Cli cli;
-    std::string test = "help";
-    std::vector<std::string> output;
-    output = cli.process(test);
-    ASSERT_TRUE(output.size() == 1);
-    ASSERT_TRUE(output.front() == test);
-}
 #endif //MEDIAFW_TEST_CLI_H

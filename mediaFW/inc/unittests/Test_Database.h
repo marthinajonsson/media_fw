@@ -13,14 +13,14 @@
 #include "Database.h"
 #include "MovieDatabase.h"
 
-TEST(DatabaseTest, BaseDatabase) {
+TEST(DatabaseTest, DatabaseTest_BaseClass__Test) {
     Database db;
     ASSERT_ANY_THROW(db.syncLocalDatabase());
     ASSERT_ANY_THROW(db.getNumberOfItem());
     ASSERT_ANY_THROW(db.fetchItem("TestTitle"));
 }
 
-TEST(MovieDatabaseTest, HandleStartup) {
+TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
     Database *db;
     ASSERT_NO_THROW(db = new MovieDatabase());
     db->printAll();
@@ -32,7 +32,7 @@ TEST(MovieDatabaseTest, HandleStartup) {
 }
 
 
-TEST(MovieDatabaseTest, PushAndFetch) {
+TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     Database *db;
     ASSERT_NO_THROW(db = new MovieDatabase());
 
