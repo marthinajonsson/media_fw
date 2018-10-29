@@ -11,7 +11,7 @@
  * Receives and interpretes information from stdin and sends requests to the server.
  */
 
-void Client::waitCliAsync()
+int Client::waitCliAsync()
 {
     std::vector<std::string> resultVector;
     std::string choice;
@@ -31,6 +31,10 @@ void Client::waitCliAsync()
 
         handleRequest(result);
     }
+    if(choice.find(exit)) {
+        return 0;
+    }
+    return -1;
 }
 
 void Client::notifyRequest(std::vector<std::string> &request) {

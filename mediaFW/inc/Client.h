@@ -28,7 +28,7 @@ public:
     * The method will break if input is interpreted as exit or
     * continues by having the request handled in Client::handleCallback().
     */
-    void waitCliAsync();
+    int waitCliAsync();
 
     bool getConnectionStatus () { return p_conn->getConnectionStatus(); }
 

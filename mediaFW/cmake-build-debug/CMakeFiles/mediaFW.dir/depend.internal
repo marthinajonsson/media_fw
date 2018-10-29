@@ -107,12 +107,22 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o
  ../contrib/googletest/gtest/internal/gtest-tuple.h
  ../contrib/googletest/gtest/internal/gtest-type-util.h
  ../inc/Cli.h
+ ../inc/Client.h
+ ../inc/Connection.h
+ ../inc/ConnectionStream.h
  ../inc/JsonParser.h
+ ../inc/SshConnector.h
+ ../inc/StatusLogger.h
  ../inc/database/Database.h
  ../inc/database/DatabaseItem.h
  ../inc/database/MovieDatabase.h
+ ../inc/ifc/Connector.h
+ ../inc/ifc/Logger.h
+ ../inc/ifc/Observer.h
+ ../inc/ifc/Subject.h
  ../inc/unittests/Test_Database.h
  ../inc/unittests/Test_Json.h
+ ../inc/unittests/Test_Observer.h
  ../src/unittests/Test_Cli.h
  /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Startup.h
  /home/mjonsson/repo/cppAdv/mediaFW/test/test_main.cpp

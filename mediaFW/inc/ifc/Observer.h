@@ -10,9 +10,14 @@
 
 enum class Event { UPLOAD = 1, DOWNLOAD = 2, SEARCH, DELETE, HELP, EXIT };
 
+
 class Observer {
 
 public:
+
+    Observer() = default;
+    ~Observer() = default;
+
 
     /**
      * Update the state of this observer
@@ -20,7 +25,7 @@ public:
      * @param humidity new humidity
      * @param pressure new pressure
      */
-    virtual void update(Event event, std::vector<std::string> &info) = 0;
+    virtual bool update(Event event, std::vector<std::string> &info) = 0;
 
 };
 

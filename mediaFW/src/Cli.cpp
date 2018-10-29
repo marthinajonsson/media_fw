@@ -26,6 +26,9 @@ std::vector<std::string> Cli::process()
         if (line.find("help") != 0) {
             printOptions();
         }
+        else if (line.find("exit")) {
+            return {"exit"};
+        }
         else if (!line.empty()) {
             parsed = parseArg(line);
             if(!verifyParsed(parsed)) {
@@ -39,7 +42,9 @@ std::vector<std::string> Cli::process()
 std::vector<std::string> Cli::process(std::string &testinput)
 {
     std::vector<std::string> parsed;
-    printOptions();
+    if(testinput.find("help")){
+        printOptions();
+    }
 
     if (!testinput.empty()) {
         parsed = parseArg(testinput);
