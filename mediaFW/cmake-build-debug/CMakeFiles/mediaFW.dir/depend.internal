@@ -111,6 +111,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o
  ../inc/Connection.h
  ../inc/ConnectionStream.h
  ../inc/JsonParser.h
+ ../inc/MediaHandler.h
  ../inc/SshConnector.h
  ../inc/StatusLogger.h
  ../inc/database/Database.h

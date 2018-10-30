@@ -12,7 +12,6 @@
 #include "Client.h"
 #include "StatusLogger.h"
 
-std::mutex m;
 
 /*! \class MediaHandler - handle for a user instance
  * @brief Synchronizes information from server and database,
@@ -24,8 +23,10 @@ public:
 
     Client *p_client; // return error & status to user?
 
-    MediaHandler(std::string category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
+    MediaHandler () = default;
 
+    MediaHandler(std::string category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
+        std::cout << "Mediahandler constructor" << std::endl;
         p_client = new Client(p_conn, p_cli);
 
         if(category.find("series")) {
@@ -35,9 +36,7 @@ public:
             p_database = new MovieDatabase;
         }
         p_client->registerObserver(this);
-        if(p_client->waitCliAsync() == 0) {
 
-        }
     };
 
     ~MediaHandler() {
@@ -50,11 +49,17 @@ public:
     };
 
 
+    void startCliThread() {
+        int result = p_client->waitCliAsync(); // will return when "exit" has been requested and block until then.
+        if(result != 0) {
+            m_logger->TRACE(m_logger->getEnum("NOK"), "Client ended with error");
+        }
+    }
 
-    bool update(Event event, std::vector<std::string>&) override;
+    bool update(Event &event, std::vector<std::string>&) override;  // this should only report status from observation, cli thread should run and stop itself.
 
-    void syncClient(std::string &status);
-    void syncDatabase(std::string &status, const std::vector<std::string>&);
+    void syncClient();
+    void syncDatabase(const std::vector<std::string>&);
 
     enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, IDLE, DISCONNECT } status;
 
@@ -64,12 +69,12 @@ private:
     Cli *p_cli;
     Database *p_database;
 
-    static std::string getClientInfo(Client* p_client, const std::string & status) {
+    static Status getClientInfo(Client* p_client, const Status &status) { // TODO:these should be more clever
         return status;
     }
 
-    static std::string getDatabaseInfo(Database* p_db, const std::string &status) {
-        return "OK";// p_client->getUpdate();
+    static Status getDatabaseInfo(Database* p_db, const Status &status) {
+        return Status::IDLE;
     }
 };
 

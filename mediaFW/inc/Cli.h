@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-
+#include <iostream>
 
 /*! \class Cli
  * @brief Module handling everything related to our Command line interface.
@@ -18,7 +18,9 @@ public:
     /*! \public Client()
      * @brief Cli default constructor.
      */
-    Cli() = default;
+    Cli() {
+        std::cout << "Cli constructor" << std::endl;
+    }
     /*! \public ~Client()
      * @brief Cli default deconstructor.
      */

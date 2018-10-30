@@ -110,6 +110,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ConnectionStream.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/JsonParser.h
+CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/MediaHandler.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/SshConnector.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/StatusLogger.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/database/Database.h

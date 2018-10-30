@@ -34,8 +34,9 @@ public:
         std::string statusLevel  = m_levelMap.at(level);
         std::string output = statusLevel + message;
         write(level, output);
-
     }
+
+private:
 
     void write(Level_e level, std::string output) override{
         std::string startcode = "\033[";

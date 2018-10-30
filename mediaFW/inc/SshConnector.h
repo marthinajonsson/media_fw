@@ -22,7 +22,9 @@
 class SshConnector : public Connector {
 
 public:
-    SshConnector() : m_currentlyConnected(false), m_logger(new StatusLogger) {}
+    SshConnector() : m_currentlyConnected(false), m_logger(new StatusLogger) {
+        std::cout << "SshConnector constructor" << std::endl;
+    }
     ~SshConnector() = default;
 
     bool m_currentlyConnected;

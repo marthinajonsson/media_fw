@@ -8,47 +8,35 @@
 #include <thread>
 
 
-bool MediaHandler::update(Event event, std::vector<std::string> &args)
+bool MediaHandler::update(Event &event, std::vector<std::string> &args)
 {
-    std::string result;
-
     if(event == Event::UPLOAD) {
-        result = "Upload";
         status = Status::UPLOADING;
     }
     else if (event == Event ::DOWNLOAD) {
-        result = "Download";
         status = Status::DOWNLOADING;
     }
     else if (event == Event ::SEARCH) {
-        result = "Search";
         status = Status::SEARCHING;
     }
     else if (event == Event ::HELP) {
-        result = "Help";
         status = Status::IDLE;
     }
     else if (event == Event ::EXIT) {
-        auto level = m_logger->getEnum("OK");
-        m_logger->TRACE(level, "Exit..");
         status = Status::DISCONNECT;
-        return true;
     }
     else {
         return false;
     }
-
-    std::cout << result << std::endl;
-
-    syncClient(result);
-    syncDatabase(result, args);
     return true;
+    syncClient();
+    syncDatabase(args);
+
 }
 
-void MediaHandler::syncClient(std::string &status) {
+void MediaHandler::syncClient() {
 
     bool connected = p_client->getConnectionStatus();
-    status = "NOK";
 
     if(connected) {
         auto level = m_logger->getEnum("OK");
@@ -56,17 +44,24 @@ void MediaHandler::syncClient(std::string &status) {
 
         auto fut = std::async(getClientInfo, p_client, status);
         auto answer = fut.get();
-        if(answer == dsdsd) {
-            level = m_logger->getEnum("OK");
-            m_logger->TRACE(level, "Client sync OK");
-            status = "OK";
+
+        if(Status::IDLE == answer) {
+            m_logger->TRACE(level, "Client is idle");
         }
-        else if (answer == "exit"){
-            status = answer;
+        else if(Status::SEARCHING == answer){
+            m_logger->TRACE(level, "Client is searching");
         }
-        else {
-            level = m_logger->getEnum("NOK");
-            m_logger->TRACE(level, "Client sync NOK");
+        else if(Status::DOWNLOADING == answer){
+            m_logger->TRACE(level, "Client is downloading");
+        }
+        else if(Status::UPLOADING == answer){
+            m_logger->TRACE(level, "Client is uploading");
+        }
+        else if(Status::STREAMING == answer){
+            m_logger->TRACE(level, "Client is streaming");
+        }
+        else if(Status::DISCONNECT == answer){
+            m_logger->TRACE(level, "Client is disconnected");
         }
     }
     else {
@@ -76,12 +71,12 @@ void MediaHandler::syncClient(std::string &status) {
 
 }
 
-void MediaHandler::syncDatabase(std::string &status, const std::vector<std::string> &args) {
+void MediaHandler::syncDatabase(const std::vector<std::string> &args) {
     //TODO: get db status
     //TODO: update db with new info
     auto fut = std::async(getDatabaseInfo, p_database, status);
     auto answer = fut.get();
-    if(answer == "OK") {
+    if(answer == Status::IDLE) {
         auto level = m_logger->getEnum("OK");
         m_logger->TRACE(level, "Database is synced");
     }else {

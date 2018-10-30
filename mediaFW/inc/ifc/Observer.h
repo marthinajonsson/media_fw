@@ -25,7 +25,7 @@ public:
      * @param humidity new humidity
      * @param pressure new pressure
      */
-    virtual bool update(Event event, std::vector<std::string> &info) = 0;
+    virtual bool update(Event &event, std::vector<std::string> &info) = 0;
 
 };
 

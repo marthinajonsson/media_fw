@@ -15,6 +15,7 @@
 class Connection{
 public:
     Connection() : m_conn(new SshConnector){
+        std::cout << "Connection constructor" << std::endl;
         stream = m_conn->connect(23, "192.168.0.107");
     }
 

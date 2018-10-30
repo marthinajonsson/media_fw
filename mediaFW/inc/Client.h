@@ -16,7 +16,11 @@ public:
     /*! \public Client constructor()
     * @brief Instantiates database type DbType_e and corresponding Database.
     */
-    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli) {};
+    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli) {
+        std::cout << "Client constructor" << std::endl;
+    };
+
+    Client() = default;
 
     /*! \public Client deconstructor()
     * @brief deletes previous instantiated Database.
@@ -54,7 +58,7 @@ public:
         }
     }
 
-protected:
+//protected:
     std::vector<Observer *> observers;
 
 private:
