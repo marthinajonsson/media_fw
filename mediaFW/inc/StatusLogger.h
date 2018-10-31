@@ -5,24 +5,17 @@
 #ifndef MEDIAFW_STATUSLOGGER_H
 #define MEDIAFW_STATUSLOGGER_H
 
-
+#include <fstream>
+#include <iostream>
 #include "ifc/Logger.h"
 
 class StatusLogger : Logger{
 public:
 
-    StatusLogger() = default;
-    ~StatusLogger() = default;
-
-    Level_e getEnum(std::string status) override {
-        if(status == "OK") {
-            return INFO;
-        }
-        else if (status == "NOK") {
-            return ERR;
-        }
-        return WARN;
+    StatusLogger() {
+        logfile.open(getFilename());
     }
+    ~StatusLogger() = default;
 
     void TRACE(Level_e level, std::string message, std::string errorCode) override{
         std::string statusLevel  = m_levelMap.at(level);
@@ -37,8 +30,16 @@ public:
     }
 
 private:
+    std::ofstream logfile;
 
-    void write(Level_e level, std::string output) override{
+    std::string getFilename () {
+        std::chrono::system_clock::time_point time = getDate();
+        std::time_t t = system_clock::to_time_t(time);
+        std::cout << std::ctime(&t) << std::endl;
+        std::string filename = std::ctime(&t) + ".log";
+    }
+
+    void write(Level_e level, std::string &output){
         std::string startcode = "\033[";
         std::string endcode = "\033[0m\n";
         if (level == ERR) {

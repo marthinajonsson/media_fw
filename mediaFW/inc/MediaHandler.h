@@ -52,7 +52,9 @@ public:
     void startCliThread() {
         int result = p_client->waitCliAsync(); // will return when "exit" has been requested and block until then.
         if(result != 0) {
-            m_logger->TRACE(m_logger->getEnum("NOK"), "Client ended with error");
+            m_logger->TRACE(Logger::ERR, "Client ended with error");
+        }else {
+            m_logger->TRACE(Logger::INFO, "Client ended normally");
         }
     }
 

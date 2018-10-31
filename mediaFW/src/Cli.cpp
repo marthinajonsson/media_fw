@@ -19,19 +19,18 @@
 std::vector<std::string> Cli::process()
 {
     std::vector<std::string> parsed;
-    printOptions();
 
     for (std::string line; std::cout << "MEDIAFW > " && std::getline(std::cin, line); )
     {
-        if (line.find("help") != 0) {
+        if (line.find("help") != std::string::npos) {
             printOptions();
         }
-        else if (line.find("exit")) {
+        else if (line.find("exit") != std::string::npos) {
             return {"exit"};
         }
         else if (!line.empty()) {
             parsed = parseArg(line);
-            if(!verifyParsed(parsed)) {
+            if(!verifyParsed(parsed, false)) {
                 return {""};
             }
             return parsed;
@@ -42,13 +41,13 @@ std::vector<std::string> Cli::process()
 std::vector<std::string> Cli::process(std::string &testinput)
 {
     std::vector<std::string> parsed;
-    if(testinput.find("help")){
+    if(testinput.find("help") != std::string::npos){
         printOptions();
     }
 
     if (!testinput.empty()) {
         parsed = parseArg(testinput);
-        if(!verifyParsed(parsed)) {
+        if(!verifyParsed(parsed, true)) {
             return {""};
         }
         return parsed;
@@ -74,13 +73,15 @@ std::vector<std::string> Cli::parseArg(std::string &input) {
     return seglist;
 }
 
-bool Cli::verifyParsed(std::vector<std::string> &parsed) {
+bool Cli::verifyParsed(std::vector<std::string> &parsed, bool testmode) {
     auto choice = parsed.front();
 
     if(choice == "upload") {
         if (verifyUpload(parsed)) {
-            if(cfmUpload(parsed)) {
-                return true;
+            if(!testmode) {
+                if(cfmUpload(parsed)) {
+                    return true;
+                }
             }
         }
     }
@@ -169,16 +170,16 @@ void Cli::printOptions() {
 
     auto choice {"<choice> = upload, download, search, delete\n"};
 
-    auto upload = "<upload> <filename> \n\t*<filename> - absolute path to filename. \n";
+    auto upload = "<upload>:<filename> \n\t*<filename> - absolute path to filename. \n";
     auto cmfupload = "\t To confirm your upload add the following info: \n\t <title> <genre> {<actor> <actor>.. } <director>\n\n";
 
-    auto download = "<download> <movie/series> <title> \n";
+    auto download = "<download>:<movie/series> <title> \n";
     auto cfmdownload = "\t Title exists or did you mean 'abc'? \n\t Download completed\n\n";
 
-    auto search {"<search> <args>.. \n \t <args>: title, genre, director, list of actors\n"};
+    auto search {"<search>:<args>.. \n \t <args>: title, genre, director, list of actors\n"};
     auto cfmsearch = "\t Found the following matches..\n\n";
 
-    auto deleted {"<delete> <title>\n"};
+    auto deleted {"<delete>:<title>\n"};
     auto cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
 
     auto disconnect = "Write 'exit' to disconnect\n";

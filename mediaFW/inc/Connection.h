@@ -16,11 +16,11 @@ class Connection{
 public:
     Connection() : m_conn(new SshConnector){
         std::cout << "Connection constructor" << std::endl;
-        stream = m_conn->connect(23, "192.168.0.107");
+       // stream = m_conn->connect(23, "192.168.0.107");
     }
 
     ~Connection() {
-        m_conn->disconnect();
+       // m_conn->disconnect();
     }
 
     bool getConnectionStatus() { return m_conn->m_currentlyConnected; }

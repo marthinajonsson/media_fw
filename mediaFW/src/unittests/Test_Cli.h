@@ -29,7 +29,7 @@ protected:
 
 TEST_F(CliTest, CliTest_Upload_Test) {
 
-    std::string test = "upload test1.mp4'";
+    std::string test = "upload:testfile.txt";
     auto output = cli->process(test);
     ASSERT_TRUE(output.front() == "upload");
 }

@@ -15,7 +15,6 @@ int Client::waitCliAsync()
 {
     std::vector<std::string> resultVector;
     std::string choice;
-    std::string exit = "exit";
     std::future<std::vector<std::string>> fut;
     while(true)
     {
@@ -25,13 +24,13 @@ int Client::waitCliAsync()
         auto result = fut.get();
         choice = result.front();
 
-        if(choice.find(exit) != std::string::npos) {
+        if(choice.find("exit") != std::string::npos) {
             break;
         }
 
         handleRequest(result);
     }
-    if(choice.find(exit)) {
+    if(choice.find("exit") != std::string::npos) {
         return 0;
     }
     return -1;

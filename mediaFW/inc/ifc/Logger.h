@@ -27,8 +27,10 @@ public:
 
     virtual void TRACE(Level_e level , std::string message, std::string errorCode) = 0;
     virtual void TRACE(Level_e level , std::string message) = 0;
-    virtual void write(Level_e level , std::string output)  = 0;
-    virtual Level_e getEnum(std::string) = 0;
+
+    std::chrono::system_clock::time_point getDate() {
+        return std::chrono::system_clock::now();
+    }
 
 protected:
 

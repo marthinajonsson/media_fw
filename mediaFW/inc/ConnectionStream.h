@@ -23,7 +23,7 @@ public:
             if (m_channel == nullptr) {
                 m_logger->TRACE(Logger::ERR, "Failed to initiate channel with error code ", ssh_get_error(m_session));
             }
-        }catch (std::exception) { }
+        }catch (std::exception &) { }
     }
 
     ~ConnectionStream() {

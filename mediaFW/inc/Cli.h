@@ -45,7 +45,7 @@ private:
     /*! \private Cli::verifyParsed(std::vector<std::string> &)
      * @brief Verify parsed arguments. Varies on choice.
      */
-    bool verifyParsed(std::vector<std::string> &);
+    bool verifyParsed(std::vector<std::string> &, bool);
 
     bool verifyExists(const std::string &s);
 

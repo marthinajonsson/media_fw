@@ -553,6 +553,10 @@ errno.h
 -
 
 ../inc/StatusLogger.h
+fstream
+-
+iostream
+-
 ifc/Logger.h
 ../inc/ifc/Logger.h
 
@@ -664,6 +668,12 @@ MediaHandler.h
 future
 -
 thread
+-
+
+/home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp
+SshConnector.h
+-
+ConnectionStream.h
 -
 
 /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp

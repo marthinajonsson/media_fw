@@ -28,45 +28,44 @@ bool MediaHandler::update(Event &event, std::vector<std::string> &args)
     else {
         return false;
     }
-    return true;
+
     syncClient();
     syncDatabase(args);
+    return true;
 
 }
 
 void MediaHandler::syncClient() {
 
-    bool connected = p_client->getConnectionStatus();
+    bool connected = true ; //p_client->getConnectionStatus();
 
     if(connected) {
-        auto level = m_logger->getEnum("OK");
-        m_logger->TRACE(level, "Server connection OK");
+        m_logger->TRACE(Logger::INFO, "Server connection OK");
 
         auto fut = std::async(getClientInfo, p_client, status);
         auto answer = fut.get();
 
         if(Status::IDLE == answer) {
-            m_logger->TRACE(level, "Client is idle");
+            m_logger->TRACE(Logger::INFO, "Client is idle");
         }
         else if(Status::SEARCHING == answer){
-            m_logger->TRACE(level, "Client is searching");
+            m_logger->TRACE(Logger::INFO, "Client is searching");
         }
         else if(Status::DOWNLOADING == answer){
-            m_logger->TRACE(level, "Client is downloading");
+            m_logger->TRACE(Logger::INFO, "Client is downloading");
         }
         else if(Status::UPLOADING == answer){
-            m_logger->TRACE(level, "Client is uploading");
+            m_logger->TRACE(Logger::INFO, "Client is uploading");
         }
         else if(Status::STREAMING == answer){
-            m_logger->TRACE(level, "Client is streaming");
+            m_logger->TRACE(Logger::INFO, "Client is streaming");
         }
         else if(Status::DISCONNECT == answer){
-            m_logger->TRACE(level, "Client is disconnected");
+            m_logger->TRACE(Logger::INFO, "Client is disconnected");
         }
     }
     else {
-        auto level = m_logger->getEnum("NOK");
-        m_logger->TRACE(level, "Server disconnected");
+        m_logger->TRACE(Logger::WARN, "Server disconnected");
     }
 
 }
@@ -77,11 +76,9 @@ void MediaHandler::syncDatabase(const std::vector<std::string> &args) {
     auto fut = std::async(getDatabaseInfo, p_database, status);
     auto answer = fut.get();
     if(answer == Status::IDLE) {
-        auto level = m_logger->getEnum("OK");
-        m_logger->TRACE(level, "Database is synced");
+        m_logger->TRACE(Logger::INFO, "Database is synced");
     }else {
-        auto level = m_logger->getEnum("NOK");
-        m_logger->TRACE(level, "Database is unsynced");
+        m_logger->TRACE(Logger::WARN, "Database is unsynced");
     }
 }
 
