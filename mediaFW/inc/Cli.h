@@ -9,6 +9,9 @@
 #include <vector>
 #include <iostream>
 
+#include <Util.h>
+#include "Request.h"
+
 /*! \class Cli
  * @brief Module handling everything related to our Command line interface.
  */
@@ -30,9 +33,9 @@ public:
      * @brief Public method processing input from stdin.
      * @return Vector of strings containing output from stdin.
      */
-    std::vector<std::string> process();
+    Request process();
 
-    std::vector<std::string> process(std::string &testinput);
+    Request process(std::string &testinput);
 
 private:
     /*! \private Cli::parseArg(std::string &input)
@@ -40,24 +43,22 @@ private:
      * @param input A long input string containing argv from stdin.
      * @return Private vector of strings containing parsed words from stdin.
      */
-    std::vector<std::string> parseArg(std::string &input);
+    std::vector<std::string> parseArg(std::string &input, char delim);
+
+    Request Cli::strToRequest(const std::vector<std::string>&);
+
+    int checkValid(const std::string&, Event &event);
 
     /*! \private Cli::verifyParsed(std::vector<std::string> &)
      * @brief Verify parsed arguments. Varies on choice.
      */
-    bool verifyParsed(std::vector<std::string> &, bool);
+    int verifyParsed(std::vector<std::string> &, Request &, bool);
 
-    bool verifyExists(const std::string &s);
+    int verifyExists(const std::string &s);
 
-    bool verifyDelete(std::vector<std::string> &);
+    int verifyDownload(std::vector<std::string> &);
 
-    bool verifySearch(std::vector<std::string> &);
-
-    bool verifyDownload(std::vector<std::string> &);
-
-    bool verifyUpload(std::vector<std::string> &);
-
-    bool cfmUpload(std::vector<std::string> &);
+    int verifyUpload(std::vector<std::string> &);
 
     /*! \private Cli::printOptions()
      * @brief A private method that prints all valid options for stdin.

@@ -8,6 +8,7 @@
 #include <ifc/Subject.h>
 #include "Connection.h"
 #include "Cli.h"
+#include "StatusLogger.h"
 
 class Client : Subject{
 
@@ -16,7 +17,7 @@ public:
     /*! \public Client constructor()
     * @brief Instantiates database type DbType_e and corresponding Database.
     */
-    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli) {
+    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger) {
         std::cout << "Client constructor" << std::endl;
     };
 
@@ -75,6 +76,7 @@ private:
     Cli *p_cli;
 
 
+    StatusLogger *m_logger;
     /*! \privatesection Client::getCliInput(Cli* p_cli)
      * @brief A method that waits for CLI to process incoming request. Used by std::future.
      * @param p_cli

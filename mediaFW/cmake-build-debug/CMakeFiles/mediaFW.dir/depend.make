@@ -122,6 +122,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Observer.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Subject.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Database.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Json.h
+CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Logger.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Observer.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../src/unittests/Test_Cli.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../test/Test_Startup.h

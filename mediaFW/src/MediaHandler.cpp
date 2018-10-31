@@ -8,7 +8,7 @@
 #include <thread>
 
 
-bool MediaHandler::update(Event &event, std::vector<std::string> &args)
+int MediaHandler::update(Event &event, std::vector<std::string> &args)
 {
     if(event == Event::UPLOAD) {
         status = Status::UPLOADING;
@@ -26,12 +26,12 @@ bool MediaHandler::update(Event &event, std::vector<std::string> &args)
         status = Status::DISCONNECT;
     }
     else {
-        return false;
+        return RET::ERROR;
     }
 
     syncClient();
     syncDatabase(args);
-    return true;
+    return RET::OK;
 
 }
 

@@ -17,24 +17,24 @@ int main(int argc, char **argv) {
 
     std::string args = *argv;
     std::string category = "movie";
-    StartGoogleTest(argc ,argv);
-//    if(argc < 3){
-//        std::cout << "Normal mode: " << category << "\n" << std::endl;
-//        if(args.find("series")) {
-//            category = "series";
-//        }
-//
-//        MediaHandler *handler = new MediaHandler(category);
-//        auto fut = std::async(threadCaller, handler);
-//        fut.get();
-//        std::unique_lock<std::mutex> lock(mtx);
-//        cv.wait(lock, []{return processed;});
-//        std::cout << "\t" << processed << "\t" << std::endl;
-//        delete handler;
-//    }
-//    else {
-//        std::cout << "Test mode\n" << std::endl;
-//        StartGoogleTest(argc ,argv);
-//    }
+    //StartGoogleTest(argc ,argv);
+    if(argc < 3){
+        std::cout << "Normal mode: " << category << "\n" << std::endl;
+        if(args.find("series")) {
+            category = "series";
+        }
+
+        MediaHandler *handler = new MediaHandler(category);
+        auto fut = std::async(threadCaller, handler);
+        fut.get();
+        std::unique_lock<std::mutex> lock(mtx);
+        cv.wait(lock, []{return processed;});
+        std::cout << "\t" << processed << "\t" << std::endl;
+        delete handler;
+    }
+    else {
+        std::cout << "Test mode\n" << std::endl;
+        StartGoogleTest(argc ,argv);
+    }
 }
 

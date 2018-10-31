@@ -283,16 +283,19 @@
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/JsonParser.h">
 			<Option target="mediaFW"/>
 		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaFW.h">
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaHandler.h">
 			<Option target="mediaFW"/>
 		</Unit>
-		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/MediaHandler.h">
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Request.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/SshConnector.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/StatusLogger.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/Util.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/database/Database.h">
@@ -323,6 +326,9 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Json.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Logger.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/cppAdv/mediaFW/inc/unittests/Test_Observer.h">

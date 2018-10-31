@@ -557,8 +557,12 @@ fstream
 -
 iostream
 -
+chrono
+-
 ifc/Logger.h
 ../inc/ifc/Logger.h
+unistd.h
+-
 
 ../inc/database/Database.h
 DatabaseItem.h
@@ -601,6 +605,8 @@ iostream
 -
 map
 -
+ctime
+-
 
 ../inc/ifc/Observer.h
 string
@@ -622,6 +628,12 @@ MovieDatabase.h
 
 ../inc/unittests/Test_Json.h
 JsonParser.h
+-
+gmock/gmock.h
+../inc/unittests/gmock/gmock.h
+
+../inc/unittests/Test_Logger.h
+StatusLogger.h
 -
 gmock/gmock.h
 ../inc/unittests/gmock/gmock.h
@@ -697,4 +709,6 @@ Test_Json.h
 /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Json.h
 Test_Observer.h
 /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Observer.h
+Test_Logger.h
+/home/mjonsson/repo/cppAdv/mediaFW/test/Test_Logger.h
 

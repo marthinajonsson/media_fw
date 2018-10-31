@@ -7,9 +7,7 @@
 
 #include <string>
 #include <vector>
-
-enum class Event { UPLOAD = 1, DOWNLOAD = 2, SEARCH, DELETE, HELP, EXIT };
-
+#include "Util.h"
 
 class Observer {
 
@@ -25,7 +23,7 @@ public:
      * @param humidity new humidity
      * @param pressure new pressure
      */
-    virtual bool update(Event &event, std::vector<std::string> &info) = 0;
+    virtual int update(Event &event, std::vector<std::string> &info) = 0;
 
 };
 

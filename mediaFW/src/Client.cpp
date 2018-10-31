@@ -4,6 +4,7 @@
 #include <future>
 #include <thread>
 #include "Client.h"
+#include "Util.h"
 
 /*! \class Client client.h "inc/client.h"
  *  \brief Class implementing the functionality of a client.
@@ -19,42 +20,41 @@ int Client::waitCliAsync()
     while(true)
     {
         resultVector.clear();
-        //fut = std::async([&](auto *cli) -> std::vector<std::string> { return cli.daemon(); });
         fut = std::async(getCliInput, p_cli);
         auto result = fut.get();
         choice = result.front();
 
-        if(choice.find("exit") != std::string::npos) {
+        if(choice.find(EXIT) != std::string::npos) {
             break;
         }
 
         handleRequest(result);
     }
-    if(choice.find("exit") != std::string::npos) {
-        return 0;
+    if(choice.find(EXIT) != std::string::npos) {
+        return RET::OK;
     }
-    return -1;
+    return RET::ERROR;
 }
 
 void Client::notifyRequest(std::vector<std::string> &request) {
 
-    if (request.front() == "upload") {
+    if (request.front() == UPLOAD) {
         notifyObservers(Event::UPLOAD, request);
     }
-    else if (request.front() == "download") {
+    else if (request.front() == DOWNLOAD) {
         notifyObservers(Event::DOWNLOAD, request);
     }
-    else if (request.front() == "search") {
+    else if (request.front() == SEARCH) {
         notifyObservers(Event::SEARCH, request);
     }
-    else if (request.front() == "delete") {
+    else if (request.front() == DELETE) {
         notifyObservers(Event::DELETE, request);
     }
-    else if (request.front().find("exit")) {
+    else if (request.front().find(EXIT) != std::string::npos) {
         notifyObservers(Event::EXIT, request);
     }
     else {
-        std::cerr << "Unknown request" << std::endl;
+        m_logger->TRACE(Logger::ERR, "Unknown request");
     }
 }
 

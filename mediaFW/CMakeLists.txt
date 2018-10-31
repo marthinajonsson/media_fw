@@ -71,19 +71,20 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/JsonParser.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/json/json.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/MediaHandler.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/MediaFW.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Util.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Logger.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/StatusLogger.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Observer.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Subject.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Connector.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ConnectionStream.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h inc/Request.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Json.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Observer.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Logger.h
         ${CMAKE_CURRENT_LIST_DIR}/src/unittests/Test_Cli.h
         ${CMAKE_CURRENT_LIST_DIR}/test/Fixtures.h
         ${CMAKE_CURRENT_LIST_DIR}/test/Mocks.h

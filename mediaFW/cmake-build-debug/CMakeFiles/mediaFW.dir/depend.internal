@@ -123,6 +123,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o
  ../inc/ifc/Subject.h
  ../inc/unittests/Test_Database.h
  ../inc/unittests/Test_Json.h
+ ../inc/unittests/Test_Logger.h
  ../inc/unittests/Test_Observer.h
  ../src/unittests/Test_Cli.h
  /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Startup.h

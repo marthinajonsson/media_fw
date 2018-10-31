@@ -6,6 +6,8 @@
 #include <iostream>
 #include <sstream>
 #include <unistd.h>
+#include <algorithm>
+#include <iterator>
 
 #include "Cli.h"
 #include <JsonParser.h>
@@ -16,22 +18,25 @@
  * Receives inputs from STDIN and splits the result into strings.
  */
 
-std::vector<std::string> Cli::process()
+Request Cli::process()
 {
     std::vector<std::string> parsed;
-
+    Event event;
     for (std::string line; std::cout << "MEDIAFW > " && std::getline(std::cin, line); )
     {
-        if (line.find("help") != std::string::npos) {
+        if (line.find(HELP) != std::string::npos) {
             printOptions();
         }
-        else if (line.find("exit") != std::string::npos) {
-            return {"exit"};
+        else if (line.find(EXIT) != std::string::npos) {
+            return Request(Event::EXIT);
         }
         else if (!line.empty()) {
-            parsed = parseArg(line);
-            if(!verifyParsed(parsed, false)) {
-                return {""};
+            parsed = parseArg(line, ':');
+            checkValid(parsed.front(), event);
+            // TODO: strip away choice from parsed and use event only
+            Request req (event);
+            if(!verifyParsed(parsed, req, false)) {
+                return req;
             }
             return parsed;
         }
@@ -41,89 +46,84 @@ std::vector<std::string> Cli::process()
 std::vector<std::string> Cli::process(std::string &testinput)
 {
     std::vector<std::string> parsed;
-    if(testinput.find("help") != std::string::npos){
+    Event event;
+    if(testinput.find(HELP) != std::string::npos){
         printOptions();
     }
 
     if (!testinput.empty()) {
-        parsed = parseArg(testinput);
-        if(!verifyParsed(parsed, true)) {
+        parsed = parseArg(testinput, ':');
+        if(!verifyParsed(parsed, event, true)) {
             return {""};
         }
         return parsed;
     }
 }
 
+int Cli::checkValid(const std::string &choice, Event &event){
+    auto result = RET::ERROR;
+    auto it = std::find(VALID.begin(), VALID.end(), choice);
+    if(it != VALID.end())
+    {
+        long val = std::distance(VALID.begin(),it);
+        event = mapIntToEnum(val);
+        result = RET::OK;
+    }
+    return result;
+}
+
+
 /*! \private Cli::parseArg(std::string &input)
      * @brief Test Parses argv and splits into strings.
      * @param input A long input string containing argv from stdin.
      * @return Private vector of strings containing parsed words from stdin.
      */
-std::vector<std::string> Cli::parseArg(std::string &input) {
+std::vector<std::string> Cli::parseArg(std::string &input, char delim) {
     std::stringstream m_stream(input);
     std::vector<std::string> seglist;
     std::string segment;
     seglist.reserve(15);
     seglist.clear();
 
-    while(std::getline(m_stream, segment, ':'))
+    while(std::getline(m_stream, segment, delim))
     {
         seglist.push_back(segment);
     }
     return seglist;
 }
 
-bool Cli::verifyParsed(std::vector<std::string> &parsed, bool testmode) {
-    auto choice = parsed.front();
+Request Cli::strToRequest(const std::vector<std::string>& vec) {
 
-    if(choice == "upload") {
-        if (verifyUpload(parsed)) {
-            if(!testmode) {
-                if(cfmUpload(parsed)) {
-                    return true;
-                }
-            }
-        }
-    }
-    else if (choice == "download") {
-        if(verifyDownload(parsed)) {
-            return true;
-        }
-    }
-    else if (choice == "search") {
-        if(verifySearch(parsed)) {
-            return true;
-        }
-    }
-    else if (choice == "delete") {
-        if(verifyDelete(parsed)) {
-            return true;
-        }
-    }
-    return false;
+    Request req(vec.at(1), vec.at(2), vec.at(3), vec.at(4));
+    return req;
 }
 
-bool Cli::verifyExists(const std::string &s) {
-    bool result = JsonParser::getInstance().find(MOVIE, s);
-    return result;
+int Cli::verifyParsed(std::vector<std::string> &parsed, Request &req, bool testmode) {
+
+    if(Event::DELETE == req.event || Event::SEARCH == req.event) {
+        const auto title = parsed.back();
+        if (title.empty()) { return RET::ERROR; }
+        req.title = title;
+        return verifyExists(title);
+
+    }
+    else if (Event::DOWNLOAD == req.event) {
+        req.title = parsed.back();
+        return verifyDownload(parsed);
+    }
+    else {
+        req = strToRequest(parsed);
+        return verifyUpload(parsed);
+    }
 }
 
-bool Cli::verifyDelete(std::vector<std::string> &parsed) {
-    const auto title = parsed.back();
-    if (title.empty()) { return false; }
-
-    return verifyExists(title);
+int Cli::verifyExists(const std::string &s) {
+    bool result =  JsonParser::getInstance().find(MOVIE, s);
+    if(!result) { return RET::ERROR;}
+    return RET::OK;
 }
 
-bool Cli::verifySearch(std::vector<std::string> &parsed) {
-
-    const auto title = parsed.back();
-    if (title.empty()) { return false; }
-
-    return verifyExists(title);
-}
-
-bool Cli::verifyDownload(std::vector<std::string> &parsed) {
+int Cli::verifyDownload(std::vector<std::string> &parsed) {
 
     const auto title = parsed.at(1);
     if (title.empty()) { return false; }
@@ -131,16 +131,14 @@ bool Cli::verifyDownload(std::vector<std::string> &parsed) {
     return verifyExists(title);
 }
 
-bool Cli::verifyUpload(std::vector<std::string> &parsed) {
+int Cli::verifyUpload(std::vector<std::string> &parsed) {
 
     const auto filename = parsed.back();
     if (filename.empty()) { return false; }
 
-    return ( access( filename.c_str(), F_OK ) != -1 );
-}
-
-bool Cli::cfmUpload(std::vector<std::string> &uploadstr) {
-
+    if(access( filename.c_str(), F_OK ) == RET::ERROR) {
+        return RET::ERROR;
+    }
     std::cout << "To confirm your upload add the following info: \n"
                  "\t <title> <genre> <director> {<actor> <actor>.. }" << std::endl;
 
@@ -148,17 +146,22 @@ bool Cli::cfmUpload(std::vector<std::string> &uploadstr) {
     std::string answer;
 
     std::getline(std::cin, info);
-    auto parsed = parseArg(info);
-    std::cout << "Please confirm <title> " << parsed.front() <<
-    "\n <genre> " << parsed.at(1) << " <director> " << parsed.at(2) << " and the following actors: \n" << std::endl;
+    auto parsedInfo = parseArg(info, ' ');
+    std::cout << "Please confirm <title> " << parsedInfo.front() <<
+              "\n <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: \n" << std::endl;
 
-    for (auto it = uploadstr.begin() + 2; it != uploadstr.end(); ++it){
-        std::cout << *it << std::endl;
+    for (auto it = parsedInfo.begin() + 2; it != parsedInfo.end(); ++it){
+        std::cout << *it << " " << std::endl;
     }
 
     std::cout << "Y or n? ";
     std::getline(std::cin, answer);
-    return answer.find('n') == 0;
+    if(answer.find('n') == std::string::npos)
+    {
+        return RET::ERROR;
+    }
+    parsed.push_back(info);
+    return RET::OK;
 }
 
 

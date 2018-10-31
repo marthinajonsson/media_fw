@@ -7,15 +7,20 @@
 
 #include <fstream>
 #include <iostream>
+#include <chrono>
 #include "ifc/Logger.h"
+#include <unistd.h>
+#define GetCurrentDir getcwd
 
 class StatusLogger : Logger{
 public:
 
     StatusLogger() {
-        logfile.open(getFilename());
+        logfile.open(getFilename(), std::ios::out | std::ios::app );
     }
-    ~StatusLogger() = default;
+    ~StatusLogger() {
+        logfile.close();
+    }
 
     void TRACE(Level_e level, std::string message, std::string errorCode) override{
         std::string statusLevel  = m_levelMap.at(level);
@@ -33,26 +38,39 @@ private:
     std::ofstream logfile;
 
     std::string getFilename () {
-        std::chrono::system_clock::time_point time = getDate();
-        std::time_t t = system_clock::to_time_t(time);
-        std::cout << std::ctime(&t) << std::endl;
-        std::string filename = std::ctime(&t) + ".log";
+        auto date = getDate();
+        std::string filename = date;
+        filename.append(".log");
+        auto dir = GetCurrentWorkingDir();
+        filename = dir + "/logs/" + filename;
+        return filename;
+    }
+
+    std::string GetCurrentWorkingDir() {
+        char buff[FILENAME_MAX];
+        GetCurrentDir( buff, FILENAME_MAX );
+        std::string current_working_dir(buff);
+        return current_working_dir;
     }
 
     void write(Level_e level, std::string &output){
         std::string startcode = "\033[";
         std::string endcode = "\033[0m\n";
+        std::string time = getTime();
+        time = "[" + time + "]";
+
         if (level == ERR) {
-            std::cerr << output << std::endl;
+
+            auto thecode = "1;31m";
+            std::cerr << startcode + thecode + time + output + endcode << std::endl;
         }
         else if (level == WARN) {
 
-            std::string thecode = "1;93m";
-            std::cout << startcode + thecode + output + endcode;
+            auto thecode = "1;33m";
+            std::cout << startcode + thecode + time + output + endcode << std::endl;
         }
-        else {
-            std::cerr << output << std::endl;
-        }
+
+        logfile << time + output + "\n";
     }
 };
 

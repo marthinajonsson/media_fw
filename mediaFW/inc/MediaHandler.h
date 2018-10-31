@@ -58,7 +58,7 @@ public:
         }
     }
 
-    bool update(Event &event, std::vector<std::string>&) override;  // this should only report status from observation, cli thread should run and stop itself.
+    int update(Event &event, std::vector<std::string>&) override;  // this should only report status from observation, cli thread should run and stop itself.
 
     void syncClient();
     void syncDatabase(const std::vector<std::string>&);

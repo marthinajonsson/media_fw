@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <map>
+#include <ctime>
 
 class Logger {
 public:
@@ -28,11 +29,35 @@ public:
     virtual void TRACE(Level_e level , std::string message, std::string errorCode) = 0;
     virtual void TRACE(Level_e level , std::string message) = 0;
 
-    std::chrono::system_clock::time_point getDate() {
-        return std::chrono::system_clock::now();
+protected:
+    std::string getDate() {
+        time_t now = time(0);
+        tm *ltm = localtime(&now);
+        auto year = 1900 + ltm->tm_year;
+        auto month = 1 + ltm->tm_mon;
+        auto day = ltm->tm_mday;
+        std::string y = std::to_string(year);
+        std::string m = std::to_string(month);
+        std::string d = std::to_string(day);
+        y = y.append("-");
+        m = m.append("-");
+        return y + m + d;
     }
 
-protected:
+    std::string getTime() {
+        time_t now = time(0);
+        tm *ltm = localtime(&now);
+        int hour = 1 + ltm->tm_hour;
+        auto min = 1 + ltm->tm_min;
+        auto sec = 1 + ltm->tm_sec;
+        std::string h = std::to_string(hour);
+        std::string m = std::to_string(min);
+        std::string s = std::to_string(sec);
+        h = h.append(":");
+        m = m.append(":");
+        return h + m + s;
+    }
+
 
     template<typename T> struct map_init_helper
     {
