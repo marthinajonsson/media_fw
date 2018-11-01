@@ -3,3 +3,5 @@
 Dependencies:
 - Libssh
 - JsonCpp
+- Googlemock/googletest
+- doxygen
