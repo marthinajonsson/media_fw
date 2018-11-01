@@ -7,7 +7,8 @@
 
 #include <string>
 #include <vector>
-#include "Util.h"
+#include <Request.h>
+
 
 class Observer {
 
@@ -23,7 +24,7 @@ public:
      * @param humidity new humidity
      * @param pressure new pressure
      */
-    virtual int update(Event &event, std::vector<std::string> &info) = 0;
+    virtual int update(Request &info) = 0;
 
 };
 

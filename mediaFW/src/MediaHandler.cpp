@@ -8,21 +8,21 @@
 #include <thread>
 
 
-int MediaHandler::update(Event &event, std::vector<std::string> &args)
+int MediaHandler::update(Request &request)
 {
-    if(event == Event::UPLOAD) {
+    if(request.m_event == Event::UPLOAD) {
         status = Status::UPLOADING;
     }
-    else if (event == Event ::DOWNLOAD) {
+    else if (request.m_event == Event ::DOWNLOAD) {
         status = Status::DOWNLOADING;
     }
-    else if (event == Event ::SEARCH) {
+    else if (request.m_event == Event ::SEARCH) {
         status = Status::SEARCHING;
     }
-    else if (event == Event ::HELP) {
+    else if (request.m_event == Event ::HELP) {
         status = Status::IDLE;
     }
-    else if (event == Event ::EXIT) {
+    else if (request.m_event == Event ::EXIT) {
         status = Status::DISCONNECT;
     }
     else {
@@ -30,7 +30,7 @@ int MediaHandler::update(Event &event, std::vector<std::string> &args)
     }
 
     syncClient();
-    syncDatabase(args);
+    syncDatabase(request);
     return RET::OK;
 
 }
@@ -70,7 +70,7 @@ void MediaHandler::syncClient() {
 
 }
 
-void MediaHandler::syncDatabase(const std::vector<std::string> &args) {
+void MediaHandler::syncDatabase(const Request &request) {
     //TODO: get db status
     //TODO: update db with new info
     auto fut = std::async(getDatabaseInfo, p_database, status);

@@ -30,7 +30,7 @@ public:
     /**
      * Notify all the registered observers when a change happens
      */
-    virtual void notifyObservers(Event event, std::vector<std::string>&) = 0;
+    virtual void notifyObservers(Request &) = 0;
 
 };
 #endif //MEDIAFW_SUBJECT_H

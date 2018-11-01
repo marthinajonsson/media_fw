@@ -8,33 +8,31 @@
 //#include "Mocks.h"
 //#include "Fixtures.h"
 
-#include "gmock/gmock.h"
+#include "gtest/gtest.h"
 
 #include "Database.h"
 #include "MovieDatabase.h"
 
 TEST(DatabaseTest, DatabaseTest_BaseClass__Test) {
     Database db;
-    ASSERT_ANY_THROW(db.syncLocalDatabase());
-    ASSERT_ANY_THROW(db.getNumberOfItem());
-    ASSERT_ANY_THROW(db.fetchItem("TestTitle"));
+    db.syncLocalDatabase();
+    db.getNumberOfItem();
+    DatabaseItem item = db.fetchItem("The Proposal");
+    ASSERT_EQ(item.getTitle(), "The Proposal");
 }
 
 TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
     Database *db;
-    ASSERT_NO_THROW(db = new MovieDatabase());
+    db = new MovieDatabase();
     db->printAll();
     long numberOfItems = db->getNumberOfItem();
-    std::cout << numberOfItems << std::endl;
-
-    ASSERT_TRUE(db->getNumberOfItem() == 2);
+    ASSERT_TRUE(numberOfItems == 2);
     delete db;
 }
 
-
 TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     Database *db;
-    ASSERT_NO_THROW(db = new MovieDatabase());
+    db = new MovieDatabase();
 
     DatabaseItem newItem {{"actor1", "actor2"}, "aTitle", "horror", "spielberg"};
     long firstNum = db->getNumberOfItem();

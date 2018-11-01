@@ -6,8 +6,8 @@
 #define MEDIAFW_TEST_JSON_H
 
 #include <JsonParser.h>
-#include "gmock/gmock.h"
-
+//#include "gmock/gmock.h"
+#include "gtest/gtest.h"
 class JsonTest : public ::testing::Test
 {
 protected:

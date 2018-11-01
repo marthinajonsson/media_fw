@@ -22,6 +22,7 @@ Request Cli::process()
 {
     std::vector<std::string> parsed;
     Event event;
+
     for (std::string line; std::cout << "MEDIAFW > " && std::getline(std::cin, line); )
     {
         if (line.find(HELP) != std::string::npos) {
@@ -32,33 +33,13 @@ Request Cli::process()
         }
         else if (!line.empty()) {
             parsed = parseArg(line, ':');
-            checkValid(parsed.front(), event);
-            // TODO: strip away choice from parsed and use event only
-            Request req (event);
-            if(!verifyParsed(parsed, req, false)) {
-                return req;
-            }
-            return parsed;
+            Request request = interprete(parsed);
+            verifyParsed(request);
+            return request;
         }
     }
 }
 
-std::vector<std::string> Cli::process(std::string &testinput)
-{
-    std::vector<std::string> parsed;
-    Event event;
-    if(testinput.find(HELP) != std::string::npos){
-        printOptions();
-    }
-
-    if (!testinput.empty()) {
-        parsed = parseArg(testinput, ':');
-        if(!verifyParsed(parsed, event, true)) {
-            return {""};
-        }
-        return parsed;
-    }
-}
 
 int Cli::checkValid(const std::string &choice, Event &event){
     auto result = RET::ERROR;
@@ -73,48 +54,31 @@ int Cli::checkValid(const std::string &choice, Event &event){
 }
 
 
-/*! \private Cli::parseArg(std::string &input)
-     * @brief Test Parses argv and splits into strings.
-     * @param input A long input string containing argv from stdin.
-     * @return Private vector of strings containing parsed words from stdin.
-     */
-std::vector<std::string> Cli::parseArg(std::string &input, char delim) {
-    std::stringstream m_stream(input);
-    std::vector<std::string> seglist;
-    std::string segment;
-    seglist.reserve(15);
-    seglist.clear();
+Request Cli::interprete(std::vector<std::string> &input)
+{
+    Event event;
 
-    while(std::getline(m_stream, segment, delim))
-    {
-        seglist.push_back(segment);
+    if(RET::ERROR == checkValid(input.front(), event)){
+        Request request(RET::ERROR);
+        return request;
     }
-    return seglist;
-}
 
-Request Cli::strToRequest(const std::vector<std::string>& vec) {
+    Request request (event);
+    pop_front(input); // choice removed
 
-    Request req(vec.at(1), vec.at(2), vec.at(3), vec.at(4));
-    return req;
-}
-
-int Cli::verifyParsed(std::vector<std::string> &parsed, Request &req, bool testmode) {
-
-    if(Event::DELETE == req.event || Event::SEARCH == req.event) {
-        const auto title = parsed.back();
-        if (title.empty()) { return RET::ERROR; }
-        req.title = title;
-        return verifyExists(title);
-
+    const auto next = input.front();
+    if (next.empty()) {
+        request.setError(RET::ERROR);
+        return request;
     }
-    else if (Event::DOWNLOAD == req.event) {
-        req.title = parsed.back();
-        return verifyDownload(parsed);
+
+    if(event == Event::UPLOAD) {
+        request.setFilename(next);
+    }else {
+        request.setTitle(next);
     }
-    else {
-        req = strToRequest(parsed);
-        return verifyUpload(parsed);
-    }
+    pop_front(input); // remove title or filename
+    return request;
 }
 
 int Cli::verifyExists(const std::string &s) {
@@ -123,20 +87,25 @@ int Cli::verifyExists(const std::string &s) {
     return RET::OK;
 }
 
-int Cli::verifyDownload(std::vector<std::string> &parsed) {
+void Cli::verifyParsed(Request &req) {
 
-    const auto title = parsed.at(1);
-    if (title.empty()) { return false; }
-
-    return verifyExists(title);
+    int res;
+    if(Event::DELETE == req.m_event || Event::SEARCH == req.m_event
+       || Event::DOWNLOAD == req.m_event) {
+        res = verifyExists(req.m_title);
+    }
+    else {
+        res = verifyUpload(req);
+    }
+    req.setError(res);
 }
 
-int Cli::verifyUpload(std::vector<std::string> &parsed) {
+int Cli::verifyUpload(Request &req) {
 
-    const auto filename = parsed.back();
+    const auto filename = req.m_filename;
     if (filename.empty()) { return false; }
-
     if(access( filename.c_str(), F_OK ) == RET::ERROR) {
+        req.setError(RET::ERROR);
         return RET::ERROR;
     }
     std::cout << "To confirm your upload add the following info: \n"
@@ -160,10 +129,35 @@ int Cli::verifyUpload(std::vector<std::string> &parsed) {
     {
         return RET::ERROR;
     }
-    parsed.push_back(info);
+    req.setTitle(parsedInfo.front());
+    pop_front(parsedInfo);
+    req.setGenre(parsedInfo.front());
+    pop_front(parsedInfo);
+    req.setDirector(parsedInfo.front());
+    pop_front(parsedInfo);
+    req.setActors(parsedInfo);
     return RET::OK;
 }
 
+
+/*! \private Cli::parseArg(std::string &input)
+     * @brief Test Parses argv and splits into strings.
+     * @param input A long input string containing argv from stdin.
+     * @return Private vector of strings containing parsed words from stdin.
+     */
+std::vector<std::string> Cli::parseArg(std::string &input, char delim) {
+    std::stringstream m_stream(input);
+    std::vector<std::string> seglist;
+    std::string segment;
+    seglist.reserve(15);
+    seglist.clear();
+
+    while(std::getline(m_stream, segment, delim))
+    {
+        seglist.push_back(segment);
+    }
+    return seglist;
+}
 
 /*! \private Cli::printOptions()
  * @brief Test A private method that prints all valid options for stdin.

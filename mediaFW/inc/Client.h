@@ -53,9 +53,9 @@ public:
         }
     }
 
-    void notifyObservers(Event event, std::vector<std::string> &info) override {
+    void notifyObservers(Request &request) override {
         for (Observer *observer : observers) { // notify all observers
-            observer->update(event, info);
+            observer->update(request);
         }
     }
 
@@ -82,7 +82,7 @@ private:
      * @param p_cli
      * @return A vector of strings containing the result of CLI process
      */
-    static std::vector<std::string> getCliInput(Cli* p_cli) {
+    static Request getCliInput(Cli* p_cli) {
         return p_cli->process();
     }
 
@@ -91,10 +91,7 @@ private:
      * @param request - String containing all information needed for the server request.
      * @param connected - Boolean parameter indicating we have an established ssh connection.
      */
-    void handleRequest(std::vector<std::string> &request);
-
-
-    void notifyRequest(std::vector<std::string> &);
+    void handleRequest(Request &request);
 };
 
 

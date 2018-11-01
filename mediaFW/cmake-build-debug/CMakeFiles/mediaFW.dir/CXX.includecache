@@ -479,6 +479,12 @@ vector
 -
 iostream
 -
+assert.h
+-
+Util.h
+-
+Request.h
+../inc/Request.h
 
 ../inc/Client.h
 algorithm
@@ -489,6 +495,8 @@ Connection.h
 ../inc/Connection.h
 Cli.h
 ../inc/Cli.h
+StatusLogger.h
+../inc/StatusLogger.h
 
 ../inc/Connection.h
 iostream
@@ -534,6 +542,10 @@ Client.h
 StatusLogger.h
 ../inc/StatusLogger.h
 
+../inc/Request.h
+Util.h
+../inc/Util.h
+
 ../inc/SshConnector.h
 ifc/Connector.h
 -
@@ -562,6 +574,12 @@ chrono
 ifc/Logger.h
 ../inc/ifc/Logger.h
 unistd.h
+-
+
+../inc/Util.h
+string
+-
+vector
 -
 
 ../inc/database/Database.h
@@ -613,14 +631,16 @@ string
 -
 vector
 -
+Request.h
+-
 
 ../inc/ifc/Subject.h
 Observer.h
 ../inc/ifc/Observer.h
 
 ../inc/unittests/Test_Database.h
-gmock/gmock.h
-../inc/unittests/gmock/gmock.h
+gtest/gtest.h
+../inc/unittests/gtest/gtest.h
 Database.h
 ../inc/unittests/Database.h
 MovieDatabase.h
@@ -629,8 +649,8 @@ MovieDatabase.h
 ../inc/unittests/Test_Json.h
 JsonParser.h
 -
-gmock/gmock.h
-../inc/unittests/gmock/gmock.h
+gtest/gtest.h
+../inc/unittests/gtest/gtest.h
 
 ../inc/unittests/Test_Logger.h
 StatusLogger.h
@@ -647,8 +667,10 @@ Client.h
 -
 ifc/Subject.h
 -
+gtest/gtest.h
+../inc/unittests/gtest/gtest.h
 gmock/gmock-generated-function-mockers.h
--
+../inc/unittests/gmock/gmock-generated-function-mockers.h
 functional
 -
 iostream
@@ -657,44 +679,12 @@ MediaHandler.h
 -
 
 ../src/unittests/Test_Cli.h
-gmock/gmock.h
-../src/unittests/gmock/gmock.h
+gtest/gtest.h
+../src/unittests/gtest/gtest.h
 Cli.h
 ../src/unittests/Cli.h
 JsonParser.h
 ../src/unittests/JsonParser.h
-
-../test/Test_Startup.h
-
-/home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
-future
--
-thread
--
-Client.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/Client.h
-
-/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
-MediaHandler.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.h
-future
--
-thread
--
-
-/home/mjonsson/repo/cppAdv/mediaFW/src/SshConnector.cpp
-SshConnector.h
--
-ConnectionStream.h
--
-
-/home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
-MediaHandler.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.h
-Test_Startup.h
-/home/mjonsson/repo/cppAdv/mediaFW/src/Test_Startup.h
-thread
--
 
 /home/mjonsson/repo/cppAdv/mediaFW/test/Test_Startup.h
 

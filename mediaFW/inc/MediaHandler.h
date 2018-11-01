@@ -58,10 +58,10 @@ public:
         }
     }
 
-    int update(Event &event, std::vector<std::string>&) override;  // this should only report status from observation, cli thread should run and stop itself.
+    int update(Request &) override;  // this should only report status from observation, cli thread should run and stop itself.
 
     void syncClient();
-    void syncDatabase(const std::vector<std::string>&);
+    void syncDatabase(const Request &request);
 
     enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, IDLE, DISCONNECT } status;
 

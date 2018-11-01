@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <assert.h>
 
 #include <Util.h>
 #include "Request.h"
@@ -35,7 +36,15 @@ public:
      */
     Request process();
 
-    Request process(std::string &testinput);
+    Request interprete(std::vector<std::string> &input);
+
+    template<typename T>
+    void pop_front(std::vector<T>& vec)
+    {
+        assert(!vec.empty());
+        vec.front() = std::move(vec.back());
+        vec.pop_back();
+    }
 
 private:
     /*! \private Cli::parseArg(std::string &input)
@@ -45,20 +54,16 @@ private:
      */
     std::vector<std::string> parseArg(std::string &input, char delim);
 
-    Request Cli::strToRequest(const std::vector<std::string>&);
-
     int checkValid(const std::string&, Event &event);
 
     /*! \private Cli::verifyParsed(std::vector<std::string> &)
      * @brief Verify parsed arguments. Varies on choice.
      */
-    int verifyParsed(std::vector<std::string> &, Request &, bool);
+    void verifyParsed(Request &);
 
     int verifyExists(const std::string &s);
 
-    int verifyDownload(std::vector<std::string> &);
-
-    int verifyUpload(std::vector<std::string> &);
+    int verifyUpload(Request &);
 
     /*! \private Cli::printOptions()
      * @brief A private method that prints all valid options for stdin.

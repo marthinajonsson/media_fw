@@ -3,14 +3,18 @@
 
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/JsonParser.h
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Request.h
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Util.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../src/Cli.cpp
 
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Client.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/ConnectionStream.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Request.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/SshConnector.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/StatusLogger.h
+CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Util.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/ifc/Connector.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/ifc/Logger.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/ifc/Observer.h
@@ -27,8 +31,10 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/ConnectionStream.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/MediaHandler.h
+CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/Request.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/SshConnector.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/StatusLogger.h
+CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/Util.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/database/Database.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/database/DatabaseItem.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/database/MovieDatabase.h
@@ -54,8 +60,10 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/ConnectionStream.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/MediaHandler.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Request.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/SshConnector.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/StatusLogger.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/Util.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/database/Database.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/database/DatabaseItem.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/database/MovieDatabase.h
@@ -111,8 +119,10 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/Connection.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ConnectionStream.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/MediaHandler.h
+CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/Request.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/SshConnector.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/StatusLogger.h
+CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/Util.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/database/Database.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/database/DatabaseItem.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/database/MovieDatabase.h

@@ -10,19 +10,29 @@
 class Request {
 public:
     Request(Event _event, std::string _title, std::string, std::string _genre, std::string _director, std::vector<std::string> _actors) :
-        event(_event), title(_title), genre(_genre), director(_director), actors(_actors) {}
+        m_event(_event), m_title(_title), m_genre(_genre), m_director(_director), m_actors(_actors) , m_error(RET::OK)  {}
 
-    Request(Event _event, std::string _title) : event(_event), title(_title) {}
+    Request(Event _event, std::string _title) : m_event(_event), m_title(_title) , m_error(RET::OK) {}
 
-    Request(Event _event) : event(_event){}
+    Request(Event _event) : m_event(_event), m_error(RET::OK) {}
 
+    Request(int code) : m_error(code) {}
 
     ~Request() = default;
 
-    Event event;
-    std::string title;
-    std::string genre;
-    std::string director;
-    std::vector<std::string> actors;
+    void setError(const short _err) { m_error = _err; }
+    void setTitle (const std::string _title) { m_title = _title; }
+    void setGenre(const std::string _genre) { m_genre = _genre; }
+    void setDirector(const std::string _director) { m_director = _director; }
+    void setActors(const std::vector<std::string> _vec) { m_actors = _vec; }
+    void setFilename(const std::string _filename) { m_filename = _filename; }
+
+    short m_error;
+    Event m_event;
+    std::string m_filename;
+    std::string m_title;
+    std::string m_genre;
+    std::string m_director;
+    std::vector<std::string> m_actors;
 };
 #endif //MEDIAFW_REQUEST_H

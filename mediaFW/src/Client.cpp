@@ -16,53 +16,28 @@ int Client::waitCliAsync()
 {
     std::vector<std::string> resultVector;
     std::string choice;
-    std::future<std::vector<std::string>> fut;
+    std::future<Request> fut;
     while(true)
     {
         resultVector.clear();
         fut = std::async(getCliInput, p_cli);
         auto result = fut.get();
-        choice = result.front();
 
-        if(choice.find(EXIT) != std::string::npos) {
-            break;
+        if(result.m_event == Event::EXIT) {
+            return RET::OK;
         }
 
         handleRequest(result);
     }
-    if(choice.find(EXIT) != std::string::npos) {
-        return RET::OK;
-    }
     return RET::ERROR;
 }
 
-void Client::notifyRequest(std::vector<std::string> &request) {
-
-    if (request.front() == UPLOAD) {
-        notifyObservers(Event::UPLOAD, request);
-    }
-    else if (request.front() == DOWNLOAD) {
-        notifyObservers(Event::DOWNLOAD, request);
-    }
-    else if (request.front() == SEARCH) {
-        notifyObservers(Event::SEARCH, request);
-    }
-    else if (request.front() == DELETE) {
-        notifyObservers(Event::DELETE, request);
-    }
-    else if (request.front().find(EXIT) != std::string::npos) {
-        notifyObservers(Event::EXIT, request);
-    }
-    else {
-        m_logger->TRACE(Logger::ERR, "Unknown request");
-    }
-}
-
-void Client::handleRequest(std::vector<std::string> &request)
+void Client::handleRequest(Request &request)
 {
-    notifyRequest(request);
+    notifyObservers(request);
     std::string result;
     std::string testcommand = "ls";
     p_conn->sendServerRequest(testcommand, result);
     std::cout << result << std::endl;
+    //TODO: update JSON after UPLOAD or DELETE
 }
