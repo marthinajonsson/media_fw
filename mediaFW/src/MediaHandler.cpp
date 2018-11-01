@@ -71,14 +71,21 @@ void MediaHandler::syncClient() {
 }
 
 void MediaHandler::syncDatabase(const Request &request) {
-    //TODO: get db status
-    //TODO: update db with new info
-    auto fut = std::async(getDatabaseInfo, p_database, status);
+    //TODO: map category
+    //TODO: connect more status reports
+    auto fut = std::async(updateDatabaseInfo, request, status);
     auto answer = fut.get();
     if(answer == Status::IDLE) {
         m_logger->TRACE(Logger::INFO, "Database is synced");
     }else {
         m_logger->TRACE(Logger::WARN, "Database is unsynced");
     }
+    if(answer == Status::UPLOADING) {
+        m_logger->TRACE(Logger::INFO, "Uploading.. ");
+    }
+    else if (answer == Status::DELETING) {
+        m_logger->TRACE(Logger::INFO, "Deleting.. ");
+    }
+
 }
 

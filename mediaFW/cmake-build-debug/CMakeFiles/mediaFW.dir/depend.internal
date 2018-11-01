@@ -6,6 +6,8 @@ CMakeFiles/mediaFW.dir/src/Cli.cpp.o
  ../inc/JsonParser.h
  ../inc/Request.h
  ../inc/Util.h
+ ../inc/database/DatabaseItem.h
+ ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/Cli.cpp
 CMakeFiles/mediaFW.dir/src/Client.cpp.o
  ../inc/Cli.h
@@ -23,6 +25,7 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o
  /home/mjonsson/repo/cppAdv/mediaFW/src/Client.cpp
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o
  ../inc/JsonParser.h
+ ../inc/database/DatabaseItem.h
  ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
@@ -43,6 +46,7 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o
  ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h
+ ../inc/json/json.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/MediaHandler.cpp
 CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o
  ../inc/ConnectionStream.h
@@ -72,6 +76,7 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o
  ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h
+ ../inc/json/json.h
  ../test/Test_Startup.h
  /home/mjonsson/repo/cppAdv/mediaFW/src/main.cpp
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o
@@ -131,6 +136,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o
  ../inc/ifc/Logger.h
  ../inc/ifc/Observer.h
  ../inc/ifc/Subject.h
+ ../inc/json/json.h
  ../inc/unittests/Test_Database.h
  ../inc/unittests/Test_Json.h
  ../inc/unittests/Test_Logger.h

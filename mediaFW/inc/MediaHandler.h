@@ -63,7 +63,7 @@ public:
     void syncClient();
     void syncDatabase(const Request &request);
 
-    enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, IDLE, DISCONNECT } status;
+    enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
 
 private:
     StatusLogger* m_logger;
@@ -75,7 +75,20 @@ private:
         return status;
     }
 
-    static Status getDatabaseInfo(Database* p_db, const Status &status) {
+    static Status updateDatabaseInfo(const Request &request, const Status &status) {
+        std::string cat = "movie";
+        if(request.m_event == Event::UPLOAD ) {
+            DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
+            JsonParser::getInstance().addToMap(item, cat);
+            JsonParser::getInstance().load();
+            return Status::UPLOADING;
+        }
+        else if(request.m_event == Event::DELETE) {
+            DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
+            JsonParser::getInstance().deleteFromMap(item, cat);
+            JsonParser::getInstance().load();
+            return Status::DELETING;
+        }
         return Status::IDLE;
     }
 };

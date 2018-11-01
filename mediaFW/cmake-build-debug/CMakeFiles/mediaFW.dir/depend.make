@@ -5,6 +5,8 @@ CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Cli.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/JsonParser.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Request.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/Util.h
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/database/DatabaseItem.h
+CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/src/Cli.cpp.o: ../src/Cli.cpp
 
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/Cli.h
@@ -22,6 +24,7 @@ CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../inc/ifc/Subject.h
 CMakeFiles/mediaFW.dir/src/Client.cpp.o: ../src/Client.cpp
 
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/JsonParser.h
+CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/database/DatabaseItem.h
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o: ../src/JsonParser.cpp
 
@@ -42,6 +45,7 @@ CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/ifc/Connector.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/ifc/Logger.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/ifc/Observer.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/ifc/Subject.h
+CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o: ../src/MediaHandler.cpp
 
 CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o: ../inc/ConnectionStream.h
@@ -71,6 +75,7 @@ CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/ifc/Connector.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/ifc/Logger.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/ifc/Observer.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/ifc/Subject.h
+CMakeFiles/mediaFW.dir/src/main.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../test/Test_Startup.h
 CMakeFiles/mediaFW.dir/src/main.cpp.o: ../src/main.cpp
 
@@ -130,6 +135,7 @@ CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Connector.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Logger.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Observer.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/ifc/Subject.h
+CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/json/json.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Database.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Json.h
 CMakeFiles/mediaFW.dir/test/test_main.cpp.o: ../inc/unittests/Test_Logger.h

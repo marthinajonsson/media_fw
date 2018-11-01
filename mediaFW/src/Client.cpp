@@ -39,5 +39,4 @@ void Client::handleRequest(Request &request)
     std::string testcommand = "ls";
     p_conn->sendServerRequest(testcommand, result);
     std::cout << result << std::endl;
-    //TODO: update JSON after UPLOAD or DELETE
 }

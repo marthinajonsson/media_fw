@@ -16,14 +16,6 @@
 #include <iostream>
 #include <MediaHandler.h>
 
-void foo(int i)
-{
-    std::cout << "foo( " <<  i << " )\n";
-}
-
-void bar() {
-    std::cout << "bar()\n";
-}
 
 class ObserverTest : public ::testing::Test
 {

@@ -29,11 +29,58 @@ void JsonParser::clearMap() {
     m_movieMap.clear();
 }
 
+void JsonParser::addToMap(DatabaseItem &item, std::string &category) {
+
+    Json::Value add;
+    add["title"] = item.getTitle();
+    add["genre"] = item.getGenre();
+    add["director"] = item.getDirector();
+    for (auto a : item.getActors()) {
+        add["actors"] = a;
+    }
+    m_root["items"]["Movies"].append(add);
+
+    std::ofstream db_file("../data/db.json", std::ios::trunc);
+    std::cout << m_root << std::endl;
+    db_file << m_root;
+    db_file.close();
+}
+
+void JsonParser::deleteFromMap(DatabaseItem &item, std::string &category) {
+
+    Json::Value remove;
+    remove["title"] == item.getTitle();
+    remove["genre"] == item.getGenre();
+    remove["director"] = item.getDirector();
+    for (auto a : item.getActors()) {
+        remove["actors"] = a;
+    }
+
+    for (Json::ArrayIndex i = 0; m_root["items"]["Movies"].isValidIndex(i); i++) {
+        auto title = m_root["items"]["Movies"][i]["title"].asString();
+        auto genre = m_root["items"]["Movies"][i]["genre"].asString();
+        auto director = m_root["items"]["Movies"][i]["director"].asString();
+        auto actors = m_root["items"]["Movies"][i]["actors"].asString();
+
+        if(item.getTitle() == title && item.getDirector() == director) {
+            m_root["items"]["Movies"].removeIndex(i, &remove);
+        }
+    }
+
+    std::ofstream db_file("../data/db.json", std::ios::trunc);
+    std::cout << m_root << std::endl;
+    db_file << m_root;
+    db_file.close();
+}
+
 void JsonParser::load()
 {
     Json::Value root;
+
     std::ifstream db_file("../data/db.json", std::ifstream::binary);
     db_file >> root;
+    db_file.close();
+    m_root = root;
     m_movieMap.clear();
     m_seriesMap.clear();
 
@@ -70,7 +117,6 @@ void JsonParser::load()
         }
         m_seriesMap[title] = m_parsed;
     }
-    db_file.close();
 }
 
 
