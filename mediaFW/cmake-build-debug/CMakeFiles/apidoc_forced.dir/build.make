@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/media_fw/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug
 
 # Utility rule file for apidoc_forced.
 
@@ -54,9 +54,9 @@ CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
 include CMakeFiles/apidoc_forced.dir/progress.make
 
 CMakeFiles/apidoc_forced:
-	cd /home/mjonsson/repo/cppAdv/mediaFW && /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
-	cd /home/mjonsson/repo/cppAdv/mediaFW && /usr/bin/doxygen
-	cd /home/mjonsson/repo/cppAdv/mediaFW && /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E echo Done.
+	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
+	cd /home/mjonsson/repo/media_fw/mediaFW && /usr/bin/doxygen
+	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo Done.
 
 apidoc_forced: CMakeFiles/apidoc_forced
 apidoc_forced: CMakeFiles/apidoc_forced.dir/build.make
@@ -73,6 +73,6 @@ CMakeFiles/apidoc_forced.dir/clean:
 .PHONY : CMakeFiles/apidoc_forced.dir/clean
 
 CMakeFiles/apidoc_forced.dir/depend:
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/cppAdv/mediaFW /home/mjonsson/repo/cppAdv/mediaFW /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles/apidoc_forced.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/media_fw/mediaFW /home/mjonsson/repo/media_fw/mediaFW /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles/apidoc_forced.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/apidoc_forced.dir/depend
 

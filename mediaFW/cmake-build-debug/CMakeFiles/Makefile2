@@ -50,19 +50,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/media_fw/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/apidoc.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
 CMakeFiles/apidoc.dir/all:
 	$(MAKE) -f CMakeFiles/apidoc.dir/build.make CMakeFiles/apidoc.dir/depend
 	$(MAKE) -f CMakeFiles/apidoc.dir/build.make CMakeFiles/apidoc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=1 "Built target apidoc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=1 "Built target apidoc"
 .PHONY : CMakeFiles/apidoc.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/apidoc.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/apidoc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/apidoc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/apidoc.dir/rule
 
 # Convenience name for target.
@@ -108,14 +108,14 @@ clean: CMakeFiles/apidoc.dir/clean
 CMakeFiles/check.dir/all:
 	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/depend
 	$(MAKE) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num= "Built target check"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num= "Built target check"
 .PHONY : CMakeFiles/check.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/check.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/check.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/check.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ CMakeFiles/mediaFW.dir/all: contrib/googletest/CMakeFiles/googletest.dir/all
 CMakeFiles/mediaFW.dir/all: contrib/googletest/CMakeFiles/googlemock.dir/all
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/depend
 	$(MAKE) -f CMakeFiles/mediaFW.dir/build.make CMakeFiles/mediaFW.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14 "Built target mediaFW"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14 "Built target mediaFW"
 .PHONY : CMakeFiles/mediaFW.dir/all
 
 # Include target in all.
@@ -151,9 +151,9 @@ all: CMakeFiles/mediaFW.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mediaFW.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/mediaFW.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/mediaFW.dir/rule
 
 # Convenience name for target.
@@ -178,14 +178,14 @@ clean: CMakeFiles/mediaFW.dir/clean
 CMakeFiles/apidoc_forced.dir/all:
 	$(MAKE) -f CMakeFiles/apidoc_forced.dir/build.make CMakeFiles/apidoc_forced.dir/depend
 	$(MAKE) -f CMakeFiles/apidoc_forced.dir/build.make CMakeFiles/apidoc_forced.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num= "Built target apidoc_forced"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num= "Built target apidoc_forced"
 .PHONY : CMakeFiles/apidoc_forced.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/apidoc_forced.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/apidoc_forced.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/apidoc_forced.dir/rule
 
 # Convenience name for target.
@@ -230,7 +230,7 @@ contrib/googletest/preinstall:
 contrib/googletest/CMakeFiles/googletest.dir/all:
 	$(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/depend
 	$(MAKE) -f contrib/googletest/CMakeFiles/googletest.dir/build.make contrib/googletest/CMakeFiles/googletest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=4,5 "Built target googletest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=4,5 "Built target googletest"
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/all
 
 # Include target in all.
@@ -240,9 +240,9 @@ all: contrib/googletest/CMakeFiles/googletest.dir/all
 
 # Build rule for subdir invocation for target.
 contrib/googletest/CMakeFiles/googletest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/CMakeFiles/googletest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/rule
 
 # Convenience name for target.
@@ -267,7 +267,7 @@ clean: contrib/googletest/CMakeFiles/googletest.dir/clean
 contrib/googletest/CMakeFiles/googlemock.dir/all:
 	$(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/depend
 	$(MAKE) -f contrib/googletest/CMakeFiles/googlemock.dir/build.make contrib/googletest/CMakeFiles/googlemock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=2,3 "Built target googlemock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=2,3 "Built target googlemock"
 .PHONY : contrib/googletest/CMakeFiles/googlemock.dir/all
 
 # Include target in all.
@@ -277,9 +277,9 @@ all: contrib/googletest/CMakeFiles/googlemock.dir/all
 
 # Build rule for subdir invocation for target.
 contrib/googletest/CMakeFiles/googlemock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 contrib/googletest/CMakeFiles/googlemock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles 0
 .PHONY : contrib/googletest/CMakeFiles/googlemock.dir/rule
 
 # Convenience name for target.

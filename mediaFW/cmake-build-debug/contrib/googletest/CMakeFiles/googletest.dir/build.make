@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2018.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mjonsson/repo/cppAdv/mediaFW
+CMAKE_SOURCE_DIR = /home/mjonsson/repo/media_fw/mediaFW
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include contrib/googletest/CMakeFiles/googletest.dir/depend.make
@@ -59,16 +59,16 @@ include contrib/googletest/CMakeFiles/googletest.dir/flags.make
 
 contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o: contrib/googletest/CMakeFiles/googletest.dir/flags.make
 contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o: ../contrib/googletest/src/gtest-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o"
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/googletest.dir/src/gtest-all.cc.o -c /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gtest-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o"
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/googletest.dir/src/gtest-all.cc.o -c /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest/src/gtest-all.cc
 
 contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/googletest.dir/src/gtest-all.cc.i"
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gtest-all.cc > CMakeFiles/googletest.dir/src/gtest-all.cc.i
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest/src/gtest-all.cc > CMakeFiles/googletest.dir/src/gtest-all.cc.i
 
 contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/googletest.dir/src/gtest-all.cc.s"
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gtest-all.cc -o CMakeFiles/googletest.dir/src/gtest-all.cc.s
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest/src/gtest-all.cc -o CMakeFiles/googletest.dir/src/gtest-all.cc.s
 
 # Object files for target googletest
 googletest_OBJECTS = \
@@ -80,9 +80,9 @@ googletest_EXTERNAL_OBJECTS =
 contrib/googletest/libgoogletest.a: contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o
 contrib/googletest/libgoogletest.a: contrib/googletest/CMakeFiles/googletest.dir/build.make
 contrib/googletest/libgoogletest.a: contrib/googletest/CMakeFiles/googletest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libgoogletest.a"
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -P CMakeFiles/googletest.dir/cmake_clean_target.cmake
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/googletest.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libgoogletest.a"
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -P CMakeFiles/googletest.dir/cmake_clean_target.cmake
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/googletest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 contrib/googletest/CMakeFiles/googletest.dir/build: contrib/googletest/libgoogletest.a
@@ -90,10 +90,10 @@ contrib/googletest/CMakeFiles/googletest.dir/build: contrib/googletest/libgoogle
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/build
 
 contrib/googletest/CMakeFiles/googletest.dir/clean:
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -P CMakeFiles/googletest.dir/cmake_clean.cmake
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest && $(CMAKE_COMMAND) -P CMakeFiles/googletest.dir/cmake_clean.cmake
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/clean
 
 contrib/googletest/CMakeFiles/googletest.dir/depend:
-	cd /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/cppAdv/mediaFW /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest /home/mjonsson/repo/cppAdv/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mjonsson/repo/media_fw/mediaFW /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : contrib/googletest/CMakeFiles/googletest.dir/depend
 

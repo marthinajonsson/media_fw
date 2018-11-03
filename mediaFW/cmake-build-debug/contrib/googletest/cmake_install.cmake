@@ -1,4 +1,4 @@
-# Install script for directory: /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest
+# Install script for directory: /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
