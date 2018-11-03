@@ -79,13 +79,13 @@ private:
         std::string cat = "movie";
         if(request.m_event == Event::UPLOAD ) {
             DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
-            JsonParser::getInstance().addToMap(item, cat);
+            JsonParser::getInstance().add(item, cat);
             JsonParser::getInstance().load();
             return Status::UPLOADING;
         }
         else if(request.m_event == Event::DELETE) {
             DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
-            JsonParser::getInstance().deleteFromMap(item, cat);
+            JsonParser::getInstance().remove(item, cat);
             JsonParser::getInstance().load();
             return Status::DELETING;
         }

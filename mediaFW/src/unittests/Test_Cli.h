@@ -21,7 +21,7 @@ protected:
 
     void TearDown()
     {
-        JsonParser::getInstance().clearMap();
+        JsonParser::getInstance().clear();
     }
 };
 

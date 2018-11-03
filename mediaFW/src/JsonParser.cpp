@@ -24,12 +24,12 @@ std::vector<std::string> JsonParser::split(const std::string& s, char delimiter)
     return tokens;
 }
 
-void JsonParser::clearMap() {
+void JsonParser::clear() {
     m_seriesMap.clear();
     m_movieMap.clear();
 }
 
-void JsonParser::addToMap(DatabaseItem &item, std::string &category) {
+void JsonParser::add(DatabaseItem &item, std::string &category) {
 
     Json::Value add;
     add["title"] = item.getTitle();
@@ -46,11 +46,11 @@ void JsonParser::addToMap(DatabaseItem &item, std::string &category) {
     db_file.close();
 }
 
-void JsonParser::deleteFromMap(DatabaseItem &item, std::string &category) {
+void JsonParser::remove(DatabaseItem &item, std::string &category) {
 
     Json::Value remove;
-    remove["title"] == item.getTitle();
-    remove["genre"] == item.getGenre();
+    remove["title"] = item.getTitle();
+    remove["genre"] = item.getGenre();
     remove["director"] = item.getDirector();
     for (auto a : item.getActors()) {
         remove["actors"] = a;

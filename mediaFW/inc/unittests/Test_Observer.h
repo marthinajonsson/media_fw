@@ -30,7 +30,7 @@ protected:
     }
 
     void TearDown() override {
-        JsonParser::getInstance().clearMap();
+        JsonParser::getInstance().clear();
     }
 };
 

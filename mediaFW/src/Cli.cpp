@@ -38,6 +38,7 @@ Request Cli::process()
             return request;
         }
     }
+    return Request(RET::ERROR);
 }
 
 
