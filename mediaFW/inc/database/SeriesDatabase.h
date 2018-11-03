@@ -1,29 +1,25 @@
 //
-// Created by mjonsson on 10/4/18.
+// Created by mjonsson on 11/3/18.
 //
 
-/// <summary>
-/// A module that implements the functionality of Database.h and helps the client to perform database actions.
-/// </summary>
-
-#ifndef MEDIAFW_MOVIEDATABASE_H
-#define MEDIAFW_MOVIEDATABASE_H
+#ifndef MEDIAFW_SERIESDATABASE_H
+#define MEDIAFW_SERIESDATABASE_H
 
 #include "Database.h"
 #include <algorithm>
 
 
-class MovieDatabase : public Database {
+class SeriesDatabase : public Database {
 public:
 
-    MovieDatabase () {
+    SeriesDatabase () {
         syncLocalDatabase();
     }
 
     void syncLocalDatabase() override {
-        Category cat = Category::Movie;
+        Category cat = Category::Series;
         JsonParser::getInstance().load(cat);
-        m_saved = JsonParser::getInstance().getMovieParsed();
+        m_saved = JsonParser::getInstance().getSeriesParsed();
 
         for(auto s : m_saved) {
             auto title = s.first;
@@ -119,4 +115,4 @@ public:
 };
 
 
-#endif //MEDIAFW_MOVIEDATABASE_H
+#endif //MEDIAFW_SERIESDATABASE_H

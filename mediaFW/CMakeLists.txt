@@ -78,12 +78,13 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Subject.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Connector.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ConnectionStream.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h inc/Request.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/Request.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/database/SeriesDatabase.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Json.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Observer.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Logger.h
         ${CMAKE_CURRENT_LIST_DIR}/src/unittests/Test_Cli.h
         ${CMAKE_CURRENT_LIST_DIR}/test/Fixtures.h

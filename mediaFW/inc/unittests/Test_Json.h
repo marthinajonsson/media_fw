@@ -15,7 +15,10 @@ protected:
     std::map<std::string, std::vector<std::string>> m_loadedSeriesMap;
 
     void SetUp() override {
-        JsonParser::getInstance().load();
+        Category cat = Category::Movie;
+        JsonParser::getInstance().load(cat);
+        cat = Category::Series;
+        JsonParser::getInstance().load(cat);
         m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
         m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
     }

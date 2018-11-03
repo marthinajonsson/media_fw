@@ -71,7 +71,6 @@ void MediaHandler::syncClient() {
 }
 
 void MediaHandler::syncDatabase(const Request &request) {
-    //TODO: map category
     //TODO: connect more status reports
     auto fut = std::async(updateDatabaseInfo, request, status);
     auto answer = fut.get();

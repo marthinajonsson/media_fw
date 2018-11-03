@@ -34,7 +34,15 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     Database *db;
     db = new MovieDatabase();
 
-    DatabaseItem newItem {{"actor1", "actor2"}, "aTitle", "horror", "spielberg"};
+    Request req(Event::UPLOAD);
+    req.m_actors = {"actor1", "actor2"};
+    req.m_title = "aTitle";
+    req.m_genre = "horror";
+    req.m_director = "spielberg";
+    req.category = Category::Movie;
+    DatabaseItem newItem;
+    newItem.setFeature(req);
+
     long firstNum = db->getNumberOfItem();
     db->pushItem(newItem);
     long postPushNum = db->getNumberOfItem();

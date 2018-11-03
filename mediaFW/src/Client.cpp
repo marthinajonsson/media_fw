@@ -37,6 +37,6 @@ void Client::handleRequest(Request &request)
     notifyObservers(request);
     std::string result;
     std::string testcommand = "ls";
-    p_conn->sendServerRequest(testcommand, result);
+    //p_conn->sendServerRequest(testcommand, result);
     std::cout << result << std::endl;
 }

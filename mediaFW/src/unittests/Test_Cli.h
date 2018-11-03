@@ -14,9 +14,10 @@ class CliTest : public ::testing::Test
 protected:
 
     Cli* cli;
+    Category cat = Category::Movie;
     void SetUp()
     {
-        JsonParser::getInstance().load();
+        JsonParser::getInstance().load(cat);
     }
 
     void TearDown()

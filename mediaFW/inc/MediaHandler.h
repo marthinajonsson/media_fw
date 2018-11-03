@@ -8,6 +8,7 @@
 #include <functional>
 #include "database/Database.h"
 #include "database/MovieDatabase.h"
+#include "database/SeriesDatabase.h"
 #include "Cli.h"
 #include "Client.h"
 #include "StatusLogger.h"
@@ -25,18 +26,18 @@ public:
 
     MediaHandler () = default;
 
-    MediaHandler(std::string category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
+    MediaHandler(Category &category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
+        cat = category;
         p_client = new Client(p_conn, p_cli);
 
-        if(category.find("series")) {
-            p_database = new MovieDatabase;
+        if(category == Category::Series) {
+            p_database = new SeriesDatabase;
         }
         else {
             p_database = new MovieDatabase;
         }
         p_client->registerObserver(this);
-
     };
 
     ~MediaHandler() {
@@ -70,23 +71,27 @@ private:
     Connection *p_conn;
     Cli *p_cli;
     Database *p_database;
+    Category cat;
 
     static Status getClientInfo(Client* p_client, const Status &status) { // TODO:these should be more clever
         return status;
     }
 
-    static Status updateDatabaseInfo(const Request &request, const Status &status) {
-        std::string cat = "movie";
+    static Status updateDatabaseInfo(const Request &request, const Status &status)
+    {
+        Category cat = request.category;
         if(request.m_event == Event::UPLOAD ) {
-            DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
-            JsonParser::getInstance().add(item, cat);
-            JsonParser::getInstance().load();
+            DatabaseItem item;
+            item.setFeature(request);
+            JsonParser::getInstance().add(cat, item);
+            JsonParser::getInstance().load(cat);
             return Status::UPLOADING;
         }
         else if(request.m_event == Event::DELETE) {
-            DatabaseItem  item(request.m_actors, request.m_title, request.m_genre, request.m_director);
-            JsonParser::getInstance().remove(item, cat);
-            JsonParser::getInstance().load();
+            DatabaseItem item;
+            item.setFeature(request);
+            JsonParser::getInstance().remove(cat, item);
+            JsonParser::getInstance().load(cat);
             return Status::DELETING;
         }
         return Status::IDLE;

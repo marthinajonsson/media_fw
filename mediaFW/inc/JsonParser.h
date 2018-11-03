@@ -10,8 +10,9 @@
 #include <map>
 #include <database/DatabaseItem.h>
 #include <json/json.h>
+#include <ifc/Parser.h>
 
-class JsonParser {
+class JsonParser : Parser {
 public:
     static JsonParser& getInstance()
     {
@@ -25,11 +26,11 @@ public:
 
     ~JsonParser() = default;
 
-    void load();
-    void clear();
-    bool find(const std::string &category, const std::string &pattern);
-    void add(DatabaseItem &item, std::string &category);
-    void remove(DatabaseItem &item, std::string &category);
+    void load(Category &category) override;
+    void clear() override;
+    bool find(const std::string &category, const std::string &pattern) override;
+    void add(Category &category, DatabaseItem &item) override;
+    void remove(Category &category, DatabaseItem &item) override;
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
     std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }
 
@@ -39,11 +40,6 @@ private:
     std::map<std::string, std::vector<std::string>> m_movieMap;
     std::map<std::string, std::vector<std::string>> m_seriesMap;
 
-    std::vector<std::string> split(const std::string& s, char delimiter);
-
 };
 
-
-static const std::string MOVIE = "movie";
-static const std::string SERIES = "series";
 #endif //MEDIAFW_JSONPARSER_H

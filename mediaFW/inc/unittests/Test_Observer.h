@@ -11,7 +11,7 @@
 #include <ifc/Subject.h>
 //#include <gmock/gmock-generated-function-mockers.h>
 #include "gtest/gtest.h"
-#include "gmock/gmock-generated-function-mockers.h"
+//#include "gmock/gmock-generated-function-mockers.h"
 #include <functional>  // for std::function and std::bind
 #include <iostream>
 #include <MediaHandler.h>
