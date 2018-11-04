@@ -86,7 +86,7 @@ set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Json.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Logger.h
-        ${CMAKE_CURRENT_LIST_DIR}/src/unittests/Test_Cli.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Cli.h
         ${CMAKE_CURRENT_LIST_DIR}/test/Fixtures.h
         ${CMAKE_CURRENT_LIST_DIR}/test/Mocks.h
         ${CMAKE_CURRENT_LIST_DIR}/test/test_main.cpp test/Test_Startup.h)

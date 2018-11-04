@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
+RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug
 include CMakeFiles/check.dir/progress.make
 
 CMakeFiles/check:
-	GTEST_COLOR=1 /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/ctest --verbose
+	GTEST_COLOR=1 /opt/clion-2018.2.5/bin/cmake/linux/bin/ctest --verbose
 
 check: CMakeFiles/check
 check: CMakeFiles/check.dir/build.make

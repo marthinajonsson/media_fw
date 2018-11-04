@@ -35,6 +35,7 @@ public:
      * @return Vector of strings containing output from stdin.
      */
     Request process();
+    Request process(std::string &line);
 
     Request interprete(std::vector<std::string> &input);
 
@@ -61,7 +62,7 @@ private:
      */
     void verifyParsed(Request &);
 
-    int verifyExists(const std::string &s);
+    int verifyExists(Request &req);
 
     int verifyUpload(Request &);
 

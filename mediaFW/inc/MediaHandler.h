@@ -79,15 +79,15 @@ private:
 
     static Status updateDatabaseInfo(const Request &request, const Status &status)
     {
-        Category cat = request.category;
-        if(request.m_event == Event::UPLOAD ) {
+        Category cat = request.getCategory();
+        if(request.getEvent() == Event::UPLOAD ) {
             DatabaseItem item;
             item.setFeature(request);
             JsonParser::getInstance().add(cat, item);
             JsonParser::getInstance().load(cat);
             return Status::UPLOADING;
         }
-        else if(request.m_event == Event::DELETE) {
+        else if(request.getEvent() == Event::DELETE) {
             DatabaseItem item;
             item.setFeature(request);
             JsonParser::getInstance().remove(cat, item);

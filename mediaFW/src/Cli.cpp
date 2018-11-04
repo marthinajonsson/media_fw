@@ -18,6 +18,16 @@
  * Receives inputs from STDIN and splits the result into strings.
  */
 
+Request Cli::process(std::string &line) {
+    std::vector<std::string> parsed;
+    Event event;
+
+    parsed = parseArg(line, ':');
+    Request request = interprete(parsed);
+    verifyParsed(request);
+    return request;
+}
+
 Request Cli::process()
 {
     std::vector<std::string> parsed;
@@ -82,18 +92,30 @@ Request Cli::interprete(std::vector<std::string> &input)
     return request;
 }
 
-int Cli::verifyExists(const std::string &s) {
-    bool result =  JsonParser::getInstance().find(MOVIE, s);
-    if(!result) { return RET::ERROR;}
+int Cli::verifyExists(Request &req) {
+    std::string title = req.getTitle();
+    Category cat = Category::Movie;
+    bool result =  JsonParser::getInstance().find(MOVIE, title);
+    if(result) {
+        req.setCategory(cat);
+    }
+    else {
+        result =  JsonParser::getInstance().find(SERIES, title);
+        if(!result) { return RET::ERROR;}
+        else {
+            cat = Category::Series;
+            req.setCategory(cat);
+        }
+    }
     return RET::OK;
 }
 
 void Cli::verifyParsed(Request &req) {
 
     int res;
-    if(Event::DELETE == req.m_event || Event::SEARCH == req.m_event
-       || Event::DOWNLOAD == req.m_event) {
-        res = verifyExists(req.m_title);
+    Event event = req.getEvent();
+    if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
+        res = verifyExists(req);
     }
     else {
         res = verifyUpload(req);
@@ -103,7 +125,7 @@ void Cli::verifyParsed(Request &req) {
 
 int Cli::verifyUpload(Request &req) {
 
-    const auto filename = req.m_filename;
+    const auto filename = req.getFileName();
     if (filename.empty()) { return false; }
     if(access( filename.c_str(), F_OK ) == RET::ERROR) {
         req.setError(RET::ERROR);

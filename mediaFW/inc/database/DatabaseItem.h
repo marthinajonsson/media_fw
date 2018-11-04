@@ -27,11 +27,11 @@ public:
     ~DatabaseItem() = default;
 
     void setFeature(Request feature){
-        this->m_category = feature.category;
-        this->m_actors = feature.m_actors;
-        this->m_director = feature.m_director;
-        this->m_title = feature.m_title;
-        this->m_genre = feature.m_genre;
+        this->m_category = feature.getCategory();
+        this->m_actors = feature.getActors();
+        this->m_director = feature.getDirector();
+        this->m_title = feature.getTitle();
+        this->m_genre = feature.getGenre();
     };
 
     std::vector<std::string> getActors(){ return m_actors;}

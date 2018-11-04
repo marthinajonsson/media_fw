@@ -46,4 +46,4 @@ contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.o
  ../contrib/googletest/src/gmock-matchers.cc
  ../contrib/googletest/src/gmock-spec-builders.cc
  ../contrib/googletest/src/gmock.cc
- /home/mjonsson/repo/cppAdv/mediaFW/contrib/googletest/src/gmock-all.cc
+ /home/mjonsson/repo/media_fw/mediaFW/contrib/googletest/src/gmock-all.cc

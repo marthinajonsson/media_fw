@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
+RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -54,9 +54,9 @@ CMAKE_BINARY_DIR = /home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug
 include CMakeFiles/apidoc_forced.dir/progress.make
 
 CMakeFiles/apidoc_forced:
-	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
+	cd /home/mjonsson/repo/media_fw/mediaFW && /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
 	cd /home/mjonsson/repo/media_fw/mediaFW && /usr/bin/doxygen
-	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo Done.
+	cd /home/mjonsson/repo/media_fw/mediaFW && /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo Done.
 
 apidoc_forced: CMakeFiles/apidoc_forced
 apidoc_forced: CMakeFiles/apidoc_forced.dir/build.make

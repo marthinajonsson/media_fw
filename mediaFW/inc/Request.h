@@ -20,7 +20,7 @@ public:
 
     ~Request() = default;
 
-    void setCategory(Category &cat) {category = cat; }
+    void setCategory(Category &cat) { category = cat; }
     void setError(const int &_err) { m_error = _err; }
     void setTitle (const std::string &_title) { m_title = _title; }
     void setGenre(const std::string &_genre) { m_genre = _genre; }
@@ -28,6 +28,15 @@ public:
     void setActors(const std::vector<std::string> &_vec) { m_actors = _vec; }
     void setFilename(const std::string &_filename) { m_filename = _filename; }
 
+    int getError() { return m_error; }
+    Event getEvent() const {return m_event; }
+    std::string const getFileName() { return m_filename; }
+    std::string const getTitle() const { return m_title; }
+    std::string const getGenre() { return m_genre; }
+    std::string const getDirector() { return m_director; }
+    std::vector<std::string> const getActors() { return m_actors; }
+    Category const getCategory() const { return category; }
+private:
     int m_error;
     Event m_event;
     std::string m_filename;

@@ -307,6 +307,9 @@
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/database/MovieDatabase.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/database/SeriesDatabase.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/ifc/Connector.h">
 			<Option target="mediaFW"/>
 		</Unit>
@@ -316,10 +319,16 @@
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/ifc/Observer.h">
 			<Option target="mediaFW"/>
 		</Unit>
+		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/ifc/Parser.h">
+			<Option target="mediaFW"/>
+		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/ifc/Subject.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/json/json.h">
+			<Option target="mediaFW"/>
+		</Unit>
+		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/unittests/Test_Cli.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/unittests/Test_Database.h">
@@ -329,9 +338,6 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/unittests/Test_Logger.h">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/inc/unittests/Test_Observer.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/src/Cli.cpp">
@@ -353,9 +359,6 @@
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/src/main.cpp">
-			<Option target="mediaFW"/>
-		</Unit>
-		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/src/unittests/Test_Cli.h">
 			<Option target="mediaFW"/>
 		</Unit>
 		<Unit filename="/home/mjonsson/repo/media_fw/mediaFW/test/Fixtures.h">

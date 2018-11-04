@@ -23,7 +23,7 @@ int Client::waitCliAsync()
         fut = std::async(getCliInput, p_cli);
         auto result = fut.get();
 
-        if(result.m_event == Event::EXIT) {
+        if(result.getEvent() == Event::EXIT) {
             return RET::OK;
         }
 

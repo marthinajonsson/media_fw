@@ -10,19 +10,20 @@
 
 int MediaHandler::update(Request &request)
 {
-    if(request.m_event == Event::UPLOAD) {
+    Event event = request.getEvent();
+    if(event == Event::UPLOAD) {
         status = Status::UPLOADING;
     }
-    else if (request.m_event == Event ::DOWNLOAD) {
+    else if (event == Event ::DOWNLOAD) {
         status = Status::DOWNLOADING;
     }
-    else if (request.m_event == Event ::SEARCH) {
+    else if (event == Event ::SEARCH) {
         status = Status::SEARCHING;
     }
-    else if (request.m_event == Event ::HELP) {
+    else if (event == Event ::HELP) {
         status = Status::IDLE;
     }
-    else if (request.m_event == Event ::EXIT) {
+    else if (event == Event ::EXIT) {
         status = Status::DISCONNECT;
     }
     else {

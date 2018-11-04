@@ -33,13 +33,13 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
 TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     Database *db;
     db = new MovieDatabase();
-
+    Category cat = Category::Movie;
     Request req(Event::UPLOAD);
-    req.m_actors = {"actor1", "actor2"};
-    req.m_title = "aTitle";
-    req.m_genre = "horror";
-    req.m_director = "spielberg";
-    req.category = Category::Movie;
+    req.setActors({"actor1", "actor2"});
+    req.setTitle("aTitle");
+    req.setGenre("horror");
+    req.setDirector("spielberg");
+    req.setCategory(cat);
     DatabaseItem newItem;
     newItem.setFeature(req);
 

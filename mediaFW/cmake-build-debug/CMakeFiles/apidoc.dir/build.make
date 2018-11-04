@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
+RM = /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -58,9 +58,9 @@ CMakeFiles/apidoc: Doxyfile
 
 Doxyfile:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mjonsson/repo/media_fw/mediaFW/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Doxyfile"
-	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
+	cd /home/mjonsson/repo/media_fw/mediaFW && /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo_append Building\ API\ Documentation...
 	cd /home/mjonsson/repo/media_fw/mediaFW && /usr/bin/doxygen
-	cd /home/mjonsson/repo/media_fw/mediaFW && /home/mjonsson/clion_src/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo Done.
+	cd /home/mjonsson/repo/media_fw/mediaFW && /opt/clion-2018.2.5/bin/cmake/linux/bin/cmake -E echo Done.
 
 apidoc: CMakeFiles/apidoc
 apidoc: Doxyfile
