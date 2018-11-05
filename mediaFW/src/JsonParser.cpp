@@ -12,7 +12,6 @@
 #include <fstream>
 
 
-
 void JsonParser::clear() {
     m_seriesMap.clear();
     m_movieMap.clear();
@@ -125,32 +124,34 @@ void JsonParser::load(Category &category)
 }
 
 
-bool JsonParser::find(const std::string &category, const std::string &pattern)
+bool JsonParser::find(const std::string &category, const std::string &type, std::string &val)
 {
-
-    if(category == MOVIE) {
-        for (auto it: m_movieMap) {
-            if(it.first == pattern)
+    ulong genre = 0, director = 1; // indexes
+    auto mapToTest = getMap(category);
+    for (auto it: mapToTest) {
+        std::vector<std::string> props = it.second;
+        if(type == "title"){
+            if(it.first == val)
             {
                 return true;
             }
-            std::vector<std::string> vectorn = it.second;
-            for (auto &it2 : vectorn) {
-                if(it2 == pattern) {
+        }
+        else if(type == "genre") {
+            if(props.at(genre) == val){ return true; }
+        }
+        else if(type == "director") {
+            if(props.at(director) == val) { return true; }
+        }
+        else if(type == "actor") {
+            pop_front(props); // remove genre to ease search
+            pop_front(props); // remove director to ease search
+            for (auto &a : props){
+                if(a == val) {
                     return true;
                 }
             }
         }
     }
-    else {
-        for (const auto &it : m_seriesMap) {
-            if(it.first == pattern) { return true; }
-            std::vector<std::string> vectorn = it.second;
-            for (auto &it2 : vectorn) {
-                if(it2 == pattern) { return true; }
-            }
-        }
-    }
+
     return false;
 }
-

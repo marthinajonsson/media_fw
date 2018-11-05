@@ -6,7 +6,6 @@
 #include <iostream>
 #include <sstream>
 #include <unistd.h>
-#include <algorithm>
 #include <iterator>
 
 #include "Cli.h"
@@ -20,19 +19,14 @@
 
 Request Cli::process(std::string &line) {
     std::vector<std::string> parsed;
-    Event event;
-
     parsed = parseArg(line, ':');
     Request request = interprete(parsed);
-    verifyParsed(request);
     return request;
 }
 
 Request Cli::process()
 {
     std::vector<std::string> parsed;
-    Event event;
-
     for (std::string line; std::cout << "MEDIAFW > " && std::getline(std::cin, line); )
     {
         if (line.find(HELP) != std::string::npos) {
@@ -44,84 +38,55 @@ Request Cli::process()
         else if (!line.empty()) {
             parsed = parseArg(line, ':');
             Request request = interprete(parsed);
-            verifyParsed(request);
             return request;
         }
     }
     return Request(RET::ERROR);
 }
 
-
-int Cli::checkValid(const std::string &choice, Event &event){
-    auto result = RET::ERROR;
-    auto it = std::find(VALID.begin(), VALID.end(), choice);
-    if(it != VALID.end())
-    {
-        long val = std::distance(VALID.begin(),it);
-        event = mapIntToEnum(val);
-        result = RET::OK;
-    }
-    return result;
-}
-
-
 Request Cli::interprete(std::vector<std::string> &input)
 {
     Event event;
+    int res;
 
-    if(RET::ERROR == checkValid(input.front(), event)){
+    if(RET::ERROR == checkValidEvent(input.front(), event)){  // search, upload, download
         Request request(RET::ERROR);
         return request;
     }
 
     Request request (event);
-    pop_front(input); // choice removed
+    pop_front(input); // remove interpreted arg //TODO: this changes order for type and value [The Proposal][title]
 
-    const auto next = input.front();
-    if (next.empty()) {
+    auto type = getType(request, input);  // title, genre, actor and so on..
+    if (type.empty()) {
         request.setError(RET::ERROR);
         return request;
     }
 
-    if(event == Event::UPLOAD) {
-        request.setFilename(next);
-    }else {
-        request.setTitle(next);
+    if(type == "title") {
+        request.setTitle(input.front());
     }
-    pop_front(input); // remove title or filename
+
+    if(event == Event::UPLOAD || type == "filename") {
+        request.setFilename(type);
+        pop_front(input); // remove title or filename
+    }
+
+    if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
+        if(RET::ERROR == verifyExists(request, type, input)) {
+            request.setError(RET::ERROR);
+            return request;
+        }
+    }
+    else {
+        if(RET::ERROR == verifyUpload(request)) {
+            request.setError(RET::ERROR);
+            return request;
+        }
+    }
     return request;
 }
 
-int Cli::verifyExists(Request &req) {
-    std::string title = req.getTitle();
-    Category cat = Category::Movie;
-    bool result =  JsonParser::getInstance().find(MOVIE, title);
-    if(result) {
-        req.setCategory(cat);
-    }
-    else {
-        result =  JsonParser::getInstance().find(SERIES, title);
-        if(!result) { return RET::ERROR;}
-        else {
-            cat = Category::Series;
-            req.setCategory(cat);
-        }
-    }
-    return RET::OK;
-}
-
-void Cli::verifyParsed(Request &req) {
-
-    int res;
-    Event event = req.getEvent();
-    if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
-        res = verifyExists(req);
-    }
-    else {
-        res = verifyUpload(req);
-    }
-    req.setError(res);
-}
 
 int Cli::verifyUpload(Request &req) {
 
@@ -163,48 +128,5 @@ int Cli::verifyUpload(Request &req) {
 }
 
 
-/*! \private Cli::parseArg(std::string &input)
-     * @brief Test Parses argv and splits into strings.
-     * @param input A long input string containing argv from stdin.
-     * @return Private vector of strings containing parsed words from stdin.
-     */
-std::vector<std::string> Cli::parseArg(std::string &input, char delim) {
-    std::stringstream m_stream(input);
-    std::vector<std::string> seglist;
-    std::string segment;
-    seglist.reserve(15);
-    seglist.clear();
 
-    while(std::getline(m_stream, segment, delim))
-    {
-        seglist.push_back(segment);
-    }
-    return seglist;
-}
 
-/*! \private Cli::printOptions()
- * @brief Test A private method that prints all valid options for stdin.
- */
-void Cli::printOptions() {
-    std::cout << "\n" << std::endl;
-
-    auto choice {"<choice> = upload, download, search, delete\n"};
-
-    auto upload = "<upload>:<filename> \n\t*<filename> - absolute path to filename. \n";
-    auto cmfupload = "\t To confirm your upload add the following info: \n\t <title> <genre> {<actor> <actor>.. } <director>\n\n";
-
-    auto download = "<download>:<movie/series> <title> \n";
-    auto cfmdownload = "\t Title exists or did you mean 'abc'? \n\t Download completed\n\n";
-
-    auto search {"<search>:<args>.. \n \t <args>: title, genre, director, list of actors\n"};
-    auto cfmsearch = "\t Found the following matches..\n\n";
-
-    auto deleted {"<delete>:<title>\n"};
-    auto cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
-
-    auto disconnect = "Write 'exit' to disconnect\n";
-
-    std::cout << choice << "\nExample input..\n\n" << upload << cmfupload << download << cfmdownload << search
-    << cfmsearch << deleted << cfmdelete << std::endl;
-    std::cout << disconnect << std::endl;
-}

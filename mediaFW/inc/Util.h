@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+#include <assert.h>
 enum RET { OK = 0, ERROR = -1};
 
 enum Category { Movie = 0, Series = 1 };
@@ -24,7 +24,13 @@ inline Category catIntToEnum( long val ) {
     return static_cast<Category >(val);
 }
 
-
+template<typename T>
+void pop_front(std::vector<T>& vec)
+{
+    assert(!vec.empty());
+    vec.front() = std::move(vec.back());
+    vec.pop_back();
+}
 
 enum class Event { UPLOAD = 0, DOWNLOAD = 1, SEARCH, DELETE, HELP, EXIT };
 

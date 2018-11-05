@@ -28,7 +28,7 @@ public:
 
     void load(Category &category) override;
     void clear() override;
-    bool find(const std::string &category, const std::string &pattern) override;
+    bool find(const std::string &category, const std::string &type, std::string &val) override;
     void add(Category &category, DatabaseItem &item) override;
     void remove(Category &category, DatabaseItem &item) override;
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
@@ -39,6 +39,15 @@ private:
     std::vector<std::string> m_parsed;
     std::map<std::string, std::vector<std::string>> m_movieMap;
     std::map<std::string, std::vector<std::string>> m_seriesMap;
+
+
+    std::map<std::string, std::vector<std::string>> getMap(const std::string &category) {
+        auto mapToTest = m_movieMap;
+        if(category == SERIES) {
+            mapToTest = m_seriesMap;
+        }
+        return mapToTest;
+    }
 
 };
 
