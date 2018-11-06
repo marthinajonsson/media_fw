@@ -8,6 +8,7 @@
 #include "Util.h"
 #include <string>
 #include <sstream>
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 
@@ -126,33 +127,27 @@ void JsonParser::load(Category &category)
 
 bool JsonParser::find(const std::string &type, const std::string &val)
 {
-    ulong genre = 0, director = 1; // indexes
+    int counter = 0;
+    std::vector<std::string> vecOfTitles;
     auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
     for(auto mapToTest : allMaps) {
         for (auto it: mapToTest) {
             auto props = it.second;
-            auto temp = it.first;
-            temp_title = temp;
-            if (type == TITLE) {
-                if (it.first == val) {
-                    return true;
-                }
-            } else if (type == GENRE) {
-                if (props.at(genre) == val) { return true; }
-            } else if (type == DIRECTOR) {
-                if (props.at(director) == val) { return true; }
-            } else if (type == ACTOR) {
-                pop_front(props); // remove genre to ease search
-                pop_front(props); // remove director to ease search
-                for (auto &a : props) {
-                    if (a == val) {
-                        return true;
-                    }
-                }
+            temp_title = it.first;
+            if(temp_title == val) { return true; }
+            auto found = std::find(it.second.begin(), it.second.end(), val);
+            if(found == it.second.end()) {
+                continue;
             }
+            counter++;
+            vecOfTitles.push_back(temp_title);
         }
     }
-    return false;
+
+    for(auto s : vecOfTitles){
+        std::cout << s << std::endl;
+    }
+    return true;
 }
 
 
