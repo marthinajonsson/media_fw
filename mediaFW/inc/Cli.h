@@ -5,10 +5,12 @@
 #ifndef MEDIAFW_CLI_H
 #define MEDIAFW_CLI_H
 
+#include <unistd.h>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <algorithm>
+
 #include <Util.h>
 #include "Request.h"
 #include "JsonParser.h"
@@ -67,44 +69,27 @@ private:
      * @param event - interpreted event from cli input
      * @return - OK or ERROR
      */
-    int checkValidEvent(const std::string &choice, Event &event){
+    int checkValidEvent(std::vector<std::string> &input, Event &event){
         auto result = RET::ERROR;
-        auto it = std::find(VALID.begin(), VALID.end(), choice);
+        auto it = std::find(VALID.begin(), VALID.end(), input.front());
         if(it != VALID.end())
         {
             long val = std::distance(VALID.begin(),it);
             event = mapIntToEnum(val);
+            pop_front(input);
             result = RET::OK;
         }
         return result;
     }
 
 
-    /*! \private Cli::verifyExists(Request &, std::string &, std::vector<std::string> &)
-     *
-     * @param req - object containing all info for request
-     * @param type - property type for request
-     * @param value - value of property for request
-     * @return - OK or ERROR
-     */
-    int verifyExists(Request &req, std::string &type, std::vector<std::string> &value) {
+    int verifyObjectExists(Category &category, std::string &type, std::string &value) {
+        auto found =  JsonParser::getInstance().find(type, value);
 
-        Category cat = Category::Movie;
-        bool result =  JsonParser::getInstance().find(MOVIE, type, value.front());
-        if(result) {
-            req.setCategory(cat);
-        }
-        else {
-            result =  JsonParser::getInstance().find(SERIES, type, value.front());
-            if(!result) { return RET::ERROR;}
-            else {
-                cat = Category::Series;
-                req.setCategory(cat);
-            }
-        }
+        if(!found) { return RET::ERROR; }
+
         return RET::OK;
     }
-
 
     /*! \private Cli::getType(Request &, std::vector<std::string>&)
      *
@@ -114,24 +99,86 @@ private:
      */
     std::string getType(Request &req, std::vector<std::string> &input) {
         auto type = input.front();
-        if(type == "title" || type == "genre" || type == "actor" || type == "director" ||
-           type == "filename") {
+        if(type == TITLE || type == GENRE || type == ACTOR || type == DIRECTOR || type == FILENAME) {
             pop_front(input);
-            if(input.front().empty()) {
-                req.setError(RET::ERROR); // no value for type
-            }
             return type;
         }
         else return "";
     }
 
+    void setFileName(Request &request, std::vector<std::string> &input, std::string &type) {
+        if(request.getEvent() == Event::UPLOAD || type == FILENAME) {
+            request.setFilename(input.front());
+            pop_front(input); // remove value of filename
+        }
+    }
+
+    void setProperties(Request &request, std::vector<std::string> &item, std::string &type) {
+        request.setTitle(item.at(ORDER::TITLE_POS));
+        request.setGenre(item.at(ORDER::GENRE_POS));
+        request.setDirector(item.at(ORDER::DIRECTOR_POS));
+        std::vector<std::string> vec;
+        pop_front(item);
+        pop_front(item);
+        pop_front(item);
+        vec.insert(vec.begin(), item.begin(), item.end());
+        request.setActors(vec);
+    }
 
     /*! \private Cli::verifyUpload(Request &)
      *
      * @return OK or ERROR
      */
-    int verifyUpload(Request &);
+    int verifyUpload(Request &req) {
 
+        const auto filename = req.getFileName();
+        if (filename.empty()) { return false; }
+        if(access( filename.c_str(), F_OK ) == RET::ERROR) {
+            req.setError(RET::ERROR);
+            return RET::ERROR;
+        }
+        std::cout << "To confirm your upload add the following info: \n"
+                     "\t <title> <genre> <director> {<actor> <actor>.. } <category> " << std::endl;
+
+        std::string info;
+        std::string answer;
+
+        std::getline(std::cin, info);
+        auto parsedInfo = parseArg(info, ' ');
+        std::cout << "Please confirm <title> " << parsedInfo.front() <<
+                  "\n <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: \n" << std::endl;
+
+        for (auto it = parsedInfo.begin() + 2; it != parsedInfo.end(); ++it){
+            std::cout << *it << " " << std::endl;
+        }
+
+        std::cout << "Y or n? ";
+        std::getline(std::cin, answer);
+        if(answer.find('n') == std::string::npos)
+        {
+            return RET::ERROR;
+        }
+
+        Category category = Category::Movie;
+
+        req.setTitle(parsedInfo.front());
+        pop_front(parsedInfo);
+        req.setGenre(parsedInfo.front());
+        pop_front(parsedInfo);
+        req.setDirector(parsedInfo.front());
+        pop_front(parsedInfo);
+        req.setActors(parsedInfo);
+        pop_front(parsedInfo);
+
+        req.setCategory(category);
+
+        if(parsedInfo.front() == SERIES){
+            category = Category::Series;
+            req.setCategory(category);
+        }
+
+        return RET::OK;
+    }
 
     /*! \private Cli::printOptions()
     *   @brief Test A private method that prints all valid options for stdin.

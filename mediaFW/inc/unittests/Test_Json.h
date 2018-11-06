@@ -43,15 +43,15 @@ TEST_F(JsonTest, JsonTest_FindMovie_Test) {
     std::string notInDB = "not_in_db";
     std::string romance = "romance";
     std::string dir = "David Jackson";
-    bool found = JsonParser::getInstance().find(MOVIE,"title", findTitle);
+    bool found = JsonParser::getInstance().find(TITLE, findTitle);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(MOVIE, "actor", findActor);
+    found = JsonParser::getInstance().find(ACTOR, findActor);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(MOVIE, "genre", romance);
+    found = JsonParser::getInstance().find(GENRE, romance);
     ASSERT_TRUE(!found);
-    found = JsonParser::getInstance().find(MOVIE, "title", notInDB);
+    found = JsonParser::getInstance().find(TITLE, notInDB);
     ASSERT_FALSE(found);
-    found = JsonParser::getInstance().find(MOVIE, "director", dir);
+    found = JsonParser::getInstance().find(DIRECTOR, dir);
     ASSERT_TRUE(found);
 }
 
@@ -59,11 +59,11 @@ TEST_F(JsonTest, JsonTest_FindSeries_Test) {
     std::string findTitle = "11.22.63";
     std::string findActor = "James Franco";
     std::string notInDB = "not_in_db";
-    bool found = JsonParser::getInstance().find(SERIES,"title", findTitle);
+    bool found = JsonParser::getInstance().find(TITLE, findTitle);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(SERIES, "actor", findActor);
+    found = JsonParser::getInstance().find(ACTOR, findActor);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(SERIES, "genre" ,notInDB);
+    found = JsonParser::getInstance().find(GENRE ,notInDB);
     ASSERT_TRUE(!found);
 }
 

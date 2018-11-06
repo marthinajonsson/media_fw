@@ -32,8 +32,7 @@ TEST_F(CliTest, CliTest_Download_Test) {
     std::string test = "download:title:The Proposal";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
-    auto t = output.getTitle();
-    ASSERT_TRUE(output.getTitle() == t);
+    ASSERT_TRUE("The Proposal" == output.getTitle());
     ASSERT_TRUE(output.getCategory() == Category::Movie);
     ASSERT_TRUE(output.getError() == RET::OK);
 }
@@ -42,15 +41,20 @@ TEST_F(CliTest, CliTest_Download2_Test) {
     std::string test = "download:actor:Thomas Beaudoin";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
-    ASSERT_TRUE(output.getTitle() == "The Spirit of Christmas"); //TODO: title is set to what is searched. In this case Thomas Beauodin.
+    ASSERT_TRUE(output.getTitle() == "The Spirit of Christmas");
+    auto act = output.getActors();
+    auto it = std::find(act.begin(), act.end(), "Thomas Beaudoin");
+    bool found = it != act.end();
+    ASSERT_TRUE(found);
     ASSERT_TRUE(output.getCategory() == Category::Movie);
-    ASSERT_TRUE(output.getError() == RET::ERROR);
+    ASSERT_FALSE(output.getError() == RET::ERROR);
 }
 
 TEST_F(CliTest, CliTest_Download3__Test) {
-    std::string test = "download:genre:Romance"; //TODO: should not work if more than 1 hit, then search should be used.
+    std::string test = "download:genre:Romance";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
+    ASSERT_TRUE(output.getGenre() == "Romance");
 }
 
 TEST_F(CliTest, CliTest_Search_Test) {

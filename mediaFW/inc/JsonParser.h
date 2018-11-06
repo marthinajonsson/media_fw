@@ -26,29 +26,35 @@ public:
 
     ~JsonParser() = default;
 
-    void load(Category &category) override;
     void clear() override;
-    bool find(const std::string &category, const std::string &type, std::string &val) override;
+    void load(Category &category) override;
     void add(Category &category, DatabaseItem &item) override;
     void remove(Category &category, DatabaseItem &item) override;
+    bool find(const std::string &type, const std::string &val) override;
+
+
+    std::vector<std::string> getItem(Category &category) {
+        auto map = m_movieMap;
+        if(category == Category::Series) {
+            map = m_seriesMap;
+        }
+
+        std::vector<std::string> item;
+        item.push_back(temp_title);
+        auto vec = map.at(temp_title);
+        item.insert(item.end(), vec.begin(), vec.end());
+        return item;
+    }
+
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
     std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }
 
 private:
     Json::Value m_root;
+    std::string temp_title;
     std::vector<std::string> m_parsed;
     std::map<std::string, std::vector<std::string>> m_movieMap;
     std::map<std::string, std::vector<std::string>> m_seriesMap;
-
-
-    std::map<std::string, std::vector<std::string>> getMap(const std::string &category) {
-        auto mapToTest = m_movieMap;
-        if(category == SERIES) {
-            mapToTest = m_seriesMap;
-        }
-        return mapToTest;
-    }
-
 };
 
 #endif //MEDIAFW_JSONPARSER_H

@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <sstream>
-#include <unistd.h>
 #include <iterator>
 
 #include "Cli.h"
@@ -46,16 +45,15 @@ Request Cli::process()
 
 Request Cli::interprete(std::vector<std::string> &input)
 {
+    Category category = Category::Movie;
     Event event;
-    int res;
 
-    if(RET::ERROR == checkValidEvent(input.front(), event)){  // search, upload, download
+    if(RET::ERROR == checkValidEvent(input, event)){  // search, upload, download
         Request request(RET::ERROR);
         return request;
     }
 
     Request request (event);
-    pop_front(input); // remove interpreted arg //TODO: this changes order for type and value [The Proposal][title]
 
     auto type = getType(request, input);  // title, genre, actor and so on..
     if (type.empty()) {
@@ -63,22 +61,24 @@ Request Cli::interprete(std::vector<std::string> &input)
         return request;
     }
 
-    if(type == "title") {
-        request.setTitle(input.front());
-    }
-
-    if(event == Event::UPLOAD || type == "filename") {
-        request.setFilename(type);
-        pop_front(input); // remove title or filename
-    }
 
     if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
-        if(RET::ERROR == verifyExists(request, type, input)) {
-            request.setError(RET::ERROR);
-            return request;
+
+        if(RET::ERROR == verifyObjectExists(category, type, input.front())) {
+
+            category = Category::Series;
+            if(RET::ERROR == verifyObjectExists(category, type, input.front())) {
+                request.setError(RET::ERROR);
+                return request;
+            }
         }
+        request.setCategory(category);
+        auto item = JsonParser::getInstance().getItem(category);
+        setProperties(request, item, type);
     }
     else {
+        setFileName(request, input, type);
+
         if(RET::ERROR == verifyUpload(request)) {
             request.setError(RET::ERROR);
             return request;
@@ -86,47 +86,4 @@ Request Cli::interprete(std::vector<std::string> &input)
     }
     return request;
 }
-
-
-int Cli::verifyUpload(Request &req) {
-
-    const auto filename = req.getFileName();
-    if (filename.empty()) { return false; }
-    if(access( filename.c_str(), F_OK ) == RET::ERROR) {
-        req.setError(RET::ERROR);
-        return RET::ERROR;
-    }
-    std::cout << "To confirm your upload add the following info: \n"
-                 "\t <title> <genre> <director> {<actor> <actor>.. }" << std::endl;
-
-    std::string info;
-    std::string answer;
-
-    std::getline(std::cin, info);
-    auto parsedInfo = parseArg(info, ' ');
-    std::cout << "Please confirm <title> " << parsedInfo.front() <<
-              "\n <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: \n" << std::endl;
-
-    for (auto it = parsedInfo.begin() + 2; it != parsedInfo.end(); ++it){
-        std::cout << *it << " " << std::endl;
-    }
-
-    std::cout << "Y or n? ";
-    std::getline(std::cin, answer);
-    if(answer.find('n') == std::string::npos)
-    {
-        return RET::ERROR;
-    }
-    req.setTitle(parsedInfo.front());
-    pop_front(parsedInfo);
-    req.setGenre(parsedInfo.front());
-    pop_front(parsedInfo);
-    req.setDirector(parsedInfo.front());
-    pop_front(parsedInfo);
-    req.setActors(parsedInfo);
-    return RET::OK;
-}
-
-
-
 

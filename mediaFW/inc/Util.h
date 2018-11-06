@@ -12,7 +12,7 @@
 #include <vector>
 #include <assert.h>
 enum RET { OK = 0, ERROR = -1};
-
+enum ORDER {TITLE_POS = 0, GENRE_POS = 1, DIRECTOR_POS = 2, ACTORS_POS = 3};
 enum Category { Movie = 0, Series = 1 };
 
 const std::string MOVIE = "movie";
@@ -28,8 +28,7 @@ template<typename T>
 void pop_front(std::vector<T>& vec)
 {
     assert(!vec.empty());
-    vec.front() = std::move(vec.back());
-    vec.pop_back();
+    vec.erase(vec.begin());
 }
 
 enum class Event { UPLOAD = 0, DOWNLOAD = 1, SEARCH, DELETE, HELP, EXIT };
@@ -60,5 +59,11 @@ static std::vector<std::string> split(const std::string& s, char delimiter)
     return tokens;
 }
 
+
+const std::string TITLE = "title";
+const std::string GENRE = "genre";
+const std::string ACTOR = "actor";
+const std::string DIRECTOR = "director";
+const std::string FILENAME = "filename";
 
 #endif //MEDIAFW_UTIL_H

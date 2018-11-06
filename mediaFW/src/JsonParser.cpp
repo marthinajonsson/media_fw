@@ -124,34 +124,35 @@ void JsonParser::load(Category &category)
 }
 
 
-bool JsonParser::find(const std::string &category, const std::string &type, std::string &val)
+bool JsonParser::find(const std::string &type, const std::string &val)
 {
     ulong genre = 0, director = 1; // indexes
-    auto mapToTest = getMap(category);
-    for (auto it: mapToTest) {
-        std::vector<std::string> props = it.second;
-        if(type == "title"){
-            if(it.first == val)
-            {
-                return true;
-            }
-        }
-        else if(type == "genre") {
-            if(props.at(genre) == val){ return true; }
-        }
-        else if(type == "director") {
-            if(props.at(director) == val) { return true; }
-        }
-        else if(type == "actor") {
-            pop_front(props); // remove genre to ease search
-            pop_front(props); // remove director to ease search
-            for (auto &a : props){
-                if(a == val) {
+    auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
+    for(auto mapToTest : allMaps) {
+        for (auto it: mapToTest) {
+            auto props = it.second;
+            auto temp = it.first;
+            temp_title = temp;
+            if (type == TITLE) {
+                if (it.first == val) {
                     return true;
+                }
+            } else if (type == GENRE) {
+                if (props.at(genre) == val) { return true; }
+            } else if (type == DIRECTOR) {
+                if (props.at(director) == val) { return true; }
+            } else if (type == ACTOR) {
+                pop_front(props); // remove genre to ease search
+                pop_front(props); // remove director to ease search
+                for (auto &a : props) {
+                    if (a == val) {
+                        return true;
+                    }
                 }
             }
         }
     }
-
     return false;
 }
+
+
