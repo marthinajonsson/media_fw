@@ -32,20 +32,6 @@ public:
     void remove(Category &category, DatabaseItem &item) override;
     bool find(const std::string &type, const std::string &val) override;
 
-
-    std::vector<std::string> getItem(Category &category) {
-        auto map = m_movieMap;
-        if(category == Category::Series) {
-            map = m_seriesMap;
-        }
-
-        std::vector<std::string> item;
-        item.push_back(temp_title);
-        auto vec = map.at(temp_title);
-        item.insert(item.end(), vec.begin(), vec.end());
-        return item;
-    }
-
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
     std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }
     std::map<std::string, std::vector<std::string>> getLatestResult() { return  m_resultMap; }

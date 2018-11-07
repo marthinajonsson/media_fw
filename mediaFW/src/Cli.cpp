@@ -81,14 +81,7 @@ Request Cli::interprete(std::vector<std::string> &input)
     if(event == Event::DOWNLOAD || event == Event::DELETE) {
 
         auto items = JsonParser::getInstance().getLatestResult();
-        auto firstItem = items.begin();
-        auto isSeries = std::find(firstItem->second.begin(), firstItem->second.end(), "series");
-        if(isSeries != firstItem->second.end()) {
-             category = Category::Series;
-        }
 
-        items.begin()->second.erase(isSeries); // TODO: make it pretty
-        request.setCategory(category);
         if(items.size() == 1) {
             auto item = items.begin()->second;
             setProperties(request, item, type);

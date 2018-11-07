@@ -137,21 +137,17 @@ bool JsonParser::find(const std::string &type, const std::string &val)
 
             temp_title = it.first;
             auto props = it.second;
-            if(temp_title != val)
+            if(temp_title != val) // our val is not title
             {
-                auto found = std::find(it.second.begin(), it.second.end(), val);
+                auto found = std::find(it.second.begin(), it.second.end(), val); // find matches among properties instead
                 if(found == it.second.end()) {
                     continue;
                 }
             }
 
-            if(m_seriesMap == mapToTest) {
-                category = "series";
-            }
             std::vector<std::string> vec;
             vec.push_back(temp_title);
             vec.insert(vec.end(), it.second.begin(), it.second.end());
-            vec.push_back(category);
             m_resultMap[temp_title] = vec;
             result = true;
         }

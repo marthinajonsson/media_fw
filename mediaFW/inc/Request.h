@@ -15,7 +15,7 @@ public:
 
     Request(Event _event, std::string &_title) : m_event(_event), m_title(_title) , m_error(RET::OK) {}
 
-    Request(Event _event) : m_event(_event), m_error(RET::OK) {}
+    Request(Event _event) : m_event(_event), m_error() {}
 
     Request(int code) : m_error(code) {}
 

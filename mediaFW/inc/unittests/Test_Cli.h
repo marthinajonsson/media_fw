@@ -36,7 +36,6 @@ TEST_F(CliTest, CliTest_Download_Test) {
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE("The Proposal" == output.getTitle());
     ASSERT_TRUE("Anne Fletcher" == output.getDirector());
-    ASSERT_TRUE(output.getCategory() == Category::Movie);
     ASSERT_TRUE(output.getError() == RET::OK);
 }
 
@@ -50,7 +49,6 @@ TEST_F(CliTest, CliTest_Download2_Test) {
     bool found = it != act.end();
     ASSERT_TRUE(found);
     ASSERT_TRUE(act.size() == 2);
-    ASSERT_TRUE(output.getCategory() == Category::Movie);
     ASSERT_FALSE(output.getError() == RET::ERROR);
 }
 
@@ -66,8 +64,6 @@ TEST_F(CliTest, CliTest_Download3__Test) {
         }
         std::cout << "\n";
     }
-    ASSERT_TRUE(output.getCategory() == Category::Movie);
-
 }
 
 TEST_F(CliTest, CliTest_Download4__Test) {

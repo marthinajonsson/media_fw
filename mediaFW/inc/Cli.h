@@ -11,7 +11,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include <Util.h>
+#include "Util.h"
 #include "Request.h"
 #include "JsonParser.h"
 
@@ -118,10 +118,10 @@ private:
         request.setTitle(item.at(ORDER::TITLE_POS));
         request.setGenre(item.at(ORDER::GENRE_POS));
         request.setDirector(item.at(ORDER::DIRECTOR_POS));
+        pop_front(item); // not relevant anymore
+        pop_front(item);
+        pop_front(item);
         std::vector<std::string> vec;
-        pop_front(item);
-        pop_front(item);
-        pop_front(item);
         vec.insert(vec.begin(), item.begin(), item.end());
         request.setActors(vec);
     }
