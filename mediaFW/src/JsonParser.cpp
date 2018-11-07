@@ -127,27 +127,35 @@ void JsonParser::load(Category &category)
 
 bool JsonParser::find(const std::string &type, const std::string &val)
 {
-    int counter = 0;
-    std::vector<std::string> vecOfTitles;
+    m_resultMap.clear();
+    bool result = false;
+    bool foundTitle = false;
+    std::string category = "movie";
     auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
     for(auto mapToTest : allMaps) {
         for (auto it: mapToTest) {
-            auto props = it.second;
+
             temp_title = it.first;
-            if(temp_title == val) { return true; }
-            auto found = std::find(it.second.begin(), it.second.end(), val);
-            if(found == it.second.end()) {
-                continue;
+            auto props = it.second;
+            if(temp_title != val)
+            {
+                auto found = std::find(it.second.begin(), it.second.end(), val);
+                if(found == it.second.end()) {
+                    continue;
+                }
             }
-            counter++;
-            vecOfTitles.push_back(temp_title);
+
+            if(m_seriesMap == mapToTest) {
+                category = "series";
+            }
+            std::vector<std::string> vec;
+            vec.push_back(temp_title);
+            vec.insert(vec.end(), it.second.begin(), it.second.end());
+            vec.push_back(category);
+            m_resultMap[temp_title] = vec;
+            result = true;
         }
     }
-
-    for(auto s : vecOfTitles){
-        std::cout << s << std::endl;
-    }
-    return true;
+    return result;
 }
-
 

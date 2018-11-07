@@ -83,7 +83,7 @@ private:
     }
 
 
-    int verifyObjectExists(Category &category, std::string &type, std::string &value) {
+    int verifyObjectExists(std::string &type, std::string &value) {
         auto found =  JsonParser::getInstance().find(type, value);
 
         if(!found) { return RET::ERROR; }
@@ -99,6 +99,7 @@ private:
      */
     std::string getType(Request &req, std::vector<std::string> &input) {
         auto type = input.front();
+
         if(type == TITLE || type == GENRE || type == ACTOR || type == DIRECTOR || type == FILENAME) {
             pop_front(input);
             return type;

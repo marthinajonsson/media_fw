@@ -48,11 +48,14 @@ public:
 
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
     std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }
+    std::map<std::string, std::vector<std::string>> getLatestResult() { return  m_resultMap; }
 
 private:
     Json::Value m_root;
     std::string temp_title;
     std::vector<std::string> m_parsed;
+
+    std::map<std::string, std::vector<std::string>> m_resultMap;
     std::map<std::string, std::vector<std::string>> m_movieMap;
     std::map<std::string, std::vector<std::string>> m_seriesMap;
 };

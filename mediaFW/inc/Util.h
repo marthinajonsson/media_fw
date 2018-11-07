@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 #include <assert.h>
-enum RET { OK = 0, ERROR = -1};
+enum RET { OK = 0, ERROR = -1};  // TODO: add to class and add description
 enum ORDER {TITLE_POS = 0, GENRE_POS = 1, DIRECTOR_POS = 2, ACTORS_POS = 3};
 enum Category { Movie = 0, Series = 1 };
 

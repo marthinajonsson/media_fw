@@ -11,14 +11,33 @@
 int MediaHandler::update(Request &request)
 {
     Event event = request.getEvent();
+
+    syncClient();
+
     if(event == Event::UPLOAD) {
         status = Status::UPLOADING;
+        syncDatabase(request);
     }
     else if (event == Event ::DOWNLOAD) {
         status = Status::DOWNLOADING;
     }
     else if (event == Event ::SEARCH) {
         status = Status::SEARCHING;
+        for(auto result : request.getMultipleResult()) {
+            std::cout << "TITLE: " << result.second.at(0) << "\n\t" << std::endl;
+            pop_front(result.second);
+            std::cout << "GENRE: " << result.second.at(1);
+            pop_front(result.second);
+            std::cout << "DIRECTOR: " << result.second.at(2);
+            pop_front(result.second);
+            for(const auto &s : result.second) {
+                std::cout << "ACTOR: " << s << std::endl;
+            }
+        }
+    }
+    else if (event == Event::DELETE) {
+        status = Status::DELETING;
+        syncDatabase(request);
     }
     else if (event == Event ::HELP) {
         status = Status::IDLE;
@@ -30,8 +49,7 @@ int MediaHandler::update(Request &request)
         return RET::ERROR;
     }
 
-    syncClient();
-    syncDatabase(request);
+
     return RET::OK;
 
 }

@@ -5,6 +5,7 @@
 #ifndef MEDIAFW_REQUEST_H
 #define MEDIAFW_REQUEST_H
 
+#include <map>
 #include "Util.h"
 
 class Request {
@@ -27,6 +28,7 @@ public:
     void setDirector(const std::string &_director) { m_director = _director; }
     void setActors(const std::vector<std::string> &_vec) { m_actors = _vec; }
     void setFilename(const std::string &_filename) { m_filename = _filename; }
+    void setMultipleResult(const std::map<std::string, std::vector<std::string>> _map) { m_multipleResult = _map; }
 
     int getError() { return m_error; }
     Event getEvent() const {return m_event; }
@@ -36,6 +38,8 @@ public:
     std::string const getDirector() { return m_director; }
     std::vector<std::string> const getActors() { return m_actors; }
     Category const getCategory() const { return category; }
+    std::map<std::string, std::vector<std::string>> getMultipleResult() { return m_multipleResult; }
+
 private:
     int m_error;
     Event m_event;
@@ -45,5 +49,6 @@ private:
     std::string m_director;
     Category category;
     std::vector<std::string> m_actors;
+    std::map<std::string, std::vector<std::string>> m_multipleResult;
 };
 #endif //MEDIAFW_REQUEST_H

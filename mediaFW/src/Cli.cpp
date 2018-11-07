@@ -54,7 +54,15 @@ Request Cli::interprete(std::vector<std::string> &input)
     }
 
     Request request (event);
+    if(event == Event::SEARCH) {
+        auto cat = input.front();
 
+        if(cat == SERIES) {
+            category = Category::Series;
+        }
+        request.setCategory(category);
+        pop_front(input);
+    }
     auto type = getType(request, input);  // title, genre, actor and so on..
     if (type.empty()) {
         request.setError(RET::ERROR);
@@ -64,19 +72,38 @@ Request Cli::interprete(std::vector<std::string> &input)
 
     if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
 
-        if(RET::ERROR == verifyObjectExists(category, type, input.front())) {
-
-            category = Category::Series;
-            if(RET::ERROR == verifyObjectExists(category, type, input.front())) {
-                request.setError(RET::ERROR);
-                return request;
-            }
+        if (RET::ERROR == verifyObjectExists(type, input.front())) {
+            request.setError(RET::ERROR);
+            return request;
         }
-        request.setCategory(category);
-        auto item = JsonParser::getInstance().getItem(category);
-        setProperties(request, item, type);
     }
-    else {
+
+    if(event == Event::DOWNLOAD || event == Event::DELETE) {
+
+        auto items = JsonParser::getInstance().getLatestResult();
+        auto firstItem = items.begin();
+        auto isSeries = std::find(firstItem->second.begin(), firstItem->second.end(), "series");
+        if(isSeries != firstItem->second.end()) {
+             category = Category::Series;
+        }
+
+        items.begin()->second.erase(isSeries); // TODO: make it pretty
+        request.setCategory(category);
+        if(items.size() == 1) {
+            auto item = items.begin()->second;
+            setProperties(request, item, type);
+        }
+        else {
+            request.setMultipleResult(items);
+            request.setError(RET::ERROR);
+            return request;
+        }
+    }
+    else if(event == Event::SEARCH) {
+        auto items = JsonParser::getInstance().getLatestResult();
+        request.setMultipleResult(items);
+    }
+    else if(Event::UPLOAD == event){
         setFileName(request, input, type);
 
         if(RET::ERROR == verifyUpload(request)) {
