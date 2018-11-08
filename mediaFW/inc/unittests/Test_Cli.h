@@ -14,6 +14,8 @@ class CliTest : public ::testing::Test
 protected:
 
     Cli* cli;
+    std::string FILE_DIR = "~/repo/media_fw/mediaFW/data/";
+    std::string TEST_FILE = FILE_DIR + "testfile.txt";
     Category cat2 = Category::Series;
     Category cat = Category::Movie;
     void SetUp()
@@ -98,7 +100,7 @@ TEST_F(CliTest, CliTest_Search2_Test) {
     auto err = output.getError();
     auto desc = output.getErrorDesc();
 
-    ASSERT_TRUE(items.size() == 0);
+    ASSERT_TRUE(items.empty());
     ASSERT_TRUE(err == RET::OK);
     ASSERT_TRUE(desc.empty());
 }
@@ -115,19 +117,54 @@ TEST_F(CliTest, CliTest_Search3_Test) {
     ASSERT_TRUE(desc.empty());
 }
 
-//TEST_F(CliTest, CliTest_Upload_Test) {
-//
-//}
-//
-//TEST_F(CliTest, CliTest_Upload2_Test) {
-//
-//}
-//
-//TEST_F(CliTest, CliTest_Upload3_Test) {
-//
-//}
+TEST_F(CliTest, CliTest_Upload_Test) {
+    std::string test = "upload:series:filename:" + TEST_FILE;
+    std::vector<std::string> test2 = {"test_title","horror","test_director","test_actor"};
+    auto compare = test2;
+    auto output = cli->process(test);
+    cli->verifyUploadTest(output, test2);
+    auto t = output.getTitle();
+    ASSERT_TRUE(output.getTitle() == compare.front());
+    ASSERT_TRUE(output.getGenre() == compare.at(1));
+    ASSERT_TRUE(output.getDirector() == compare.at(2));
+    ASSERT_TRUE(output.getActors().size() == 1);
+    ASSERT_TRUE(output.getActors().front() == compare.back());
+    ASSERT_TRUE(output.getCategory() == Category::Series);
+}
 
-//TODO: add delete test cases
+TEST_F(CliTest, CliTest_Upload2_Test) {
+    std::string test = "upload:movie:filename:" + TEST_FILE;
+    std::vector<std::string> test2 = {"test_title","horror","test_director","test_actor"};
+    auto compare = test2;
+    auto output = cli->process(test);
+    cli->verifyUploadTest(output, test2);
+    auto t = output.getTitle();
+    ASSERT_TRUE(output.getTitle() == compare.front());
+    ASSERT_TRUE(output.getGenre() == compare.at(1));
+    ASSERT_TRUE(output.getDirector() == compare.at(2));
+    ASSERT_TRUE(output.getActors().size() == 1);
+    ASSERT_TRUE(output.getActors().front() == compare.back());
+    ASSERT_TRUE(output.getCategory() == Category::Movie);
+}
+
+TEST_F(CliTest, CliTest_Delete_Test) {
+    std::string test = "delete:title:The Proposal";
+    auto output = cli->process(test);
+    ASSERT_TRUE(output.getEvent() == Event::DELETE);
+    ASSERT_TRUE("The Proposal" == output.getTitle());
+    ASSERT_TRUE("Anne Fletcher" == output.getDirector());
+    ASSERT_TRUE(output.getError() == RET::OK);
+    ASSERT_TRUE(output.getErrorDesc().empty());
+}
+
+TEST_F(CliTest, CliTest_Delete2_Test) {
+    std::string test = "delete:title:Dummy";
+    auto output = cli->process(test);
+    ASSERT_TRUE(output.getEvent() == Event::DELETE);
+    ASSERT_FALSE("Anne Fletcher" == output.getDirector());
+    ASSERT_FALSE(output.getError() == RET::OK);
+    ASSERT_FALSE(output.getErrorDesc().empty());
+}
 
 TEST_F(CliTest, CliTest_EXIT_Test)
 {

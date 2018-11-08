@@ -38,8 +38,10 @@ public:
      */
     Request process();
     Request process(std::string &);
-
-    Request interprete(std::vector<std::string> &);
+    void verifyUploadTest(Request &request, std::vector<std::string> &i) {
+        setProperties(request, i, false);
+    }
+    Request interprete(std::vector<std::string> &, bool);
 
 private:
     /*! \private Cli::parseArg(std::string &input)
@@ -114,8 +116,10 @@ private:
         }
     }
 
-    void setProperties(Request &_request, std::vector<std::string> &_item, std::string &_type) {
-       pop_front(_item); // remove search category
+    void setProperties(Request &_request, std::vector<std::string> &_item, bool removeCategory) {
+       if(removeCategory) {
+           pop_front(_item); // remove search category
+       }
         _request.setTitle(_item.at(ORDER::TITLE_POS));
         _request.setGenre(_item.at(ORDER::GENRE_POS));
         _request.setDirector(_item.at(ORDER::DIRECTOR_POS));
@@ -186,15 +190,6 @@ private:
         {
             return RET::ERROR;
         }
-
-        _request.setTitle(parsedInfo.front());
-        pop_front(parsedInfo);
-        _request.setGenre(parsedInfo.front());
-        pop_front(parsedInfo);
-        _request.setDirector(parsedInfo.front());
-        pop_front(parsedInfo);
-        _request.setActors(parsedInfo);
-        pop_front(parsedInfo);
 
         _request.setCategory(Category::Movie);
         if(parsedInfo.front() == SERIES){

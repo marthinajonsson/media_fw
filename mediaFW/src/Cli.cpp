@@ -19,7 +19,7 @@
 Request Cli::process(std::string &_line) {
     std::vector<std::string> parsed;
     parsed = parseArg(_line, ':');
-    Request request = interprete(parsed);
+    Request request = interprete(parsed, true);
     return request;
 }
 
@@ -36,14 +36,14 @@ Request Cli::process()
         }
         else if (!line.empty()) {
             parsed = parseArg(line, ':');
-            Request request = interprete(parsed);
+            Request request = interprete(parsed, false);
             return request;
         }
     }
     return Request(RET::ERROR, "Cli session ended unexpected");
 }
 
-Request Cli::interprete(std::vector<std::string> &_input)
+Request Cli::interprete(std::vector<std::string> &_input, bool test)
 {
     Event event;
     std::string cat;
@@ -55,7 +55,7 @@ Request Cli::interprete(std::vector<std::string> &_input)
     Request request (event);
     request.setError(RET::OK);
 
-    if(event == Event::SEARCH) {
+    if(event == Event::SEARCH || event == Event::UPLOAD) {
 
         cat = setSearchCategory(request, _input);
     }
@@ -82,7 +82,7 @@ Request Cli::interprete(std::vector<std::string> &_input)
 
         if(items.size() == 1) {
             auto item = items.begin()->second;
-            setProperties(request, item, type);
+            setProperties(request, item, true);
         }
         else {
             request.setMultipleResult(items);
@@ -96,10 +96,9 @@ Request Cli::interprete(std::vector<std::string> &_input)
         request.setMultipleResult(items);
     }
     else if(Event::UPLOAD == event){
-        pop_front(_input);
         setFileName(request, _input, type);
 
-        if(RET::ERROR == verifyUpload(request)) {
+        if(RET::ERROR == verifyUpload(request) && !test) {
             request.setError(RET::ERROR);
             return request;
         }

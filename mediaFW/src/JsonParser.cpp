@@ -124,7 +124,7 @@ void JsonParser::load(Category &_category)
     }
 }
 
-// type not used
+// TODO: type not used, check type with the position in vector
 bool JsonParser::find(const std::string &_type, const std::string &_val)
 {
     m_resultMap.clear();
