@@ -14,9 +14,9 @@ class Parser {
 public:
 
     virtual void clear() = 0;
-    virtual void load(Category &category) = 0;
-    virtual void add(Category &category, DatabaseItem &item) = 0;
-    virtual void remove(Category &category, DatabaseItem &item) = 0;
+    virtual void load(const Category &category) = 0;
+    virtual void add(const Category &category, DatabaseItem &item) = 0;
+    virtual void remove(const Category &category, DatabaseItem &item) = 0;
     virtual bool find(const std::string &type, const std::string &val) = 0;
 };
 

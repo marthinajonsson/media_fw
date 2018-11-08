@@ -6,6 +6,7 @@
 #define MEDIAFW_TEST_JSON_H
 
 #include <JsonParser.h>
+#include "DatabaseItem.h"
 #include "gtest/gtest.h"
 
 class JsonTest : public ::testing::Test
@@ -67,4 +68,61 @@ TEST_F(JsonTest, JsonTest_FindSeries_Test) {
     ASSERT_TRUE(!found);
 }
 
+TEST_F(JsonTest, JsonTest_AddRemoveMovie_Test) {
+    DatabaseItem item;
+    Request request(Event::UPLOAD);
+    request.setTitle("titleT");
+    request.setGenre("horror");
+    request.setDirector("Marthina");
+    request.setActors({"Trazan", "Banarne"});
+
+    item.setFeature(request);
+    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+
+    JsonParser::getInstance().add(Category::Movie, item);
+    JsonParser::getInstance().load(Category::Movie);
+    JsonParser::getInstance().load(Category::Series);
+    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    ASSERT_TRUE(m_loadedMovieMap.size() == 3);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+
+    JsonParser::getInstance().remove(Category::Movie, item);;
+    JsonParser::getInstance().load(Category::Movie);
+    JsonParser::getInstance().load(Category::Series);
+    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+}
+
+TEST_F(JsonTest, JsonTest_AddRemoveSeries_Test) {
+    DatabaseItem item;
+    Request request(Event::UPLOAD);
+    request.setTitle("titleT");
+    request.setGenre("horror");
+    request.setDirector("Marthina");
+    request.setActors({"Trazan", "Banarne"});
+
+    item.setFeature(request);
+    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+
+    JsonParser::getInstance().add(Category::Series, item);
+    JsonParser::getInstance().load(Category::Movie);
+    JsonParser::getInstance().load(Category::Series);
+    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 2);
+
+    JsonParser::getInstance().remove(Category::Series, item);;
+    JsonParser::getInstance().load(Category::Movie);
+    JsonParser::getInstance().load(Category::Series);
+    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
+    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+}
 #endif //MEDIAFW_TEST_JSON_H

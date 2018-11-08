@@ -58,7 +58,7 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     delete db;
 }
 
-TEST(MovieDatabaseTest, PurgeItems) {
+TEST(MovieDatabaseTest, AddItems) {
 
 }
 #endif //MEDIAFW_TEST_DATABASE_H

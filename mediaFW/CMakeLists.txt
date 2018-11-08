@@ -80,7 +80,7 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/ConnectionStream.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/Request.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/database/SeriesDatabase.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/database/SeriesDatabase.h inc/ifc/CommandLineParser.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h

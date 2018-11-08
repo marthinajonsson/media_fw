@@ -27,9 +27,9 @@ public:
     ~JsonParser() = default;
 
     void clear() override;
-    void load(Category &) override;
-    void add(Category &, DatabaseItem &) override;
-    void remove(Category &, DatabaseItem &) override;
+    void load(const Category &) override;
+    void add(const Category &, DatabaseItem &) override;
+    void remove(const Category &, DatabaseItem &) override;
     bool find(const std::string &, const std::string &) override;
 
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
@@ -44,6 +44,15 @@ private:
     std::map<std::string, std::vector<std::string>> m_resultMap;
     std::map<std::string, std::vector<std::string>> m_movieMap;
     std::map<std::string, std::vector<std::string>> m_seriesMap;
+
+    long getTypePosition (const std::string &_type) {
+        if(_type == TITLE) { return TITLE_POS; }
+        else if (_type == GENRE) { return GENRE_POS; }
+        else if (_type == DIRECTOR) { return DIRECTOR_POS; }
+        else if (_type == ACTOR) { return ACTORS_POS; }
+        return -1;
+    }
+
 };
 
 #endif //MEDIAFW_JSONPARSER_H

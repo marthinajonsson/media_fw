@@ -19,7 +19,7 @@
 Request Cli::process(std::string &_line) {
     std::vector<std::string> parsed;
     parsed = parseArg(_line, ':');
-    Request request = interprete(parsed, true);
+    Request request = interprete(parsed);
     return request;
 }
 
@@ -36,14 +36,22 @@ Request Cli::process()
         }
         else if (!line.empty()) {
             parsed = parseArg(line, ':');
-            Request request = interprete(parsed, false);
+            Request request = interprete(parsed);
+
+            if(request.getEvent() == Event::UPLOAD)
+            {
+                if(RET::ERROR == verifyUpload(request)) {
+                    request.setError(RET::ERROR);
+                    return request;
+                }
+            }
             return request;
         }
     }
     return Request(RET::ERROR, "Cli session ended unexpected");
 }
 
-Request Cli::interprete(std::vector<std::string> &_input, bool test)
+Request Cli::interprete(std::vector<std::string> &_input)
 {
     Event event;
     std::string cat;
@@ -97,11 +105,6 @@ Request Cli::interprete(std::vector<std::string> &_input, bool test)
     }
     else if(Event::UPLOAD == event){
         setFileName(request, _input, type);
-
-        if(RET::ERROR == verifyUpload(request) && !test) {
-            request.setError(RET::ERROR);
-            return request;
-        }
     }
     return request;
 }

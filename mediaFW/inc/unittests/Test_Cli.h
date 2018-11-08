@@ -20,12 +20,14 @@ protected:
     Category cat = Category::Movie;
     void SetUp()
     {
+        cli = new Cli;
         JsonParser::getInstance().load(cat);
         JsonParser::getInstance().load(cat2);
     }
 
     void TearDown()
     {
+        delete cli;
         JsonParser::getInstance().clear();
     }
 };

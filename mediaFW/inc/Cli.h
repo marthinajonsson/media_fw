@@ -14,19 +14,18 @@
 #include "Util.h"
 #include "Request.h"
 #include "JsonParser.h"
+#include "ifc/CommandLineParser.h"
 
 /*! \class Cli
  * @brief Module handling everything related to our Command line interface.
  */
-class Cli
+class Cli : CommandLineParser
 {
 public:
     /*! \public Client()
      * @brief Cli default constructor.
      */
-    Cli() {
-        std::cout << "Cli constructor" << std::endl;
-    }
+    Cli() = default;
     /*! \public ~Client()
      * @brief Cli default deconstructor.
      */
@@ -36,20 +35,15 @@ public:
      * @brief Public method processing input from stdin.
      * @return Vector of strings containing output from stdin.
      */
-    Request process();
-    Request process(std::string &);
+    Request process() override;
+    Request interprete(std::vector<std::string> &) override;
+
+    Request process(std::string &) override;
     void verifyUploadTest(Request &request, std::vector<std::string> &i) {
         setProperties(request, i, false);
     }
-    Request interprete(std::vector<std::string> &, bool);
-
 private:
-    /*! \private Cli::parseArg(std::string &input)
-     *
-     * @brief Parses argv and splits into strings.
-     * @param input A long input string containing argv from stdin.
-     * @return Private vector of strings containing parsed words from stdin.
-     */
+
     std::vector<std::string> parseArg(std::string &_input, char _delim) {
         std::stringstream m_stream(_input);
         std::vector<std::string> seglist;
@@ -63,7 +57,6 @@ private:
         }
         return seglist;
     }
-
 
     /*! \private Cli::checkValidEvent(const std::string&, Event &)
      *

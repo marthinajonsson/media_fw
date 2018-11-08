@@ -18,7 +18,7 @@ void JsonParser::clear() {
     m_movieMap.clear();
 }
 
-void JsonParser::add(Category &_category, DatabaseItem &_item) {
+void JsonParser::add(const Category &_category, DatabaseItem &_item) {
 
     Json::Value add;
     add["title"] = _item.getTitle();
@@ -42,7 +42,7 @@ void JsonParser::add(Category &_category, DatabaseItem &_item) {
     db_file.close();
 }
 
-void JsonParser::remove(Category &_category, DatabaseItem &_item) {
+void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
 
     Json::Value remove;
     remove["title"] = _item.getTitle();
@@ -72,7 +72,7 @@ void JsonParser::remove(Category &_category, DatabaseItem &_item) {
     db_file.close();
 }
 
-void JsonParser::load(Category &_category)
+void JsonParser::load(const Category &_category)
 {
     Json::Value root;
 
@@ -129,16 +129,17 @@ bool JsonParser::find(const std::string &_type, const std::string &_val)
 {
     m_resultMap.clear();
     bool result = false;
+    long typeInPos = getTypePosition(_type);
     auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
     for(auto mapToTest : allMaps) {
         for (auto it: mapToTest) {
-
+            std::vector<std::string>::iterator p_it;
             temp_title = it.first;
             auto props = it.second;
             if(temp_title != _val) // our val is not title
             {
-                auto found = std::find(it.second.begin(), it.second.end(), _val); // find matches among properties instead
-                if(found == it.second.end()) {
+                p_it = std::find(it.second.begin(), it.second.end(), _val); // find matches among properties instead
+                if(p_it == it.second.end()) {
                     continue;
                 }
             }
