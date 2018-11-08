@@ -18,17 +18,17 @@ void JsonParser::clear() {
     m_movieMap.clear();
 }
 
-void JsonParser::add(Category &category, DatabaseItem &item) {
+void JsonParser::add(Category &_category, DatabaseItem &_item) {
 
     Json::Value add;
-    add["title"] = item.getTitle();
-    add["genre"] = item.getGenre();
-    add["director"] = item.getDirector();
-    for (const auto &a : item.getActors()) {
+    add["title"] = _item.getTitle();
+    add["genre"] = _item.getGenre();
+    add["director"] = _item.getDirector();
+    for (const auto &a : _item.getActors()) {
         add["actors"] = a;
     }
 
-    if (category == Category::Movie) {
+    if (_category == Category::Movie) {
         m_root["items"]["Movies"].append(add);
     }
     else {
@@ -42,18 +42,18 @@ void JsonParser::add(Category &category, DatabaseItem &item) {
     db_file.close();
 }
 
-void JsonParser::remove(Category &category, DatabaseItem &item) {
+void JsonParser::remove(Category &_category, DatabaseItem &_item) {
 
     Json::Value remove;
-    remove["title"] = item.getTitle();
-    remove["genre"] = item.getGenre();
-    remove["director"] = item.getDirector();
-    for (const auto &a : item.getActors()) {
+    remove["title"] = _item.getTitle();
+    remove["genre"] = _item.getGenre();
+    remove["director"] = _item.getDirector();
+    for (const auto &a : _item.getActors()) {
         remove["actors"] = a;
     }
 
     std::string cat = "Movies";
-    if(category == Category::Series) { cat = "Series"; }
+    if(_category == Category::Series) { cat = "Series"; }
 
     for (Json::ArrayIndex i = 0; m_root["items"][cat].isValidIndex(i); i++) {
         auto title = m_root["items"][cat][i]["title"].asString();
@@ -61,7 +61,7 @@ void JsonParser::remove(Category &category, DatabaseItem &item) {
         auto director = m_root["items"][cat][i]["director"].asString();
         auto actors = m_root["items"][cat][i]["actors"].asString();
 
-        if(item.getTitle() == title && item.getDirector() == director) {
+        if(_item.getTitle() == title && _item.getDirector() == director) {
             m_root["items"][cat].removeIndex(i, &remove);
         }
     }
@@ -72,7 +72,7 @@ void JsonParser::remove(Category &category, DatabaseItem &item) {
     db_file.close();
 }
 
-void JsonParser::load(Category &category)
+void JsonParser::load(Category &_category)
 {
     Json::Value root;
 
@@ -82,7 +82,7 @@ void JsonParser::load(Category &category)
 
     m_root = root;
 
-    if(category == Category::Movie) {
+    if(_category == Category::Movie) {
         m_movieMap.clear();
         root = root["items"]["Movies"];
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
@@ -124,28 +124,30 @@ void JsonParser::load(Category &category)
     }
 }
 
-
-bool JsonParser::find(const std::string &type, const std::string &val)
+// type not used
+bool JsonParser::find(const std::string &_type, const std::string &_val)
 {
     m_resultMap.clear();
     bool result = false;
-    bool foundTitle = false;
-    std::string category = "movie";
     auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
     for(auto mapToTest : allMaps) {
         for (auto it: mapToTest) {
 
             temp_title = it.first;
             auto props = it.second;
-            if(temp_title != val) // our val is not title
+            if(temp_title != _val) // our val is not title
             {
-                auto found = std::find(it.second.begin(), it.second.end(), val); // find matches among properties instead
+                auto found = std::find(it.second.begin(), it.second.end(), _val); // find matches among properties instead
                 if(found == it.second.end()) {
                     continue;
                 }
             }
 
             std::vector<std::string> vec;
+            if(mapToTest == m_seriesMap) {
+                vec.push_back(SERIES);
+            }
+            else { vec.push_back(MOVIE); }
             vec.push_back(temp_title);
             vec.insert(vec.end(), it.second.begin(), it.second.end());
             m_resultMap[temp_title] = vec;

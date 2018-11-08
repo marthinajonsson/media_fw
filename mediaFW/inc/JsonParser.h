@@ -27,10 +27,10 @@ public:
     ~JsonParser() = default;
 
     void clear() override;
-    void load(Category &category) override;
-    void add(Category &category, DatabaseItem &item) override;
-    void remove(Category &category, DatabaseItem &item) override;
-    bool find(const std::string &type, const std::string &val) override;
+    void load(Category &) override;
+    void add(Category &, DatabaseItem &) override;
+    void remove(Category &, DatabaseItem &) override;
+    bool find(const std::string &, const std::string &) override;
 
     std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
     std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }

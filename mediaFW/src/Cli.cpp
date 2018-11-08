@@ -16,9 +16,9 @@
  * Receives inputs from STDIN and splits the result into strings.
  */
 
-Request Cli::process(std::string &line) {
+Request Cli::process(std::string &_line) {
     std::vector<std::string> parsed;
-    parsed = parseArg(line, ':');
+    parsed = parseArg(_line, ':');
     Request request = interprete(parsed);
     return request;
 }
@@ -40,46 +40,44 @@ Request Cli::process()
             return request;
         }
     }
-    return Request(RET::ERROR);
+    return Request(RET::ERROR, "Cli session ended unexpected");
 }
 
-Request Cli::interprete(std::vector<std::string> &input)
+Request Cli::interprete(std::vector<std::string> &_input)
 {
-    Category category = Category::Movie;
     Event event;
-
-    if(RET::ERROR == checkValidEvent(input, event)){  // search, upload, download
-        Request request(RET::ERROR);
+    std::string cat;
+    if(RET::ERROR == checkValidEvent(_input, event)){  // search, upload, download
+        Request request(RET::ERROR, "No valid event entered");
         return request;
     }
 
     Request request (event);
-    if(event == Event::SEARCH) {
-        auto cat = input.front();
+    request.setError(RET::OK);
 
-        if(cat == SERIES) {
-            category = Category::Series;
-        }
-        request.setCategory(category);
-        pop_front(input);
+    if(event == Event::SEARCH) {
+
+        cat = setSearchCategory(request, _input);
     }
-    auto type = getType(request, input);  // title, genre, actor and so on..
+
+    auto type = getType(request, _input);  // title, genre, actor and so on..
     if (type.empty()) {
         request.setError(RET::ERROR);
+        request.setErrorDesc("Type not valid");
         return request;
     }
 
 
     if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
 
-        if (RET::ERROR == verifyObjectExists(type, input.front())) {
+        if (RET::ERROR == verifyObjectExists(type, _input.front())) {
             request.setError(RET::ERROR);
+            request.setErrorDesc("Object does not exists at server or database is unsynced");
             return request;
         }
     }
 
     if(event == Event::DOWNLOAD || event == Event::DELETE) {
-
         auto items = JsonParser::getInstance().getLatestResult();
 
         if(items.size() == 1) {
@@ -89,15 +87,17 @@ Request Cli::interprete(std::vector<std::string> &input)
         else {
             request.setMultipleResult(items);
             request.setError(RET::ERROR);
+            request.setErrorDesc("More than one item match. Please specify more explictly.");
             return request;
         }
     }
     else if(event == Event::SEARCH) {
-        auto items = JsonParser::getInstance().getLatestResult();
+        auto items = filterResult(cat);
         request.setMultipleResult(items);
     }
     else if(Event::UPLOAD == event){
-        setFileName(request, input, type);
+        pop_front(_input);
+        setFileName(request, _input, type);
 
         if(RET::ERROR == verifyUpload(request)) {
             request.setError(RET::ERROR);

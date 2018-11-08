@@ -12,11 +12,8 @@
 #include <vector>
 #include <assert.h>
 
-struct RET {
-    enum CODE { OK = 0, ERROR = -1};  // TODO: add to class and add description
-    std::string DESCRIPTION;
-};
 
+enum RET { OK = 0, ERROR = -1};
 
 enum ORDER {TITLE_POS = 0, GENRE_POS = 1, DIRECTOR_POS = 2, ACTORS_POS = 3};
 enum Category { Movie = 0, Series = 1 };
@@ -26,8 +23,8 @@ const std::string SERIES = "series";
 
 const std::vector <std::string> VALID_CAT = { MOVIE, SERIES };
 
-inline Category catIntToEnum( long val ) {
-    return static_cast<Category >(val);
+inline RET castIntToRET( int val ) {
+    return static_cast<RET>(val);
 }
 
 template<typename T>

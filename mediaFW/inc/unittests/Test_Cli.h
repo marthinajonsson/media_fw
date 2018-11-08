@@ -37,6 +37,7 @@ TEST_F(CliTest, CliTest_Download_Test) {
     ASSERT_TRUE("The Proposal" == output.getTitle());
     ASSERT_TRUE("Anne Fletcher" == output.getDirector());
     ASSERT_TRUE(output.getError() == RET::OK);
+    ASSERT_TRUE(output.getErrorDesc().empty());
 }
 
 TEST_F(CliTest, CliTest_Download2_Test) {
@@ -89,15 +90,31 @@ TEST_F(CliTest, CliTest_Search_Test) {
         ASSERT_TRUE(g == "Romance");
     }
 }
-//
-//TEST_F(CliTest, CliTest_Search2_Test) {
-//
-//}
-//
-//TEST_F(CliTest, CliTest_Search3_Test) {
-//
-//}
-//
+
+TEST_F(CliTest, CliTest_Search2_Test) {
+    std::string test = "search:series:genre:Romance";
+    auto output = cli->process(test);
+    auto items = output.getMultipleResult();
+    auto err = output.getError();
+    auto desc = output.getErrorDesc();
+
+    ASSERT_TRUE(items.size() == 0);
+    ASSERT_TRUE(err == RET::OK);
+    ASSERT_TRUE(desc.empty());
+}
+
+TEST_F(CliTest, CliTest_Search3_Test) {
+    std::string test = "search:series:director:James Franco";
+    auto output = cli->process(test);
+    auto items = output.getMultipleResult();
+    auto err = output.getError();
+    auto desc = output.getErrorDesc();
+
+    ASSERT_TRUE(items.size() == 1);
+    ASSERT_TRUE(err == RET::OK);
+    ASSERT_TRUE(desc.empty());
+}
+
 //TEST_F(CliTest, CliTest_Upload_Test) {
 //
 //}

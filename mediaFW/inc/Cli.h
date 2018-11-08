@@ -37,9 +37,9 @@ public:
      * @return Vector of strings containing output from stdin.
      */
     Request process();
-    Request process(std::string &line);
+    Request process(std::string &);
 
-    Request interprete(std::vector<std::string> &input);
+    Request interprete(std::vector<std::string> &);
 
 private:
     /*! \private Cli::parseArg(std::string &input)
@@ -48,14 +48,14 @@ private:
      * @param input A long input string containing argv from stdin.
      * @return Private vector of strings containing parsed words from stdin.
      */
-    std::vector<std::string> parseArg(std::string &input, char delim) {
-        std::stringstream m_stream(input);
+    std::vector<std::string> parseArg(std::string &_input, char _delim) {
+        std::stringstream m_stream(_input);
         std::vector<std::string> seglist;
         std::string segment;
         seglist.reserve(15);
         seglist.clear();
 
-        while(std::getline(m_stream, segment, delim))
+        while(std::getline(m_stream, segment, _delim))
         {
             seglist.push_back(segment);
         }
@@ -69,22 +69,22 @@ private:
      * @param event - interpreted event from cli input
      * @return - OK or ERROR
      */
-    int checkValidEvent(std::vector<std::string> &input, Event &event){
+    int checkValidEvent(std::vector<std::string> &_input, Event &_event){
         auto result = RET::ERROR;
-        auto it = std::find(VALID.begin(), VALID.end(), input.front());
+        auto it = std::find(VALID.begin(), VALID.end(), _input.front());
         if(it != VALID.end())
         {
             long val = std::distance(VALID.begin(),it);
-            event = mapIntToEnum(val);
-            pop_front(input);
+            _event = mapIntToEnum(val);
+            pop_front(_input);
             result = RET::OK;
         }
         return result;
     }
 
 
-    int verifyObjectExists(std::string &type, std::string &value) {
-        auto found =  JsonParser::getInstance().find(type, value);
+    int verifyObjectExists(std::string &_type, std::string &_value) {
+        auto found =  JsonParser::getInstance().find(_type, _value);
 
         if(!found) { return RET::ERROR; }
 
@@ -97,45 +97,72 @@ private:
      * @param input - cli input
      * @return - property type for request
      */
-    std::string getType(Request &req, std::vector<std::string> &input) {
-        auto type = input.front();
+    std::string getType(Request &_req, std::vector<std::string> &_input) {
+        auto type = _input.front();
 
         if(type == TITLE || type == GENRE || type == ACTOR || type == DIRECTOR || type == FILENAME) {
-            pop_front(input);
+            pop_front(_input);
             return type;
         }
         else return "";
     }
 
-    void setFileName(Request &request, std::vector<std::string> &input, std::string &type) {
-        if(request.getEvent() == Event::UPLOAD || type == FILENAME) {
-            request.setFilename(input.front());
-            pop_front(input); // remove value of filename
+    void setFileName(Request &_request, std::vector<std::string> &_input, std::string &_type) {
+        if(_request.getEvent() == Event::UPLOAD || _type == FILENAME) {
+            _request.setFilename(_input.front());
+            pop_front(_input); // remove value of filename
         }
     }
 
-    void setProperties(Request &request, std::vector<std::string> &item, std::string &type) {
-        request.setTitle(item.at(ORDER::TITLE_POS));
-        request.setGenre(item.at(ORDER::GENRE_POS));
-        request.setDirector(item.at(ORDER::DIRECTOR_POS));
-        pop_front(item); // not relevant anymore
-        pop_front(item);
-        pop_front(item);
+    void setProperties(Request &_request, std::vector<std::string> &_item, std::string &_type) {
+       pop_front(_item); // remove search category
+        _request.setTitle(_item.at(ORDER::TITLE_POS));
+        _request.setGenre(_item.at(ORDER::GENRE_POS));
+        _request.setDirector(_item.at(ORDER::DIRECTOR_POS));
+        pop_front(_item); // not relevant anymore
+        pop_front(_item);
+        pop_front(_item);
         std::vector<std::string> vec;
-        vec.insert(vec.begin(), item.begin(), item.end());
-        request.setActors(vec);
+        vec.insert(vec.begin(), _item.begin(), _item.end());
+        _request.setActors(vec);
+    }
+
+    std::string setSearchCategory(Request &_request, std::vector<std::string> &_input) {
+        auto category = _input.front();
+        if(category == SERIES) {
+            _request.setCategory(Category::Series);
+        } else { _request.setCategory(Category::Movie); }
+
+        pop_front(_input);
+        return category;
+    }
+
+    std::map<std::string, std::vector<std::string>> filterResult(std::string &_category) {
+        auto resultMap = JsonParser::getInstance().getLatestResult();
+        std::map<std::string, std::vector<std::string>> filtered;
+
+        for (auto m : resultMap) {
+            auto found = std::find(m.second.begin(), m.second.end(), _category);
+            if(found != m.second.end()) {
+                pop_front(m.second);
+                filtered[m.first] = m.second;
+            }
+        }
+
+        return filtered;
     }
 
     /*! \private Cli::verifyUpload(Request &)
      *
      * @return OK or ERROR
      */
-    int verifyUpload(Request &req) {
+    int verifyUpload(Request &_request) {
 
-        const auto filename = req.getFileName();
+        const auto filename = _request.getFileName();
         if (filename.empty()) { return false; }
         if(access( filename.c_str(), F_OK ) == RET::ERROR) {
-            req.setError(RET::ERROR);
+            _request.setError(RET::ERROR);
+            _request.setErrorDesc("File not found");
             return RET::ERROR;
         }
         std::cout << "To confirm your upload add the following info: \n"
@@ -160,22 +187,18 @@ private:
             return RET::ERROR;
         }
 
-        Category category = Category::Movie;
-
-        req.setTitle(parsedInfo.front());
+        _request.setTitle(parsedInfo.front());
         pop_front(parsedInfo);
-        req.setGenre(parsedInfo.front());
+        _request.setGenre(parsedInfo.front());
         pop_front(parsedInfo);
-        req.setDirector(parsedInfo.front());
+        _request.setDirector(parsedInfo.front());
         pop_front(parsedInfo);
-        req.setActors(parsedInfo);
+        _request.setActors(parsedInfo);
         pop_front(parsedInfo);
 
-        req.setCategory(category);
-
+        _request.setCategory(Category::Movie);
         if(parsedInfo.front() == SERIES){
-            category = Category::Series;
-            req.setCategory(category);
+            _request.setCategory(Category::Series);
         }
 
         return RET::OK;
