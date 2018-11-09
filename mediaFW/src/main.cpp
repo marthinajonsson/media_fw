@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 
     if(argc < 3){
         std::cout << "Normal mode: " << category << "\n" << std::endl;
-        if(args.find("series")) {
+        if(args.find("series") != std::string::npos) {
             category = Category::Series;
         }
 
@@ -36,5 +36,6 @@ int main(int argc, char **argv) {
         std::cout << "Test mode\n" << std::endl;
         StartGoogleTest(argc ,argv);
     }
+    return 0;
 }
 

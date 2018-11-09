@@ -40,18 +40,36 @@ public:
 
     Request process(std::string &) override;
     void verifyUploadTest(Request &request, std::vector<std::string> &i) {
-        setProperties(request, i, false);
+        setProperties(request, i);
     }
 private:
+    const std::string TITLE = "title";
+    const std::string GENRE = "genre";
+    const std::string ACTOR = "actor";
+    const std::string DIRECTOR = "director";
+    const std::string FILENAME = "filename";
 
-    std::vector<std::string> parseArg(std::string &_input, char _delim) {
-        std::stringstream m_stream(_input);
+    std::string MOVIE = "movie";
+    std::string SERIES = "series";
+
+    const std::string DOWNLOAD = "download";
+    const std::string UPLOAD = "upload";
+    const std::string SEARCH = "search";
+    const std::string DELETE = "delete";
+    const std::string HELP = "help";
+    const std::string EXIT = "exit";
+
+    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT};
+
+
+    std::vector<std::string> parseArg(std::string &input, char delim) {
+        std::stringstream m_stream(input);
         std::vector<std::string> seglist;
         std::string segment;
         seglist.reserve(15);
         seglist.clear();
 
-        while(std::getline(m_stream, segment, _delim))
+        while(std::getline(m_stream, segment, delim))
         {
             seglist.push_back(segment);
         }
@@ -64,22 +82,65 @@ private:
      * @param event - interpreted event from cli input
      * @return - OK or ERROR
      */
-    int checkValidEvent(std::vector<std::string> &_input, Event &_event){
+    int checkValidEvent(std::vector<std::string> &input, Event &event){
         auto result = RET::ERROR;
-        auto it = std::find(VALID.begin(), VALID.end(), _input.front());
-        if(it != VALID.end())
+        auto it = std::find(EVENT_ARGS.begin(), EVENT_ARGS.end(), input.front());
+        if(it != EVENT_ARGS.end())
         {
-            long val = std::distance(VALID.begin(),it);
-            _event = mapIntToEnum(val);
-            pop_front(_input);
+            long val = std::distance(EVENT_ARGS.begin(),it);
+            event = castTypeToEvent(val);
+            pop_front(input);
             result = RET::OK;
         }
         return result;
     }
 
+    int checkValidCategory(std::vector<std::string> &input, Category &category){
+        auto result = RET::ERROR;
+        auto vec = {MOVIE, SERIES};
+        auto it = std::find(vec.begin(), vec.end(), input.front());
+        if(it != vec.end())
+        {
+            long val = std::distance(vec.begin(),it);
 
-    int verifyObjectExists(std::string &_type, std::string &_value) {
-        auto found =  JsonParser::getInstance().find(_type, _value);
+            category = castTypeToCategory(val);
+            pop_front(input);
+            result = RET::OK;
+        }
+        return result;
+    }
+
+    int checkValidType(Request &request, std::string &type) {
+        Event e = request.getEvent();
+
+        if(e == Event::UPLOAD) {
+            auto found = type.find(FILENAME);
+            if(found == std::string::npos) {
+                return RET::ERROR;
+            }
+        }
+        else if (e == Event::DOWNLOAD || e == Event::DELETE) {
+            auto found = type.find(TITLE);
+            if(found == std::string::npos) {
+                return RET::ERROR;
+            }
+        }
+        else if (e == Event::SEARCH) {
+            auto vec = {TITLE, GENRE, DIRECTOR, ACTOR};
+            auto found = std::find(vec.begin(), vec.end(), type);
+            if(found == vec.end()) {
+                return RET::ERROR;
+            }
+        }
+        else {
+            return RET::ERROR;
+        }
+        return RET::OK;
+    }
+
+
+    int verifyObjectExists(Category &category, const std::string &type, const std::string &value) {
+        auto found =  JsonParser::getInstance().find(category, value);
 
         if(!found) { return RET::ERROR; }
 
@@ -92,61 +153,48 @@ private:
      * @param input - cli input
      * @return - property type for request
      */
-    std::string getType(Request &_req, std::vector<std::string> &_input) {
-        auto type = _input.front();
+    int getTypeOfValue(Request &request, std::vector<std::string> &input, std::string &type) {
+        type = input.front();
 
         if(type == TITLE || type == GENRE || type == ACTOR || type == DIRECTOR || type == FILENAME) {
-            pop_front(_input);
-            return type;
+            pop_front(input);
+            return RET::OK;
         }
-        else return "";
+        type = "";
+        return RET::ERROR;
     }
 
-    void setFileName(Request &_request, std::vector<std::string> &_input, std::string &_type) {
-        if(_request.getEvent() == Event::UPLOAD || _type == FILENAME) {
-            _request.setFilename(_input.front());
-            pop_front(_input); // remove value of filename
+    int getValueOfType(std::vector<std::string> &input, std::string &type, std::string &val) {
+
+        if(input.size() > 1) {
+            return RET::ERROR;
+        }else {
+            val = input.front();
         }
+
+        if(val.empty()) {
+            return RET::ERROR;
+        }
+        pop_front(input);
+        return RET::OK;
     }
 
-    void setProperties(Request &_request, std::vector<std::string> &_item, bool removeCategory) {
-       if(removeCategory) {
-           pop_front(_item); // remove search category
-       }
-        _request.setTitle(_item.at(ORDER::TITLE_POS));
-        _request.setGenre(_item.at(ORDER::GENRE_POS));
-        _request.setDirector(_item.at(ORDER::DIRECTOR_POS));
-        pop_front(_item); // not relevant anymore
-        pop_front(_item);
-        pop_front(_item);
+    void setFileName(Request &request, std::string &val) {
+        std::string path = "../data/";
+        val = path + val;
+        request.setFilename(val);
+    }
+
+    void setProperties(Request &request, std::vector<std::string> &item) {
+        request.setTitle(item.at(ORDER::TITLE_POS));
+        request.setGenre(item.at(ORDER::GENRE_POS));
+        request.setDirector(item.at(ORDER::DIRECTOR_POS));
+        pop_front(item); // not relevant anymore
+        pop_front(item);
+        pop_front(item);
         std::vector<std::string> vec;
-        vec.insert(vec.begin(), _item.begin(), _item.end());
-        _request.setActors(vec);
-    }
-
-    std::string setSearchCategory(Request &_request, std::vector<std::string> &_input) {
-        auto category = _input.front();
-        if(category == SERIES) {
-            _request.setCategory(Category::Series);
-        } else { _request.setCategory(Category::Movie); }
-
-        pop_front(_input);
-        return category;
-    }
-
-    std::map<std::string, std::vector<std::string>> filterResult(std::string &_category) {
-        auto resultMap = JsonParser::getInstance().getLatestResult();
-        std::map<std::string, std::vector<std::string>> filtered;
-
-        for (auto m : resultMap) {
-            auto found = std::find(m.second.begin(), m.second.end(), _category);
-            if(found != m.second.end()) {
-                pop_front(m.second);
-                filtered[m.first] = m.second;
-            }
-        }
-
-        return filtered;
+        vec.insert(vec.begin(), item.begin(), item.end());
+        request.setActors(vec);
     }
 
     /*! \private Cli::verifyUpload(Request &)
@@ -163,7 +211,7 @@ private:
             return RET::ERROR;
         }
         std::cout << "To confirm your upload add the following info: \n"
-                     "\t <title> <genre> <director> {<actor> <actor>.. } <category> " << std::endl;
+                     "<title> <genre> <director> {<actor> <actor>.. } " << std::endl;
 
         std::string info;
         std::string answer;
@@ -171,24 +219,26 @@ private:
         std::getline(std::cin, info);
         auto parsedInfo = parseArg(info, ' ');
         std::cout << "Please confirm <title> " << parsedInfo.front() <<
-                  "\n <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: \n" << std::endl;
+                  " <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: " << std::endl;
 
-        for (auto it = parsedInfo.begin() + 2; it != parsedInfo.end(); ++it){
+        for (auto it = parsedInfo.begin() + 3; it != parsedInfo.end(); ++it){
             std::cout << *it << " " << std::endl;
         }
 
         std::cout << "Y or n? ";
         std::getline(std::cin, answer);
-        if(answer.find('n') == std::string::npos)
+        if(answer == "n")
         {
             return RET::ERROR;
         }
 
-        _request.setCategory(Category::Movie);
-        if(parsedInfo.front() == SERIES){
-            _request.setCategory(Category::Series);
-        }
-
+        _request.setTitle(parsedInfo.front());
+        _request.setGenre(parsedInfo.at(1));
+        _request.setDirector(parsedInfo.at(2));
+        pop_front(parsedInfo);
+        pop_front(parsedInfo);
+        pop_front(parsedInfo);
+        _request.setActors(parsedInfo);
         return RET::OK;
     }
 
@@ -200,7 +250,7 @@ private:
 
         auto choice {"<choice> = upload, download, search, delete\n"};
 
-        auto upload = "<upload>:<filename> \n\t*<filename> - absolute path to filename. \n";
+        auto upload = "<upload>:<movie/series>:<filename> \n\t*<filename> - absolute path to filename. \n";
         auto cmfupload = "\t To confirm your upload add the following info: \n\t <title> <genre> {<actor> <actor>.. } <director>\n\n";
 
         auto download = "<download>:<movie/series>:title:<title> \n";
@@ -210,7 +260,7 @@ private:
         auto cfmsearch = "\t Found the following matches..\n\n";
         auto search2 {"<search>:<movie/series>:genre:Romance. \n \t "};
 
-        auto deleted {"<delete>:<title>\n"};
+        auto deleted {"<delete>:<movie/series><title>\n"};
         auto cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
 
         auto disconnect = "Write 'exit' to disconnect\n";

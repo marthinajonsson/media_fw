@@ -59,7 +59,7 @@ public:
         }
     }
 
-    int update(Request &) override;  // this should only report status from observation, cli thread should run and stop itself.
+    int update(Request &request) override;  // this should only report status from observation, cli thread should run and stop itself.
 
     void syncClient();
     void syncDatabase(const Request &request);

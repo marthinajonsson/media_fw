@@ -15,6 +15,11 @@ protected:
     std::map<std::string, std::vector<std::string>> m_loadedMovieMap;
     std::map<std::string, std::vector<std::string>> m_loadedSeriesMap;
 
+    const std::string TITLE = "title";
+    const std::string GENRE = "genre";
+    const std::string ACTOR = "actor";
+    const std::string DIRECTOR = "director";
+
     void SetUp() override {
         Category cat = Category::Movie;
         JsonParser::getInstance().load(cat);
@@ -44,15 +49,16 @@ TEST_F(JsonTest, JsonTest_FindMovie_Test) {
     std::string notInDB = "not_in_db";
     std::string romance = "romance";
     std::string dir = "David Jackson";
-    bool found = JsonParser::getInstance().find(TITLE, findTitle);
+    Category cat = Category::Movie;
+    bool found = JsonParser::getInstance().find(cat, findTitle);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(ACTOR, findActor);
+    found = JsonParser::getInstance().find(cat, findActor);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(GENRE, romance);
+    found = JsonParser::getInstance().find(cat, romance);
     ASSERT_TRUE(!found);
-    found = JsonParser::getInstance().find(TITLE, notInDB);
+    found = JsonParser::getInstance().find(cat, notInDB);
     ASSERT_FALSE(found);
-    found = JsonParser::getInstance().find(DIRECTOR, dir);
+    found = JsonParser::getInstance().find(cat, dir);
     ASSERT_TRUE(found);
 }
 
@@ -60,11 +66,12 @@ TEST_F(JsonTest, JsonTest_FindSeries_Test) {
     std::string findTitle = "11.22.63";
     std::string findActor = "James Franco";
     std::string notInDB = "not_in_db";
-    bool found = JsonParser::getInstance().find(TITLE, findTitle);
+    Category cat = Category::Series;
+    bool found = JsonParser::getInstance().find(cat, findTitle);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(ACTOR, findActor);
+    found = JsonParser::getInstance().find(cat, findActor);
     ASSERT_TRUE(found);
-    found = JsonParser::getInstance().find(GENRE ,notInDB);
+    found = JsonParser::getInstance().find(cat, notInDB);
     ASSERT_TRUE(!found);
 }
 

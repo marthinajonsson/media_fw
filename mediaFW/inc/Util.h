@@ -11,41 +11,50 @@
 #include <string>
 #include <vector>
 #include <assert.h>
+#include <iostream>
 
 
-enum RET { OK = 0, ERROR = -1};
-enum ORDER {TITLE_POS = 0, GENRE_POS = 1, DIRECTOR_POS = 2, ACTORS_POS = 3};
-enum Category { Movie = 0, Series = 1 };
-enum class Event { UPLOAD = 0, DOWNLOAD = 1, SEARCH, DELETE, HELP, EXIT };
+enum RET {
+    OK = 0,
+    ERROR = -1
+};
 
+enum ORDER {
+    TITLE_POS = 0,
+    GENRE_POS = 1,
+    DIRECTOR_POS = 2,
+    ACTORS_POS = 3
+};
 
-const std::string MOVIE = "movie";
-const std::string SERIES = "series";
+enum Category {
+    Movie = 0,
+    Series = 1,
+    All = 2
+};
 
-const std::string DOWNLOAD = "download";
-const std::string UPLOAD = "upload";
-const std::string SEARCH = "search";
-const std::string DELETE = "delete";
-const std::string EXIT = "exit";
-const std::string HELP = "help";
+enum Event {
+    UPLOAD = 0,
+    DOWNLOAD = 1,
+    SEARCH,
+    DELETE,
+    HELP,
+    EXIT,
+    UNDEFINED
+};
 
-
-const std::string TITLE = "title";
-const std::string GENRE = "genre";
-const std::string ACTOR = "actor";
-const std::string DIRECTOR = "director";
-const std::string FILENAME = "filename";
-
-const std::vector <std::string> VALID_CAT = { MOVIE, SERIES };
-const std::vector<std::string> VALID = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT};
-
-
-inline RET castIntToRET( int val ) {
+template <typename T>
+inline RET castTypeToRET( T& val ) {
     return static_cast<RET>(val);
 }
 
-inline Event mapIntToEnum( long val ) {
+template <typename T>
+inline Event castTypeToEvent( T& val ) {
     return static_cast<Event>(val);
+}
+
+template <typename T>
+inline Category castTypeToCategory( T& val ) {
+    return static_cast<Category >(val);
 }
 
 template<typename T>

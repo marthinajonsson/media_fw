@@ -18,21 +18,21 @@ void JsonParser::clear() {
     m_movieMap.clear();
 }
 
-void JsonParser::add(const Category &_category, DatabaseItem &_item) {
+void JsonParser::add(const Category &category, DatabaseItem &item) {
 
     Json::Value add;
-    add["title"] = _item.getTitle();
-    add["genre"] = _item.getGenre();
-    add["director"] = _item.getDirector();
-    for (const auto &a : _item.getActors()) {
-        add["actors"] = a;
+    add[TITLE] = item.getTitle();
+    add[GENRE] = item.getGenre();
+    add[DIRECTOR] = item.getDirector();
+    for (const auto &a : item.getActors()) {
+        add[ACTORS] = a;
     }
 
-    if (_category == Category::Movie) {
-        m_root["items"]["Movies"].append(add);
+    if (category == Category::Movie) {
+        m_root[ITEMS][MOVIES].append(add);
     }
     else {
-        m_root["items"]["Series"].append(add);
+        m_root[ITEMS][SERIES].append(add);
     }
 
 
@@ -45,24 +45,24 @@ void JsonParser::add(const Category &_category, DatabaseItem &_item) {
 void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
 
     Json::Value remove;
-    remove["title"] = _item.getTitle();
-    remove["genre"] = _item.getGenre();
-    remove["director"] = _item.getDirector();
+    remove[TITLE] = _item.getTitle();
+    remove[GENRE] = _item.getGenre();
+    remove[DIRECTOR] = _item.getDirector();
     for (const auto &a : _item.getActors()) {
-        remove["actors"] = a;
+        remove[ACTORS] = a;
     }
 
-    std::string cat = "Movies";
-    if(_category == Category::Series) { cat = "Series"; }
+    std::string cat = MOVIES;
+    if(_category == Category::Series) { cat = SERIES; }
 
-    for (Json::ArrayIndex i = 0; m_root["items"][cat].isValidIndex(i); i++) {
-        auto title = m_root["items"][cat][i]["title"].asString();
-        auto genre = m_root["items"][cat][i]["genre"].asString();
-        auto director = m_root["items"][cat][i]["director"].asString();
-        auto actors = m_root["items"][cat][i]["actors"].asString();
+    for (Json::ArrayIndex i = 0; m_root[ITEMS][cat].isValidIndex(i); i++) {
+        auto title = m_root[ITEMS][cat][i][TITLE].asString();
+        auto genre = m_root[ITEMS][cat][i][GENRE].asString();
+        auto director = m_root[ITEMS][cat][i][DIRECTOR].asString();
+        auto actors = m_root[ITEMS][cat][i][ACTORS].asString();
 
         if(_item.getTitle() == title && _item.getDirector() == director) {
-            m_root["items"][cat].removeIndex(i, &remove);
+            m_root[ITEMS][cat].removeIndex(i, &remove);
         }
     }
 
@@ -72,7 +72,7 @@ void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
     db_file.close();
 }
 
-void JsonParser::load(const Category &_category)
+void JsonParser::load(const Category &category)
 {
     Json::Value root;
 
@@ -82,15 +82,15 @@ void JsonParser::load(const Category &_category)
 
     m_root = root;
 
-    if(_category == Category::Movie) {
+    if(category == Category::Movie) {
         m_movieMap.clear();
-        root = root["items"]["Movies"];
+        root = root[ITEMS][MOVIES];
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
             m_parsed.clear();
-            auto title = root[i]["title"].asString();
-            auto genre = root[i]["genre"].asString();
-            auto director = root[i]["director"].asString();
-            auto actors = root[i]["actors"].asString();
+            auto title = root[i][TITLE].asString();
+            auto genre = root[i][GENRE].asString();
+            auto director = root[i][DIRECTOR].asString();
+            auto actors = root[i][ACTORS].asString();
 
             m_parsed.push_back(genre);
             m_parsed.push_back(director);
@@ -104,13 +104,13 @@ void JsonParser::load(const Category &_category)
     }
     else {
         m_seriesMap.clear();
-        root = root["items"]["Series"];
+        root = root[ITEMS][SERIES];
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
             m_parsed.clear();
-            auto title = root[i]["title"].asString();
-            auto genre = root[i]["genre"].asString();
-            auto director = root[i]["director"].asString();
-            auto actors = root[i]["actors"].asString();
+            auto title = root[i][TITLE].asString();
+            auto genre = root[i][GENRE].asString();
+            auto director = root[i][DIRECTOR].asString();
+            auto actors = root[i][ACTORS].asString();
 
             m_parsed.push_back(genre);
             m_parsed.push_back(director);
@@ -124,36 +124,33 @@ void JsonParser::load(const Category &_category)
     }
 }
 
-// TODO: type not used, check type with the position in vector
-bool JsonParser::find(const std::string &_type, const std::string &_val)
+bool JsonParser::find(Category &category, const std::string &val)
 {
     m_resultMap.clear();
     bool result = false;
-    long typeInPos = getTypePosition(_type);
-    auto allMaps = {m_seriesMap, m_movieMap}; // this will be a hazard if the map is big
-    for(auto mapToTest : allMaps) {
-        for (auto it: mapToTest) {
-            std::vector<std::string>::iterator p_it;
-            temp_title = it.first;
-            auto props = it.second;
-            if(temp_title != _val) // our val is not title
-            {
-                p_it = std::find(it.second.begin(), it.second.end(), _val); // find matches among properties instead
-                if(p_it == it.second.end()) {
-                    continue;
-                }
-            }
+    auto map = getMovieParsed();
+    if(category == Category::Series) { map = m_seriesMap; }
 
-            std::vector<std::string> vec;
-            if(mapToTest == m_seriesMap) {
-                vec.push_back(SERIES);
+    for (auto it: map) {
+        std::vector<std::string>::iterator p_it;
+        temp_title = it.first;
+        auto props = it.second;
+
+        if(temp_title != val)
+        {
+            p_it = std::find(it.second.begin(), it.second.end(), val);
+
+            if(p_it == it.second.end())
+            {
+                continue;
             }
-            else { vec.push_back(MOVIE); }
-            vec.push_back(temp_title);
-            vec.insert(vec.end(), it.second.begin(), it.second.end());
-            m_resultMap[temp_title] = vec;
-            result = true;
         }
+
+        std::vector<std::string> vec;
+        vec.push_back(temp_title);
+        vec.insert(vec.end(), it.second.begin(), it.second.end());
+        m_resultMap[temp_title] = vec;
+        result = true;
     }
     return result;
 }

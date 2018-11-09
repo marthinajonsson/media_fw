@@ -16,9 +16,9 @@
  * Receives inputs from STDIN and splits the result into strings.
  */
 
-Request Cli::process(std::string &_line) {
+Request Cli::process(std::string &line) {
     std::vector<std::string> parsed;
-    parsed = parseArg(_line, ':');
+    parsed = parseArg(line, ':');
     Request request = interprete(parsed);
     return request;
 }
@@ -51,11 +51,17 @@ Request Cli::process()
     return Request(RET::ERROR, "Cli session ended unexpected");
 }
 
-Request Cli::interprete(std::vector<std::string> &_input)
+// event:category:type:value
+// upload:<movie/series>:filename<value>
+// download:<movie/series>:title:<value>
+// search:<movie/series>:actor/title/genre/director:<value>
+// <delete>:<movie/series>:title:<value>
+Request Cli::interprete(std::vector<std::string> &input)
 {
-    Event event;
-    std::string cat;
-    if(RET::ERROR == checkValidEvent(_input, event)){  // search, upload, download
+    Event event = Event::UNDEFINED;
+    std::string val;
+    std::string type;
+    if(RET::ERROR == checkValidEvent(input, event)){
         Request request(RET::ERROR, "No valid event entered");
         return request;
     }
@@ -63,22 +69,37 @@ Request Cli::interprete(std::vector<std::string> &_input)
     Request request (event);
     request.setError(RET::OK);
 
-    if(event == Event::SEARCH || event == Event::UPLOAD) {
 
-        cat = setSearchCategory(request, _input);
+    if(event == Event::EXIT) { return request; }
+    Category category;
+    if(RET::ERROR == checkValidCategory(input, category)){
+        request.setError(RET::ERROR);
+        request.setErrorDesc("No valid category entered");
+        return request;
+    }
+    request.setCategory(category);
+
+    if(RET::ERROR == getTypeOfValue(request, input, type))
+    {
+        request.setError(RET::ERROR);
+        request.setErrorDesc("No valid type entered");
+        return request;
     }
 
-    auto type = getType(request, _input);  // title, genre, actor and so on..
-    if (type.empty()) {
+    if(RET::ERROR == checkValidType(request, type)) {
         request.setError(RET::ERROR);
-        request.setErrorDesc("Type not valid");
-        return request;
+        request.setErrorDesc("Type not valid to event");
+    }
+
+    if(RET::ERROR == getValueOfType(input, type, val)) {
+        request.setError(RET::ERROR);
+        request.setErrorDesc("No valid value");
     }
 
 
     if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
 
-        if (RET::ERROR == verifyObjectExists(type, _input.front())) {
+        if (RET::ERROR == verifyObjectExists(category, type, val)) {
             request.setError(RET::ERROR);
             request.setErrorDesc("Object does not exists at server or database is unsynced");
             return request;
@@ -90,7 +111,7 @@ Request Cli::interprete(std::vector<std::string> &_input)
 
         if(items.size() == 1) {
             auto item = items.begin()->second;
-            setProperties(request, item, true);
+            setProperties(request, item);
         }
         else {
             request.setMultipleResult(items);
@@ -100,11 +121,11 @@ Request Cli::interprete(std::vector<std::string> &_input)
         }
     }
     else if(event == Event::SEARCH) {
-        auto items = filterResult(cat);
+        auto items = JsonParser::getInstance().getLatestResult();
         request.setMultipleResult(items);
     }
     else if(Event::UPLOAD == event){
-        setFileName(request, _input, type);
+        setFileName(request, val);
     }
     return request;
 }

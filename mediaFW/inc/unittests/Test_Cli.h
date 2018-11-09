@@ -35,7 +35,7 @@ protected:
 
 TEST_F(CliTest, CliTest_Download_Test) {
 
-    std::string test = "download:title:The Proposal";
+    std::string test = "download:movie:title:The Proposal";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE("The Proposal" == output.getTitle());
@@ -45,7 +45,7 @@ TEST_F(CliTest, CliTest_Download_Test) {
 }
 
 TEST_F(CliTest, CliTest_Download2_Test) {
-    std::string test = "download:actor:Thomas Beaudoin";
+    std::string test = "download:movie:actor:Thomas Beaudoin";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getTitle() == "The Spirit of Christmas");
@@ -54,11 +54,11 @@ TEST_F(CliTest, CliTest_Download2_Test) {
     bool found = it != act.end();
     ASSERT_TRUE(found);
     ASSERT_TRUE(act.size() == 2);
-    ASSERT_FALSE(output.getError() == RET::ERROR);
+    ASSERT_TRUE(output.getError() == RET::ERROR);
 }
 
 TEST_F(CliTest, CliTest_Download3__Test) {
-    std::string test = "download:genre:Romance";
+    std::string test = "download:movie:genre:Romance";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getError() == RET::ERROR);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
@@ -72,7 +72,7 @@ TEST_F(CliTest, CliTest_Download3__Test) {
 }
 
 TEST_F(CliTest, CliTest_Download4__Test) {
-    std::string test = "download:genre:Mystery";
+    std::string test = "download:series:genre:Mystery";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getMultipleResult().size() == 0);
@@ -150,7 +150,7 @@ TEST_F(CliTest, CliTest_Upload2_Test) {
 }
 
 TEST_F(CliTest, CliTest_Delete_Test) {
-    std::string test = "delete:title:The Proposal";
+    std::string test = "delete:movie:title:The Proposal";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
     ASSERT_TRUE("The Proposal" == output.getTitle());
@@ -160,7 +160,7 @@ TEST_F(CliTest, CliTest_Delete_Test) {
 }
 
 TEST_F(CliTest, CliTest_Delete2_Test) {
-    std::string test = "delete:title:Dummy";
+    std::string test = "delete:series:title:Dummy";
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
     ASSERT_FALSE("Anne Fletcher" == output.getDirector());

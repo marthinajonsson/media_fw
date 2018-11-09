@@ -24,15 +24,16 @@ int MediaHandler::update(Request &request)
     else if (event == Event ::SEARCH) {
         status = Status::SEARCHING;
         for(auto result : request.getMultipleResult()) {
-            std::cout << "TITLE: " << result.second.at(0) << "\n\t" << std::endl;
+            std::cout << "TITLE: " << result.second.at(0) << std::endl;
+            std::cout << "GENRE: " << result.second.at(1) << std::endl;;
+            std::cout << "DIRECTOR: " << result.second.at(2) << std::endl;;
             pop_front(result.second);
-            std::cout << "GENRE: " << result.second.at(1);
             pop_front(result.second);
-            std::cout << "DIRECTOR: " << result.second.at(2);
             pop_front(result.second);
             for(const auto &s : result.second) {
                 std::cout << "ACTOR: " << s << std::endl;
             }
+            std::cout << "\n\n";
         }
     }
     else if (event == Event::DELETE) {
@@ -48,7 +49,6 @@ int MediaHandler::update(Request &request)
     else {
         return RET::ERROR;
     }
-
 
     return RET::OK;
 
@@ -98,6 +98,7 @@ void MediaHandler::syncDatabase(const Request &request) {
     }else {
         m_logger->TRACE(Logger::WARN, "Database is unsynced");
     }
+
     if(answer == Status::UPLOADING) {
         m_logger->TRACE(Logger::INFO, "Uploading.. ");
     }

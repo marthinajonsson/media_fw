@@ -24,7 +24,7 @@ public:
      * @param humidity new humidity
      * @param pressure new pressure
      */
-    virtual int update(Request &info) = 0;
+    virtual int update(Request&) = 0;
 
 };
 

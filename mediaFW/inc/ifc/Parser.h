@@ -17,7 +17,7 @@ public:
     virtual void load(const Category &category) = 0;
     virtual void add(const Category &category, DatabaseItem &item) = 0;
     virtual void remove(const Category &category, DatabaseItem &item) = 0;
-    virtual bool find(const std::string &type, const std::string &val) = 0;
+    virtual bool find(Category &category, const std::string &val) = 0;
 };
 
 #endif //MEDIAFW_PARSER_
