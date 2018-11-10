@@ -16,38 +16,63 @@
 #include "JsonParser.h"
 #include "ifc/CommandLineParser.h"
 
-/*! \class Cli
+/*! \class Cli Cli.h "inc/Cli.h"
  * @brief Module handling everything related to our Command line interface.
  */
 class Cli : CommandLineParser
 {
 public:
-    /*! \public Client()
-     * @brief Cli default constructor.
-     */
     Cli() = default;
-    /*! \public ~Client()
-     * @brief Cli default deconstructor.
-     */
     ~Cli() = default;
 
     /*! \public Client::process()
+     * @implements the interface of CommandLineParser
      * @brief Public method processing input from stdin.
+     * @
      * @return Vector of strings containing output from stdin.
      */
     Request process() override;
+
+    /*! \public Client::interprete
+     * @brief translate incoming user request and save in request object
+     * @implements the interface of CommandLineParser
+     * @param std::vector<std::string>& vector of string arguments to be translated
+     * @return the translated request object
+     */
     Request interprete(std::vector<std::string> &) override;
 
+    /*! \public Client::process()
+     * @implements the interface of CommandLineParser
+     * @brief Public method processing input from stdin.
+     * @param std::string& fixed string used for unit testing mocking stdin
+     * @return Vector of strings containing output from stdin.
+     */
     Request process(std::string &) override;
     void verifyUploadTest(Request &request, std::vector<std::string> &i) {
         setProperties(request, i);
     }
 private:
+    /*! \var TITLE "title"
+     *  @brief used to refer to @property title
+     */
     const std::string TITLE = "title";
+    /*! \var GENRE "genre"
+     *  @brief used to refer to @property genre
+     */
     const std::string GENRE = "genre";
+    /*! \var ACTOR "actor"
+     *  @brief used to refer to @property actor
+     */
     const std::string ACTOR = "actor";
+    /*! \var DIRECTOR "director"
+     *  @brief used to refer to @property director
+     */
     const std::string DIRECTOR = "director";
+    /*! \var FILENAME "filename
+     *  @brief used to refer to @property filename
+     */
     const std::string FILENAME = "filename";
+
 
     std::string MOVIE = "movie";
     std::string SERIES = "series";
@@ -61,8 +86,13 @@ private:
 
     const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT};
 
-
-    std::vector<std::string> parseArg(std::string &input, char delim) {
+    /*! \private Cli::split
+     *
+     * @param input incoming unprocessed string
+     * @param delim delimiter used to split @param input
+     * @return @param input splitted into multiple strings saved in a std::vector
+     */
+    std::vector<std::string> split(std::string &input, char delim) {
         std::stringstream m_stream(input);
         std::vector<std::string> seglist;
         std::string segment;
@@ -77,11 +107,11 @@ private:
     }
 
 
-    /*! \private Cli::checkValidEvent(const std::string&, Event &)
-     *
+    /*! \private Cli::checkValidEvent
+     * @brief check for valid event and cast to @enum Event
      * @param choice - event in string
      * @param event - interpreted event from cli input
-     * @return - OK or ERROR
+     * @return - result of operation with @enum RET::OK or @enum RET::ERROR
      */
     int checkValidEvent(std::vector<std::string> &input, Event &event){
         auto result = RET::ERROR;
@@ -99,6 +129,12 @@ private:
         return result;
     }
 
+    /*! \private Cli::checkValidCategory
+     *  @brief check for valid category and cast to @enum Category
+     * @param input stdin result
+     * @param category undefined category that is being updated accordingly
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
+     */
     int checkValidCategory(std::vector<std::string> &input, Category &category){
         auto result = RET::ERROR;
         auto vec = {MOVIE, SERIES};
@@ -116,6 +152,12 @@ private:
         return result;
     }
 
+    /*! \private Cli::checkValidType
+     * @brief check for each event @enum Event that corresponding type can be found
+     * @param request object to update
+     * @param type type to validate
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
+     */
     int checkValidType(Request &request, std::string &type) {
         Event e = request.getEvent();
 
@@ -144,8 +186,13 @@ private:
         return RET::OK;
     }
 
-
-    int verifyObjectExists(Category &category, const std::string &type, const std::string &value) {
+    /*! \private Cli::verifyObjectExists
+     * @brief verify that the object in question is located in the database for processing
+     * @param category used to filter search
+     * @param value value to search for
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
+     */
+    int verifyObjectExists(Category &category, const std::string &value) {
         auto found =  JsonParser::getInstance().find(category, value);
 
         if(!found) { return RET::ERROR; }
@@ -153,13 +200,13 @@ private:
         return RET::OK;
     }
 
-    /*! \private Cli::getType(Request &, std::vector<std::string>&)
-     *
-     * @param req - object containing all info for request
-     * @param input - cli input
-     * @return - property type for request
+    /*! \private Cli::getType
+     * @brief get valid type and strip from input vector @param input
+     * @param input stdin input
+     * @param type type to process
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
      */
-    int getTypeOfValue(Request &request, std::vector<std::string> &input, std::string &type) {
+    int getTypeOfValue(std::vector<std::string> &input, std::string &type) {
         type = input.front();
 
         std::transform(type.begin(), type.end(), type.begin(), ::tolower);
@@ -171,7 +218,13 @@ private:
         return RET::ERROR;
     }
 
-    int getValueOfType(std::vector<std::string> &input, std::string &type, std::string &val) {
+    /*! \private Cli::getValueOfType
+     * @brief fetch value from stdin and quickly evaluate it
+     * @param input stdin
+     * @param val value fetched
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
+     */
+    int getValueOfType(std::vector<std::string> &input, std::string &val) {
 
         if(input.size() > 1) {
             return RET::ERROR;
@@ -186,12 +239,22 @@ private:
         return RET::OK;
     }
 
+    /*! \private Cli::setFileName
+     * @brief set @property filename in request object
+     * @param request object to update
+     * @param val value to save to @property filename
+     */
     void setFileName(Request &request, std::string &val) {
         std::string path = "../data/";
         val = path + val;
         request.setFilename(val);
     }
 
+    /*! \private Cli::setProperties
+     * @brief set @property title @property genre
+     * @param request
+     * @param item
+     */
     void setProperties(Request &request, std::vector<std::string> &item) {
         request.setTitle(item.at(ORDER::TITLE_POS));
         request.setGenre(item.at(ORDER::GENRE_POS));
@@ -204,9 +267,10 @@ private:
         request.setActors(vec);
     }
 
-    /*! \private Cli::verifyUpload(Request &)
-     *
-     * @return OK or ERROR
+    /*! \private Cli::verifyUpload
+     * @brief receive and verify extra info for upload
+     * @param request object to save info in
+     * @return result of operation with @enum RET::OK or @enum RET::ERROR
      */
     int verifyUpload(Request &request) {
 
@@ -224,7 +288,7 @@ private:
         std::string answer;
 
         std::getline(std::cin, info);
-        auto parsedInfo = parseArg(info, ' ');
+        auto parsedInfo = split(info, ' ');
         std::cout << "Please confirm <title> " << parsedInfo.front() <<
                   " <genre> " << parsedInfo.at(1) << " <director> " << parsedInfo.at(2) << " and the following actors: " << std::endl;
 
@@ -243,7 +307,7 @@ private:
         return RET::OK;
     }
 
-    /*! \private Cli::printOptions()
+    /*! \private Cli::printOptions
     *   @brief Test A private method that prints all valid options for stdin.
     */
     void printOptions() {

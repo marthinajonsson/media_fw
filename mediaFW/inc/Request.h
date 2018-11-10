@@ -51,14 +51,51 @@ public:
 private:
     int m_error;
     std::string m_errDesc;
+
+    /*! \property event
+     *  @brief mapped to @enum Event
+     */
     Event m_event;
+
+    /*! \property filename
+     *
+     */
     std::string m_filename;
+
+    /*! \property title
+     *
+     */
     std::string m_title;
+
+    /*! \property genre
+     *
+     */
     std::string m_genre;
+
+    /*! \property director
+     *
+     */
     std::string m_director;
+
+    /*! \property category
+     *  @brief mapped to @enum Category
+     */
     Category m_category;
+
+    /*! \property actors
+     *
+     */
     std::vector<std::string> m_actors;
+
+    /*! \property progress
+     *  @brief mapped to @enum Progress
+     */
     Progress m_progess;
+
+    /*! \property multipleResult
+     *  @brief in case operation result in multiple items such in a @enum Event::SEARCH
+     *  the result is being saved
+     */
     std::map<std::string, std::vector<std::string>> m_multipleResult;
 };
 #endif //MEDIAFW_REQUEST_H

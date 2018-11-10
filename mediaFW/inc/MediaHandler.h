@@ -32,6 +32,8 @@ public:
         p_client = new Client(p_conn, p_cli);
         p_database = new MovieDatabase;
         p_client->registerObserver(this);
+
+        std::thread thread_1(&Client::handleRequest, &p_client);
     };
 
     ~MediaHandler() {
@@ -43,6 +45,7 @@ public:
         std::cout << "Deconstructor MediaHandler" << std::endl;
     };
 
+    int update(Request &request) override;
 
     void startCliThread() {
         int result = p_client->waitCliAsync(); // will return when "exit" has been requested and block until then.
@@ -52,8 +55,6 @@ public:
             m_logger->TRACE(Logger::INFO, "Client ended normally");
         }
     }
-
-    int update(Request &request) override;
 
     void logStatus(Event &event, Progress &progress);
     void syncDatabase(const Request &request);

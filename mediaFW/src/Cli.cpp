@@ -18,7 +18,7 @@
 
 Request Cli::process(std::string &line) {
     std::vector<std::string> parsed;
-    parsed = parseArg(line, ':');
+    parsed = split(line, ':');
     Request request = interprete(parsed);
     return request;
 }
@@ -35,7 +35,7 @@ Request Cli::process()
             return Request(Event::EXIT);
         }
         else if (!line.empty()) {
-            parsed = parseArg(line, ':');
+            parsed = split(line, ':');
             Request request = interprete(parsed);
 
             if(request.getEvent() == Event::UPLOAD)
@@ -79,7 +79,7 @@ Request Cli::interprete(std::vector<std::string> &input)
     }
     request.setCategory(category);
 
-    if(RET::ERROR == getTypeOfValue(request, input, type))
+    if(RET::ERROR == getTypeOfValue(input, type))
     {
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid type entered");
@@ -91,7 +91,7 @@ Request Cli::interprete(std::vector<std::string> &input)
         request.setErrorDesc("Type not valid to event");
     }
 
-    if(RET::ERROR == getValueOfType(input, type, val)) {
+    if(RET::ERROR == getValueOfType(input, val)) {
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid value");
     }
@@ -99,7 +99,7 @@ Request Cli::interprete(std::vector<std::string> &input)
 
     if(Event::DELETE == event || Event::SEARCH == event || Event::DOWNLOAD == event) {
 
-        if (RET::ERROR == verifyObjectExists(category, type, val)) {
+        if (RET::ERROR == verifyObjectExists(category, val)) {
             request.setError(RET::ERROR);
             request.setErrorDesc("Object does not exists at server or database is unsynced");
             return request;
