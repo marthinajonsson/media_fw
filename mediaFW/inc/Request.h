@@ -11,17 +11,22 @@
 class Request {
 public:
     Request(Event _event, std::string &_title, std::string, std::string &_genre, std::string &_director, std::vector<std::string> &_actors) :
-        m_event(_event), m_title(_title), m_genre(_genre), m_director(_director), m_actors(_actors) { m_error = RET::OK; }
+        m_event(_event), m_title(_title), m_genre(_genre), m_director(_director), m_actors(_actors) { m_error = RET::OK; m_progess = Todo; }
 
-    Request(Event _event, std::string &_title) : m_event(_event), m_title(_title) { m_error = RET::OK; }
+    Request(Event _event, std::string &_title) : m_event(_event), m_title(_title) { m_error = RET::OK; m_progess = Todo; }
 
-    Request(Event _event) : m_event(_event) {}
+    Request(Event _event) : m_event(_event) {
+        m_progess = Todo;
+    }
 
-    Request(const int code, const std::string desc) : m_error(code), m_errDesc(desc) {}
+    Request(const int code, const std::string desc) : m_error(code), m_errDesc(desc) {
+        m_progess = Todo;
+    }
 
     ~Request() = default;
 
-    void setCategory(Category cat) { category = cat; }
+    void setCategory(Category cat) { m_category = cat; }
+    void setProgress(Progress progress) { m_progess = progress; }
     void setErrorDesc(const std::string &_desc) { m_errDesc = _desc; }
     void setError(const int &_err) { m_error = _err; }
     void setTitle (const std::string &_title) { m_title = _title; }
@@ -34,12 +39,13 @@ public:
     int getError() { return m_error; }
     std::string getErrorDesc() { return m_errDesc; }
     Event getEvent() const {return m_event; }
+    Progress getProgress() { return m_progess; }
     std::string const getFileName() { return m_filename; }
     std::string const getTitle() const { return m_title; }
     std::string const getGenre() { return m_genre; }
     std::string const getDirector() { return m_director; }
     std::vector<std::string> const getActors() { return m_actors; }
-    Category const getCategory() const { return category; }
+    Category const getCategory() const { return m_category; }
     std::map<std::string, std::vector<std::string>> getMultipleResult() { return m_multipleResult; }
 
 private:
@@ -50,8 +56,9 @@ private:
     std::string m_title;
     std::string m_genre;
     std::string m_director;
-    Category category;
+    Category m_category;
     std::vector<std::string> m_actors;
+    Progress m_progess;
     std::map<std::string, std::vector<std::string>> m_multipleResult;
 };
 #endif //MEDIAFW_REQUEST_H

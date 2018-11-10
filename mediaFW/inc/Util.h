@@ -32,6 +32,12 @@ enum Category {
     All = 2
 };
 
+enum Progress {
+    Todo,
+    InProgress,
+    Done
+};
+
 enum Event {
     UPLOAD = 0,
     DOWNLOAD = 1,

@@ -76,6 +76,7 @@ private:
         return seglist;
     }
 
+
     /*! \private Cli::checkValidEvent(const std::string&, Event &)
      *
      * @param choice - event in string
@@ -84,7 +85,10 @@ private:
      */
     int checkValidEvent(std::vector<std::string> &input, Event &event){
         auto result = RET::ERROR;
-        auto it = std::find(EVENT_ARGS.begin(), EVENT_ARGS.end(), input.front());
+        auto eventStr = input.front();
+        std::transform(eventStr.begin(), eventStr.end(), eventStr.begin(), ::tolower);
+
+        auto it = std::find(EVENT_ARGS.begin(), EVENT_ARGS.end(), eventStr);
         if(it != EVENT_ARGS.end())
         {
             long val = std::distance(EVENT_ARGS.begin(),it);
@@ -98,7 +102,9 @@ private:
     int checkValidCategory(std::vector<std::string> &input, Category &category){
         auto result = RET::ERROR;
         auto vec = {MOVIE, SERIES};
-        auto it = std::find(vec.begin(), vec.end(), input.front());
+        auto str = input.front();
+        std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+        auto it = std::find(vec.begin(), vec.end(), str);
         if(it != vec.end())
         {
             long val = std::distance(vec.begin(),it);
@@ -156,6 +162,7 @@ private:
     int getTypeOfValue(Request &request, std::vector<std::string> &input, std::string &type) {
         type = input.front();
 
+        std::transform(type.begin(), type.end(), type.begin(), ::tolower);
         if(type == TITLE || type == GENRE || type == ACTOR || type == DIRECTOR || type == FILENAME) {
             pop_front(input);
             return RET::OK;
@@ -201,13 +208,13 @@ private:
      *
      * @return OK or ERROR
      */
-    int verifyUpload(Request &_request) {
+    int verifyUpload(Request &request) {
 
-        const auto filename = _request.getFileName();
+        const auto filename = request.getFileName();
         if (filename.empty()) { return false; }
         if(access( filename.c_str(), F_OK ) == RET::ERROR) {
-            _request.setError(RET::ERROR);
-            _request.setErrorDesc("File not found");
+            request.setError(RET::ERROR);
+            request.setErrorDesc("File not found");
             return RET::ERROR;
         }
         std::cout << "To confirm your upload add the following info: \n"
@@ -225,20 +232,14 @@ private:
             std::cout << *it << " " << std::endl;
         }
 
-        std::cout << "Y or n? ";
+        std::cout << "\n y or n? ";
         std::getline(std::cin, answer);
-        if(answer == "n")
-        {
+        std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower);
+        if(answer == "n"){
             return RET::ERROR;
         }
 
-        _request.setTitle(parsedInfo.front());
-        _request.setGenre(parsedInfo.at(1));
-        _request.setDirector(parsedInfo.at(2));
-        pop_front(parsedInfo);
-        pop_front(parsedInfo);
-        pop_front(parsedInfo);
-        _request.setActors(parsedInfo);
+        setProperties(request, parsedInfo);
         return RET::OK;
     }
 

@@ -5,7 +5,11 @@
 #ifndef MEDIAFW_CLIENT_H
 #define MEDIAFW_CLIENT_H
 #include <algorithm>
-#include <ifc/Subject.h>
+#include <queue>
+#include <mutex>
+#include <future>
+
+#include "ifc/Subject.h"
 #include "Connection.h"
 #include "Cli.h"
 #include "StatusLogger.h"
@@ -59,7 +63,27 @@ public:
         }
     }
 
-//protected:
+    void push(const Request &m_request) {
+        std::unique_lock<std::mutex> guard(m_lock);
+        if(m_requests.empty()) {
+            m_emptyQ.notify_one();
+        }
+        m_requests.push(m_request);
+    }
+
+    Request pop() {
+        std::unique_lock<std::mutex> guard(m_lock);
+        if(m_requests.empty()) {
+            Request err(RET::ERROR, "No request to pop");
+            return err;
+        }
+        auto popped = m_requests.front();
+        m_requests.pop();
+        return popped;
+    }
+
+
+
     std::vector<Observer *> observers;
 
 private:
@@ -77,6 +101,14 @@ private:
 
 
     StatusLogger *m_logger;
+
+    std::queue<Request> m_requests;
+
+    mutable std::mutex m_lock;
+
+    std::condition_variable m_emptyQ;
+
+
     /*! \privatesection Client::getCliInput(Cli* p_cli)
      * @brief A method that waits for CLI to process incoming request. Used by std::future.
      * @param p_cli
@@ -91,7 +123,7 @@ private:
      * @param request - String containing all information needed for the server request.
      * @param connected - Boolean parameter indicating we have an established ssh connection.
      */
-    void handleRequest(Request &request);
+    void handleRequest();
 };
 
 

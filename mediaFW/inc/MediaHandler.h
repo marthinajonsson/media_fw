@@ -28,15 +28,9 @@ public:
 
     MediaHandler(Category &category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
-        cat = category;
-        p_client = new Client(p_conn, p_cli);
 
-        if(category == Category::Series) {
-            p_database = new SeriesDatabase;
-        }
-        else {
-            p_database = new MovieDatabase;
-        }
+        p_client = new Client(p_conn, p_cli);
+        p_database = new MovieDatabase;
         p_client->registerObserver(this);
     };
 
@@ -59,9 +53,9 @@ public:
         }
     }
 
-    int update(Request &request) override;  // this should only report status from observation, cli thread should run and stop itself.
+    int update(Request &request) override;
 
-    void syncClient();
+    void logStatus(Event &event, Progress &progress);
     void syncDatabase(const Request &request);
 
     enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
@@ -71,13 +65,9 @@ private:
     Connection *p_conn;
     Cli *p_cli;
     Database *p_database;
-    Category cat;
 
-    static Status getClientInfo(Client* p_client, const Status &status) { // TODO:these should be more clever
-        return status;
-    }
 
-    static Status updateDatabaseInfo(const Request &request, const Status &status)
+    static Status updateDatabaseInfo(const Request &request)
     {
         Category cat = request.getCategory();
         if(request.getEvent() == Event::UPLOAD ) {

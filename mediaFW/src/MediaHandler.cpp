@@ -11,15 +11,12 @@
 int MediaHandler::update(Request &request)
 {
     Event event = request.getEvent();
+    Progress progress = request.getProgress();
 
-    syncClient();
+    logStatus(event, progress);
 
-    if(event == Event::UPLOAD) {
-        status = Status::UPLOADING;
+    if(event == Event::UPLOAD || event == Event::DELETE)  {
         syncDatabase(request);
-    }
-    else if (event == Event ::DOWNLOAD) {
-        status = Status::DOWNLOADING;
     }
     else if (event == Event ::SEARCH) {
         status = Status::SEARCHING;
@@ -36,51 +33,27 @@ int MediaHandler::update(Request &request)
             std::cout << "\n\n";
         }
     }
-    else if (event == Event::DELETE) {
-        status = Status::DELETING;
-        syncDatabase(request);
-    }
-    else if (event == Event ::HELP) {
-        status = Status::IDLE;
-    }
-    else if (event == Event ::EXIT) {
-        status = Status::DISCONNECT;
-    }
-    else {
-        return RET::ERROR;
-    }
 
     return RET::OK;
 
 }
 
-void MediaHandler::syncClient() {
+void MediaHandler::logStatus(Event &event, Progress &progress) {
 
     bool connected = true ; //p_client->getConnectionStatus();
 
     if(connected) {
         m_logger->TRACE(Logger::INFO, "Server connection OK");
 
-        auto fut = std::async(getClientInfo, p_client, status);
-        auto answer = fut.get();
-
-        if(Status::IDLE == answer) {
+        if(progress == Progress::Done) {
             m_logger->TRACE(Logger::INFO, "Client is idle");
         }
-        else if(Status::SEARCHING == answer){
-            m_logger->TRACE(Logger::INFO, "Client is searching");
-        }
-        else if(Status::DOWNLOADING == answer){
-            m_logger->TRACE(Logger::INFO, "Client is downloading");
-        }
-        else if(Status::UPLOADING == answer){
-            m_logger->TRACE(Logger::INFO, "Client is uploading");
-        }
-        else if(Status::STREAMING == answer){
-            m_logger->TRACE(Logger::INFO, "Client is streaming");
-        }
-        else if(Status::DISCONNECT == answer){
-            m_logger->TRACE(Logger::INFO, "Client is disconnected");
+        else if (progress == Progress::InProgress) {
+            if(event == Event::UPLOAD) { m_logger->TRACE(Logger::INFO, "Client is uploading"); }
+            else if(event == Event::DOWNLOAD) { m_logger->TRACE(Logger::INFO, "Client is downloading"); }
+            else if(event == Event::SEARCH) {  m_logger->TRACE(Logger::INFO, "Client is searching"); }
+            else if(event == Event::DELETE) {  m_logger->TRACE(Logger::INFO, "Client is purging"); }
+            else if(event == Event::EXIT) { m_logger->TRACE(Logger::INFO, "Client is exiting"); }
         }
     }
     else {
@@ -91,7 +64,7 @@ void MediaHandler::syncClient() {
 
 void MediaHandler::syncDatabase(const Request &request) {
     //TODO: connect more status reports
-    auto fut = std::async(updateDatabaseInfo, request, status);
+    auto fut = std::async(updateDatabaseInfo, request);
     auto answer = fut.get();
     if(answer == Status::IDLE) {
         m_logger->TRACE(Logger::INFO, "Database is synced");

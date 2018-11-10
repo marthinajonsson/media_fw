@@ -27,16 +27,22 @@ int Client::waitCliAsync()
             return RET::OK;
         }
 
-        handleRequest(result);
+        push(result);
     }
-    return RET::ERROR;
 }
 
-void Client::handleRequest(Request &request)
+void Client::handleRequest()
 {
+    auto request = pop();
+    request.setProgress(Progress::InProgress);
     notifyObservers(request);
+
     std::string result;
     std::string testcommand = "ls";
     //p_conn->sendServerRequest(testcommand, result);
     std::cout << result << std::endl;
+
+    request.setProgress(Progress::Done);
+    notifyObservers(request);
+
 }
