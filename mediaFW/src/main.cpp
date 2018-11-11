@@ -8,6 +8,7 @@ bool processed = false;
 
 void threadCaller(MediaHandler *handler) {
     std::lock_guard<std::mutex> lock(mtx);
+    std::thread threadObj(&MediaHandler::startRequestThread, handler);
     handler->startCliThread();
     processed = true;
     cv.notify_one();

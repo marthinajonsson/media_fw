@@ -13,24 +13,31 @@ int MediaHandler::update(Request &request)
     Event event = request.getEvent();
     Progress progress = request.getProgress();
 
-    logStatus(event, progress);
+    getConnectionInfo(event, progress);
 
     if(event == Event::UPLOAD || event == Event::DELETE)  {
-        syncDatabase(request);
+        if(progress == Progress::Done) {
+            syncDatabase(request);
+        }
     }
     else if (event == Event ::SEARCH) {
         status = Status::SEARCHING;
-        for(auto result : request.getMultipleResult()) {
-            std::cout << "TITLE: " << result.second.at(0) << std::endl;
-            std::cout << "GENRE: " << result.second.at(1) << std::endl;;
-            std::cout << "DIRECTOR: " << result.second.at(2) << std::endl;;
-            pop_front(result.second);
-            pop_front(result.second);
-            pop_front(result.second);
-            for(const auto &s : result.second) {
-                std::cout << "ACTOR: " << s << std::endl;
+        if(progress == Progress::InProgress) {
+            for (auto result : request.getMultipleResult()) {
+                std::cout << "\nTITLE: " << result.second.at(0) << std::endl;
+                std::cout << "GENRE: " << result.second.at(1) << std::endl;;
+                std::cout << "DIRECTOR: " << result.second.at(2) << std::endl;;
+                pop_front(result.second);
+                pop_front(result.second);
+                pop_front(result.second);
+                for (const auto &s : result.second) {
+                    std::cout << "ACTOR: " << s << std::endl;
+                }
+                std::cout << "\n\n";
             }
-            std::cout << "\n\n";
+        }
+        else if(progress == Progress::Done) {
+            std::cout << "Search completed" << std::endl;
         }
     }
 
@@ -38,7 +45,8 @@ int MediaHandler::update(Request &request)
 
 }
 
-void MediaHandler::logStatus(Event &event, Progress &progress) {
+
+void MediaHandler::getConnectionInfo(Event &event, Progress &progress) {
 
     bool connected = true ; //p_client->getConnectionStatus();
 
@@ -62,8 +70,8 @@ void MediaHandler::logStatus(Event &event, Progress &progress) {
 
 }
 
+
 void MediaHandler::syncDatabase(const Request &request) {
-    //TODO: connect more status reports
     auto fut = std::async(updateDatabaseInfo, request);
     auto answer = fut.get();
     if(answer == Status::IDLE) {
@@ -79,5 +87,25 @@ void MediaHandler::syncDatabase(const Request &request) {
         m_logger->TRACE(Logger::INFO, "Deleting.. ");
     }
 
+}
+
+MediaHandler::Status MediaHandler::updateDatabaseInfo(const Request &request)
+{
+    Category cat = request.getCategory();
+    if(request.getEvent() == Event::UPLOAD ) {
+        DatabaseItem item;
+        item.setFeature(request);
+        JsonParser::getInstance().add(cat, item);
+        JsonParser::getInstance().load(cat);
+        return Status::UPLOADING;
+    }
+    else if(request.getEvent() == Event::DELETE) {
+        DatabaseItem item;
+        item.setFeature(request);
+        JsonParser::getInstance().remove(cat, item);
+        JsonParser::getInstance().load(cat);
+        return Status::DELETING;
+    }
+    return Status::IDLE;
 }
 

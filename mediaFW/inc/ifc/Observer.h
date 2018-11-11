@@ -20,9 +20,7 @@ public:
 
     /**
      * Update the state of this observer
-     * @param temp new temperaure
-     * @param humidity new humidity
-     * @param pressure new pressure
+     * @param Request of update
      */
     virtual int update(Request&) = 0;
 

@@ -22,7 +22,7 @@
 class MediaHandler : public Observer{
 public:
 
-    Client *p_client; // return error & status to user?
+    Client *p_client;
 
     MediaHandler () = default;
 
@@ -32,8 +32,6 @@ public:
         p_client = new Client(p_conn, p_cli);
         p_database = new MovieDatabase;
         p_client->registerObserver(this);
-
-        std::thread thread_1(&Client::handleRequest, &p_client);
     };
 
     ~MediaHandler() {
@@ -45,10 +43,17 @@ public:
         std::cout << "Deconstructor MediaHandler" << std::endl;
     };
 
+    /*! \public MediaHandler::update
+    * @brief receives new request from client
+    * @implements observer method update
+    * @param request
+    * @return
+    */
     int update(Request &request) override;
 
+
     void startCliThread() {
-        int result = p_client->waitCliAsync(); // will return when "exit" has been requested and block until then.
+        int result = p_client->handleCliThread(); // will return when "exit" has been requested and block until then.
         if(result != 0) {
             m_logger->TRACE(Logger::ERR, "Client ended with error");
         }else {
@@ -56,10 +61,14 @@ public:
         }
     }
 
-    void logStatus(Event &event, Progress &progress);
-    void syncDatabase(const Request &request);
-
-    enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
+    void startRequestThread() {
+        int result = p_client->handleRequestThread();
+        if(result != 0) {
+            m_logger->TRACE(Logger::ERR, "Request thread ended with error");
+        }else {
+            m_logger->TRACE(Logger::INFO, "Request thread ended normally");
+        }
+    }
 
 private:
     StatusLogger* m_logger;
@@ -67,26 +76,11 @@ private:
     Cli *p_cli;
     Database *p_database;
 
+    enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
 
-    static Status updateDatabaseInfo(const Request &request)
-    {
-        Category cat = request.getCategory();
-        if(request.getEvent() == Event::UPLOAD ) {
-            DatabaseItem item;
-            item.setFeature(request);
-            JsonParser::getInstance().add(cat, item);
-            JsonParser::getInstance().load(cat);
-            return Status::UPLOADING;
-        }
-        else if(request.getEvent() == Event::DELETE) {
-            DatabaseItem item;
-            item.setFeature(request);
-            JsonParser::getInstance().remove(cat, item);
-            JsonParser::getInstance().load(cat);
-            return Status::DELETING;
-        }
-        return Status::IDLE;
-    }
+    void syncDatabase(const Request &request);
+    void getConnectionInfo(Event &event, Progress &progress);
+    static Status updateDatabaseInfo(const Request &request);
 };
 
 #endif //MEDIAFW_MEDIAHANDLER_H

@@ -17,26 +17,51 @@
 #include "Cli.h"
 #include "StatusLogger.h"
 
+using namespace std::placeholders;
 
+class Client : Subject {
 
-class Client : Subject{
 public:
-    Client() = default;
+
+    Client() {};
     ~Client() = default;
 
-    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger) {
-        std::cout << "Client constructor" << std::endl;
-    };
+    Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger), m_queueEmpty(false) {};
 
-    int waitCliAsync();
-
-    void handleRequest();
 
     bool getConnectionStatus();
 
-    Request pop();
+    bool isRequestInQueue ();
 
-    void push(const Request &m_request);
+    /*! \public handleRequestThread
+     * @brief when available pop requests from queue and process them.
+     * @callgraph
+     * @return RET::OK when CLI is exiting
+     */
+    int handleRequestThread();
+
+
+    /*! \public waitCliAsync
+     * @brief loop that receives new Requests from CLI and pushes to queue
+     * @return RET::OK when CLI is exiting
+     */
+    int handleCliThread();
+
+    /*! \public pushRequest
+    * @brief push incoming request to queue
+    * @addtogroup QueueRequestOp
+    * @callgraph
+    * @param m_request incoming request about to be queued
+    */
+    void pushRequest(const Request &m_request);
+
+    /*! \public popRequest
+     * @brief pop requests from queue
+     * @addtogroup QueueRequestOp
+     * @callgraph
+     * @return popped request ready to process
+     */
+    Request popRequest();
 
     /*! \public registerObserver
      * @brief register observers for event notification
@@ -65,28 +90,27 @@ public:
     std::vector<Observer *> observers;
 
 private:
-
-    Connection *p_conn;
+    bool m_queueEmpty;
 
     Cli *p_cli;
 
+    Connection *p_conn;
+
     StatusLogger *m_logger;
+
+    std::mutex m_lock;
 
     std::queue<Request> m_requests;
 
-    mutable std::mutex m_lock;
+    std::condition_variable m_condVar;
 
-    std::condition_variable m_emptyQ;
+    /*! \private Client::getCliInput(Cli* p_cli)
+   * @brief A method that waits for CLI to process incoming request.
+   * @param p_cli - pointer to CLI instance
+   * @return - A request object
+   */
+    static Request getCliInput(Cli* p_cli);
 
-
-    /*! \privatesection Client::getCliInput(Cli* p_cli)
-     * @brief A method that waits for CLI to process incoming request. Used by std::future.
-     * @param p_cli - pointer to CLI instance
-     * @return - A request object
-     */
-    static Request getCliInput(Cli* p_cli) {
-        return p_cli->process();
-    }
 };
 
 

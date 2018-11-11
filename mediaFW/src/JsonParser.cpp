@@ -161,7 +161,7 @@ bool JsonParser::find(Category &category, const std::string &val)
         std::vector<std::string> vec;
         vec.push_back(temp_title);
         vec.insert(vec.end(), it.second.begin(), it.second.end());
-        m_resultMap[temp_title] = vec;
+        m_resultMap.insert(std::pair(temp_title, vec));
         result = true;
     }
     return result;
