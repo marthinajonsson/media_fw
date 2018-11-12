@@ -22,7 +22,7 @@ public:
     Request(const int code, const std::string desc) : m_error(code), m_errDesc(desc) {
         m_progess = Todo;
     }
-
+    Request() = default;
     ~Request() = default;
 
     void setCategory(Category cat) { m_category = cat; }

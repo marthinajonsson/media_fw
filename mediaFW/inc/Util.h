@@ -83,11 +83,11 @@ enum Progress {
 enum Event {
     UPLOAD = 0,
     DOWNLOAD = 1,
-    SEARCH,
-    DELETE,
-    HELP,
-    EXIT,
-    UNDEFINED
+    SEARCH = 2,
+    DELETE = 3,
+    HELP = 4,
+    EXIT = 5,
+    UNDEFINED = 6
 };
 
 

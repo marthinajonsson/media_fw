@@ -32,34 +32,41 @@ Request Client::getCliInput(Cli* p_cli) {
  *  THREADS
  *
  * */
-int Client::handleCliThread()
+
+void Client::handleCliThread(std::promise <int>* exit2)
 {
-    std::vector<std::string> resultVector;
-    std::string choice;
+    std::cout << "Thread Start" << std::endl;
+    Request request;
+    Event event = Event::UNDEFINED;
+    int err = RET::OK;
     std::future<Request> fut;
-    while(true)
+    while(event != Event::EXIT)
     {
-        resultVector.clear();
         fut = std::async(getCliInput, p_cli);
-        auto result = fut.get();
-
-        pushRequest(result);
-        if(result.getEvent() == Event::EXIT) {
-            return RET::OK;
-        }
-
-
+        request = fut.get();
+        pushRequest(request);
+        err = request.getError(); // weird result
+        event = request.getEvent();
     }
+
+    std::cout << "Thread End" << std::endl;
+    exit2->set_value(RET::OK);
+
 }
 
-int Client::handleRequestThread()
+void Client::handleRequestThread(std::promise <int>* exit)
 {
-    while (true) {
-        if(!m_requests.empty()) {
-            auto request = popRequest();
+    std::cout << "Thread Start" << std::endl;
+    Request request;
+    Event event = Event::UNDEFINED;
 
-            if(request.getEvent() == Event::EXIT) {
-                return RET::OK;
+    while (event != Event::EXIT) {
+        if(!m_requests.empty()) {
+            request = popRequest();
+
+            event = request.getEvent();
+            if(event == Event::EXIT) {
+                break;
             }
             request.setProgress(Progress::InProgress);
             notifyObservers(request);
@@ -67,13 +74,15 @@ int Client::handleRequestThread()
             std::string result;
             std::string testcommand = "ls";
             //p_conn->sendServerRequest(testcommand, result);
-            std::cout << result << std::endl;
-
             request.setProgress(Progress::Done);
             notifyObservers(request);
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     }
+
+    std::cout << "Thread End" << std::endl;
+    exit->set_value(RET::OK);
+
 }
 
 

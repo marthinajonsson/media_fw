@@ -24,7 +24,9 @@ class Client : Subject {
 public:
 
     Client() {};
-    ~Client() = default;
+    ~Client()  {
+        std::cout << "client deconstructor" << std::endl;
+    };
 
     Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger), m_queueEmpty(false) {};
 
@@ -38,14 +40,16 @@ public:
      * @callgraph
      * @return RET::OK when CLI is exiting
      */
-    int handleRequestThread();
+    void handleRequestThread(std::promise<int>*);
 
 
-    /*! \public waitCliAsync
+    /*! \public handleCliThread
      * @brief loop that receives new Requests from CLI and pushes to queue
+     * @callgraph
      * @return RET::OK when CLI is exiting
      */
-    int handleCliThread();
+    void handleCliThread(std::promise<int>*);
+
 
     /*! \public pushRequest
     * @brief push incoming request to queue
