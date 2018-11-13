@@ -74,16 +74,44 @@ private:
     const std::string FILENAME = "filename";
 
 
+    /*! \var MOVIE "movie"
+     * @brief used to refer to @enum Category
+     */
     std::string MOVIE = "movie";
+    /*! \var SERIES "series"
+     * @brief used to refer to @enum Category
+     */
     std::string SERIES = "series";
 
+    /*! \var DOWNLOAD "download"
+     * @brief used to refer to @enum Event
+     */
     const std::string DOWNLOAD = "download";
+    /*! \var UPLOAD "upload"
+     * @brief used to refer to @enum Event
+     */
     const std::string UPLOAD = "upload";
+    /*! \var SEARCH "search"
+     * @brief used to refer to @enum Event
+     */
     const std::string SEARCH = "search";
+    /*! \var DELETE "delete"
+     * @brief used to refer to @enum Event
+     */
     const std::string DELETE = "delete";
+    /*! \var HELP "help"
+     * @brief used to refer to @enum Event
+     */
     const std::string HELP = "help";
+    /*! \var EXIT "exit"
+     * @brief used to refer to @enum Event
+     */
     const std::string EXIT = "exit";
 
+
+    /*! \var EVENT_ARGS
+     * @brief contain all valid @enum Event using @property
+     */
     const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT};
 
     /*! \private Cli::split

@@ -2,38 +2,106 @@
 \label{classJsonParser}\index{Json\+Parser@{Json\+Parser}}
 
 
-Collaboration diagram for Json\+Parser\+:
-\nopagebreak
+Inheritance diagram for Json\+Parser\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=340pt]{classJsonParser__coll__graph}
+\includegraphics[width=146pt]{classJsonParser__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Json\+Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classJsonParser__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classJsonParser_a0596a13bfbe4ad3a3148da5e15d6d5ca}\label{classJsonParser_a0596a13bfbe4ad3a3148da5e15d6d5ca}} 
-void {\bfseries parser} ()
+\mbox{\Hypertarget{classJsonParser_af6b90af892f999ee37dfc57bc0a7851f}\label{classJsonParser_af6b90af892f999ee37dfc57bc0a7851f}} 
+{\bfseries Json\+Parser} (\hyperlink{classJsonParser}{Json\+Parser} const \&)=delete
 \item 
-\mbox{\Hypertarget{classJsonParser_a5b1b7ec9ecee0e8e9368341764ceb91a}\label{classJsonParser_a5b1b7ec9ecee0e8e9368341764ceb91a}} 
-void {\bfseries update\+DB} ()
+\mbox{\Hypertarget{classJsonParser_ab4f43720d31047a61275598769b30e7d}\label{classJsonParser_ab4f43720d31047a61275598769b30e7d}} 
+void {\bfseries operator=} (\hyperlink{classJsonParser}{Json\+Parser} const \&)=delete
 \item 
-\mbox{\Hypertarget{classJsonParser_a3edea04b709d78da9b90a916ab1123f6}\label{classJsonParser_a3edea04b709d78da9b90a916ab1123f6}} 
-std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries get\+Parsed} ()
+\mbox{\Hypertarget{classJsonParser_a1d091b22b4f95ea1c16e9d09b644715e}\label{classJsonParser_a1d091b22b4f95ea1c16e9d09b644715e}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{classJsonParser_abd179a463a5ce61bad930af35bf414d8}\label{classJsonParser_abd179a463a5ce61bad930af35bf414d8}} 
+void {\bfseries load} (const Category \&) override
+\item 
+\mbox{\Hypertarget{classJsonParser_a9ab6146344e60e607289dafe2609c4e5}\label{classJsonParser_a9ab6146344e60e607289dafe2609c4e5}} 
+void {\bfseries add} (const Category \&, \hyperlink{classDatabaseItem}{Database\+Item} \&) override
+\item 
+\mbox{\Hypertarget{classJsonParser_ad49a8004db93e654df391bac2d98c5cc}\label{classJsonParser_ad49a8004db93e654df391bac2d98c5cc}} 
+void {\bfseries remove} (const Category \&, \hyperlink{classDatabaseItem}{Database\+Item} \&) override
+\item 
+\mbox{\Hypertarget{classJsonParser_af5641c4ab20251540d9c9f7a8d182efb}\label{classJsonParser_af5641c4ab20251540d9c9f7a8d182efb}} 
+bool {\bfseries find} (Category \&, const std\+::string \&) override
+\item 
+\mbox{\Hypertarget{classJsonParser_a06078f0464569dac47c5d66131a4f8a4}\label{classJsonParser_a06078f0464569dac47c5d66131a4f8a4}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries get\+Movie\+Parsed} ()
+\item 
+\mbox{\Hypertarget{classJsonParser_ac942ea55db61a23fd1c6106b76ad1fa4}\label{classJsonParser_ac942ea55db61a23fd1c6106b76ad1fa4}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries get\+Series\+Parsed} ()
+\item 
+\mbox{\Hypertarget{classJsonParser_ab23dd51f8c905cc86d2ad0b9bf232aeb}\label{classJsonParser_ab23dd51f8c905cc86d2ad0b9bf232aeb}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries get\+Latest\+Result} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJsonParser_a31933a8a827a8377b5edbf01bd4a66ac}\label{classJsonParser_a31933a8a827a8377b5edbf01bd4a66ac}} 
+static \hyperlink{classJsonParser}{Json\+Parser} \& {\bfseries get\+Instance} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classJsonParser_a9f6f40a24df6f47c7d44bda36373f7d9}\label{classJsonParser_a9f6f40a24df6f47c7d44bda36373f7d9}} 
-std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+parsed}
+\mbox{\Hypertarget{classJsonParser_a1fd58d33ddee29187d335f9f0cf0a0db}\label{classJsonParser_a1fd58d33ddee29187d335f9f0cf0a0db}} 
+const std\+::string {\bfseries T\+I\+T\+LE} = \char`\"{}title\char`\"{}
 \item 
-\mbox{\Hypertarget{classJsonParser_afbc560e458757815191a668619a03b0e}\label{classJsonParser_afbc560e458757815191a668619a03b0e}} 
-std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries \+\_\+map}
+\mbox{\Hypertarget{classJsonParser_a32223885ef9b529e156fb47ea847abff}\label{classJsonParser_a32223885ef9b529e156fb47ea847abff}} 
+const std\+::string {\bfseries G\+E\+N\+RE} = \char`\"{}genre\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_ad47cedc2b9fc664735a9fdcbc9869033}\label{classJsonParser_ad47cedc2b9fc664735a9fdcbc9869033}} 
+const std\+::string {\bfseries A\+C\+T\+O\+RS} = \char`\"{}actors\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_a8d6aa8c21e729236fd180f051358e9c9}\label{classJsonParser_a8d6aa8c21e729236fd180f051358e9c9}} 
+const std\+::string {\bfseries D\+I\+R\+E\+C\+T\+OR} = \char`\"{}director\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_a3fcbbf58d72ac41ef6caf67cb34b7864}\label{classJsonParser_a3fcbbf58d72ac41ef6caf67cb34b7864}} 
+const std\+::string {\bfseries I\+T\+E\+MS} = \char`\"{}items\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_ab209a873c5fa7850d80e9ddc9bab04c0}\label{classJsonParser_ab209a873c5fa7850d80e9ddc9bab04c0}} 
+std\+::string {\bfseries M\+O\+V\+I\+ES} = \char`\"{}Movies\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_a00fe1d9101a48ef93ee8eeabcc059aae}\label{classJsonParser_a00fe1d9101a48ef93ee8eeabcc059aae}} 
+std\+::string {\bfseries S\+E\+R\+I\+ES} = \char`\"{}Series\char`\"{}
+\item 
+\mbox{\Hypertarget{classJsonParser_ae5a993adef29a11237804dfd3de9fd50}\label{classJsonParser_ae5a993adef29a11237804dfd3de9fd50}} 
+Json\+::\+Value {\bfseries m\+\_\+root}
+\item 
+\mbox{\Hypertarget{classJsonParser_a1947ab7e13cc7917154d7d8aea23f777}\label{classJsonParser_a1947ab7e13cc7917154d7d8aea23f777}} 
+std\+::string {\bfseries temp\+\_\+title}
+\item 
+\mbox{\Hypertarget{classJsonParser_a33e76488d7685330236a52de4a186aba}\label{classJsonParser_a33e76488d7685330236a52de4a186aba}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries m\+\_\+parsed}
+\item 
+\mbox{\Hypertarget{classJsonParser_ad89def06854ea0cf7d21e5d94ad35791}\label{classJsonParser_ad89def06854ea0cf7d21e5d94ad35791}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries m\+\_\+result\+Map}
+\item 
+\mbox{\Hypertarget{classJsonParser_aa06f285831e0dfeb1218ccdd4a9de41b}\label{classJsonParser_aa06f285831e0dfeb1218ccdd4a9de41b}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries m\+\_\+movie\+Map}
+\item 
+\mbox{\Hypertarget{classJsonParser_abfa68a2950074daa8b3e64818d104d63}\label{classJsonParser_abfa68a2950074daa8b3e64818d104d63}} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ {\bfseries m\+\_\+series\+Map}
 \end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/Json\+Parser.\+h\item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/Json\+Parser.\+cpp\end{DoxyCompactItemize}
+inc/Json\+Parser.\+h\item 
+src/Json\+Parser.\+cpp\end{DoxyCompactItemize}

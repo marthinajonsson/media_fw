@@ -1,0 +1,42 @@
+.TH "ConnectionStream" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ConnectionStream
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConnectionStream\fP (ssh_session session)"
+.br
+.ti -1c
+.RI "bool \fBsendRemoteCommands\fP (std::string &request, std::string &result)"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcloseChannel\fP (ssh_channel channel)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "ssh_session \fBm_session\fP"
+.br
+.ti -1c
+.RI "ssh_channel \fBm_channel\fP"
+.br
+.ti -1c
+.RI "\fBStatusLogger\fP * \fBm_logger\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

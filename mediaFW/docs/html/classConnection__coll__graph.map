@@ -1,0 +1,12 @@
+<map id="Connection" name="Connection">
+<area shape="rect" id="node2" href="$classSshConnector.html" title="SshConnector" alt="" coords="5,531,111,557"/>
+<area shape="rect" id="node3" href="$classConnector.html" title="Connector" alt="" coords="17,441,99,468"/>
+<area shape="rect" id="node4" href="$classStatusLogger.html" title="StatusLogger" alt="" coords="131,441,230,468"/>
+<area shape="rect" id="node12" href="$classConnectionStream.html" title="ConnectionStream" alt="" coords="134,531,265,557"/>
+<area shape="rect" id="node5" href="$classLogger.html" title="Logger" alt="" coords="91,352,153,379"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="190,352,289,379"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="185,248,323,289"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="187,157,321,199"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="177,81,331,108"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="204,5,304,32"/>
+</map>

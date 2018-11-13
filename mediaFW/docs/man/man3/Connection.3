@@ -1,4 +1,4 @@
-.TH "Connection" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.TH "Connection" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,39 +13,19 @@ Connection
 .RI "bool \fBgetConnectionStatus\fP ()"
 .br
 .ti -1c
-.RI "bool \fBsendRemoteCommands\fP (std::string request, std::string &result)"
-.br
-.in -1c
-.SS "Private Member Functions"
-
-.in +1c
-.ti -1c
-.RI "void \fBestablishSshConnect\fP ()"
-.br
-.ti -1c
-.RI "int \fBverifyHost\fP (ssh_session session)"
+.RI "bool \fBsendServerRequest\fP (std::string &request, std::string &result)"
 .br
 .in -1c
 .SS "Private Attributes"
 
 .in +1c
 .ti -1c
-.RI "ssh_session \fBm_ssh_session\fP"
+.RI "\fBSshConnector\fP * \fBm_conn\fP"
 .br
 .ti -1c
-.RI "int \fBm_result\fP"
-.br
-.ti -1c
-.RI "bool \fBm_currentlyConnected\fP"
-.br
-.ti -1c
-.RI "char * \fBm_password\fP"
+.RI "\fBConnectionStream\fP * \fBstream\fP"
 .br
 .in -1c
-.SH "Member Function Documentation"
-.PP 
-.SS "void Connection::establishSshConnect ()\fC [private]\fP"
-This module shall setup ssh connection to the server and sen remoote commands 
 
 .SH "Author"
 .PP 

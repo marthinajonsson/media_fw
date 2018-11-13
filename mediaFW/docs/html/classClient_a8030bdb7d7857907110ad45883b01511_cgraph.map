@@ -1,0 +1,7 @@
+<map id="Client::handleCliThread" name="Client::handleCliThread">
+<area shape="rect" id="node2" href="$classClient.html#abd9bf3421bbc1e0ad11685cc95af53a8" title="A method that waits for CLI to process incoming request. " alt="" coords="212,56,339,83"/>
+<area shape="rect" id="node3" href="$classCli.html#aa2b3675ef3e3bb01ed0d1997460a0e28" title="Public method processing input from stdin. . " alt="" coords="387,56,479,83"/>
+<area shape="rect" id="node4" href="$classCli.html#a8251d6c89698aaf128318fc3ad4b2906" title="Test A private method that prints all valid options for stdin. " alt="" coords="527,5,643,32"/>
+<area shape="rect" id="node5" href="$classCli.html#aaf60768f062a6dc2557aaddbe738a19c" title="Cli::split" alt="" coords="549,56,620,83"/>
+<area shape="rect" id="node6" href="$classCli.html#af29a5d8a0c3863f69c0e21133dee2d1b" title="translate incoming user request and save in request object " alt="" coords="535,107,635,133"/>
+</map>

@@ -20,6 +20,9 @@ public:
         syncLocalDatabase();
     }
 
+    /*! \public syncLocalDatabase
+     * @brief Reads local db.json and save to Database
+     */
     void syncLocalDatabase() override {
         Category cat = Category::Movie;
         JsonParser::getInstance().load(cat);

@@ -1,6 +1,6 @@
 <map id="MovieDatabase" name="MovieDatabase">
-<area shape="rect" id="node2" href="$classDatabase.html" title="Database" alt="" coords="87,500,171,527"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="183,96,270,123"/>
-<area shape="rect" id="node8" href="$classDatabaseItem.html" title="DatabaseItem" alt="" coords="235,314,349,341"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="157,5,296,47"/>
+<area shape="rect" id="node2" href="$classDatabase.html" title="Defines methods for database implementations. " alt="" coords="79,500,157,527"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="171,96,251,123"/>
+<area shape="rect" id="node8" href="$classDatabaseItem.html" title="A module representing the content of a database item. " alt="" coords="213,314,317,341"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="148,5,275,47"/>
 </map>

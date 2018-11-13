@@ -13,8 +13,17 @@
 
 class Logger {
 public:
+    /*! \enum Level_e
+     *  \brief Defines a the severity of the information that are about to be logged
+     *  \var Level_e::INFO inform user of progress, normally no errors
+     *  \var Level_e::ERR inform user of error that occured
+     *  \var Level_e::WARN warn user that something may be off
+     */
     static enum Level_e{ INFO = 0, ERR = 1, WARN = 2 } level;
 
+    /*! \var m_levelMap
+     * @brief a map of a key value pair where the key is @Level_e and value a const char*
+     */
     std::map<Level_e, const char*> m_levelMap;
 
     Logger () {
@@ -26,10 +35,25 @@ public:
     }
     ~Logger() = default;
 
+    /*! \public TRACE
+     * @brief virtual method allowing the user to trace a @Level_e a message and error code to file
+     * @param level see @Level_e
+     * @param message description of event or progress
+     * @param errorCode e.g. @RET::OK
+     */
     virtual void TRACE(Level_e level , std::string message, std::string errorCode) = 0;
+    /*! \public TRACE
+     * @brief virtual method allowing the user to trace a @Level_e a message to file.
+     * @param level see @Level_e
+     * @param message description of event or progress
+     */
     virtual void TRACE(Level_e level , std::string message) = 0;
 
 protected:
+    /*! \protected getDate
+     * @brief gather and return current date in a std::string
+     * @return current date in std::string
+     */
     std::string getDate() {
         time_t now = time(0);
         tm *ltm = localtime(&now);
@@ -44,6 +68,10 @@ protected:
         return y + m + d;
     }
 
+    /*! \protected getTime
+     * @brief gather and return current time in a std::string
+     * @return current time in std::string
+     */
     std::string getTime() {
         time_t now = time(0);
         tm *ltm = localtime(&now);
@@ -58,7 +86,10 @@ protected:
         return h + m + s;
     }
 
-
+    /*! \struct map_init_helper
+     *@brief map @Level_e to std::string in @m_levelMap
+     * @tparam T type of enum
+     */
     template<typename T> struct map_init_helper
     {
         T& data;
@@ -70,6 +101,12 @@ protected:
         }
     };
 
+    /*! \protected map_init_helper
+     * @brief wrapper for @struct map_init_helper
+     * @tparam T type of enum
+     * @param item the enum
+     * @return type usually std::strings
+     */
     template<typename T> map_init_helper<T> map_init(T& item)
     {
         return map_init_helper<T>(item);

@@ -1,0 +1,33 @@
+.TH "Parser" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Parser
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBJsonParser\fP\fC [private]\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBclear\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBload\fP (const Category &category)=0"
+.br
+.ti -1c
+.RI "virtual void \fBadd\fP (const Category &category, \fBDatabaseItem\fP &item)=0"
+.br
+.ti -1c
+.RI "virtual void \fBremove\fP (const Category &category, \fBDatabaseItem\fP &item)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBfind\fP (Category &category, const std::string &val)=0"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

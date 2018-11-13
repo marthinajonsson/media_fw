@@ -1,49 +1,34 @@
 \hypertarget{classConnection}{}\section{Connection Class Reference}
 \label{classConnection}\index{Connection@{Connection}}
+
+
+Collaboration diagram for Connection\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classConnection__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classConnection_a4cbf33699e3ca42a23eb8168be4d5287}\label{classConnection_a4cbf33699e3ca42a23eb8168be4d5287}} 
 bool {\bfseries get\+Connection\+Status} ()
 \item 
-\mbox{\Hypertarget{classConnection_ab59a9e6d364eff3f116e60b6ccc60f1b}\label{classConnection_ab59a9e6d364eff3f116e60b6ccc60f1b}} 
-bool {\bfseries send\+Remote\+Commands} (std\+::string request, std\+::string \&result)
-\end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{classConnection_a6ff354280eacd558865f34d95a1bfa95}{establish\+Ssh\+Connect} ()
-\item 
-\mbox{\Hypertarget{classConnection_a1f148113eae10ea69fd54af1f2c6d8ad}\label{classConnection_a1f148113eae10ea69fd54af1f2c6d8ad}} 
-int {\bfseries verify\+Host} (ssh\+\_\+session session)
+\mbox{\Hypertarget{classConnection_a78606e881af7bc84aca13263a6379c88}\label{classConnection_a78606e881af7bc84aca13263a6379c88}} 
+bool {\bfseries send\+Server\+Request} (std\+::string \&request, std\+::string \&result)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classConnection_af70967306ab56018b8303a1330aa3f7f}\label{classConnection_af70967306ab56018b8303a1330aa3f7f}} 
-ssh\+\_\+session {\bfseries m\+\_\+ssh\+\_\+session}
+\mbox{\Hypertarget{classConnection_abe9d31246d932dea5624d1d15995f881}\label{classConnection_abe9d31246d932dea5624d1d15995f881}} 
+\hyperlink{classSshConnector}{Ssh\+Connector} $\ast$ {\bfseries m\+\_\+conn}
 \item 
-\mbox{\Hypertarget{classConnection_ac4432476199b9da0ac58496c0578cd89}\label{classConnection_ac4432476199b9da0ac58496c0578cd89}} 
-int {\bfseries m\+\_\+result}
-\item 
-\mbox{\Hypertarget{classConnection_ac9ab118f67d8c509b92ab6c565a149eb}\label{classConnection_ac9ab118f67d8c509b92ab6c565a149eb}} 
-bool {\bfseries m\+\_\+currently\+Connected}
-\item 
-\mbox{\Hypertarget{classConnection_a53e09ae763001b83819c2b249a867802}\label{classConnection_a53e09ae763001b83819c2b249a867802}} 
-char $\ast$ {\bfseries m\+\_\+password}
+\mbox{\Hypertarget{classConnection_aa143372c57528fdac5cc4bb251b057ea}\label{classConnection_aa143372c57528fdac5cc4bb251b057ea}} 
+\hyperlink{classConnectionStream}{Connection\+Stream} $\ast$ {\bfseries stream}
 \end{DoxyCompactItemize}
 
 
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classConnection_a6ff354280eacd558865f34d95a1bfa95}\label{classConnection_a6ff354280eacd558865f34d95a1bfa95}} 
-\index{Connection@{Connection}!establish\+Ssh\+Connect@{establish\+Ssh\+Connect}}
-\index{establish\+Ssh\+Connect@{establish\+Ssh\+Connect}!Connection@{Connection}}
-\subsubsection{\texorpdfstring{establish\+Ssh\+Connect()}{establishSshConnect()}}
-{\footnotesize\ttfamily void Connection\+::establish\+Ssh\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This module shall setup ssh connection to the server and sen remoote commands 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/Connection.\+h\item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/Connection.\+cpp\end{DoxyCompactItemize}
+inc/Connection.\+h\end{DoxyCompactItemize}

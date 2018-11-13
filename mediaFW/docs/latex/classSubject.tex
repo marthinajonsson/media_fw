@@ -1,0 +1,75 @@
+\hypertarget{classSubject}{}\section{Subject Class Reference}
+\label{classSubject}\index{Subject@{Subject}}
+
+
+{\ttfamily \#include $<$Subject.\+h$>$}
+
+
+
+Inheritance diagram for Subject\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{classSubject__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classSubject_ae3f8d320b19b7d0fe695a3b4e7660002}{register\+Observer} (\hyperlink{classObserver}{Observer} $\ast$observer)=0
+\item 
+virtual void \hyperlink{classSubject_a86699df0364a9091d1887f344255e9ff}{remove\+Observer} (\hyperlink{classObserver}{Observer} $\ast$observer)=0
+\item 
+virtual void \hyperlink{classSubject_ad779772e3bcf5b3bd8f7a96b10531920}{notify\+Observers} (\hyperlink{classRequest}{Request} \&)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for the \hyperlink{classSubject}{Subject} 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSubject_ad779772e3bcf5b3bd8f7a96b10531920}\label{classSubject_ad779772e3bcf5b3bd8f7a96b10531920}} 
+\index{Subject@{Subject}!notify\+Observers@{notify\+Observers}}
+\index{notify\+Observers@{notify\+Observers}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{notify\+Observers()}{notifyObservers()}}
+{\footnotesize\ttfamily virtual void Subject\+::notify\+Observers (\begin{DoxyParamCaption}\item[{\hyperlink{classRequest}{Request} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Notify all the registered observers when a change happens 
+
+Implemented in \hyperlink{classClient_a2fb08fe51afa68997faa22474e114771}{Client}.
+
+\mbox{\Hypertarget{classSubject_ae3f8d320b19b7d0fe695a3b4e7660002}\label{classSubject_ae3f8d320b19b7d0fe695a3b4e7660002}} 
+\index{Subject@{Subject}!register\+Observer@{register\+Observer}}
+\index{register\+Observer@{register\+Observer}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{register\+Observer()}{registerObserver()}}
+{\footnotesize\ttfamily virtual void Subject\+::register\+Observer (\begin{DoxyParamCaption}\item[{\hyperlink{classObserver}{Observer} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Register an observer 
+\begin{DoxyParams}{Parameters}
+{\em observer} & the observer object to be registered \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classClient_a1426f0582287f6c583d8681e540059ab}{Client}.
+
+\mbox{\Hypertarget{classSubject_a86699df0364a9091d1887f344255e9ff}\label{classSubject_a86699df0364a9091d1887f344255e9ff}} 
+\index{Subject@{Subject}!remove\+Observer@{remove\+Observer}}
+\index{remove\+Observer@{remove\+Observer}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{remove\+Observer()}{removeObserver()}}
+{\footnotesize\ttfamily virtual void Subject\+::remove\+Observer (\begin{DoxyParamCaption}\item[{\hyperlink{classObserver}{Observer} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Unregister an observer 
+\begin{DoxyParams}{Parameters}
+{\em observer} & the observer object to be unregistered \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classClient_abfce703b679961b961ff24bbfc532ce4}{Client}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/ifc/Subject.\+h\end{DoxyCompactItemize}

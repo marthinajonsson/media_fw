@@ -1,0 +1,208 @@
+\hypertarget{classSeriesDatabase}{}\section{Series\+Database Class Reference}
+\label{classSeriesDatabase}\index{Series\+Database@{Series\+Database}}
+
+
+Inheritance diagram for Series\+Database\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classSeriesDatabase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Series\+Database\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSeriesDatabase__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSeriesDatabase_a0ba159b6d52a3cfa07135c7d8b37ef76}{sync\+Local\+Database} () override
+\begin{DoxyCompactList}\small\item\em Sync info from json file and saves it to a list of database objects. \end{DoxyCompactList}\item 
+void \hyperlink{classSeriesDatabase_a7591f89ab256d9f5a41235f5552e4e23}{push\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that uploads the requested database item. \end{DoxyCompactList}\item 
+\hyperlink{classDatabaseItem}{Database\+Item} \hyperlink{classSeriesDatabase_af5303a723910395b31f2e01088de9130}{fetch\+Item} (const std\+::string \&title) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that fetches the requested database item. \end{DoxyCompactList}\item 
+long \hyperlink{classSeriesDatabase_af5fe5a423303eff4489a7679907ef994}{get\+Number\+Of\+Item} () override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that return the size of the database. \end{DoxyCompactList}\item 
+void \hyperlink{classSeriesDatabase_a863a35987b5a4de15a121b8b4358e353}{purge\+Item} (\hyperlink{classDatabaseItem}{Database\+Item} item) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that deletes the requested database item. \end{DoxyCompactList}\item 
+void \hyperlink{classSeriesDatabase_ae2bf5323216e0043292494d3f0ac978c}{print\+All} () override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that prints the entire database content. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ \hyperlink{classDatabaseItem}{Database\+Item} $>$ \hyperlink{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}{m\+\_\+items}
+\begin{DoxyCompactList}\small\item\em A protected list of Database\+Items. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \hyperlink{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}{m\+\_\+saved}
+\begin{DoxyCompactList}\small\item\em A protected vector of strings with info for the Database\+Items. \end{DoxyCompactList}\item 
+std\+::mutex \hyperlink{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}{m\+\_\+lock}
+\begin{DoxyCompactList}\small\item\em A protected mutex for threadsafe r/w of Database\+Items. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \hyperlink{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}{m\+\_\+empty\+List}
+\begin{DoxyCompactList}\small\item\em A protected condittion variable for the mutex and \hyperlink{classDatabase}{Database} list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSeriesDatabase_af5303a723910395b31f2e01088de9130}\label{classSeriesDatabase_af5303a723910395b31f2e01088de9130}} 
+\index{Series\+Database@{Series\+Database}!fetch\+Item@{fetch\+Item}}
+\index{fetch\+Item@{fetch\+Item}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{fetch\+Item()}{fetchItem()}}
+{\footnotesize\ttfamily \hyperlink{classDatabaseItem}{Database\+Item} Series\+Database\+::fetch\+Item (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that fetches the requested database item. 
+
+A const reference to a title
+
+\begin{DoxyReturn}{Returns}
+The requested \hyperlink{classDatabaseItem}{Database\+Item}
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a40254eec69c7d7cc15da24a9f0b072b3}{Database}.
+
+\mbox{\Hypertarget{classSeriesDatabase_af5fe5a423303eff4489a7679907ef994}\label{classSeriesDatabase_af5fe5a423303eff4489a7679907ef994}} 
+\index{Series\+Database@{Series\+Database}!get\+Number\+Of\+Item@{get\+Number\+Of\+Item}}
+\index{get\+Number\+Of\+Item@{get\+Number\+Of\+Item}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{get\+Number\+Of\+Item()}{getNumberOfItem()}}
+{\footnotesize\ttfamily long Series\+Database\+::get\+Number\+Of\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that return the size of the database. 
+
+\begin{DoxyReturn}{Returns}
+Size of the database (long).
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a230225cb341eb23a99a83ef3d1abae53}{Database}.
+
+\mbox{\Hypertarget{classSeriesDatabase_ae2bf5323216e0043292494d3f0ac978c}\label{classSeriesDatabase_ae2bf5323216e0043292494d3f0ac978c}} 
+\index{Series\+Database@{Series\+Database}!print\+All@{print\+All}}
+\index{print\+All@{print\+All}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{print\+All()}{printAll()}}
+{\footnotesize\ttfamily void Series\+Database\+::print\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that prints the entire database content. 
+
+
+
+Reimplemented from \hyperlink{classDatabase_afa345da530fd5c8dfe0c978917cd6049}{Database}.
+
+\mbox{\Hypertarget{classSeriesDatabase_a863a35987b5a4de15a121b8b4358e353}\label{classSeriesDatabase_a863a35987b5a4de15a121b8b4358e353}} 
+\index{Series\+Database@{Series\+Database}!purge\+Item@{purge\+Item}}
+\index{purge\+Item@{purge\+Item}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{purge\+Item()}{purgeItem()}}
+{\footnotesize\ttfamily void Series\+Database\+::purge\+Item (\begin{DoxyParamCaption}\item[{\hyperlink{classDatabaseItem}{Database\+Item}}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that deletes the requested database item. 
+
+A const reference to a database item
+
+Reimplemented from \hyperlink{classDatabase_a8f47437526eeec631f1328fab9bbbc75}{Database}.
+
+\mbox{\Hypertarget{classSeriesDatabase_a7591f89ab256d9f5a41235f5552e4e23}\label{classSeriesDatabase_a7591f89ab256d9f5a41235f5552e4e23}} 
+\index{Series\+Database@{Series\+Database}!push\+Item@{push\+Item}}
+\index{push\+Item@{push\+Item}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{push\+Item()}{pushItem()}}
+{\footnotesize\ttfamily void Series\+Database\+::push\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{classDatabaseItem}{Database\+Item} \&}]{m\+\_\+item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that uploads the requested database item. 
+
+A const reference to a database item
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_a80fa14ab9f4deadc9a2ab7493f1919a4}{Database}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSeriesDatabase_a7591f89ab256d9f5a41235f5552e4e23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classSeriesDatabase_a0ba159b6d52a3cfa07135c7d8b37ef76}\label{classSeriesDatabase_a0ba159b6d52a3cfa07135c7d8b37ef76}} 
+\index{Series\+Database@{Series\+Database}!sync\+Local\+Database@{sync\+Local\+Database}}
+\index{sync\+Local\+Database@{sync\+Local\+Database}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{sync\+Local\+Database()}{syncLocalDatabase()}}
+{\footnotesize\ttfamily void Series\+Database\+::sync\+Local\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sync info from json file and saves it to a list of database objects. 
+
+Database\+::sync\+Database() 
+
+Reimplemented from \hyperlink{classDatabase_a14d24487b4ea3b50097b9ac0f2b3f317}{Database}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSeriesDatabase_a0ba159b6d52a3cfa07135c7d8b37ef76_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}\label{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}} 
+\index{Series\+Database@{Series\+Database}!m\+\_\+empty\+List@{m\+\_\+empty\+List}}
+\index{m\+\_\+empty\+List@{m\+\_\+empty\+List}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+empty\+List}{m\_emptyList}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable Database\+::m\+\_\+empty\+List\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected condittion variable for the mutex and \hyperlink{classDatabase}{Database} list. 
+
+\mbox{\Hypertarget{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}\label{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}} 
+\index{Series\+Database@{Series\+Database}!m\+\_\+items@{m\+\_\+items}}
+\index{m\+\_\+items@{m\+\_\+items}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+items}{m\_items}}
+{\footnotesize\ttfamily std\+::list$<$\hyperlink{classDatabaseItem}{Database\+Item}$>$ Database\+::m\+\_\+items\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected list of Database\+Items. 
+
+\mbox{\Hypertarget{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}\label{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}} 
+\index{Series\+Database@{Series\+Database}!m\+\_\+lock@{m\+\_\+lock}}
+\index{m\+\_\+lock@{m\+\_\+lock}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+lock}{m\_lock}}
+{\footnotesize\ttfamily std\+::mutex Database\+::m\+\_\+lock\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected mutex for threadsafe r/w of Database\+Items. 
+
+\mbox{\Hypertarget{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}\label{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}} 
+\index{Series\+Database@{Series\+Database}!m\+\_\+saved@{m\+\_\+saved}}
+\index{m\+\_\+saved@{m\+\_\+saved}!Series\+Database@{Series\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+saved}{m\_saved}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::vector$<$std\+::string$>$ $>$ Database\+::m\+\_\+saved\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected vector of strings with info for the Database\+Items. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/database/Series\+Database.\+h\end{DoxyCompactItemize}

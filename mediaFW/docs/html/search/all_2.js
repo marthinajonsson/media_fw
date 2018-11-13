@@ -1,19 +1,4 @@
 var searchData=
 [
-  ['charreader',['CharReader',['../classJson_1_1CharReader.html',1,'Json']]],
-  ['charreaderbuilder',['CharReaderBuilder',['../classJson_1_1CharReaderBuilder.html',1,'Json']]],
-  ['clear',['clear',['../classJson_1_1Value.html#a501a4d67e6c875255c2ecc03ccd2019b',1,'Json::Value']]],
-  ['cli',['Cli',['../classCli.html',1,'Cli'],['../classCli.html#a8f7e5909bf64db25f1f264d206d61140',1,'Cli::Cli()']]],
-  ['client',['Client',['../classClient.html',1,'Client'],['../classClient.html#ae51af7aa6b8f591496a8f6a4a87a14bf',1,'Client::Client()']]],
-  ['codepointtoutf8',['codePointToUTF8',['../namespaceJson.html#a33f8bda65a5b1fc4f5ddc39cb03dc742',1,'Json']]],
-  ['commentafter',['commentAfter',['../namespaceJson.html#a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef',1,'Json']]],
-  ['commentafteronsameline',['commentAfterOnSameLine',['../namespaceJson.html#a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa',1,'Json']]],
-  ['commentbefore',['commentBefore',['../namespaceJson.html#a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52',1,'Json']]],
-  ['commentinfo',['CommentInfo',['../structJson_1_1Value_1_1CommentInfo.html',1,'Json::Value']]],
-  ['commentplacement',['CommentPlacement',['../namespaceJson.html#a4fc417c23905b2ae9e2c47d197a45351',1,'Json']]],
-  ['commentstyle',['CommentStyle',['../structJson_1_1CommentStyle.html',1,'Json']]],
-  ['connection',['Connection',['../classConnection.html',1,'']]],
-  ['copy',['copy',['../classJson_1_1Value.html#a1b2c6379664d91b9f1bcd4d1853e5970',1,'Json::Value']]],
-  ['copypayload',['copyPayload',['../classJson_1_1Value.html#ab504d299cfaa440392037fa8a3c54064',1,'Json::Value']]],
-  ['czstring',['CZString',['../classJson_1_1Value_1_1CZString.html',1,'Json::Value']]]
+  ['fetchitem',['fetchItem',['../classDatabase.html#a40254eec69c7d7cc15da24a9f0b072b3',1,'Database::fetchItem()'],['../classMovieDatabase.html#ac0bb39b8be599ffea76081809ae42dda',1,'MovieDatabase::fetchItem()'],['../classSeriesDatabase.html#af5303a723910395b31f2e01088de9130',1,'SeriesDatabase::fetchItem()']]]
 ];

@@ -1,0 +1,6 @@
+<map id="CliTest" name="CliTest">
+<area shape="rect" id="node3" title="STL class. " alt="" coords="191,96,271,123"/>
+<area shape="rect" id="node5" href="$classCli.html" title="Module handling everything related to our Command line interface. " alt="" coords="287,424,325,451"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="168,5,295,47"/>
+<area shape="rect" id="node6" href="$classCommandLineParser.html" title="CommandLineParser" alt="" coords="527,253,671,279"/>
+</map>

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDatabaseItem.html" title="DatabaseItem" alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node1" href="$classConnector.html" title="Connector" alt="" coords="5,5,88,32"/>
+<area shape="rect" id="node2" href="$classSshConnector.html" title="SshConnector" alt="" coords="136,5,241,32"/>
 </map>

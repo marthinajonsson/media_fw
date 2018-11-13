@@ -1,0 +1,108 @@
+.TH "MediaHandler" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MediaHandler \- Synchronizes information from server and database, Implements observer pattern\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBObserver\fP\&.
+.PP
+Inherited by \fBMockObserver\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMediaHandler\fP (Category &category)"
+.br
+.ti -1c
+.RI "int \fBupdate\fP (\fBRequest\fP &request) override"
+.br
+.RI "receives new request from client "
+.ti -1c
+.RI "void \fBstartThreads\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBClient\fP * \fBp_client\fP"
+.br
+.in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBStatus\fP { \fBDOWNLOADING\fP = 0, \fBUPLOADING\fP, \fBSTREAMING\fP = 2, \fBSEARCHING\fP, \fBDELETING\fP, \fBIDLE\fP, \fBDISCONNECT\fP }"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsyncDatabase\fP (const \fBRequest\fP &request)"
+.br
+.ti -1c
+.RI "void \fBgetConnectionInfo\fP (Event &event, Progress &progress)"
+.br
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static Status \fBupdateDatabaseInfo\fP (const \fBRequest\fP &request)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBStatusLogger\fP * \fBm_logger\fP"
+.br
+.ti -1c
+.RI "\fBConnection\fP * \fBp_conn\fP"
+.br
+.ti -1c
+.RI "\fBCli\fP * \fBp_cli\fP"
+.br
+.ti -1c
+.RI "\fBDatabase\fP * \fBp_database_movie\fP"
+.br
+.ti -1c
+.RI "\fBDatabase\fP * \fBp_database_series\fP"
+.br
+.ti -1c
+.RI "enum MediaHandler::Status \fBstatus\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Synchronizes information from server and database, Implements observer pattern\&. 
+
+for a user instance 
+.SH "Member Function Documentation"
+.PP 
+.SS "int MediaHandler::update (\fBRequest\fP & request)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+receives new request from client \fBMediaHandler::update\fP method update 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Implements \fBObserver\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

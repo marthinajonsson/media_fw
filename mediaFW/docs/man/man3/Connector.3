@@ -1,0 +1,31 @@
+.TH "Connector" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Connector
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBSshConnector\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual \fBConnectionStream\fP * \fBconnect\fP (uint16_t port, std::string server)=0"
+.br
+.ti -1c
+.RI "virtual void \fBdisconnect\fP ()=0"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual int \fBresolveHost\fP (ssh_session session)=0"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

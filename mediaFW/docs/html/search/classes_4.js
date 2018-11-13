@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['factory',['Factory',['../classJson_1_1CharReader_1_1Factory.html',1,'Json::CharReader::Factory'],['../classJson_1_1StreamWriter_1_1Factory.html',1,'Json::StreamWriter::Factory']]],
-  ['features',['Features',['../classJson_1_1Features.html',1,'Json']]]
+  ['map_5finit_5fhelper',['map_init_helper',['../structLogger_1_1map__init__helper.html',1,'Logger']]],
+  ['mediahandler',['MediaHandler',['../classMediaHandler.html',1,'']]],
+  ['mockobserver',['MockObserver',['../classMockObserver.html',1,'']]],
+  ['moviedatabase',['MovieDatabase',['../classMovieDatabase.html',1,'']]]
 ];

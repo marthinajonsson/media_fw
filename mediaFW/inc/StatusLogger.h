@@ -35,8 +35,16 @@ public:
     }
 
 private:
+    /*! \private logFile
+     * \var logfile
+     * @brief file used by std::ofstream
+     */
     std::ofstream logfile;
 
+    /*! \private getFilename
+     * @brief gather info from @private getDate() and @private getTime() and put together a filename
+     * @return filename in std::string
+     */
     std::string getFilename () {
         auto date = getDate();
         std::string filename = date;
@@ -46,6 +54,10 @@ private:
         return filename;
     }
 
+    /*! \private GetCurrentWorkingDir
+     * @brief used by @private getFilename
+     * @return current working directory in std::string
+     */
     std::string GetCurrentWorkingDir() {
         char buff[FILENAME_MAX];
         GetCurrentDir( buff, FILENAME_MAX );
@@ -53,6 +65,11 @@ private:
         return current_working_dir;
     }
 
+    /*! \private write
+     * @brief writes log trace to log file, stdout or stderr
+     * @param level @enum Level_e
+     * @param output compiled message
+     */
     void write(Level_e level, std::string &output){
         std::string startcode = "\033[";
         std::string endcode = "\033[0m\n";

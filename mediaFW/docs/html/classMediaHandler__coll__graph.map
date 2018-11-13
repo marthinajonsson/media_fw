@@ -1,0 +1,23 @@
+<map id="MediaHandler" name="MediaHandler">
+<area shape="rect" id="node2" href="$classObserver.html" title="Observer" alt="" coords="1495,259,1569,285"/>
+<area shape="rect" id="node3" href="$classClient.html" title="Class implementing the functionality of a client. " alt="" coords="2039,457,2095,484"/>
+<area shape="rect" id="node4" href="$classSubject.html" title="Subject" alt="" coords="1773,457,1839,484"/>
+<area shape="rect" id="node6" href="$classStatusLogger.html" title="StatusLogger" alt="" coords="1153,661,1251,688"/>
+<area shape="rect" id="node23" href="$classSshConnector.html" title="SshConnector" alt="" coords="1479,611,1585,637"/>
+<area shape="rect" id="node25" href="$classConnectionStream.html" title="ConnectionStream" alt="" coords="1467,661,1597,688"/>
+<area shape="rect" id="node7" href="$classLogger.html" title="Logger" alt="" coords="854,661,915,688"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="835,713,934,740"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="541,717,679,758"/>
+<area shape="rect" id="node11" title="STL class. " alt="" coords="359,717,492,758"/>
+<area shape="rect" id="node12" title="STL class. " alt="" coords="155,724,309,751"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="5,724,105,751"/>
+<area shape="rect" id="node14" href="$classCli.html" title="Module handling everything related to our Command line interface. " alt="" coords="1183,192,1221,219"/>
+<area shape="rect" id="node15" href="$classCommandLineParser.html" title="CommandLineParser" alt="" coords="813,203,957,229"/>
+<area shape="rect" id="node16" title="STL class. " alt="" coords="570,388,650,415"/>
+<area shape="rect" id="node20" href="$classRequest.html" title="Request" alt="" coords="1497,383,1567,409"/>
+<area shape="rect" id="node28" href="$classDatabaseItem.html" title="A module representing the content of a database item. " alt="" coords="1150,497,1254,524"/>
+<area shape="rect" id="node17" title="STL class. " alt="" coords="362,381,489,422"/>
+<area shape="rect" id="node26" href="$classDatabase.html" title="Defines methods for database implementations. " alt="" coords="1767,509,1845,536"/>
+<area shape="rect" id="node22" href="$classConnection.html" title="Connection" alt="" coords="1762,611,1850,637"/>
+<area shape="rect" id="node24" href="$classConnector.html" title="Connector" alt="" coords="1161,548,1243,575"/>
+</map>

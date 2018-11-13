@@ -2,110 +2,273 @@
 \label{classCli}\index{Cli@{Cli}}
 
 
-Class implementing the functionality of a command line interface.  
+Module handling everything related to our Command line interface.  
 
 
 
 
-{\ttfamily \#include $<$Cli.\+h$>$}
+{\ttfamily \#include \char`\"{}inc/\+Cli.\+h\char`\"{}}
 
+
+
+Inheritance diagram for Cli\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classCli__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Cli\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCli__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCli_a8f7e5909bf64db25f1f264d206d61140}{Cli} ()=default
-\begin{DoxyCompactList}\small\item\em \hyperlink{classCli}{Cli} default constructor. \end{DoxyCompactList}\item 
-\hyperlink{classCli_a516ed9664c99d6275d7675194f5564bf}{$\sim$\+Cli} ()=default
-\begin{DoxyCompactList}\small\item\em \hyperlink{classCli}{Cli} default deconstructor. \end{DoxyCompactList}\item 
-virtual std\+::vector$<$ std\+::string $>$ \hyperlink{classCli_a9788fa4a19943c09af95b4653822d690}{process} ()
-\begin{DoxyCompactList}\small\item\em Public method processing input from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{classRequest}{Request} \hyperlink{classCli_aa2b3675ef3e3bb01ed0d1997460a0e28}{process} () override
+\begin{DoxyCompactList}\small\item\em Public method processing input from stdin. . \end{DoxyCompactList}\item 
+\hyperlink{classRequest}{Request} \hyperlink{classCli_af29a5d8a0c3863f69c0e21133dee2d1b}{interprete} (std\+::vector$<$ std\+::string $>$ \&) override
+\begin{DoxyCompactList}\small\item\em translate incoming user request and save in request object \end{DoxyCompactList}\item 
+\hyperlink{classRequest}{Request} \hyperlink{classCli_a4ee41556f8c3a736d813f0d937413da0}{process} (std\+::string \&) override
+\begin{DoxyCompactList}\small\item\em Public method processing input from stdin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCli_af21370e0e274a657bf2c9efceb18b6b3}\label{classCli_af21370e0e274a657bf2c9efceb18b6b3}} 
+void {\bfseries verify\+Upload\+Test} (\hyperlink{classRequest}{Request} \&request, std\+::vector$<$ std\+::string $>$ \&i)
+\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ std\+::string $>$ \hyperlink{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}{parse\+Arg} (std\+::string \&input)
-\begin{DoxyCompactList}\small\item\em Parses argv and splits into strings. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classCli_aaf60768f062a6dc2557aaddbe738a19c}{split} (std\+::string \&input, char delim)
+\item 
+\mbox{\Hypertarget{classCli_a8b6ecb803833139fc7dbdb1bac9cb127}\label{classCli_a8b6ecb803833139fc7dbdb1bac9cb127}} 
+int {\bfseries check\+Valid\+Event} (std\+::vector$<$ std\+::string $>$ \&input, Event \&event)
+\item 
+\mbox{\Hypertarget{classCli_a116a3c89cbb5f9b807661123ee0dd5a3}\label{classCli_a116a3c89cbb5f9b807661123ee0dd5a3}} 
+int {\bfseries check\+Valid\+Category} (std\+::vector$<$ std\+::string $>$ \&input, Category \&category)
+\item 
+\mbox{\Hypertarget{classCli_a5137618fd0eeaa34964b175aff8061ef}\label{classCli_a5137618fd0eeaa34964b175aff8061ef}} 
+int {\bfseries check\+Valid\+Type} (\hyperlink{classRequest}{Request} \&request, std\+::string \&type)
+\item 
+\mbox{\Hypertarget{classCli_af10df67ce26c8a773e573323c47d9781}\label{classCli_af10df67ce26c8a773e573323c47d9781}} 
+int {\bfseries verify\+Object\+Exists} (Category \&category, const std\+::string \&value)
+\item 
+\mbox{\Hypertarget{classCli_a6121ca606d1ae7b8b8b57d31786d2e18}\label{classCli_a6121ca606d1ae7b8b8b57d31786d2e18}} 
+int {\bfseries get\+Type\+Of\+Value} (std\+::vector$<$ std\+::string $>$ \&input, std\+::string \&type)
+\item 
+\mbox{\Hypertarget{classCli_ac00196cbc1bd9683127923b13de9cbbc}\label{classCli_ac00196cbc1bd9683127923b13de9cbbc}} 
+int {\bfseries get\+Value\+Of\+Type} (std\+::vector$<$ std\+::string $>$ \&input, std\+::string \&val)
+\item 
+\mbox{\Hypertarget{classCli_a2e2d57f7175aa6423db2a616098a3b2e}\label{classCli_a2e2d57f7175aa6423db2a616098a3b2e}} 
+void {\bfseries set\+File\+Name} (\hyperlink{classRequest}{Request} \&request, std\+::string \&val)
+\item 
+\mbox{\Hypertarget{classCli_a0cf3263bf644c151d59b8957746a9507}\label{classCli_a0cf3263bf644c151d59b8957746a9507}} 
+void {\bfseries set\+Properties} (\hyperlink{classRequest}{Request} \&request, std\+::vector$<$ std\+::string $>$ \&item)
+\item 
+\mbox{\Hypertarget{classCli_ae51022f0ca5e385ebd2551021f653b97}\label{classCli_ae51022f0ca5e385ebd2551021f653b97}} 
+int {\bfseries verify\+Upload} (\hyperlink{classRequest}{Request} \&request)
+\item 
 void \hyperlink{classCli_a8251d6c89698aaf128318fc3ad4b2906}{print\+Options} ()
-\begin{DoxyCompactList}\small\item\em A private method that prints all valid options for stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test A private method that prints all valid options for stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCli_a6b39501d775b2719cdacd6937507906a}\label{classCli_a6b39501d775b2719cdacd6937507906a}} 
+const std\+::string {\bfseries T\+I\+T\+LE} = \char`\"{}title\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_ae49ac3e6fb12dfa20c41ca189cbcd863}\label{classCli_ae49ac3e6fb12dfa20c41ca189cbcd863}} 
+const std\+::string {\bfseries G\+E\+N\+RE} = \char`\"{}genre\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_af1bfe00ff8a3f8415e74b39970007f1b}\label{classCli_af1bfe00ff8a3f8415e74b39970007f1b}} 
+const std\+::string {\bfseries A\+C\+T\+OR} = \char`\"{}actor\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_ae1510a4c9ae1696862bf6362eddfdb63}\label{classCli_ae1510a4c9ae1696862bf6362eddfdb63}} 
+const std\+::string {\bfseries D\+I\+R\+E\+C\+T\+OR} = \char`\"{}director\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a25d22c371e6d1a701a375dd77b98a839}\label{classCli_a25d22c371e6d1a701a375dd77b98a839}} 
+const std\+::string {\bfseries F\+I\+L\+E\+N\+A\+ME} = \char`\"{}filename\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a74a219ff6c475389cbcffaeaad0f0315}\label{classCli_a74a219ff6c475389cbcffaeaad0f0315}} 
+std\+::string {\bfseries M\+O\+V\+IE} = \char`\"{}movie\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a9e046dc850ddd6b5ee7da84655df7ad6}\label{classCli_a9e046dc850ddd6b5ee7da84655df7ad6}} 
+std\+::string {\bfseries S\+E\+R\+I\+ES} = \char`\"{}series\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a45bb315b7351264e545e257ad09adbe8}\label{classCli_a45bb315b7351264e545e257ad09adbe8}} 
+const std\+::string {\bfseries D\+O\+W\+N\+L\+O\+AD} = \char`\"{}download\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_ad97f44e157d1e1919f24a51f503b8ad6}\label{classCli_ad97f44e157d1e1919f24a51f503b8ad6}} 
+const std\+::string {\bfseries U\+P\+L\+O\+AD} = \char`\"{}upload\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a6689cd38c78d1d3f06da4fc036d5a405}\label{classCli_a6689cd38c78d1d3f06da4fc036d5a405}} 
+const std\+::string {\bfseries S\+E\+A\+R\+CH} = \char`\"{}search\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_acca3f466bba719de9ac3a491e7aa02c8}\label{classCli_acca3f466bba719de9ac3a491e7aa02c8}} 
+const std\+::string {\bfseries D\+E\+L\+E\+TE} = \char`\"{}delete\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_adf56775dc41676f404c6f83f48b92c95}\label{classCli_adf56775dc41676f404c6f83f48b92c95}} 
+const std\+::string {\bfseries H\+E\+LP} = \char`\"{}help\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a277fa8260456d4eda6fd69022c29f2fe}\label{classCli_a277fa8260456d4eda6fd69022c29f2fe}} 
+const std\+::string {\bfseries E\+X\+IT} = \char`\"{}exit\char`\"{}
+\item 
+\mbox{\Hypertarget{classCli_a3610685c550060a08adb0fd78ee6866e}\label{classCli_a3610685c550060a08adb0fd78ee6866e}} 
+const std\+::vector$<$ std\+::string $>$ {\bfseries E\+V\+E\+N\+T\+\_\+\+A\+R\+GS} = \{U\+P\+L\+O\+AD, D\+O\+W\+N\+L\+O\+AD, S\+E\+A\+R\+CH, D\+E\+L\+E\+TE, H\+E\+LP, E\+X\+IT\}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Class implementing the functionality of a command line interface. 
+Module handling everything related to our Command line interface. 
 
-Module handling everything related to our Command line interface.
+Class implementing the functionality of a command line interface.
 
 Receives inputs from S\+T\+D\+IN and splits the result into strings. 
 
-\subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classCli_a8f7e5909bf64db25f1f264d206d61140}\label{classCli_a8f7e5909bf64db25f1f264d206d61140}} 
-\index{Cli@{Cli}!Cli@{Cli}}
-\index{Cli@{Cli}!Cli@{Cli}}
-\subsubsection{\texorpdfstring{Cli()}{Cli()}}
-{\footnotesize\ttfamily Cli\+::\+Cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
-
-
-
-\hyperlink{classCli}{Cli} default constructor. 
-
-\hyperlink{classClient}{Client()} \mbox{\Hypertarget{classCli_a516ed9664c99d6275d7675194f5564bf}\label{classCli_a516ed9664c99d6275d7675194f5564bf}} 
-\index{Cli@{Cli}!````~Cli@{$\sim$\+Cli}}
-\index{````~Cli@{$\sim$\+Cli}!Cli@{Cli}}
-\subsubsection{\texorpdfstring{$\sim$\+Cli()}{~Cli()}}
-{\footnotesize\ttfamily Cli\+::$\sim$\+Cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
-
-
-
-\hyperlink{classCli}{Cli} default deconstructor. 
-
-$\sim$\+Client() 
-
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}\label{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}} 
-\index{Cli@{Cli}!parse\+Arg@{parse\+Arg}}
-\index{parse\+Arg@{parse\+Arg}!Cli@{Cli}}
-\subsubsection{\texorpdfstring{parse\+Arg()}{parseArg()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Cli\+::parse\+Arg (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classCli_af29a5d8a0c3863f69c0e21133dee2d1b}\label{classCli_af29a5d8a0c3863f69c0e21133dee2d1b}} 
+\index{Cli@{Cli}!interprete@{interprete}}
+\index{interprete@{interprete}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{interprete()}{interprete()}}
+{\footnotesize\ttfamily \hyperlink{classRequest}{Request} Cli\+::interprete (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Parses argv and splits into strings. 
+translate incoming user request and save in request object 
 
-Test Parses argv and splits into strings.
-
-\hyperlink{classCli_a8c364ee0c6abe9589a4e0c8758d17f88}{Cli\+::parse\+Arg(std\+::string \&input)} 
+Client\+::interprete interface of \hyperlink{classCommandLineParser}{Command\+Line\+Parser} 
 \begin{DoxyParams}{Parameters}
-{\em input} & A long input string containing argv from stdin. \\
+{\em std\+::vector$<$std\+::string$>$\&} & vector of string arguments to be translated \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Private vector of strings containing parsed words from stdin. 
+the translated request object 
 \end{DoxyReturn}
+
+
+Implements \hyperlink{classCommandLineParser}{Command\+Line\+Parser}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{classCli_af29a5d8a0c3863f69c0e21133dee2d1b_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{classCli_a8251d6c89698aaf128318fc3ad4b2906}\label{classCli_a8251d6c89698aaf128318fc3ad4b2906}} 
 \index{Cli@{Cli}!print\+Options@{print\+Options}}
 \index{print\+Options@{print\+Options}!Cli@{Cli}}
 \subsubsection{\texorpdfstring{print\+Options()}{printOptions()}}
-{\footnotesize\ttfamily void Cli\+::print\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void Cli\+::print\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 
 
-A private method that prints all valid options for stdin. 
+Test A private method that prints all valid options for stdin. 
 
-Test A private method that prints all valid options for stdin.
-
-\hyperlink{classCli_a8251d6c89698aaf128318fc3ad4b2906}{Cli\+::print\+Options()} \mbox{\Hypertarget{classCli_a9788fa4a19943c09af95b4653822d690}\label{classCli_a9788fa4a19943c09af95b4653822d690}} 
+\hyperlink{classCli_a8251d6c89698aaf128318fc3ad4b2906}{Cli\+::print\+Options} Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCli_a8251d6c89698aaf128318fc3ad4b2906_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCli_aa2b3675ef3e3bb01ed0d1997460a0e28}\label{classCli_aa2b3675ef3e3bb01ed0d1997460a0e28}} 
 \index{Cli@{Cli}!process@{process}}
 \index{process@{process}!Cli@{Cli}}
-\subsubsection{\texorpdfstring{process()}{process()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Cli\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\subsubsection{\texorpdfstring{process()}{process()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classRequest}{Request} Cli\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Public method processing input from stdin. . 
+
+Client\+::process() interface of \hyperlink{classCommandLineParser}{Command\+Line\+Parser} \begin{DoxyReturn}{Returns}
+Vector of strings containing output from stdin. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classCommandLineParser}{Command\+Line\+Parser}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{classCli_aa2b3675ef3e3bb01ed0d1997460a0e28_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCli_aa2b3675ef3e3bb01ed0d1997460a0e28_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCli_a4ee41556f8c3a736d813f0d937413da0}\label{classCli_a4ee41556f8c3a736d813f0d937413da0}} 
+\index{Cli@{Cli}!process@{process}}
+\index{process@{process}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{process()}{process()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classRequest}{Request} Cli\+::process (\begin{DoxyParamCaption}\item[{std\+::string \&}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Public method processing input from stdin. 
 
-Client\+::process() \begin{DoxyReturn}{Returns}
+Client\+::process() interface of \hyperlink{classCommandLineParser}{Command\+Line\+Parser} 
+\begin{DoxyParams}{Parameters}
+{\em std\+::string\&} & fixed string used for unit testing mocking stdin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 Vector of strings containing output from stdin. 
 \end{DoxyReturn}
 
 
+Implements \hyperlink{classCommandLineParser}{Command\+Line\+Parser}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{classCli_a4ee41556f8c3a736d813f0d937413da0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classCli_aaf60768f062a6dc2557aaddbe738a19c}\label{classCli_aaf60768f062a6dc2557aaddbe738a19c}} 
+\index{Cli@{Cli}!split@{split}}
+\index{split@{split}!Cli@{Cli}}
+\subsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Cli\+::split (\begin{DoxyParamCaption}\item[{std\+::string \&}]{input,  }\item[{char}]{delim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\hyperlink{classCli_aaf60768f062a6dc2557aaddbe738a19c}{Cli\+::split}
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & incoming unprocessed string \\
+\hline
+{\em delim} & delimiter used to split \\
+\hline
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & splitted into multiple strings saved in a std\+::vector \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{classCli_aaf60768f062a6dc2557aaddbe738a19c_icgraph}
+\end{center}
+\end{figure}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/Cli.\+h\item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/src/Cli.\+cpp\end{DoxyCompactItemize}
+inc/Cli.\+h\item 
+src/Cli.\+cpp\end{DoxyCompactItemize}

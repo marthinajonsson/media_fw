@@ -67,14 +67,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p> 
+<p>Defines methods for database implementations.  
  <a href="classDatabase.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Database:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDatabase__inherit__graph.png" border="0" usemap="#Database_inherit__map" alt="Inheritance graph"/></div>
 <map name="Database_inherit__map" id="Database_inherit__map">
-<area shape="rect" id="node2" href="classMovieDatabase.html" title="A module that implements the functionality of Database.h and helps the client to perform database act..." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node2" href="classMovieDatabase.html" title="A module that implements the functionality of Database.h and helps the client to perform database act..." alt="" coords="5,80,119,107"/>
+<area shape="rect" id="node3" href="classSeriesDatabase.html" title="SeriesDatabase" alt="" coords="143,80,258,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -82,32 +83,32 @@ Collaboration diagram for Database:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDatabase__coll__graph.png" border="0" usemap="#Database_coll__map" alt="Collaboration graph"/></div>
 <map name="Database_coll__map" id="Database_coll__map">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="183,96,270,123"/>
-<area shape="rect" id="node7" href="classDatabaseItem.html" title="DatabaseItem" alt="" coords="235,314,349,341"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="157,5,296,47"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="171,96,251,123"/>
+<area shape="rect" id="node7" href="classDatabaseItem.html" title="A module representing the content of a database item. " alt="" coords="213,314,317,341"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="148,5,275,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4703c80e6969d33565ea340f768fdadf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf">Database</a> ()</td></tr>
-<tr class="memdesc:a4703c80e6969d33565ea340f768fdadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a4703c80e6969d33565ea340f768fdadf">More...</a><br /></td></tr>
-<tr class="separator:a4703c80e6969d33565ea340f768fdadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57fbada3001c2db58a0ca6c7071bd18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#aa57fbada3001c2db58a0ca6c7071bd18">Database</a> ()=default</td></tr>
+<tr class="memdesc:aa57fbada3001c2db58a0ca6c7071bd18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#aa57fbada3001c2db58a0ca6c7071bd18">More...</a><br /></td></tr>
+<tr class="separator:aa57fbada3001c2db58a0ca6c7071bd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a341cd0fe8c615e829e3a22b74c208bb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a341cd0fe8c615e829e3a22b74c208bb5">~Database</a> ()=default</td></tr>
 <tr class="memdesc:a341cd0fe8c615e829e3a22b74c208bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor.  <a href="#a341cd0fe8c615e829e3a22b74c208bb5">More...</a><br /></td></tr>
 <tr class="separator:a341cd0fe8c615e829e3a22b74c208bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac77c61314a54bf3bc1bcbcf7986998e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#ac77c61314a54bf3bc1bcbcf7986998e8">syncDatabase</a> ()</td></tr>
-<tr class="memdesc:ac77c61314a54bf3bc1bcbcf7986998e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sync info from json file and saves it to a list of database objects.  <a href="#ac77c61314a54bf3bc1bcbcf7986998e8">More...</a><br /></td></tr>
-<tr class="separator:ac77c61314a54bf3bc1bcbcf7986998e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d24487b4ea3b50097b9ac0f2b3f317"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a14d24487b4ea3b50097b9ac0f2b3f317">syncLocalDatabase</a> ()</td></tr>
+<tr class="memdesc:a14d24487b4ea3b50097b9ac0f2b3f317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sync info from json file and saves it to a list of database objects.  <a href="#a14d24487b4ea3b50097b9ac0f2b3f317">More...</a><br /></td></tr>
+<tr class="separator:a14d24487b4ea3b50097b9ac0f2b3f317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80fa14ab9f4deadc9a2ab7493f1919a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a80fa14ab9f4deadc9a2ab7493f1919a4">pushItem</a> (const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;m_item)</td></tr>
 <tr class="memdesc:a80fa14ab9f4deadc9a2ab7493f1919a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uploads the requested database item.  <a href="#a80fa14ab9f4deadc9a2ab7493f1919a4">More...</a><br /></td></tr>
 <tr class="separator:a80fa14ab9f4deadc9a2ab7493f1919a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40254eec69c7d7cc15da24a9f0b072b3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classDatabaseItem.html">DatabaseItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a40254eec69c7d7cc15da24a9f0b072b3">fetchItem</a> (const std::string &amp;title)</td></tr>
 <tr class="memdesc:a40254eec69c7d7cc15da24a9f0b072b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch the requested database item.  <a href="#a40254eec69c7d7cc15da24a9f0b072b3">More...</a><br /></td></tr>
 <tr class="separator:a40254eec69c7d7cc15da24a9f0b072b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d232b9f62079682dd7fe7983b252e5e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a5d232b9f62079682dd7fe7983b252e5e">purgeItem</a> (const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;m_item)</td></tr>
-<tr class="memdesc:a5d232b9f62079682dd7fe7983b252e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the requested database item.  <a href="#a5d232b9f62079682dd7fe7983b252e5e">More...</a><br /></td></tr>
-<tr class="separator:a5d232b9f62079682dd7fe7983b252e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f47437526eeec631f1328fab9bbbc75"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a8f47437526eeec631f1328fab9bbbc75">purgeItem</a> (<a class="el" href="classDatabaseItem.html">DatabaseItem</a> m_item)</td></tr>
+<tr class="memdesc:a8f47437526eeec631f1328fab9bbbc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the requested database item.  <a href="#a8f47437526eeec631f1328fab9bbbc75">More...</a><br /></td></tr>
+<tr class="separator:a8f47437526eeec631f1328fab9bbbc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa345da530fd5c8dfe0c978917cd6049"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#afa345da530fd5c8dfe0c978917cd6049">printAll</a> ()</td></tr>
 <tr class="memdesc:afa345da530fd5c8dfe0c978917cd6049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the entire database content.  <a href="#afa345da530fd5c8dfe0c978917cd6049">More...</a><br /></td></tr>
 <tr class="separator:afa345da530fd5c8dfe0c978917cd6049"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,15 +128,14 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:a7f55f3a5d93c9694ee4f08a2f2135b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected mutex for threadsafe r/w of DatabaseItems.  <a href="#a7f55f3a5d93c9694ee4f08a2f2135b1d">More...</a><br /></td></tr>
 <tr class="separator:a7f55f3a5d93c9694ee4f08a2f2135b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ad8bf38964b3e18a0e168437acbdb27"><td class="memItemLeft" align="right" valign="top">std::condition_variable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a2ad8bf38964b3e18a0e168437acbdb27">m_emptyList</a></td></tr>
-<tr class="memdesc:a2ad8bf38964b3e18a0e168437acbdb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected condittion variable for the mutex and <a class="el" href="classDatabase.html">Database</a> list.  <a href="#a2ad8bf38964b3e18a0e168437acbdb27">More...</a><br /></td></tr>
+<tr class="memdesc:a2ad8bf38964b3e18a0e168437acbdb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected condittion variable for the mutex and <a class="el" href="classDatabase.html" title="Defines methods for database implementations. ">Database</a> list.  <a href="#a2ad8bf38964b3e18a0e168437acbdb27">More...</a><br /></td></tr>
 <tr class="separator:a2ad8bf38964b3e18a0e168437acbdb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A module that works as an interface for subclasses and let them perform database actions </p>
-<p>Defines methods for database implementations. </p>
+<div class="textblock"><p>Defines methods for database implementations. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4703c80e6969d33565ea340f768fdadf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4703c80e6969d33565ea340f768fdadf">&#9670;&nbsp;</a></span>Database()</h2>
+<a id="aa57fbada3001c2db58a0ca6c7071bd18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57fbada3001c2db58a0ca6c7071bd18">&#9670;&nbsp;</a></span>Database()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,13 +152,13 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
-<p><a class="el" href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf" title="Default constructor. ">Database()</a> </p>
+<p><a class="el" href="classDatabase.html#aa57fbada3001c2db58a0ca6c7071bd18" title="Default constructor. ">Database()</a> </p>
 
 </div>
 </div>
@@ -217,9 +217,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Fetch the requested database item. </p>
 <p>A const reference to a title</p>
-<dl class="section return"><dt>Returns</dt><dd>The requested <a class="el" href="classDatabaseItem.html">DatabaseItem</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested <a class="el" href="classDatabaseItem.html" title="A module representing the content of a database item. ">DatabaseItem</a></dd></dl>
 
-<p>Reimplemented in <a class="el" href="classMovieDatabase.html#ac0bb39b8be599ffea76081809ae42dda">MovieDatabase</a>.</p>
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#ac0bb39b8be599ffea76081809ae42dda">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#af5303a723910395b31f2e01088de9130">SeriesDatabase</a>.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ Protected Attributes</h2></td></tr>
 <p>Method that return the size of the database. </p>
 <dl class="section return"><dt>Returns</dt><dd>Size of the database (long).</dd></dl>
 
-<p>Reimplemented in <a class="el" href="classMovieDatabase.html#a9a386f51dd72d63414a124cbcfcd879b">MovieDatabase</a>.</p>
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#a9a386f51dd72d63414a124cbcfcd879b">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#af5fe5a423303eff4489a7679907ef994">SeriesDatabase</a>.</p>
 
 </div>
 </div>
@@ -277,14 +277,14 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints the entire database content. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>s </p>
 
-<p>Reimplemented in <a class="el" href="classMovieDatabase.html#af1e13b6fc0fd7186e98edbe2cf187618">MovieDatabase</a>.</p>
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#af1e13b6fc0fd7186e98edbe2cf187618">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#ae2bf5323216e0043292494d3f0ac978c">SeriesDatabase</a>.</p>
 
 </div>
 </div>
-<a id="a5d232b9f62079682dd7fe7983b252e5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d232b9f62079682dd7fe7983b252e5e">&#9670;&nbsp;</a></span>purgeItem()</h2>
+<a id="a8f47437526eeec631f1328fab9bbbc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f47437526eeec631f1328fab9bbbc75">&#9670;&nbsp;</a></span>purgeItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +295,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void Database::purgeItem </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classDatabaseItem.html">DatabaseItem</a>&#160;</td>
           <td class="paramname"><em>m_item</em></td><td>)</td>
           <td></td>
         </tr>
@@ -309,9 +309,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Delete the requested database item. </p>
 <p>A const reference to a database item</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Reimplemented in <a class="el" href="classMovieDatabase.html#a85faa4c33b3ab2dc0d1f4939bb034797">MovieDatabase</a>.</p>
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#ad3ce59d0fa7f64937085e7504bd3b85a">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#a863a35987b5a4de15a121b8b4358e353">SeriesDatabase</a>.</p>
 
 </div>
 </div>
@@ -341,14 +340,13 @@ Protected Attributes</h2></td></tr>
 
 <p>Uploads the requested database item. </p>
 <p>A const reference to a database item</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Reimplemented in <a class="el" href="classMovieDatabase.html#a203b9b5c1b325997ce519859a436b6ce">MovieDatabase</a>.</p>
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#a203b9b5c1b325997ce519859a436b6ce">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#a7591f89ab256d9f5a41235f5552e4e23">SeriesDatabase</a>.</p>
 
 </div>
 </div>
-<a id="ac77c61314a54bf3bc1bcbcf7986998e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac77c61314a54bf3bc1bcbcf7986998e8">&#9670;&nbsp;</a></span>syncDatabase()</h2>
+<a id="a14d24487b4ea3b50097b9ac0f2b3f317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d24487b4ea3b50097b9ac0f2b3f317">&#9670;&nbsp;</a></span>syncLocalDatabase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,7 +355,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Database::syncDatabase </td>
+          <td class="memname">virtual void Database::syncLocalDatabase </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -365,13 +363,15 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Sync info from json file and saves it to a list of database objects. </p>
-<p><a class="el" href="classDatabase.html#ac77c61314a54bf3bc1bcbcf7986998e8" title="Sync info from json file and saves it to a list of database objects. ">Database::syncDatabase()</a> </p>
+<p>Database::syncDatabase() </p>
+
+<p>Reimplemented in <a class="el" href="classMovieDatabase.html#aee175db6a2a357b6180fcab5d57eddd5">MovieDatabase</a>, and <a class="el" href="classSeriesDatabase.html#a0ba159b6d52a3cfa07135c7d8b37ef76">SeriesDatabase</a>.</p>
 
 </div>
 </div>
@@ -396,7 +396,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A protected condittion variable for the mutex and <a class="el" href="classDatabase.html">Database</a> list. </p>
+<p>A protected condittion variable for the mutex and <a class="el" href="classDatabase.html" title="Defines methods for database implementations. ">Database</a> list. </p>
 
 </div>
 </div>
@@ -473,7 +473,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/<a class="el" href="Database_8h_source.html">Database.h</a></li>
+<li>inc/database/<a class="el" href="Database_8h_source.html">Database.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

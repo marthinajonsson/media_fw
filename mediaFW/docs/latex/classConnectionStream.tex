@@ -1,0 +1,43 @@
+\hypertarget{classConnectionStream}{}\section{Connection\+Stream Class Reference}
+\label{classConnectionStream}\index{Connection\+Stream@{Connection\+Stream}}
+
+
+Collaboration diagram for Connection\+Stream\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{classConnectionStream__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnectionStream_a90b1fa3e20b531f40b5dff907ebe6e75}\label{classConnectionStream_a90b1fa3e20b531f40b5dff907ebe6e75}} 
+{\bfseries Connection\+Stream} (ssh\+\_\+session session)
+\item 
+\mbox{\Hypertarget{classConnectionStream_a3e15cc23cc086eab18ac6ca4a084fe72}\label{classConnectionStream_a3e15cc23cc086eab18ac6ca4a084fe72}} 
+bool {\bfseries send\+Remote\+Commands} (std\+::string \&request, std\+::string \&result)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnectionStream_a42f6169f1228c0f690d385fc5a278965}\label{classConnectionStream_a42f6169f1228c0f690d385fc5a278965}} 
+void {\bfseries close\+Channel} (ssh\+\_\+channel channel)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnectionStream_a0c3d09410dad1e406954bb61fd9d64b9}\label{classConnectionStream_a0c3d09410dad1e406954bb61fd9d64b9}} 
+ssh\+\_\+session {\bfseries m\+\_\+session}
+\item 
+\mbox{\Hypertarget{classConnectionStream_a63c356309a1cfa4ac04f7dc5b2c08fa0}\label{classConnectionStream_a63c356309a1cfa4ac04f7dc5b2c08fa0}} 
+ssh\+\_\+channel {\bfseries m\+\_\+channel}
+\item 
+\mbox{\Hypertarget{classConnectionStream_a34222df0c29e871cf31b44c53fdc017a}\label{classConnectionStream_a34222df0c29e871cf31b44c53fdc017a}} 
+\hyperlink{classStatusLogger}{Status\+Logger} $\ast$ {\bfseries m\+\_\+logger}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/Connection\+Stream.\+h\end{DoxyCompactItemize}

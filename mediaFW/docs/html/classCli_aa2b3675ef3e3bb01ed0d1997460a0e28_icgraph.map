@@ -1,0 +1,4 @@
+<map id="Cli::process" name="Cli::process">
+<area shape="rect" id="node2" href="$classClient.html#abd9bf3421bbc1e0ad11685cc95af53a8" title="A method that waits for CLI to process incoming request. " alt="" coords="145,5,272,32"/>
+<area shape="rect" id="node3" href="$classClient.html#a8030bdb7d7857907110ad45883b01511" title="loop that receives new Requests from CLI and pushes to queue " alt="" coords="320,5,479,32"/>
+</map>

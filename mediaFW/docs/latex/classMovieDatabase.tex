@@ -11,18 +11,16 @@ A module that implements the functionality of \hyperlink{Database_8h_source}{Dat
 
 
 
-Inheritance diagram for Movie\+Database\+:
-\nopagebreak
+Inheritance diagram for Movie\+Database\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=172pt]{classMovieDatabase__inherit__graph}
+\includegraphics[width=165pt]{classMovieDatabase__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Movie\+Database\+:
-\nopagebreak
+Collaboration diagram for Movie\+Database\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,17 +30,29 @@ Collaboration diagram for Movie\+Database\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5}{sync\+Local\+Database} () override
+\begin{DoxyCompactList}\small\item\em Sync info from json file and saves it to a list of database objects. \end{DoxyCompactList}\item 
 void \hyperlink{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}{push\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
-\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Uploads the requested database item. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that uploads the requested database item. \end{DoxyCompactList}\item 
 \hyperlink{classDatabaseItem}{Database\+Item} \hyperlink{classMovieDatabase_ac0bb39b8be599ffea76081809ae42dda}{fetch\+Item} (const std\+::string \&title) override
-\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Fetch the requested database item. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that fetches the requested database item. \end{DoxyCompactList}\item 
 long \hyperlink{classMovieDatabase_a9a386f51dd72d63414a124cbcfcd879b}{get\+Number\+Of\+Item} () override
 \begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that return the size of the database. \end{DoxyCompactList}\item 
-void \hyperlink{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}{purge\+Item} (const \hyperlink{classDatabaseItem}{Database\+Item} \&m\+\_\+item) override
-\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Delete the requested database item. \end{DoxyCompactList}\item 
+void \hyperlink{classMovieDatabase_ad3ce59d0fa7f64937085e7504bd3b85a}{purge\+Item} (\hyperlink{classDatabaseItem}{Database\+Item} item) override
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that deletes the requested database item. \end{DoxyCompactList}\item 
 void \hyperlink{classMovieDatabase_af1e13b6fc0fd7186e98edbe2cf187618}{print\+All} () override
-\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Prints the entire database content. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that prints the entire database content. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ \hyperlink{classDatabaseItem}{Database\+Item} $>$ \hyperlink{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}{m\+\_\+items}
+\begin{DoxyCompactList}\small\item\em A protected list of Database\+Items. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \hyperlink{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}{m\+\_\+saved}
+\begin{DoxyCompactList}\small\item\em A protected vector of strings with info for the Database\+Items. \end{DoxyCompactList}\item 
+std\+::mutex \hyperlink{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}{m\+\_\+lock}
+\begin{DoxyCompactList}\small\item\em A protected mutex for threadsafe r/w of Database\+Items. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \hyperlink{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}{m\+\_\+empty\+List}
+\begin{DoxyCompactList}\small\item\em A protected condittion variable for the mutex and \hyperlink{classDatabase}{Database} list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -59,7 +69,7 @@ A module that implements the functionality of \hyperlink{Database_8h_source}{Dat
 
 
 
-Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Fetch the requested database item. 
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that fetches the requested database item. 
 
 A const reference to a title
 
@@ -95,33 +105,25 @@ Reimplemented from \hyperlink{classDatabase_a230225cb341eb23a99a83ef3d1abae53}{D
 
 
 
-Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Prints the entire database content. 
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that prints the entire database content. 
 
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
 
 
 Reimplemented from \hyperlink{classDatabase_afa345da530fd5c8dfe0c978917cd6049}{Database}.
 
-\mbox{\Hypertarget{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}\label{classMovieDatabase_a85faa4c33b3ab2dc0d1f4939bb034797}} 
+\mbox{\Hypertarget{classMovieDatabase_ad3ce59d0fa7f64937085e7504bd3b85a}\label{classMovieDatabase_ad3ce59d0fa7f64937085e7504bd3b85a}} 
 \index{Movie\+Database@{Movie\+Database}!purge\+Item@{purge\+Item}}
 \index{purge\+Item@{purge\+Item}!Movie\+Database@{Movie\+Database}}
 \subsubsection{\texorpdfstring{purge\+Item()}{purgeItem()}}
-{\footnotesize\ttfamily void Movie\+Database\+::purge\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{classDatabaseItem}{Database\+Item} \&}]{m\+\_\+item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Movie\+Database\+::purge\+Item (\begin{DoxyParamCaption}\item[{\hyperlink{classDatabaseItem}{Database\+Item}}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Delete the requested database item. 
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that deletes the requested database item. 
 
 A const reference to a database item
 
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-
-
-Reimplemented from \hyperlink{classDatabase_a5d232b9f62079682dd7fe7983b252e5e}{Database}.
+Reimplemented from \hyperlink{classDatabase_a8f47437526eeec631f1328fab9bbbc75}{Database}.
 
 \mbox{\Hypertarget{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}\label{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce}} 
 \index{Movie\+Database@{Movie\+Database}!push\+Item@{push\+Item}}
@@ -131,7 +133,7 @@ Reimplemented from \hyperlink{classDatabase_a5d232b9f62079682dd7fe7983b252e5e}{D
 
 
 
-Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Uploads the requested database item. 
+Implementation for virtual member of \hyperlink{Database_8h_source}{Database.\+h} Method that uploads the requested database item. 
 
 A const reference to a database item
 
@@ -142,8 +144,79 @@ A const reference to a database item
 
 Reimplemented from \hyperlink{classDatabase_a80fa14ab9f4deadc9a2ab7493f1919a4}{Database}.
 
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5}\label{classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5}} 
+\index{Movie\+Database@{Movie\+Database}!sync\+Local\+Database@{sync\+Local\+Database}}
+\index{sync\+Local\+Database@{sync\+Local\+Database}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{sync\+Local\+Database()}{syncLocalDatabase()}}
+{\footnotesize\ttfamily void Movie\+Database\+::sync\+Local\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sync info from json file and saves it to a list of database objects. 
+
+Database\+::sync\+Database() 
+
+Reimplemented from \hyperlink{classDatabase_a14d24487b4ea3b50097b9ac0f2b3f317}{Database}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}\label{classDatabase_a2ad8bf38964b3e18a0e168437acbdb27}} 
+\index{Movie\+Database@{Movie\+Database}!m\+\_\+empty\+List@{m\+\_\+empty\+List}}
+\index{m\+\_\+empty\+List@{m\+\_\+empty\+List}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+empty\+List}{m\_emptyList}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable Database\+::m\+\_\+empty\+List\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected condittion variable for the mutex and \hyperlink{classDatabase}{Database} list. 
+
+\mbox{\Hypertarget{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}\label{classDatabase_a5a4ac1f3bf0f5fd77a696174ad9e5c45}} 
+\index{Movie\+Database@{Movie\+Database}!m\+\_\+items@{m\+\_\+items}}
+\index{m\+\_\+items@{m\+\_\+items}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+items}{m\_items}}
+{\footnotesize\ttfamily std\+::list$<$\hyperlink{classDatabaseItem}{Database\+Item}$>$ Database\+::m\+\_\+items\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected list of Database\+Items. 
+
+\mbox{\Hypertarget{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}\label{classDatabase_a7f55f3a5d93c9694ee4f08a2f2135b1d}} 
+\index{Movie\+Database@{Movie\+Database}!m\+\_\+lock@{m\+\_\+lock}}
+\index{m\+\_\+lock@{m\+\_\+lock}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+lock}{m\_lock}}
+{\footnotesize\ttfamily std\+::mutex Database\+::m\+\_\+lock\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected mutex for threadsafe r/w of Database\+Items. 
+
+\mbox{\Hypertarget{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}\label{classDatabase_a9f87cbe5a1be71d541083dffa8d8c9ad}} 
+\index{Movie\+Database@{Movie\+Database}!m\+\_\+saved@{m\+\_\+saved}}
+\index{m\+\_\+saved@{m\+\_\+saved}!Movie\+Database@{Movie\+Database}}
+\subsubsection{\texorpdfstring{m\+\_\+saved}{m\_saved}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::vector$<$std\+::string$>$ $>$ Database\+::m\+\_\+saved\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [inherited]}}
+
+
+
+A protected vector of strings with info for the Database\+Items. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/\+Database/Movie\+Database.\+h\end{DoxyCompactItemize}
+inc/database/Movie\+Database.\+h\end{DoxyCompactItemize}

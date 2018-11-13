@@ -1,4 +1,4 @@
-.TH "JsonParser" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.TH "JsonParser" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,27 +6,90 @@ JsonParser
 .SH SYNOPSIS
 .br
 .PP
+.PP
+Inherits \fBParser\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "void \fBparser\fP ()"
+.RI "\fBJsonParser\fP (\fBJsonParser\fP const &)=delete"
 .br
 .ti -1c
-.RI "void \fBupdateDB\fP ()"
+.RI "void \fBoperator=\fP (\fBJsonParser\fP const &)=delete"
 .br
 .ti -1c
-.RI "std::map< std::string, std::vector< std::string > > \fBgetParsed\fP ()"
+.RI "void \fBclear\fP () override"
+.br
+.ti -1c
+.RI "void \fBload\fP (const Category &) override"
+.br
+.ti -1c
+.RI "void \fBadd\fP (const Category &, \fBDatabaseItem\fP &) override"
+.br
+.ti -1c
+.RI "void \fBremove\fP (const Category &, \fBDatabaseItem\fP &) override"
+.br
+.ti -1c
+.RI "bool \fBfind\fP (Category &, const std::string &) override"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBgetMovieParsed\fP ()"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBgetSeriesParsed\fP ()"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBgetLatestResult\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBJsonParser\fP & \fBgetInstance\fP ()"
 .br
 .in -1c
 .SS "Private Attributes"
 
 .in +1c
 .ti -1c
-.RI "std::vector< std::string > \fB_parsed\fP"
+.RI "const std::string \fBTITLE\fP = 'title'"
 .br
 .ti -1c
-.RI "std::map< std::string, std::vector< std::string > > \fB_map\fP"
+.RI "const std::string \fBGENRE\fP = 'genre'"
+.br
+.ti -1c
+.RI "const std::string \fBACTORS\fP = 'actors'"
+.br
+.ti -1c
+.RI "const std::string \fBDIRECTOR\fP = 'director'"
+.br
+.ti -1c
+.RI "const std::string \fBITEMS\fP = 'items'"
+.br
+.ti -1c
+.RI "std::string \fBMOVIES\fP = 'Movies'"
+.br
+.ti -1c
+.RI "std::string \fBSERIES\fP = 'Series'"
+.br
+.ti -1c
+.RI "Json::Value \fBm_root\fP"
+.br
+.ti -1c
+.RI "std::string \fBtemp_title\fP"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBm_parsed\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_resultMap\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_movieMap\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_seriesMap\fP"
 .br
 .in -1c
 

@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classJsonParser-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -67,39 +68,108 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
+Inheritance diagram for JsonParser:</div>
+<div class="dyncontent">
+<div class="center"><img src="classJsonParser__inherit__graph.png" border="0" usemap="#JsonParser_inherit__map" alt="Inheritance graph"/></div>
+<map name="JsonParser_inherit__map" id="JsonParser_inherit__map">
+<area shape="rect" id="node2" href="classParser.html" title="Parser" alt="" coords="19,5,79,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
 Collaboration diagram for JsonParser:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJsonParser__coll__graph.png" border="0" usemap="#JsonParser_coll__map" alt="Collaboration graph"/></div>
 <map name="JsonParser_coll__map" id="JsonParser_coll__map">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="83,96,170,123"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="57,5,196,47"/>
+<area shape="rect" id="node2" href="classParser.html" title="Parser" alt="" coords="715,45,775,72"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="181,148,261,175"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,141,132,182"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0596a13bfbe4ad3a3148da5e15d6d5ca"><td class="memItemLeft" align="right" valign="top"><a id="a0596a13bfbe4ad3a3148da5e15d6d5ca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>parser</b> ()</td></tr>
-<tr class="separator:a0596a13bfbe4ad3a3148da5e15d6d5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b1b7ec9ecee0e8e9368341764ceb91a"><td class="memItemLeft" align="right" valign="top"><a id="a5b1b7ec9ecee0e8e9368341764ceb91a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateDB</b> ()</td></tr>
-<tr class="separator:a5b1b7ec9ecee0e8e9368341764ceb91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3edea04b709d78da9b90a916ab1123f6"><td class="memItemLeft" align="right" valign="top"><a id="a3edea04b709d78da9b90a916ab1123f6"></a>
-std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getParsed</b> ()</td></tr>
-<tr class="separator:a3edea04b709d78da9b90a916ab1123f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b90af892f999ee37dfc57bc0a7851f"><td class="memItemLeft" align="right" valign="top"><a id="af6b90af892f999ee37dfc57bc0a7851f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>JsonParser</b> (<a class="el" href="classJsonParser.html">JsonParser</a> const &amp;)=delete</td></tr>
+<tr class="separator:af6b90af892f999ee37dfc57bc0a7851f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f43720d31047a61275598769b30e7d"><td class="memItemLeft" align="right" valign="top"><a id="ab4f43720d31047a61275598769b30e7d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classJsonParser.html">JsonParser</a> const &amp;)=delete</td></tr>
+<tr class="separator:ab4f43720d31047a61275598769b30e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d091b22b4f95ea1c16e9d09b644715e"><td class="memItemLeft" align="right" valign="top"><a id="a1d091b22b4f95ea1c16e9d09b644715e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> () override</td></tr>
+<tr class="separator:a1d091b22b4f95ea1c16e9d09b644715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd179a463a5ce61bad930af35bf414d8"><td class="memItemLeft" align="right" valign="top"><a id="abd179a463a5ce61bad930af35bf414d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const Category &amp;) override</td></tr>
+<tr class="separator:abd179a463a5ce61bad930af35bf414d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab6146344e60e607289dafe2609c4e5"><td class="memItemLeft" align="right" valign="top"><a id="a9ab6146344e60e607289dafe2609c4e5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const Category &amp;, <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;) override</td></tr>
+<tr class="separator:a9ab6146344e60e607289dafe2609c4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad49a8004db93e654df391bac2d98c5cc"><td class="memItemLeft" align="right" valign="top"><a id="ad49a8004db93e654df391bac2d98c5cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (const Category &amp;, <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;) override</td></tr>
+<tr class="separator:ad49a8004db93e654df391bac2d98c5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5641c4ab20251540d9c9f7a8d182efb"><td class="memItemLeft" align="right" valign="top"><a id="af5641c4ab20251540d9c9f7a8d182efb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (Category &amp;, const std::string &amp;) override</td></tr>
+<tr class="separator:af5641c4ab20251540d9c9f7a8d182efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06078f0464569dac47c5d66131a4f8a4"><td class="memItemLeft" align="right" valign="top"><a id="a06078f0464569dac47c5d66131a4f8a4"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMovieParsed</b> ()</td></tr>
+<tr class="separator:a06078f0464569dac47c5d66131a4f8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac942ea55db61a23fd1c6106b76ad1fa4"><td class="memItemLeft" align="right" valign="top"><a id="ac942ea55db61a23fd1c6106b76ad1fa4"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getSeriesParsed</b> ()</td></tr>
+<tr class="separator:ac942ea55db61a23fd1c6106b76ad1fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23dd51f8c905cc86d2ad0b9bf232aeb"><td class="memItemLeft" align="right" valign="top"><a id="ab23dd51f8c905cc86d2ad0b9bf232aeb"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLatestResult</b> ()</td></tr>
+<tr class="separator:ab23dd51f8c905cc86d2ad0b9bf232aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a31933a8a827a8377b5edbf01bd4a66ac"><td class="memItemLeft" align="right" valign="top"><a id="a31933a8a827a8377b5edbf01bd4a66ac"></a>
+static <a class="el" href="classJsonParser.html">JsonParser</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
+<tr class="separator:a31933a8a827a8377b5edbf01bd4a66ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a9f6f40a24df6f47c7d44bda36373f7d9"><td class="memItemLeft" align="right" valign="top"><a id="a9f6f40a24df6f47c7d44bda36373f7d9"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_parsed</b></td></tr>
-<tr class="separator:a9f6f40a24df6f47c7d44bda36373f7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc560e458757815191a668619a03b0e"><td class="memItemLeft" align="right" valign="top"><a id="afbc560e458757815191a668619a03b0e"></a>
-std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_map</b></td></tr>
-<tr class="separator:afbc560e458757815191a668619a03b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fd58d33ddee29187d335f9f0cf0a0db"><td class="memItemLeft" align="right" valign="top"><a id="a1fd58d33ddee29187d335f9f0cf0a0db"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TITLE</b> = &quot;title&quot;</td></tr>
+<tr class="separator:a1fd58d33ddee29187d335f9f0cf0a0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32223885ef9b529e156fb47ea847abff"><td class="memItemLeft" align="right" valign="top"><a id="a32223885ef9b529e156fb47ea847abff"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GENRE</b> = &quot;genre&quot;</td></tr>
+<tr class="separator:a32223885ef9b529e156fb47ea847abff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47cedc2b9fc664735a9fdcbc9869033"><td class="memItemLeft" align="right" valign="top"><a id="ad47cedc2b9fc664735a9fdcbc9869033"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ACTORS</b> = &quot;actors&quot;</td></tr>
+<tr class="separator:ad47cedc2b9fc664735a9fdcbc9869033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6aa8c21e729236fd180f051358e9c9"><td class="memItemLeft" align="right" valign="top"><a id="a8d6aa8c21e729236fd180f051358e9c9"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>DIRECTOR</b> = &quot;director&quot;</td></tr>
+<tr class="separator:a8d6aa8c21e729236fd180f051358e9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcbbf58d72ac41ef6caf67cb34b7864"><td class="memItemLeft" align="right" valign="top"><a id="a3fcbbf58d72ac41ef6caf67cb34b7864"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ITEMS</b> = &quot;items&quot;</td></tr>
+<tr class="separator:a3fcbbf58d72ac41ef6caf67cb34b7864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab209a873c5fa7850d80e9ddc9bab04c0"><td class="memItemLeft" align="right" valign="top"><a id="ab209a873c5fa7850d80e9ddc9bab04c0"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>MOVIES</b> = &quot;Movies&quot;</td></tr>
+<tr class="separator:ab209a873c5fa7850d80e9ddc9bab04c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00fe1d9101a48ef93ee8eeabcc059aae"><td class="memItemLeft" align="right" valign="top"><a id="a00fe1d9101a48ef93ee8eeabcc059aae"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>SERIES</b> = &quot;Series&quot;</td></tr>
+<tr class="separator:a00fe1d9101a48ef93ee8eeabcc059aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5a993adef29a11237804dfd3de9fd50"><td class="memItemLeft" align="right" valign="top"><a id="ae5a993adef29a11237804dfd3de9fd50"></a>
+Json::Value&#160;</td><td class="memItemRight" valign="bottom"><b>m_root</b></td></tr>
+<tr class="separator:ae5a993adef29a11237804dfd3de9fd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1947ab7e13cc7917154d7d8aea23f777"><td class="memItemLeft" align="right" valign="top"><a id="a1947ab7e13cc7917154d7d8aea23f777"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>temp_title</b></td></tr>
+<tr class="separator:a1947ab7e13cc7917154d7d8aea23f777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e76488d7685330236a52de4a186aba"><td class="memItemLeft" align="right" valign="top"><a id="a33e76488d7685330236a52de4a186aba"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_parsed</b></td></tr>
+<tr class="separator:a33e76488d7685330236a52de4a186aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89def06854ea0cf7d21e5d94ad35791"><td class="memItemLeft" align="right" valign="top"><a id="ad89def06854ea0cf7d21e5d94ad35791"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_resultMap</b></td></tr>
+<tr class="separator:ad89def06854ea0cf7d21e5d94ad35791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06f285831e0dfeb1218ccdd4a9de41b"><td class="memItemLeft" align="right" valign="top"><a id="aa06f285831e0dfeb1218ccdd4a9de41b"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_movieMap</b></td></tr>
+<tr class="separator:aa06f285831e0dfeb1218ccdd4a9de41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa68a2950074daa8b3e64818d104d63"><td class="memItemLeft" align="right" valign="top"><a id="abfa68a2950074daa8b3e64818d104d63"></a>
+std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_seriesMap</b></td></tr>
+<tr class="separator:abfa68a2950074daa8b3e64818d104d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/mjonsson/repo/cppAdv/mediaFW/inc/<a class="el" href="JsonParser_8h_source.html">JsonParser.h</a></li>
-<li>/home/mjonsson/repo/cppAdv/mediaFW/src/JsonParser.cpp</li>
+<li>inc/<a class="el" href="JsonParser_8h_source.html">JsonParser.h</a></li>
+<li>src/JsonParser.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

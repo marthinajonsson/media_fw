@@ -1,0 +1,128 @@
+.TH "Request" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Request
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRequest\fP (Event _event, std::string &_title, std::string, std::string &_genre, std::string &_director, std::vector< std::string > &_actors)"
+.br
+.ti -1c
+.RI "\fBRequest\fP (Event _event, std::string &_title)"
+.br
+.ti -1c
+.RI "\fBRequest\fP (Event _event)"
+.br
+.ti -1c
+.RI "\fBRequest\fP (const int code, const std::string desc)"
+.br
+.ti -1c
+.RI "void \fBsetCategory\fP (Category cat)"
+.br
+.ti -1c
+.RI "void \fBsetProgress\fP (Progress progress)"
+.br
+.ti -1c
+.RI "void \fBsetErrorDesc\fP (const std::string &_desc)"
+.br
+.ti -1c
+.RI "void \fBsetError\fP (const int &_err)"
+.br
+.ti -1c
+.RI "void \fBsetTitle\fP (const std::string &_title)"
+.br
+.ti -1c
+.RI "void \fBsetGenre\fP (const std::string &_genre)"
+.br
+.ti -1c
+.RI "void \fBsetDirector\fP (const std::string &_director)"
+.br
+.ti -1c
+.RI "void \fBsetActors\fP (const std::vector< std::string > &_vec)"
+.br
+.ti -1c
+.RI "void \fBsetFilename\fP (const std::string &_filename)"
+.br
+.ti -1c
+.RI "void \fBsetMultipleResult\fP (const std::map< std::string, std::vector< std::string >> &_map)"
+.br
+.ti -1c
+.RI "int \fBgetError\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetErrorDesc\fP ()"
+.br
+.ti -1c
+.RI "Event \fBgetEvent\fP () const"
+.br
+.ti -1c
+.RI "Progress \fBgetProgress\fP ()"
+.br
+.ti -1c
+.RI "std::string const \fBgetFileName\fP ()"
+.br
+.ti -1c
+.RI "std::string const \fBgetTitle\fP () const"
+.br
+.ti -1c
+.RI "std::string const \fBgetGenre\fP ()"
+.br
+.ti -1c
+.RI "std::string const \fBgetDirector\fP ()"
+.br
+.ti -1c
+.RI "std::vector< std::string > const \fBgetActors\fP ()"
+.br
+.ti -1c
+.RI "Category const \fBgetCategory\fP () const"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBgetMultipleResult\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBm_error\fP"
+.br
+.ti -1c
+.RI "std::string \fBm_errDesc\fP"
+.br
+.ti -1c
+.RI "Event \fBm_event\fP"
+.br
+.ti -1c
+.RI "std::string \fBm_filename\fP"
+.br
+.ti -1c
+.RI "std::string \fBm_title\fP"
+.br
+.ti -1c
+.RI "std::string \fBm_genre\fP"
+.br
+.ti -1c
+.RI "std::string \fBm_director\fP"
+.br
+.ti -1c
+.RI "Category \fBm_category\fP"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBm_actors\fP"
+.br
+.ti -1c
+.RI "Progress \fBm_progess\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_multipleResult\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

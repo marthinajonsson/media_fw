@@ -1,0 +1,62 @@
+\hypertarget{classSshConnector}{}\section{Ssh\+Connector Class Reference}
+\label{classSshConnector}\index{Ssh\+Connector@{Ssh\+Connector}}
+
+
+Inheritance diagram for Ssh\+Connector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classSshConnector__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ssh\+Connector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classSshConnector__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSshConnector_aeb1020e975caa51b24b49180362bf916}\label{classSshConnector_aeb1020e975caa51b24b49180362bf916}} 
+\hyperlink{classConnectionStream}{Connection\+Stream} $\ast$ {\bfseries connect} (uint16\+\_\+t port, std\+::string server) override
+\item 
+\mbox{\Hypertarget{classSshConnector_a54af419fdb2ec6ffa7aad86b294da681}\label{classSshConnector_a54af419fdb2ec6ffa7aad86b294da681}} 
+void {\bfseries disconnect} () override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSshConnector_ac31406197a9f7313f07945d85939ea31}\label{classSshConnector_ac31406197a9f7313f07945d85939ea31}} 
+bool {\bfseries m\+\_\+currently\+Connected}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSshConnector_a1d56102ea6b4fa9b632b4a09a82b1384}\label{classSshConnector_a1d56102ea6b4fa9b632b4a09a82b1384}} 
+int {\bfseries resolve\+Host} (ssh\+\_\+session session) override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSshConnector_a50ffdb805cbc4b2cafb11d83b3858095}\label{classSshConnector_a50ffdb805cbc4b2cafb11d83b3858095}} 
+\hyperlink{classStatusLogger}{Status\+Logger} $\ast$ {\bfseries m\+\_\+logger}
+\item 
+\mbox{\Hypertarget{classSshConnector_ae66617dc5bb646d9de70adfae28eccd5}\label{classSshConnector_ae66617dc5bb646d9de70adfae28eccd5}} 
+ssh\+\_\+session {\bfseries m\+\_\+session} \{ \}
+\item 
+\mbox{\Hypertarget{classSshConnector_a24af12d393d809a47c750ad3be02bbad}\label{classSshConnector_a24af12d393d809a47c750ad3be02bbad}} 
+unsigned char $\ast$ {\bfseries m\+\_\+hash} = nullptr
+\item 
+\mbox{\Hypertarget{classSshConnector_a7d02d2d3bfad85572058d354d6fc59c9}\label{classSshConnector_a7d02d2d3bfad85572058d354d6fc59c9}} 
+char $\ast$ {\bfseries m\+\_\+hexa} \{ \}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Ssh\+Connector.\+h\item 
+src/Ssh\+Connector.\+cpp\end{DoxyCompactItemize}

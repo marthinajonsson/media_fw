@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structJson_1_1CommentStyle.html" title="Scoped enums are not available until C++11. " alt="" coords="5,5,160,32"/>
+<area shape="rect" id="node1" href="$classLogger.html" title="Logger" alt="" coords="5,5,67,32"/>
+<area shape="rect" id="node2" href="$classStatusLogger.html" title="StatusLogger" alt="" coords="115,5,213,32"/>
 </map>

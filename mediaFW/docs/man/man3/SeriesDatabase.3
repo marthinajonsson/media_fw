@@ -1,0 +1,138 @@
+.TH "SeriesDatabase" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SeriesDatabase
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBDatabase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsyncLocalDatabase\fP () override"
+.br
+.RI "Sync info from json file and saves it to a list of database objects\&. "
+.ti -1c
+.RI "void \fBpushItem\fP (const \fBDatabaseItem\fP &m_item) override"
+.br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that uploads the requested database item\&. "
+.ti -1c
+.RI "\fBDatabaseItem\fP \fBfetchItem\fP (const std::string &title) override"
+.br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that fetches the requested database item\&. "
+.ti -1c
+.RI "long \fBgetNumberOfItem\fP () override"
+.br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that return the size of the database\&. "
+.ti -1c
+.RI "void \fBpurgeItem\fP (\fBDatabaseItem\fP item) override"
+.br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that deletes the requested database item\&. "
+.ti -1c
+.RI "void \fBprintAll\fP () override"
+.br
+.RI "Implementation for virtual member of \fBDatabase\&.h\fP Method that prints the entire database content\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::list< \fBDatabaseItem\fP > \fBm_items\fP"
+.br
+.RI "A protected list of DatabaseItems\&. "
+.ti -1c
+.RI "std::map< std::string, std::vector< std::string > > \fBm_saved\fP"
+.br
+.RI "A protected vector of strings with info for the DatabaseItems\&. "
+.ti -1c
+.RI "std::mutex \fBm_lock\fP"
+.br
+.RI "A protected mutex for threadsafe r/w of DatabaseItems\&. "
+.ti -1c
+.RI "std::condition_variable \fBm_emptyList\fP"
+.br
+.RI "A protected condittion variable for the mutex and \fBDatabase\fP list\&. "
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBDatabaseItem\fP SeriesDatabase::fetchItem (const std::string & title)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that fetches the requested database item\&. A const reference to a title
+.PP
+\fBReturns:\fP
+.RS 4
+The requested \fBDatabaseItem\fP
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "long SeriesDatabase::getNumberOfItem ()\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that return the size of the database\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Size of the database (long)\&.
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void SeriesDatabase::printAll ()\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that prints the entire database content\&. 
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void SeriesDatabase::purgeItem (\fBDatabaseItem\fP item)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that deletes the requested database item\&. A const reference to a database item
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void SeriesDatabase::pushItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Implementation for virtual member of \fBDatabase\&.h\fP Method that uploads the requested database item\&. A const reference to a database item
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SS "void SeriesDatabase::syncLocalDatabase ()\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Sync info from json file and saves it to a list of database objects\&. Database::syncDatabase() 
+.PP
+Reimplemented from \fBDatabase\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::condition_variable Database::m_emptyList\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+A protected condittion variable for the mutex and \fBDatabase\fP list\&. 
+.SS "std::list<\fBDatabaseItem\fP> Database::m_items\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+A protected list of DatabaseItems\&. 
+.SS "std::mutex Database::m_lock\fC [mutable]\fP, \fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+A protected mutex for threadsafe r/w of DatabaseItems\&. 
+.SS "std::map<std::string, std::vector<std::string> > Database::m_saved\fC [protected]\fP, \fC [inherited]\fP"
+
+.PP
+A protected vector of strings with info for the DatabaseItems\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

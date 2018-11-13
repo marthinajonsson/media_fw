@@ -26,6 +26,10 @@ public:
 
     ~DatabaseItem() = default;
 
+    /*! \public
+     * @property Set
+     * @param feature object of @class Request
+     */
     void setFeature(Request feature){
         this->m_category = feature.getCategory();
         this->m_actors = feature.getActors();
@@ -34,19 +38,60 @@ public:
         this->m_genre = feature.getGenre();
     };
 
+    /*! \public getActors
+     * @property Get
+     * @return vector of actors @var m_actors
+     */
     std::vector<std::string> getActors(){ return m_actors;}
+    /*! \public getTitle
+     * @property Get
+     * @return string @var m_title
+     */
     std::string getTitle() const { return m_title;}
+    /*! \public getDirector
+     * @property Get
+     * @return string @var m_director
+     */
     std::string getDirector(){ return m_director;}
+    /*! \public getGenre
+     * @property Get
+     * @return string of m_genre
+     */
     std::string getGenre(){ return m_genre;}
-    std::string getDir(){ return directory;}
+    /*! \public getDir
+     * @property Get
+     * @return string of m_directory
+     */
+    std::string getDir(){ return m_directory;}
+    /*! \public getCategory
+     * @property Get
+     * @return @var m_category
+     */
     Category getCategory() { return m_category; }
 
 private:
+    /*! \var m_Category
+     * @brief movie or series see @enum Category
+     */
     Category m_category;
-    std::string directory;
+    /*! \var m_directory
+     * @brief not used at the moment
+     */
+    std::string m_directory;
+    /*! \var m_title
+     */
     std::string m_title;
+    /*! \var m_genre
+     *
+     */
     std::string m_genre;
+    /*! \var m_director
+     *
+     */
     std::string m_director;
+    /*! \var m_actors
+     * @brief vector of actor names
+     */
     std::vector<std::string> m_actors;
 };
 

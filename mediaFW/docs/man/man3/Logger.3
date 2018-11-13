@@ -1,0 +1,65 @@
+.TH "Logger" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Logger
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBStatusLogger\fP\fC [private]\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmap_init_helper\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLevel_e\fP { \fBINFO\fP = 0, \fBERR\fP = 1, \fBWARN\fP = 2 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBTRACE\fP (Level_e level, std::string message, std::string errorCode)=0"
+.br
+.ti -1c
+.RI "virtual void \fBTRACE\fP (Level_e level, std::string message)=0"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::map< Level_e, const char * > \fBm_levelMap\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static enum Logger::Level_e \fBlevel\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBgetDate\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > \fBmap_init_helper\fP< T > \fBmap_init\fP (T &item)"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

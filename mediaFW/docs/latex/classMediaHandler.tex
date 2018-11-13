@@ -1,0 +1,129 @@
+\hypertarget{classMediaHandler}{}\section{Media\+Handler Class Reference}
+\label{classMediaHandler}\index{Media\+Handler@{Media\+Handler}}
+
+
+Synchronizes information from server and database, Implements observer pattern.  
+
+
+
+
+Inheritance diagram for Media\+Handler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{classMediaHandler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Media\+Handler\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMediaHandler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_ad244cb53ebdabf58f2c54d5cb418f0cb}\label{classMediaHandler_ad244cb53ebdabf58f2c54d5cb418f0cb}} 
+{\bfseries Media\+Handler} (Category \&category)
+\item 
+int \hyperlink{classMediaHandler_ae0c5fa9c02ac287d2e04699d67a02eaf}{update} (\hyperlink{classRequest}{Request} \&request) override
+\begin{DoxyCompactList}\small\item\em receives new request from client \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMediaHandler_a2cb06c3f6c1bd1af74ab4692723c89f6}\label{classMediaHandler_a2cb06c3f6c1bd1af74ab4692723c89f6}} 
+void {\bfseries start\+Threads} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_aba19c2fd2e904d928ce5914f9dbf8f38}\label{classMediaHandler_aba19c2fd2e904d928ce5914f9dbf8f38}} 
+\hyperlink{classClient}{Client} $\ast$ {\bfseries p\+\_\+client}
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a37ef6d69a0f149af8df7166f43882721}\label{classMediaHandler_a37ef6d69a0f149af8df7166f43882721}} 
+enum {\bfseries Status} \{ \newline
+{\bfseries D\+O\+W\+N\+L\+O\+A\+D\+I\+NG} = 0, 
+{\bfseries U\+P\+L\+O\+A\+D\+I\+NG}, 
+{\bfseries S\+T\+R\+E\+A\+M\+I\+NG} = 2, 
+{\bfseries S\+E\+A\+R\+C\+H\+I\+NG}, 
+\newline
+{\bfseries D\+E\+L\+E\+T\+I\+NG}, 
+{\bfseries I\+D\+LE}, 
+{\bfseries D\+I\+S\+C\+O\+N\+N\+E\+CT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_ad8e1965db78ff745b98cbd21384ac11f}\label{classMediaHandler_ad8e1965db78ff745b98cbd21384ac11f}} 
+void {\bfseries sync\+Database} (const \hyperlink{classRequest}{Request} \&request)
+\item 
+\mbox{\Hypertarget{classMediaHandler_a66c822377acfe8f8dcf3d1de6e15b742}\label{classMediaHandler_a66c822377acfe8f8dcf3d1de6e15b742}} 
+void {\bfseries get\+Connection\+Info} (Event \&event, Progress \&progress)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a6d000e049af4e966f14e131f94776ad0}\label{classMediaHandler_a6d000e049af4e966f14e131f94776ad0}} 
+static Status {\bfseries update\+Database\+Info} (const \hyperlink{classRequest}{Request} \&request)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a51ea5ce2402007e0f7071c7f15b1801a}\label{classMediaHandler_a51ea5ce2402007e0f7071c7f15b1801a}} 
+\hyperlink{classStatusLogger}{Status\+Logger} $\ast$ {\bfseries m\+\_\+logger}
+\item 
+\mbox{\Hypertarget{classMediaHandler_aaf8cff20c4b878940dc7541634e8b0bc}\label{classMediaHandler_aaf8cff20c4b878940dc7541634e8b0bc}} 
+\hyperlink{classConnection}{Connection} $\ast$ {\bfseries p\+\_\+conn}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a2911148d911d30a1d440aca4b13277bf}\label{classMediaHandler_a2911148d911d30a1d440aca4b13277bf}} 
+\hyperlink{classCli}{Cli} $\ast$ {\bfseries p\+\_\+cli}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a41a2bafa6e5b6b1de2f23e7a74581e91}\label{classMediaHandler_a41a2bafa6e5b6b1de2f23e7a74581e91}} 
+\hyperlink{classDatabase}{Database} $\ast$ {\bfseries p\+\_\+database\+\_\+movie}
+\item 
+\mbox{\Hypertarget{classMediaHandler_aa79a92717b0ff21c5375a6eb107543cf}\label{classMediaHandler_aa79a92717b0ff21c5375a6eb107543cf}} 
+\hyperlink{classDatabase}{Database} $\ast$ {\bfseries p\+\_\+database\+\_\+series}
+\item 
+\mbox{\Hypertarget{classMediaHandler_a91120003da62a4022819235d391bd8b6}\label{classMediaHandler_a91120003da62a4022819235d391bd8b6}} 
+enum Media\+Handler\+::\+Status {\bfseries status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Synchronizes information from server and database, Implements observer pattern. 
+
+for a user instance 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMediaHandler_ae0c5fa9c02ac287d2e04699d67a02eaf}\label{classMediaHandler_ae0c5fa9c02ac287d2e04699d67a02eaf}} 
+\index{Media\+Handler@{Media\+Handler}!update@{update}}
+\index{update@{update}!Media\+Handler@{Media\+Handler}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily int Media\+Handler\+::update (\begin{DoxyParamCaption}\item[{\hyperlink{classRequest}{Request} \&}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+receives new request from client 
+
+\hyperlink{classMediaHandler_ae0c5fa9c02ac287d2e04699d67a02eaf}{Media\+Handler\+::update} method update 
+\begin{DoxyParams}{Parameters}
+{\em request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classObserver_acc79119027d8770fe4946161d6274a00}{Observer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Media\+Handler.\+h\item 
+src/Media\+Handler.\+cpp\end{DoxyCompactItemize}

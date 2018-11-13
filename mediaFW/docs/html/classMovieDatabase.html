@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classMovieDatabase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MovieDatabase Class Reference</div>  </div>
@@ -75,7 +76,7 @@ Inheritance diagram for MovieDatabase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMovieDatabase__inherit__graph.png" border="0" usemap="#MovieDatabase_inherit__map" alt="Inheritance graph"/></div>
 <map name="MovieDatabase_inherit__map" id="MovieDatabase_inherit__map">
-<area shape="rect" id="node2" href="classDatabase.html" title="Database" alt="" coords="25,5,109,32"/>
+<area shape="rect" id="node2" href="classDatabase.html" title="Defines methods for database implementations. " alt="" coords="23,5,101,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -83,56 +84,48 @@ Collaboration diagram for MovieDatabase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMovieDatabase__coll__graph.png" border="0" usemap="#MovieDatabase_coll__map" alt="Collaboration graph"/></div>
 <map name="MovieDatabase_coll__map" id="MovieDatabase_coll__map">
-<area shape="rect" id="node2" href="classDatabase.html" title="Database" alt="" coords="87,500,171,527"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="183,96,270,123"/>
-<area shape="rect" id="node8" href="classDatabaseItem.html" title="DatabaseItem" alt="" coords="235,314,349,341"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="157,5,296,47"/>
+<area shape="rect" id="node2" href="classDatabase.html" title="Defines methods for database implementations. " alt="" coords="79,500,157,527"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="171,96,251,123"/>
+<area shape="rect" id="node8" href="classDatabaseItem.html" title="A module representing the content of a database item. " alt="" coords="213,314,317,341"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="148,5,275,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aee175db6a2a357b6180fcab5d57eddd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#aee175db6a2a357b6180fcab5d57eddd5">syncLocalDatabase</a> () override</td></tr>
+<tr class="memdesc:aee175db6a2a357b6180fcab5d57eddd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sync info from json file and saves it to a list of database objects.  <a href="#aee175db6a2a357b6180fcab5d57eddd5">More...</a><br /></td></tr>
+<tr class="separator:aee175db6a2a357b6180fcab5d57eddd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a203b9b5c1b325997ce519859a436b6ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#a203b9b5c1b325997ce519859a436b6ce">pushItem</a> (const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;m_item) override</td></tr>
-<tr class="memdesc:a203b9b5c1b325997ce519859a436b6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Uploads the requested database item.  <a href="#a203b9b5c1b325997ce519859a436b6ce">More...</a><br /></td></tr>
+<tr class="memdesc:a203b9b5c1b325997ce519859a436b6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that uploads the requested database item.  <a href="#a203b9b5c1b325997ce519859a436b6ce">More...</a><br /></td></tr>
 <tr class="separator:a203b9b5c1b325997ce519859a436b6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0bb39b8be599ffea76081809ae42dda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDatabaseItem.html">DatabaseItem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#ac0bb39b8be599ffea76081809ae42dda">fetchItem</a> (const std::string &amp;title) override</td></tr>
-<tr class="memdesc:ac0bb39b8be599ffea76081809ae42dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Fetch the requested database item.  <a href="#ac0bb39b8be599ffea76081809ae42dda">More...</a><br /></td></tr>
+<tr class="memdesc:ac0bb39b8be599ffea76081809ae42dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that fetches the requested database item.  <a href="#ac0bb39b8be599ffea76081809ae42dda">More...</a><br /></td></tr>
 <tr class="separator:ac0bb39b8be599ffea76081809ae42dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a386f51dd72d63414a124cbcfcd879b"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#a9a386f51dd72d63414a124cbcfcd879b">getNumberOfItem</a> () override</td></tr>
 <tr class="memdesc:a9a386f51dd72d63414a124cbcfcd879b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that return the size of the database.  <a href="#a9a386f51dd72d63414a124cbcfcd879b">More...</a><br /></td></tr>
 <tr class="separator:a9a386f51dd72d63414a124cbcfcd879b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85faa4c33b3ab2dc0d1f4939bb034797"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#a85faa4c33b3ab2dc0d1f4939bb034797">purgeItem</a> (const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;m_item) override</td></tr>
-<tr class="memdesc:a85faa4c33b3ab2dc0d1f4939bb034797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Delete the requested database item.  <a href="#a85faa4c33b3ab2dc0d1f4939bb034797">More...</a><br /></td></tr>
-<tr class="separator:a85faa4c33b3ab2dc0d1f4939bb034797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3ce59d0fa7f64937085e7504bd3b85a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#ad3ce59d0fa7f64937085e7504bd3b85a">purgeItem</a> (<a class="el" href="classDatabaseItem.html">DatabaseItem</a> item) override</td></tr>
+<tr class="memdesc:ad3ce59d0fa7f64937085e7504bd3b85a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that deletes the requested database item.  <a href="#ad3ce59d0fa7f64937085e7504bd3b85a">More...</a><br /></td></tr>
+<tr class="separator:ad3ce59d0fa7f64937085e7504bd3b85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e13b6fc0fd7186e98edbe2cf187618"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovieDatabase.html#af1e13b6fc0fd7186e98edbe2cf187618">printAll</a> () override</td></tr>
-<tr class="memdesc:af1e13b6fc0fd7186e98edbe2cf187618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Prints the entire database content.  <a href="#af1e13b6fc0fd7186e98edbe2cf187618">More...</a><br /></td></tr>
+<tr class="memdesc:af1e13b6fc0fd7186e98edbe2cf187618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that prints the entire database content.  <a href="#af1e13b6fc0fd7186e98edbe2cf187618">More...</a><br /></td></tr>
 <tr class="separator:af1e13b6fc0fd7186e98edbe2cf187618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classDatabase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classDatabase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classDatabase.html">Database</a></td></tr>
-<tr class="memitem:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf">Database</a> ()</td></tr>
-<tr class="memdesc:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classDatabase.html#a4703c80e6969d33565ea340f768fdadf">More...</a><br /></td></tr>
-<tr class="separator:a4703c80e6969d33565ea340f768fdadf inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a341cd0fe8c615e829e3a22b74c208bb5 inherit pub_methods_classDatabase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a341cd0fe8c615e829e3a22b74c208bb5">~Database</a> ()=default</td></tr>
-<tr class="memdesc:a341cd0fe8c615e829e3a22b74c208bb5 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor.  <a href="classDatabase.html#a341cd0fe8c615e829e3a22b74c208bb5">More...</a><br /></td></tr>
-<tr class="separator:a341cd0fe8c615e829e3a22b74c208bb5 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac77c61314a54bf3bc1bcbcf7986998e8 inherit pub_methods_classDatabase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#ac77c61314a54bf3bc1bcbcf7986998e8">syncDatabase</a> ()</td></tr>
-<tr class="memdesc:ac77c61314a54bf3bc1bcbcf7986998e8 inherit pub_methods_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sync info from json file and saves it to a list of database objects.  <a href="classDatabase.html#ac77c61314a54bf3bc1bcbcf7986998e8">More...</a><br /></td></tr>
-<tr class="separator:ac77c61314a54bf3bc1bcbcf7986998e8 inherit pub_methods_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_classDatabase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classDatabase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classDatabase.html">Database</a></td></tr>
-<tr class="memitem:a5a4ac1f3bf0f5fd77a696174ad9e5c45 inherit pro_attribs_classDatabase"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a5a4ac1f3bf0f5fd77a696174ad9e5c45">m_items</a></td></tr>
-<tr class="memdesc:a5a4ac1f3bf0f5fd77a696174ad9e5c45 inherit pro_attribs_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected list of DatabaseItems.  <a href="classDatabase.html#a5a4ac1f3bf0f5fd77a696174ad9e5c45">More...</a><br /></td></tr>
-<tr class="separator:a5a4ac1f3bf0f5fd77a696174ad9e5c45 inherit pro_attribs_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f87cbe5a1be71d541083dffa8d8c9ad inherit pro_attribs_classDatabase"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a9f87cbe5a1be71d541083dffa8d8c9ad">m_saved</a></td></tr>
-<tr class="memdesc:a9f87cbe5a1be71d541083dffa8d8c9ad inherit pro_attribs_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected vector of strings with info for the DatabaseItems.  <a href="classDatabase.html#a9f87cbe5a1be71d541083dffa8d8c9ad">More...</a><br /></td></tr>
-<tr class="separator:a9f87cbe5a1be71d541083dffa8d8c9ad inherit pro_attribs_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f55f3a5d93c9694ee4f08a2f2135b1d inherit pro_attribs_classDatabase"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a7f55f3a5d93c9694ee4f08a2f2135b1d">m_lock</a></td></tr>
-<tr class="memdesc:a7f55f3a5d93c9694ee4f08a2f2135b1d inherit pro_attribs_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected mutex for threadsafe r/w of DatabaseItems.  <a href="classDatabase.html#a7f55f3a5d93c9694ee4f08a2f2135b1d">More...</a><br /></td></tr>
-<tr class="separator:a7f55f3a5d93c9694ee4f08a2f2135b1d inherit pro_attribs_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad8bf38964b3e18a0e168437acbdb27 inherit pro_attribs_classDatabase"><td class="memItemLeft" align="right" valign="top">std::condition_variable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a2ad8bf38964b3e18a0e168437acbdb27">m_emptyList</a></td></tr>
-<tr class="memdesc:a2ad8bf38964b3e18a0e168437acbdb27 inherit pro_attribs_classDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected condittion variable for the mutex and <a class="el" href="classDatabase.html">Database</a> list.  <a href="classDatabase.html#a2ad8bf38964b3e18a0e168437acbdb27">More...</a><br /></td></tr>
-<tr class="separator:a2ad8bf38964b3e18a0e168437acbdb27 inherit pro_attribs_classDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a5a4ac1f3bf0f5fd77a696174ad9e5c45"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a5a4ac1f3bf0f5fd77a696174ad9e5c45">m_items</a></td></tr>
+<tr class="memdesc:a5a4ac1f3bf0f5fd77a696174ad9e5c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected list of DatabaseItems.  <a href="#a5a4ac1f3bf0f5fd77a696174ad9e5c45">More...</a><br /></td></tr>
+<tr class="separator:a5a4ac1f3bf0f5fd77a696174ad9e5c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f87cbe5a1be71d541083dffa8d8c9ad"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a9f87cbe5a1be71d541083dffa8d8c9ad">m_saved</a></td></tr>
+<tr class="memdesc:a9f87cbe5a1be71d541083dffa8d8c9ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected vector of strings with info for the DatabaseItems.  <a href="#a9f87cbe5a1be71d541083dffa8d8c9ad">More...</a><br /></td></tr>
+<tr class="separator:a9f87cbe5a1be71d541083dffa8d8c9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f55f3a5d93c9694ee4f08a2f2135b1d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a7f55f3a5d93c9694ee4f08a2f2135b1d">m_lock</a></td></tr>
+<tr class="memdesc:a7f55f3a5d93c9694ee4f08a2f2135b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected mutex for threadsafe r/w of DatabaseItems.  <a href="#a7f55f3a5d93c9694ee4f08a2f2135b1d">More...</a><br /></td></tr>
+<tr class="separator:a7f55f3a5d93c9694ee4f08a2f2135b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad8bf38964b3e18a0e168437acbdb27"><td class="memItemLeft" align="right" valign="top">std::condition_variable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a2ad8bf38964b3e18a0e168437acbdb27">m_emptyList</a></td></tr>
+<tr class="memdesc:a2ad8bf38964b3e18a0e168437acbdb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">A protected condittion variable for the mutex and <a class="el" href="classDatabase.html" title="Defines methods for database implementations. ">Database</a> list.  <a href="#a2ad8bf38964b3e18a0e168437acbdb27">More...</a><br /></td></tr>
+<tr class="separator:a2ad8bf38964b3e18a0e168437acbdb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A module that implements the functionality of <a class="el" href="Database_8h_source.html">Database.h</a> and helps the client to perform database actions. </p>
@@ -161,9 +154,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Fetch the requested database item. </p>
+<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that fetches the requested database item. </p>
 <p>A const reference to a title</p>
-<dl class="section return"><dt>Returns</dt><dd>The requested <a class="el" href="classDatabaseItem.html">DatabaseItem</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested <a class="el" href="classDatabaseItem.html" title="A module representing the content of a database item. ">DatabaseItem</a></dd></dl>
 
 <p>Reimplemented from <a class="el" href="classDatabase.html#a40254eec69c7d7cc15da24a9f0b072b3">Database</a>.</p>
 
@@ -222,15 +215,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Prints the entire database content. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that prints the entire database content. </p>
 
 <p>Reimplemented from <a class="el" href="classDatabase.html#afa345da530fd5c8dfe0c978917cd6049">Database</a>.</p>
 
 </div>
 </div>
-<a id="a85faa4c33b3ab2dc0d1f4939bb034797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85faa4c33b3ab2dc0d1f4939bb034797">&#9670;&nbsp;</a></span>purgeItem()</h2>
+<a id="ad3ce59d0fa7f64937085e7504bd3b85a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3ce59d0fa7f64937085e7504bd3b85a">&#9670;&nbsp;</a></span>purgeItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,8 +233,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void MovieDatabase::purgeItem </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classDatabaseItem.html">DatabaseItem</a> &amp;&#160;</td>
-          <td class="paramname"><em>m_item</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classDatabaseItem.html">DatabaseItem</a>&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -253,11 +245,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Delete the requested database item. </p>
+<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that deletes the requested database item. </p>
 <p>A const reference to a database item</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p>Reimplemented from <a class="el" href="classDatabase.html#a5d232b9f62079682dd7fe7983b252e5e">Database</a>.</p>
+<p>Reimplemented from <a class="el" href="classDatabase.html#a8f47437526eeec631f1328fab9bbbc75">Database</a>.</p>
 
 </div>
 </div>
@@ -285,16 +276,159 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Uploads the requested database item. </p>
+<p>Implementation for virtual member of <a class="el" href="Database_8h_source.html">Database.h</a> Method that uploads the requested database item. </p>
 <p>A const reference to a database item</p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p>Reimplemented from <a class="el" href="classDatabase.html#a80fa14ab9f4deadc9a2ab7493f1919a4">Database</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce_icgraph.png" border="0" usemap="#classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce_icgraph" alt=""/></div>
+<map name="classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce_icgraph" id="classMovieDatabase_a203b9b5c1b325997ce519859a436b6ce_icgraph">
+<area shape="rect" id="node2" href="classMovieDatabase.html#aee175db6a2a357b6180fcab5d57eddd5" title="Sync info from json file and saves it to a list of database objects. " alt="" coords="228,5,408,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aee175db6a2a357b6180fcab5d57eddd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee175db6a2a357b6180fcab5d57eddd5">&#9670;&nbsp;</a></span>syncLocalDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MovieDatabase::syncLocalDatabase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sync info from json file and saves it to a list of database objects. </p>
+<p>Database::syncDatabase() </p>
+
+<p>Reimplemented from <a class="el" href="classDatabase.html#a14d24487b4ea3b50097b9ac0f2b3f317">Database</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5_cgraph.png" border="0" usemap="#classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5_cgraph" alt=""/></div>
+<map name="classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5_cgraph" id="classMovieDatabase_aee175db6a2a357b6180fcab5d57eddd5_cgraph">
+<area shape="rect" id="node2" href="classMovieDatabase.html#a203b9b5c1b325997ce519859a436b6ce" title="Implementation for virtual member of Database.h Method that uploads the requested database item..." alt="" coords="233,13,408,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2ad8bf38964b3e18a0e168437acbdb27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad8bf38964b3e18a0e168437acbdb27">&#9670;&nbsp;</a></span>m_emptyList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::condition_variable Database::m_emptyList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A protected condittion variable for the mutex and <a class="el" href="classDatabase.html" title="Defines methods for database implementations. ">Database</a> list. </p>
+
+</div>
+</div>
+<a id="a5a4ac1f3bf0f5fd77a696174ad9e5c45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a4ac1f3bf0f5fd77a696174ad9e5c45">&#9670;&nbsp;</a></span>m_items</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;<a class="el" href="classDatabaseItem.html">DatabaseItem</a>&gt; Database::m_items</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A protected list of DatabaseItems. </p>
+
+</div>
+</div>
+<a id="a7f55f3a5d93c9694ee4f08a2f2135b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f55f3a5d93c9694ee4f08a2f2135b1d">&#9670;&nbsp;</a></span>m_lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex Database::m_lock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A protected mutex for threadsafe r/w of DatabaseItems. </p>
+
+</div>
+</div>
+<a id="a9f87cbe5a1be71d541083dffa8d8c9ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f87cbe5a1be71d541083dffa8d8c9ad">&#9670;&nbsp;</a></span>m_saved</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, std::vector&lt;std::string&gt; &gt; Database::m_saved</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A protected vector of strings with info for the DatabaseItems. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/mjonsson/repo/cppAdv/mediaFW/inc/Database/<a class="el" href="MovieDatabase_8h_source.html">MovieDatabase.h</a></li>
+<li>inc/database/<a class="el" href="MovieDatabase_8h_source.html">MovieDatabase.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

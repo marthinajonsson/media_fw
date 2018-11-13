@@ -17,8 +17,6 @@
 #include "Cli.h"
 #include "StatusLogger.h"
 
-using namespace std::placeholders;
-
 class Client : Subject {
 
 public:
@@ -31,8 +29,16 @@ public:
     Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger), m_queueEmpty(false) {};
 
 
+    /*! \public getConnectionStatus
+     * @brief returns current connection status to server
+     * @return true or false
+     */
     bool getConnectionStatus();
 
+    /*! \public isRequestInQueue
+     * @brief tells if there are any available requests to process
+     * @return true or false
+     */
     bool isRequestInQueue ();
 
     /*! \public handleRequestThread
@@ -91,21 +97,40 @@ public:
      */
     void notifyObservers(Request &request) override;
 
+    /*! \public observers
+     * @var observers, a vector of registered observers
+     */
     std::vector<Observer *> observers;
 
 private:
+    /*! \var m_queueEmpty
+     * @brief true or false depending on the queue is empty or not
+     */
     bool m_queueEmpty;
 
+    /*! \var p_cli
+     * @brief instance of @class Cli
+     */
     Cli *p_cli;
-
+    /*! \var p_conn
+     * @brief instance of @class Connection
+     */
     Connection *p_conn;
-
+    /*! \var m_logger
+     * @brief instance of @class StatusLogger
+     */
     StatusLogger *m_logger;
-
+    /*! \var m_lock
+     * @brief std::mutex
+     */
     std::mutex m_lock;
-
+    /*! \var m_requests
+     * @brief std::queue of objects of @class Requests
+     */
     std::queue<Request> m_requests;
-
+    /*! \var m_condVar
+     * @brief not currently used
+     */
     std::condition_variable m_condVar;
 
     /*! \private Client::getCliInput(Cli* p_cli)

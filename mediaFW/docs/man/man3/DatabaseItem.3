@@ -1,19 +1,22 @@
-.TH "DatabaseItem" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.TH "DatabaseItem" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-DatabaseItem
+DatabaseItem \- A module representing the content of a database item\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <DatabaseItem\&.h>\fP
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBDatabaseItem\fP (std::vector< std::string > _actors, std::string _title, std::string _genre, std::string _director)"
+.RI "\fBDatabaseItem\fP (std::vector< std::string > &_actors, std::string &_title, std::string &_genre, std::string &_director, Category &_cat)"
 .br
 .ti -1c
-.RI "void \fBsetFeature\fP (\fBTags\fP feature)"
+.RI "void \fBsetFeature\fP (\fBRequest\fP feature)"
 .br
 .ti -1c
 .RI "std::vector< std::string > \fBgetActors\fP ()"
@@ -30,10 +33,16 @@ DatabaseItem
 .ti -1c
 .RI "std::string \fBgetDir\fP ()"
 .br
+.ti -1c
+.RI "Category \fBgetCategory\fP ()"
+.br
 .in -1c
 .SS "Private Attributes"
 
 .in +1c
+.ti -1c
+.RI "Category \fBm_category\fP"
+.br
 .ti -1c
 .RI "std::string \fBdirectory\fP"
 .br
@@ -50,6 +59,11 @@ DatabaseItem
 .RI "std::vector< std::string > \fBm_actors\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+A module representing the content of a database item\&. 
+
+
 
 .SH "Author"
 .PP 

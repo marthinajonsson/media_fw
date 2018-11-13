@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classClient.html" title="Class implementing the functionality of a client. " alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node1" href="$classCommandLineParser.html" title="CommandLineParser" alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node2" href="$classCli.html" title="Module handling everything related to our Command line interface. " alt="" coords="197,5,236,32"/>
 </map>

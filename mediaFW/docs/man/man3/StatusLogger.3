@@ -1,0 +1,70 @@
+.TH "StatusLogger" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StatusLogger
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBLogger\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTRACE\fP (Level_e level, std::string message, std::string errorCode) override"
+.br
+.ti -1c
+.RI "void \fBTRACE\fP (Level_e level, std::string message) override"
+.br
+.in -1c
+.SS "Private Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBLevel_e\fP { \fBINFO\fP = 0, \fBERR\fP = 1, \fBWARN\fP = 2 }"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBgetFilename\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBGetCurrentWorkingDir\fP ()"
+.br
+.ti -1c
+.RI "void \fBwrite\fP (Level_e level, std::string &output)"
+.br
+.ti -1c
+.RI "std::string \fBgetDate\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "template<typename T > \fBmap_init_helper\fP< T > \fBmap_init\fP (T &item)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::ofstream \fBlogfile\fP"
+.br
+.ti -1c
+.RI "std::map< Level_e, const char * > \fBm_levelMap\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static enum Logger::Level_e \fBlevel\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

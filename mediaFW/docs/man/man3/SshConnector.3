@@ -1,0 +1,54 @@
+.TH "SshConnector" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SshConnector
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBConnector\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConnectionStream\fP * \fBconnect\fP (uint16_t port, std::string server) override"
+.br
+.ti -1c
+.RI "void \fBdisconnect\fP () override"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBm_currentlyConnected\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBresolveHost\fP (ssh_session session) override"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBStatusLogger\fP * \fBm_logger\fP"
+.br
+.ti -1c
+.RI "ssh_session \fBm_session\fP { }"
+.br
+.ti -1c
+.RI "unsigned char * \fBm_hash\fP = nullptr"
+.br
+.ti -1c
+.RI "char * \fBm_hexa\fP { }"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediaFW from the source code\&.

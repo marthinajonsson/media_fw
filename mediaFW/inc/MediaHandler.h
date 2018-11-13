@@ -53,6 +53,9 @@ public:
     */
     int update(Request &request) override;
 
+    /*! \public startThreads
+     * @brief starts threads from main.cpp
+     */
     void startThreads() {
         std::promise<int> exit;
         std::future<int> futureObj = exit.get_future();
@@ -77,36 +80,54 @@ public:
             thReq.join();
         }
     }
-//
-//    void startThreads() {
-//        int result = p_client->handleCliThread(); // will return when "exit" has been requested and block until then.
-//        if(result != 0) {
-//            m_logger->TRACE(Logger::ERR, "Client ended with error");
-//        }else {
-//            m_logger->TRACE(Logger::INFO, "Client ended normally");
-//        }
-//    }
-//
-//    void startRequestThread() {
-//        int result = p_client->handleRequestThread();
-//        if(result != 0) {
-//            m_logger->TRACE(Logger::ERR, "Request thread ended with error");
-//        }else {
-//            m_logger->TRACE(Logger::INFO, "Request thread ended normally");
-//        }
-//    }
 
 private:
+    /*! \var m_logger
+     * @brief instance of @class StatusLogger
+     */
     StatusLogger* m_logger;
+    /*! \var p_conn
+     * @brief instance of @class Connection
+     */
     Connection *p_conn;
+    /*! \var p_cli
+     * @brief instance of @class Cli
+     */
     Cli *p_cli;
+    /*! \var p_database_movie
+     * @brief instance of @class MovieDatabase should be renamed to be more generic
+     */
     Database *p_database_movie;
     Database *p_database_series;
 
+    /*! \enum Status
+     * @brief describing current progress state
+     * @var DOWNLOADING
+     * @var UPLOADING
+     * @var STREAMING
+     * @var SEARCHING
+     * @var DELETEING
+     * @var IDLE
+     * @var DISCONNECT
+     */
     enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
 
+    /*! \private syncDatabase
+     * @brief check server connection status with @var p_client and log status
+     * @param request incoming from threads
+     */
     void syncDatabase(const Request &request);
+    /*! \private getConnectionInfo
+     * @brief calls @private updateDatabaseInfo and log status
+     * @param event @enum Event used by @class Request
+     * @param progress instance of @enum Progress used by @class Request
+     */
     void getConnectionInfo(Event &event, Progress &progress);
+    /*! \private updateDatabaseInfo
+     * @brief updates db.json after request
+     * @param request instance of @class Request
+     * @return @enum Status
+     */
     static Status updateDatabaseInfo(const Request &request);
 };
 

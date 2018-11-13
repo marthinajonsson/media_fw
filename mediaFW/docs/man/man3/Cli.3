@@ -1,93 +1,200 @@
-.TH "Cli" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.TH "Cli" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Cli \- Class implementing the functionality of a command line interface\&.  
+Cli \- Module handling everything related to our Command line interface\&.  
 
 .SH SYNOPSIS
 .br
 .PP
 .PP
-\fC#include <Cli\&.h>\fP
+\fC#include 'inc/Cli\&.h'\fP
+.PP
+Inherits \fBCommandLineParser\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBCli\fP ()=default"
+.RI "\fBRequest\fP \fBprocess\fP () override"
 .br
-.RI "\fBCli\fP default constructor\&. "
+.RI "Public method processing input from stdin\&. . "
 .ti -1c
-.RI "\fB~Cli\fP ()=default"
+.RI "\fBRequest\fP \fBinterprete\fP (std::vector< std::string > &) override"
 .br
-.RI "\fBCli\fP default deconstructor\&. "
+.RI "translate incoming user request and save in request object "
 .ti -1c
-.RI "virtual std::vector< std::string > \fBprocess\fP ()"
+.RI "\fBRequest\fP \fBprocess\fP (std::string &) override"
 .br
 .RI "Public method processing input from stdin\&. "
+.ti -1c
+.RI "void \fBverifyUploadTest\fP (\fBRequest\fP &request, std::vector< std::string > &i)"
+.br
 .in -1c
 .SS "Private Member Functions"
 
 .in +1c
 .ti -1c
-.RI "std::vector< std::string > \fBparseArg\fP (std::string &input)"
+.RI "std::vector< std::string > \fBsplit\fP (std::string &input, char delim)"
 .br
-.RI "Parses argv and splits into strings\&. "
+.ti -1c
+.RI "int \fBcheckValidEvent\fP (std::vector< std::string > &input, Event &event)"
+.br
+.ti -1c
+.RI "int \fBcheckValidCategory\fP (std::vector< std::string > &input, Category &category)"
+.br
+.ti -1c
+.RI "int \fBcheckValidType\fP (\fBRequest\fP &request, std::string &type)"
+.br
+.ti -1c
+.RI "int \fBverifyObjectExists\fP (Category &category, const std::string &value)"
+.br
+.ti -1c
+.RI "int \fBgetTypeOfValue\fP (std::vector< std::string > &input, std::string &type)"
+.br
+.ti -1c
+.RI "int \fBgetValueOfType\fP (std::vector< std::string > &input, std::string &val)"
+.br
+.ti -1c
+.RI "void \fBsetFileName\fP (\fBRequest\fP &request, std::string &val)"
+.br
+.ti -1c
+.RI "void \fBsetProperties\fP (\fBRequest\fP &request, std::vector< std::string > &item)"
+.br
+.ti -1c
+.RI "int \fBverifyUpload\fP (\fBRequest\fP &request)"
+.br
 .ti -1c
 .RI "void \fBprintOptions\fP ()"
 .br
-.RI "A private method that prints all valid options for stdin\&. "
+.RI "Test A private method that prints all valid options for stdin\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "const std::string \fBTITLE\fP = 'title'"
+.br
+.ti -1c
+.RI "const std::string \fBGENRE\fP = 'genre'"
+.br
+.ti -1c
+.RI "const std::string \fBACTOR\fP = 'actor'"
+.br
+.ti -1c
+.RI "const std::string \fBDIRECTOR\fP = 'director'"
+.br
+.ti -1c
+.RI "const std::string \fBFILENAME\fP = 'filename'"
+.br
+.ti -1c
+.RI "std::string \fBMOVIE\fP = 'movie'"
+.br
+.ti -1c
+.RI "std::string \fBSERIES\fP = 'series'"
+.br
+.ti -1c
+.RI "const std::string \fBDOWNLOAD\fP = 'download'"
+.br
+.ti -1c
+.RI "const std::string \fBUPLOAD\fP = 'upload'"
+.br
+.ti -1c
+.RI "const std::string \fBSEARCH\fP = 'search'"
+.br
+.ti -1c
+.RI "const std::string \fBDELETE\fP = 'delete'"
+.br
+.ti -1c
+.RI "const std::string \fBHELP\fP = 'help'"
+.br
+.ti -1c
+.RI "const std::string \fBEXIT\fP = 'exit'"
+.br
+.ti -1c
+.RI "const std::vector< std::string > \fBEVENT_ARGS\fP = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT}"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
-Class implementing the functionality of a command line interface\&. 
+Module handling everything related to our Command line interface\&. 
 
-Module handling everything related to our Command line interface\&.
+Class implementing the functionality of a command line interface\&.
 .PP
 Receives inputs from STDIN and splits the result into strings\&. 
-.SH "Constructor & Destructor Documentation"
-.PP 
-.SS "Cli::Cli ()\fC [default]\fP"
-
-.PP
-\fBCli\fP default constructor\&. \fBClient()\fP 
-.SS "Cli::~Cli ()\fC [default]\fP"
-
-.PP
-\fBCli\fP default deconstructor\&. ~Client() 
 .SH "Member Function Documentation"
 .PP 
-.SS "std::vector< std::string > Cli::parseArg (std::string & input)\fC [private]\fP"
+.SS "\fBRequest\fP Cli::interprete (std::vector< std::string > & input)\fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Parses argv and splits into strings\&. Test Parses argv and splits into strings\&.
-.PP
-\fBCli::parseArg(std::string &input)\fP 
+translate incoming user request and save in request object Client::interprete interface of \fBCommandLineParser\fP 
 .PP
 \fBParameters:\fP
 .RS 4
-\fIinput\fP A long input string containing argv from stdin\&. 
+\fIstd::vector<std::string>&\fP vector of string arguments to be translated 
 .RE
 .PP
 \fBReturns:\fP
 .RS 4
-Private vector of strings containing parsed words from stdin\&. 
+the translated request object 
 .RE
 .PP
 
-.SS "void Cli::printOptions ()\fC [private]\fP"
+.PP
+Implements \fBCommandLineParser\fP\&.
+.SS "void Cli::printOptions ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-A private method that prints all valid options for stdin\&. Test A private method that prints all valid options for stdin\&.
-.PP
-\fBCli::printOptions()\fP 
-.SS "std::vector< std::string > Cli::process ()\fC [virtual]\fP"
+Test A private method that prints all valid options for stdin\&. \fBCli::printOptions\fP 
+.SS "\fBRequest\fP Cli::process ()\fC [override]\fP, \fC [virtual]\fP"
 
 .PP
-Public method processing input from stdin\&. Client::process() 
+Public method processing input from stdin\&. . Client::process() interface of \fBCommandLineParser\fP 
 .PP
 \fBReturns:\fP
 .RS 4
 Vector of strings containing output from stdin\&. 
+.RE
+.PP
+
+.PP
+Implements \fBCommandLineParser\fP\&.
+.SS "\fBRequest\fP Cli::process (std::string & line)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Public method processing input from stdin\&. Client::process() interface of \fBCommandLineParser\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstd::string&\fP fixed string used for unit testing mocking stdin 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Vector of strings containing output from stdin\&. 
+.RE
+.PP
+
+.PP
+Implements \fBCommandLineParser\fP\&.
+.SS "std::vector<std::string> Cli::split (std::string & input, char delim)\fC [inline]\fP, \fC [private]\fP"
+\fBCli::split\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP incoming unprocessed string 
+.br
+\fIdelim\fP delimiter used to split 
+.br
+\fIinput\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP splitted into multiple strings saved in a std::vector 
 .RE
 .PP
 

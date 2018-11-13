@@ -1,0 +1,79 @@
+\hypertarget{classStatusLogger}{}\section{Status\+Logger Class Reference}
+\label{classStatusLogger}\index{Status\+Logger@{Status\+Logger}}
+
+
+Inheritance diagram for Status\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classStatusLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Status\+Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{classStatusLogger__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStatusLogger_ab1b31ad74fac19bddddb34949b3eb0a1}\label{classStatusLogger_ab1b31ad74fac19bddddb34949b3eb0a1}} 
+void {\bfseries T\+R\+A\+CE} (Level\+\_\+e level, std\+::string message, std\+::string error\+Code) override
+\item 
+\mbox{\Hypertarget{classStatusLogger_a9cd751e71f814914694e9c4ed39df0f9}\label{classStatusLogger_a9cd751e71f814914694e9c4ed39df0f9}} 
+void {\bfseries T\+R\+A\+CE} (Level\+\_\+e level, std\+::string message) override
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogger_aa1875ace78bce45b33f84d7f5de7790d}\label{classLogger_aa1875ace78bce45b33f84d7f5de7790d}} 
+enum {\bfseries Level\+\_\+e} \{ {\bfseries I\+N\+FO} = 0, 
+{\bfseries E\+RR} = 1, 
+{\bfseries W\+A\+RN} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStatusLogger_a68965a0651d02b978a389d34d5c1fec3}\label{classStatusLogger_a68965a0651d02b978a389d34d5c1fec3}} 
+std\+::string {\bfseries get\+Filename} ()
+\item 
+\mbox{\Hypertarget{classStatusLogger_aa48b918db673aaeb1c663b7e0cad6655}\label{classStatusLogger_aa48b918db673aaeb1c663b7e0cad6655}} 
+std\+::string {\bfseries Get\+Current\+Working\+Dir} ()
+\item 
+\mbox{\Hypertarget{classStatusLogger_aa110fa026ef5e5a6a5b250623c73faa6}\label{classStatusLogger_aa110fa026ef5e5a6a5b250623c73faa6}} 
+void {\bfseries write} (Level\+\_\+e level, std\+::string \&output)
+\item 
+\mbox{\Hypertarget{classLogger_ac05df84a2b15ca6e1b3b6119a3b7a32c}\label{classLogger_ac05df84a2b15ca6e1b3b6119a3b7a32c}} 
+std\+::string {\bfseries get\+Date} ()
+\item 
+\mbox{\Hypertarget{classLogger_af6e809c7f6fe8d2f829ce0d6a760e0ce}\label{classLogger_af6e809c7f6fe8d2f829ce0d6a760e0ce}} 
+std\+::string {\bfseries get\+Time} ()
+\item 
+\mbox{\Hypertarget{classLogger_a8416f3e0b6fa98d42ca890c0577dff34}\label{classLogger_a8416f3e0b6fa98d42ca890c0577dff34}} 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structLogger_1_1map__init__helper}{map\+\_\+init\+\_\+helper}$<$ T $>$ {\bfseries map\+\_\+init} (T \&item)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStatusLogger_a166f1d6b8016d9c203dd98f16cc488fc}\label{classStatusLogger_a166f1d6b8016d9c203dd98f16cc488fc}} 
+std\+::ofstream {\bfseries logfile}
+\item 
+\mbox{\Hypertarget{classLogger_a5e3acb7eae07a5cee57d28711ce45413}\label{classLogger_a5e3acb7eae07a5cee57d28711ce45413}} 
+std\+::map$<$ Level\+\_\+e, const char $\ast$ $>$ {\bfseries m\+\_\+level\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogger_ade70cee1c967259b5dc2448424c7df68}\label{classLogger_ade70cee1c967259b5dc2448424c7df68}} 
+static enum Logger\+::\+Level\+\_\+e {\bfseries level}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/Status\+Logger.\+h\end{DoxyCompactItemize}

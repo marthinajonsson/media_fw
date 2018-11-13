@@ -1,19 +1,19 @@
-.TH "Database" 3 "Mon Oct 15 2018" "mediaFW" \" -*- nroff -*-
+.TH "Database" 3 "Tue Nov 13 2018" "mediaFW" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Database \-  
+Database \- Defines methods for database implementations\&.  
 
 .SH SYNOPSIS
 .br
 .PP
 .PP
-Inherited by \fBMovieDatabase\fP\&.
+Inherited by \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBDatabase\fP ()"
+.RI "\fBDatabase\fP ()=default"
 .br
 .RI "Default constructor\&. "
 .ti -1c
@@ -21,7 +21,7 @@ Inherited by \fBMovieDatabase\fP\&.
 .br
 .RI "Default deconstructor\&. "
 .ti -1c
-.RI "void \fBsyncDatabase\fP ()"
+.RI "virtual void \fBsyncLocalDatabase\fP ()"
 .br
 .RI "Sync info from json file and saves it to a list of database objects\&. "
 .ti -1c
@@ -33,7 +33,7 @@ Inherited by \fBMovieDatabase\fP\&.
 .br
 .RI "Fetch the requested database item\&. "
 .ti -1c
-.RI "virtual void \fBpurgeItem\fP (const \fBDatabaseItem\fP &m_item)"
+.RI "virtual void \fBpurgeItem\fP (\fBDatabaseItem\fP m_item)"
 .br
 .RI "Delete the requested database item\&. "
 .ti -1c
@@ -67,14 +67,12 @@ Inherited by \fBMovieDatabase\fP\&.
 .in -1c
 .SH "Detailed Description"
 .PP 
-
-
-A module that works as an interface for subclasses and let them perform database actions 
-.PP
 Defines methods for database implementations\&. 
+
+
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "Database::Database ()\fC [inline]\fP"
+.SS "Database::Database ()\fC [default]\fP"
 
 .PP
 Default constructor\&. \fBDatabase()\fP 
@@ -96,7 +94,7 @@ The requested \fBDatabaseItem\fP
 .PP
 
 .PP
-Reimplemented in \fBMovieDatabase\fP\&.
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
 .SS "virtual long Database::getNumberOfItem ()\fC [inline]\fP, \fC [virtual]\fP"
 
 .PP
@@ -109,48 +107,31 @@ Size of the database (long)\&.
 .PP
 
 .PP
-Reimplemented in \fBMovieDatabase\fP\&.
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
 .SS "virtual void Database::printAll ()\fC [inline]\fP, \fC [virtual]\fP"
 
 .PP
-Prints the entire database content\&. 
+Prints the entire database content\&. s 
 .PP
-\fBReturns:\fP
-.RS 4
-
-.RE
-.PP
-
-.PP
-Reimplemented in \fBMovieDatabase\fP\&.
-.SS "virtual void Database::purgeItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [virtual]\fP"
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
+.SS "virtual void Database::purgeItem (\fBDatabaseItem\fP m_item)\fC [inline]\fP, \fC [virtual]\fP"
 
 .PP
 Delete the requested database item\&. A const reference to a database item
 .PP
-\fBReturns:\fP
-.RS 4
-.RE
-.PP
-
-.PP
-Reimplemented in \fBMovieDatabase\fP\&.
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
 .SS "virtual void Database::pushItem (const \fBDatabaseItem\fP & m_item)\fC [inline]\fP, \fC [virtual]\fP"
 
 .PP
 Uploads the requested database item\&. A const reference to a database item
 .PP
-\fBReturns:\fP
-.RS 4
-.RE
-.PP
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
+.SS "virtual void Database::syncLocalDatabase ()\fC [inline]\fP, \fC [virtual]\fP"
 
 .PP
-Reimplemented in \fBMovieDatabase\fP\&.
-.SS "void Database::syncDatabase ()\fC [inline]\fP"
-
+Sync info from json file and saves it to a list of database objects\&. Database::syncDatabase() 
 .PP
-Sync info from json file and saves it to a list of database objects\&. \fBDatabase::syncDatabase()\fP 
+Reimplemented in \fBMovieDatabase\fP, and \fBSeriesDatabase\fP\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "std::condition_variable Database::m_emptyList\fC [protected]\fP"

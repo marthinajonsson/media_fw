@@ -2,22 +2,30 @@
 \label{classDatabaseItem}\index{Database\+Item@{Database\+Item}}
 
 
-Collaboration diagram for Database\+Item\+:
-\nopagebreak
+A module representing the content of a database item.  
+
+
+
+
+{\ttfamily \#include $<$Database\+Item.\+h$>$}
+
+
+
+Collaboration diagram for Database\+Item\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=330pt]{classDatabaseItem__coll__graph}
+\includegraphics[width=304pt]{classDatabaseItem__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDatabaseItem_abb8e57f5ec53e855c541e5b27c4dfe10}\label{classDatabaseItem_abb8e57f5ec53e855c541e5b27c4dfe10}} 
-{\bfseries Database\+Item} (std\+::vector$<$ std\+::string $>$ \+\_\+actors, std\+::string \+\_\+title, std\+::string \+\_\+genre, std\+::string \+\_\+director)
+\mbox{\Hypertarget{classDatabaseItem_ae95a9411ad019fc6e219394162186f77}\label{classDatabaseItem_ae95a9411ad019fc6e219394162186f77}} 
+{\bfseries Database\+Item} (std\+::vector$<$ std\+::string $>$ \&\+\_\+actors, std\+::string \&\+\_\+title, std\+::string \&\+\_\+genre, std\+::string \&\+\_\+director, Category \&\+\_\+cat)
 \item 
-\mbox{\Hypertarget{classDatabaseItem_a51f4dbeb282806b7ac10e6b49b90eeef}\label{classDatabaseItem_a51f4dbeb282806b7ac10e6b49b90eeef}} 
-void {\bfseries set\+Feature} (\hyperlink{structTags}{Tags} feature)
+\mbox{\Hypertarget{classDatabaseItem_a730ed715f53f019df31a66a8d734137f}\label{classDatabaseItem_a730ed715f53f019df31a66a8d734137f}} 
+void {\bfseries set\+Feature} (\hyperlink{classRequest}{Request} feature)
 \item 
 \mbox{\Hypertarget{classDatabaseItem_a98560961c4ab1266fe9b10f094bea568}\label{classDatabaseItem_a98560961c4ab1266fe9b10f094bea568}} 
 std\+::vector$<$ std\+::string $>$ {\bfseries get\+Actors} ()
@@ -33,9 +41,15 @@ std\+::string {\bfseries get\+Genre} ()
 \item 
 \mbox{\Hypertarget{classDatabaseItem_afcca0a554ac65bdcf796480e8d2920f4}\label{classDatabaseItem_afcca0a554ac65bdcf796480e8d2920f4}} 
 std\+::string {\bfseries get\+Dir} ()
+\item 
+\mbox{\Hypertarget{classDatabaseItem_a0a2d0572bd7bbbf602120cf33c195b20}\label{classDatabaseItem_a0a2d0572bd7bbbf602120cf33c195b20}} 
+Category {\bfseries get\+Category} ()
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDatabaseItem_a9658a56bfb656a371ef1b1cec436b40b}\label{classDatabaseItem_a9658a56bfb656a371ef1b1cec436b40b}} 
+Category {\bfseries m\+\_\+category}
 \item 
 \mbox{\Hypertarget{classDatabaseItem_a5ecbf8e196e110a738bb8ab1fbdff80b}\label{classDatabaseItem_a5ecbf8e196e110a738bb8ab1fbdff80b}} 
 std\+::string {\bfseries directory}
@@ -54,6 +68,11 @@ std\+::vector$<$ std\+::string $>$ {\bfseries m\+\_\+actors}
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+A module representing the content of a database item. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/mjonsson/repo/cpp\+Adv/media\+F\+W/inc/\+Database/Database\+Item.\+h\end{DoxyCompactItemize}
+inc/database/Database\+Item.\+h\end{DoxyCompactItemize}

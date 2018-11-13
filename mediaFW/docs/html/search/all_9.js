@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['json',['Json',['../namespaceJson.html',1,'']]],
-  ['jsoncpp_5fdeprecated',['JSONCPP_DEPRECATED',['../namespaceJson.html#a677dd20047c0c6e4eb16c5f1b53f703c',1,'Json::JSONCPP_DEPRECATED(&quot;Use StreamWriter instead&quot;) JSON_API Writer'],['../namespaceJson.html#a9013c5f4f4ff260225b101a18af45262',1,'Json::JSONCPP_DEPRECATED(&quot;Use StreamWriterBuilder instead&quot;) JSON_API StyledStreamWriter']]],
-  ['jsonparser',['JsonParser',['../classJsonParser.html',1,'']]]
+  ['notifyobservers',['notifyObservers',['../classClient.html#a2fb08fe51afa68997faa22474e114771',1,'Client::notifyObservers()'],['../classSubject.html#ad779772e3bcf5b3bd8f7a96b10531920',1,'Subject::notifyObservers()']]],
+  ['notimplementedexception',['NotImplementedException',['../classNotImplementedException.html',1,'']]]
 ];

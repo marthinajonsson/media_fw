@@ -1,0 +1,6 @@
+<map id="Client::getCliInput" name="Client::getCliInput">
+<area shape="rect" id="node2" href="$classCli.html#aa2b3675ef3e3bb01ed0d1997460a0e28" title="Public method processing input from stdin. . " alt="" coords="180,56,272,83"/>
+<area shape="rect" id="node3" href="$classCli.html#a8251d6c89698aaf128318fc3ad4b2906" title="Test A private method that prints all valid options for stdin. " alt="" coords="320,5,436,32"/>
+<area shape="rect" id="node4" href="$classCli.html#aaf60768f062a6dc2557aaddbe738a19c" title="Cli::split" alt="" coords="343,56,413,83"/>
+<area shape="rect" id="node5" href="$classCli.html#af29a5d8a0c3863f69c0e21133dee2d1b" title="translate incoming user request and save in request object " alt="" coords="328,107,428,133"/>
+</map>
