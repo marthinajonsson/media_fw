@@ -84,6 +84,9 @@ void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
     db_file.close();
 }
 
+/* TODO change so that what is loaded goes straight to Queue in MovieDatabase and that info is used.
+ * not these maps.
+ */
 void JsonParser::load(const Category &category)
 {
     Json::Value root;
@@ -103,10 +106,10 @@ void JsonParser::load(const Category &category)
             auto genre = root[i][GENRE].asString();
             auto director = root[i][DIRECTOR].asString();
             auto actors = root[i][ACTORS].asString();
-
+            auto path = root[i][PATH].asString();
             m_parsed.push_back(genre);
             m_parsed.push_back(director);
-
+            m_parsed.push_back(path);
             auto result = split(actors, ',');
             for (const auto &s : result) {
                 m_parsed.push_back(s);
@@ -166,4 +169,3 @@ bool JsonParser::find(Category &category, const std::string &val)
     }
     return result;
 }
-

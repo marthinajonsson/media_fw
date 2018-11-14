@@ -5,10 +5,11 @@
 #ifndef MEDIAFW_STATUSLOGGER_H
 #define MEDIAFW_STATUSLOGGER_H
 
+#include "ifc/Logger.h"
+
 #include <fstream>
 #include <iostream>
 #include <chrono>
-#include "ifc/Logger.h"
 #include <unistd.h>
 #define GetCurrentDir getcwd
 

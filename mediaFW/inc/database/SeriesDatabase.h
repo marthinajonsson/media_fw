@@ -87,11 +87,11 @@ public:
     /// Method that deletes the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    void purgeItem(DatabaseItem item) override {
+    void purgeItem(const DatabaseItem &m_item) override {
         std::unique_lock<std::mutex>  m_lock;
         std::list<DatabaseItem>::iterator it;
         for (it = m_items.begin(); it != m_items.end(); ++it){
-            if (it->getTitle() == item.getTitle()) {
+            if (it->getTitle() == m_item.getTitle()) {
                 m_items.erase(it);
             }
         }

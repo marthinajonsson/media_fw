@@ -23,7 +23,6 @@ public:
      * @param Request of update
      */
     virtual int update(Request&) = 0;
-
 };
 
 #endif //MEDIAFW_OBSERVER_H

@@ -22,6 +22,13 @@ class Client : Subject {
 public:
 
     Client() {};
+
+    const Client & operator = (const Client &t)
+    {
+        std::cout<<"Assignment operator called "<<std::endl;
+        return t;
+    }
+
     ~Client()  {
         std::cout << "client deconstructor" << std::endl;
     };

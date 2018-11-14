@@ -13,12 +13,13 @@
 #include "Database.h"
 #include "MovieDatabase.h"
 
-TEST(DatabaseTest, DatabaseTest_BaseClass__Test) {
-    Database db;
-    db.syncLocalDatabase();
-    db.getNumberOfItem();
-    DatabaseItem item = db.fetchItem("The Proposal");
+TEST(DatabaseTest, DatabaseTest_BaseTest__Test) {
+    Database *db = new MovieDatabase();
+    db->syncLocalDatabase();
+    db->getNumberOfItem();
+    DatabaseItem item = db->fetchItem("The Proposal");
     ASSERT_EQ(item.getTitle(), "The Proposal");
+    delete db;
 }
 
 TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
@@ -58,7 +59,27 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     delete db;
 }
 
-TEST(MovieDatabaseTest, AddItems) {
+TEST(MovieDatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
+    Database *db;
+    db = new MovieDatabase();
+    Category cat = Category::Movie;
+    Request req(Event::UPLOAD);
+    req.setActors({"actor1", "actor2"});
+    req.setTitle("aTitle");
+    req.setGenre("horror");
+    req.setDirector("spielberg");
+    req.setCategory(cat);
+    DatabaseItem newItem;
+    newItem.setFeature(req);
 
+    long num = db->getNumberOfItem();
+    db->pushItem(newItem);
+    long num2 = db->getNumberOfItem();
+    db->purgeItem(newItem);
+    long num3 = db->getNumberOfItem();
+    ASSERT_TRUE(num == num3);
+    ASSERT_TRUE(num3 == (num2 - 1));
+
+    delete db;
 }
 #endif //MEDIAFW_TEST_DATABASE_H

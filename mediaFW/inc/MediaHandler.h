@@ -23,25 +23,37 @@ class MediaHandler : public Observer{
 public:
 
     Client *p_client;
-
+    std::map<Event, const char*> m_eventMap;
+    std::map<Progress, const char*> m_progressMap;
     MediaHandler () = default;
 
     MediaHandler(Category &category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
 
+        map_init(m_eventMap)
+                (Event::UPLOAD, "[UPLOAD] ")
+                (Event::DOWNLOAD, "[DOWNLOAD] ")
+                (Event::SEARCH, "[SEARCH] ")
+                (Event::DELETE, "[DELETE] ")
+                (Event::EXIT, "[EXIT] ")
+                ;
+
+
+        map_init(m_progressMap)
+                (Progress::Todo, "[TODO] ")
+                (Progress::InProgress, "[IN PROGRESS] ")
+                (Progress::Done, "[DONE] ")
+                ;
         p_client = new Client(p_conn, p_cli);
-        p_database_movie = new MovieDatabase;
-        p_database_series = new SeriesDatabase;
+        p_database = new MovieDatabase(p_client);
         p_client->registerObserver(this);
     };
 
     ~MediaHandler() {
-        p_client->removeObserver(this);
         delete m_logger;
         delete p_cli;
         delete p_client;
-        delete p_database_movie;
-        delete p_database_series;
+        delete p_database;
         std::cout << "Deconstructor MediaHandler" << std::endl;
     };
 
@@ -94,41 +106,18 @@ private:
      * @brief instance of @class Cli
      */
     Cli *p_cli;
-    /*! \var p_database_movie
+    /*! \var p_database
      * @brief instance of @class MovieDatabase should be renamed to be more generic
      */
-    Database *p_database_movie;
-    Database *p_database_series;
+    Database *p_database;
 
-    /*! \enum Status
-     * @brief describing current progress state
-     * @var DOWNLOADING
-     * @var UPLOADING
-     * @var STREAMING
-     * @var SEARCHING
-     * @var DELETEING
-     * @var IDLE
-     * @var DISCONNECT
-     */
-    enum class Status { DOWNLOADING = 0, UPLOADING, STREAMING = 2, SEARCHING, DELETING, IDLE, DISCONNECT } status;
-
-    /*! \private syncDatabase
-     * @brief check server connection status with @var p_client and log status
-     * @param request incoming from threads
-     */
-    void syncDatabase(const Request &request);
     /*! \private getConnectionInfo
      * @brief calls @private updateDatabaseInfo and log status
      * @param event @enum Event used by @class Request
      * @param progress instance of @enum Progress used by @class Request
      */
-    void getConnectionInfo(Event &event, Progress &progress);
-    /*! \private updateDatabaseInfo
-     * @brief updates db.json after request
-     * @param request instance of @class Request
-     * @return @enum Status
-     */
-    static Status updateDatabaseInfo(const Request &request);
+    void getConnectionInfo();
+
 };
 
 #endif //MEDIAFW_MEDIAHANDLER_H

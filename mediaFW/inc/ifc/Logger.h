@@ -101,7 +101,7 @@ protected:
         }
     };
 
-    /*! \protected map_init_helper
+    /*! \protected map_init
      * @brief wrapper for @struct map_init_helper
      * @tparam T type of enum
      * @param item the enum

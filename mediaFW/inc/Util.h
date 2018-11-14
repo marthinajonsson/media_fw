@@ -108,5 +108,31 @@ void pop_front(std::vector<T>& vec)
     vec.erase(vec.begin());
 }
 
+/*! \struct map_init_helper
+ *@brief map @Level_e to std::string in @m_levelMap
+ * @tparam T type of enum
+ */
+template<typename T> struct map_init_helper
+{
+    T& data;
+    map_init_helper(T& d) : data(d) {}
+    map_init_helper& operator() (typename T::key_type const& key, typename T::mapped_type const& value)
+    {
+        data[key] = value;
+        return *this;
+    }
+};
+
+/*! \protected map_init
+ * @brief wrapper for @struct map_init_helper
+ * @tparam T type of enum
+ * @param item the enum
+ * @return type usually std::strings
+ */
+template<typename T> map_init_helper<T> map_init(T& item)
+{
+    return map_init_helper<T>(item);
+}
+
 
 #endif //MEDIAFW_UTIL_H

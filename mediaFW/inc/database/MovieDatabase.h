@@ -9,15 +9,54 @@
 #ifndef MEDIAFW_MOVIEDATABASE_H
 #define MEDIAFW_MOVIEDATABASE_H
 
+#include "ifc/Observer.h"
 #include "Database.h"
+#include "Client.h"
 #include <algorithm>
 
 
-class MovieDatabase : public Database {
+class MovieDatabase : public Database, public Observer {
 public:
 
-    MovieDatabase () {
+    Client m_client;
+    MovieDatabase() {
         syncLocalDatabase();
+    }
+
+    MovieDatabase (Client *p_client) {
+        syncLocalDatabase();
+        m_client = *p_client;
+        m_client.registerObserver(this);
+    }
+
+    ~MovieDatabase() {
+        m_client.removeObserver(this);
+    }
+
+    int update(Request &request) override {
+        Progress p = request.getProgress();
+        Event e = request.getEvent();
+
+        if(Progress::InProgress == p) {
+            std::cout << "Database awaits request" << std::endl;
+            return RET::OK;
+        }
+
+        if(e == Event::UPLOAD) {
+            DatabaseItem item;
+            item.setFeature(request);
+            pushItem(item);
+        }
+        else if(e == Event::DELETE) {
+            DatabaseItem item;
+            item.setFeature(request);
+            purgeItem(item);
+        }
+        else if(e == Event::SEARCH) {
+            auto title = request.getTitle();
+            fetchItem(title);
+        }
+        return RET::OK;
     }
 
     /*! \public syncLocalDatabase
@@ -27,7 +66,7 @@ public:
         Category cat = Category::Movie;
         JsonParser::getInstance().load(cat);
         m_saved = JsonParser::getInstance().getMovieParsed();
-
+        // TODO can not handle both movie and series
         for(auto s : m_saved) {
             auto title = s.first;
             auto genre = s.second[0];
@@ -89,19 +128,35 @@ public:
         return m_items.size();
     }
 
+    bool isSame(DatabaseItem item, std::list<DatabaseItem>::iterator it) {
+        return it->getTitle() == item.getTitle() &&
+        it->getDirector() == item.getDirector();
+    }
+
     /// <summary>
     /// Implementation for virtual member of Database.h
     /// Method that deletes the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    void purgeItem(DatabaseItem item) override {
+    void purgeItem(const DatabaseItem &m_item) override {
         std::unique_lock<std::mutex>  m_lock;
         std::list<DatabaseItem>::iterator it;
-        for (it = m_items.begin(); it != m_items.end(); ++it){
-            if (it->getTitle() == item.getTitle()) {
+        std::list<DatabaseItem> temp_list;
+        int numLoops = 1;
+        // TODO m_items.end() does not work seem to be extended?
+        for (it = m_items.begin(); it != m_items.end(); it++) {
+
+            if(numLoops  > m_items.size()) { break; }
+
+            if(it->getTitle() == m_item.getTitle()) {
                 m_items.erase(it);
             }
+            else {
+                temp_list.push_back(*it);
+            }
+            numLoops++;
         }
+        m_items = temp_list;
     }
 
     /// <summary>

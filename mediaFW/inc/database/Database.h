@@ -45,37 +45,37 @@ public:
     /*! \public Database::syncDatabase()
      * @brief Sync info from json file and saves it to a list of database objects.
      */
-    virtual void syncLocalDatabase() {throw NotImplementedException(); }
+    virtual void syncLocalDatabase() = 0;
 
     /// <summary>
     /// Uploads the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    virtual void pushItem(const DatabaseItem &m_item) { throw NotImplementedException(); }
+    virtual void pushItem(const DatabaseItem &m_item) = 0;
 
     /// <summary>
     /// Fetch the requested database item.
     /// </summary>
     /// <param>A const reference to a title</param>
     /// <returns>The requested DatabaseItem</returns>
-    virtual DatabaseItem fetchItem(const std::string &title) { throw NotImplementedException(); };
+    virtual DatabaseItem fetchItem(const std::string &title) = 0;
 
     /// <summary>
     /// Delete the requested database item.
     /// </summary>
     /// <param>A const reference to a database item</param>
-    virtual void purgeItem(DatabaseItem m_item) { throw NotImplementedException(); }
+    virtual void purgeItem(const DatabaseItem &m_item) = 0;
 
     /// <summary>
     /// Prints the entire database content.
     /// </summary>s
-    virtual void printAll() { throw NotImplementedException(); }
+    virtual void printAll() = 0;
 
     /// <summary>
     /// Method that return the size of the database.
     /// </summary>
     /// <returns>Size of the database (long).</returns>
-    virtual long getNumberOfItem() { throw NotImplementedException(); }
+    virtual long getNumberOfItem() = 0;
 
 
 protected:

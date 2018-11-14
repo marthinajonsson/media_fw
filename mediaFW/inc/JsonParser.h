@@ -8,9 +8,13 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <database/DatabaseItem.h>
+
 #include <json/json.h>
+
+#include "ifc/Subject.h"
 #include <ifc/Parser.h>
+#include <database/DatabaseItem.h>
+
 
 class JsonParser : Parser {
 public:
@@ -67,6 +71,7 @@ public:
      */
     std::map<std::string, std::vector<std::string>> getLatestResult() { return  m_resultMap; }
 
+
 private:
 
     /*! \var TITLE "title"
@@ -85,6 +90,7 @@ private:
      *
      */
     const std::string DIRECTOR = "director";
+    const std::string PATH = "path";
     /*! \var ITEMS "items"
      *
      */
