@@ -16,11 +16,10 @@ public:
     std::map<Event, std::vector<std::string>> m_mapMethod;
 
     HttpConnector() : m_logger(new StatusLogger) {
-        std::cout << "HttpConnector constructor" << std::endl;
 
         map_init(m_mapMethod)
                 (Event::UPLOAD, {"uploadMovie", "uploadTvShow"})
-                (Event::DOWNLOAD, {"downloadMovie", "downloadTvShow",})
+                (Event::DOWNLOAD, {"downloadMovie", "downloadTvShow"})
                 (Event::SEARCH, {"searchMovie", "searchTvShow"})
                 (Event::DELETE, {"deleteMovie", "deleteTvShow"})
                 (Event::LIST, {"listMovies", "listTvShows"})

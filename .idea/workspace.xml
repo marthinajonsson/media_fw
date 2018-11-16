@@ -2,12 +2,12 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="mediaFW" targetName="mediaFW" />
-      <config projectName="mediaFW" targetName="check" />
       <config projectName="mediaFW" targetName="googlemock" />
+      <config projectName="mediaFW" targetName="mediaFW" />
+      <config projectName="mediaFW" targetName="apidoc_forced" />
       <config projectName="mediaFW" targetName="apidoc" />
       <config projectName="mediaFW" targetName="googletest" />
-      <config projectName="mediaFW" targetName="apidoc_forced" />
+      <config projectName="mediaFW" targetName="check" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -18,41 +18,36 @@
   <component name="ChangeListManager">
     <list default="true" id="7133d6e3-7e54-4b4b-be78-e969829b104b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/apidoc.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/apidoc.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/apidoc_forced.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/apidoc_forced.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/check.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/check.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Cli.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Cli.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/Client.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/JsonParser.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/MediaHandler.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/SshConnector.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/test/test_main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/mediaFW.dir/test/test_main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googlemock.dir/src/gmock-all.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/CMakeFiles/googletest.dir/src/gtest-all.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/libgooglemock.a" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/libgooglemock.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/libgoogletest.a" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/contrib/googletest/libgoogletest.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/logs/2018-10-31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/logs/2018-11-3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/mediaFW" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/mediaFW" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mediaFW/cmake-build-debug/mediaFW.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/cmake-build-debug/mediaFW.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/data/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/inc/Cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/Cli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/inc/MediaHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/MediaHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/inc/Request.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/Request.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/inc/database/DatabaseItem.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/database/DatabaseItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/src/Cli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/src/Cli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/src/Client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/src/Client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mediaFW/src/unittests/Test_Cli.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/inc/HttpConnector.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/HttpConnector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/inc/unittests/Test_HttpConnector.h" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/inc/unittests/Test_HttpConnector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mediaFW/src/HttpConnector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mediaFW/src/HttpConnector.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/mediaFW/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,164 +61,126 @@
     <session id="490321337">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="30" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.18" value="2" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.18" value="4" />
+          <entry key="project.open.time.19" value="5" />
+          <entry key="project.open.time.20" value="3" />
+          <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.25" value="2" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.28" value="3" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="2" />
+          <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="24" />
-          <entry key="future" value="1" />
-          <entry key="h" value="55" />
+          <entry key="CliTest_Download3__Test (disassembly)" value="2" />
+          <entry key="CliTest_Upload_Test (disassembly)" value="1" />
+          <entry key="HttpTest (disassembly)" value="5" />
+          <entry key="HttpTest_Search_Test (disassembly)" value="4" />
+          <entry key="algorithm" value="2" />
+          <entry key="cc" value="4" />
+          <entry key="condition_variable" value="8" />
+          <entry key="cpp" value="93" />
+          <entry key="functional" value="1" />
+          <entry key="future" value="2" />
+          <entry key="h" value="270" />
           <entry key="hpp" value="1" />
-          <entry key="json" value="4" />
+          <entry key="json" value="27" />
+          <entry key="mediaFW (disassembly)" value="3" />
           <entry key="mutex" value="1" />
-          <entry key="thread" value="1" />
-          <entry key="txt" value="4" />
+          <entry key="thread" value="2" />
+          <entry key="txt" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="4" />
-          <entry key="JSON" value="4" />
-          <entry key="ObjectiveC" value="83" />
+          <entry key="CMakeLists.txt" value="7" />
+          <entry key="Disassembly" value="15" />
+          <entry key="JSON" value="27" />
+          <entry key="ObjectiveC" value="384" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="731" />
-          <entry key="h" value="3014" />
-          <entry key="txt" value="27" />
+          <entry key="cpp" value="17539" />
+          <entry key="h" value="37211" />
+          <entry key="json" value="98" />
+          <entry key="txt" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="27" />
-          <entry key="ObjectiveC" value="3745" />
+          <entry key="CMakeLists.txt" value="215" />
+          <entry key="Doxygen file" value="173" />
+          <entry key="JSON" value="98" />
+          <entry key="ObjectiveC" value="54577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages">
         <counts>
-          <entry key="Google Test" value="11" />
+          <entry key="Google Test" value="340" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="mediaFW" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/Request.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mediaFW/src/JsonParser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="154" selection-start-line="154" selection-end-line="154" />
-              <folding>
-                <element signature="e#46#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/src/Cli.cpp">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1358">
-              <caret line="91" column="19" lean-forward="true" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
-              <folding>
-                <element signature="e#43#62#0" expanded="true" />
-              </folding>
+              <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/Cli.h">
+        <entry file="file://$PROJECT_DIR$/mediaFW/inc/JsonParser.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Cli.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/Util.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="15" column="33" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/DatabaseItem.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#193#210#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/src/Client.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="32" column="62" lean-forward="true" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+            <state relative-caret-position="262">
+              <caret line="114" column="23" lean-forward="true" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>spl</find>
       <find>split</find>
       <find>parseArg</find>
+      <find>getMap</find>
+      <find>find</find>
       <find>verifyExists</find>
+      <find>setProperties</find>
+      <find>m_items</find>
+      <find>getConnectionInfo</find>
+      <find>{ throw NotImplementedException(); }</find>
+      <find>compilePayload</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,28 +190,44 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Observer.h" />
-        <option value="$PROJECT_DIR$/mediaFW/test/test_main.cpp" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/Util.h" />
         <option value="$PROJECT_DIR$/mediaFW/inc/JsonParser2.h" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/ifc/Parser.h" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/JsonParser.h" />
         <option value="$PROJECT_DIR$/mediaFW/src/unittests/Test_Cli.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Status.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/ifc/CommandLineParser.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/InputObject.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/ifc/Parser.h" />
         <option value="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Json.h" />
-        <option value="$PROJECT_DIR$/mediaFW/src/JsonParser.cpp" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/database/MovieDatabase.h" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/database/SeriesDatabase.h" />
-        <option value="$PROJECT_DIR$/mediaFW/src/main.cpp" />
-        <option value="$PROJECT_DIR$/mediaFW/data/db.json" />
-        <option value="$PROJECT_DIR$/mediaFW/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/mediaFW/inc/database/DatabaseItem.h" />
-        <option value="$PROJECT_DIR$/mediaFW/src/Client.cpp" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/MediaHandler.h" />
+        <option value="$PROJECT_DIR$/mediaFW/data/db.json" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/ifc/Observer.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/StatusLogger.h" />
         <option value="$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/database/Database.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/database/SeriesDatabase.h" />
         <option value="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/Request.h" />
-        <option value="$PROJECT_DIR$/mediaFW/inc/Cli.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/database/MovieDatabase.h" />
         <option value="$PROJECT_DIR$/mediaFW/src/Cli.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Client.h" />
+        <option value="$PROJECT_DIR$/mediaFW/src/Client.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Connection.h" />
+        <option value="$PROJECT_DIR$/mediaFW/data/package.json" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/JsonParser.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/ConfigParser.h" />
+        <option value="$PROJECT_DIR$/mediaFW/src/ConfigParser.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Cli.h" />
+        <option value="$PROJECT_DIR$/mediaFW/test/test_main.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/ifc/Logger.h" />
+        <option value="$PROJECT_DIR$/mediaFW/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/mediaFW/inc/unittests/Test_Cli.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Util.h" />
+        <option value="$PROJECT_DIR$/mediaFW/src/main.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/MediaHandler.h" />
+        <option value="$PROJECT_DIR$/mediaFW/src/JsonParser.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/Request.h" />
+        <option value="$PROJECT_DIR$/mediaFW/data/config.json" />
+        <option value="$PROJECT_DIR$/mediaFW/src/HttpConnector.cpp" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/unittests/Test_HttpConnector.h" />
+        <option value="$PROJECT_DIR$/mediaFW/inc/HttpConnector.h" />
       </list>
     </option>
   </component>
@@ -275,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,24 +276,20 @@
               <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
               <item name="media_fw" type="462c0819:PsiDirectoryNode" />
               <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
-              <item name="unittests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mediaFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="media_fw" type="462c0819:PsiDirectoryNode" />
-              <item name="mediaFW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -335,23 +303,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Google Test.CliTest.CliTest_EXIT_Test">
-    <configuration name="CliTest.CliTest_Download2_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="CliTest" TEST_METHOD="CliTest_Download2_Test" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Google Test.HttpTest">
+    <configuration name="HttpTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="HttpTest" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliTest.CliTest_Download_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="CliTest" TEST_METHOD="CliTest_Download_Test" TEST_MODE="SUITE_TEST">
+    <configuration name="HttpTest.HttpTest_Delete_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="HttpTest" TEST_METHOD="HttpTest_Delete_Test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CliTest.CliTest_EXIT_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="CliTest" TEST_METHOD="CliTest_EXIT_Test" TEST_MODE="SUITE_TEST">
+    <configuration name="HttpTest.HttpTest_Download_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="HttpTest" TEST_METHOD="HttpTest_Download_Test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieDatabaseTest.MovieDatabaseTest_FetchAndPush_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="MovieDatabaseTest" TEST_METHOD="MovieDatabaseTest_FetchAndPush_Test" TEST_MODE="SUITE_TEST">
+    <configuration name="HttpTest.HttpTest_Search2_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="HttpTest" TEST_METHOD="HttpTest_Search2_Test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpTest.HttpTest_Search_Test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mediaFW" TARGET_NAME="mediaFW" RUN_TARGET_PROJECT_NAME="mediaFW" RUN_TARGET_NAME="mediaFW" TEST_CLASS="HttpTest" TEST_METHOD="HttpTest_Search_Test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -399,17 +372,19 @@
       <item itemvalue="Application.mediaFW" />
       <item itemvalue="Application.googlemock" />
       <item itemvalue="Application.googletest" />
-      <item itemvalue="Google Test.CliTest.CliTest_Download_Test" />
-      <item itemvalue="Google Test.MovieDatabaseTest.MovieDatabaseTest_FetchAndPush_Test" />
-      <item itemvalue="Google Test.CliTest.CliTest_Download2_Test" />
-      <item itemvalue="Google Test.CliTest.CliTest_EXIT_Test" />
+      <item itemvalue="Google Test.HttpTest" />
+      <item itemvalue="Google Test.HttpTest.HttpTest_Search_Test" />
+      <item itemvalue="Google Test.HttpTest.HttpTest_Search2_Test" />
+      <item itemvalue="Google Test.HttpTest.HttpTest_Download_Test" />
+      <item itemvalue="Google Test.HttpTest.HttpTest_Delete_Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Google Test.CliTest.CliTest_EXIT_Test" />
-        <item itemvalue="Google Test.CliTest.CliTest_Download2_Test" />
-        <item itemvalue="Google Test.CliTest.CliTest_Download_Test" />
-        <item itemvalue="Google Test.MovieDatabaseTest.MovieDatabaseTest_FetchAndPush_Test" />
+        <item itemvalue="Google Test.HttpTest" />
+        <item itemvalue="Google Test.HttpTest.HttpTest_Delete_Test" />
+        <item itemvalue="Google Test.HttpTest.HttpTest_Download_Test" />
+        <item itemvalue="Google Test.HttpTest.HttpTest_Search2_Test" />
+        <item itemvalue="Google Test.HttpTest.HttpTest_Search_Test" />
       </list>
     </recent_temporary>
   </component>
@@ -432,85 +407,118 @@
       <workItem from="1541264519986" duration="264000" />
       <workItem from="1541265093782" duration="10257000" />
       <workItem from="1541360273226" duration="3274000" />
+      <workItem from="1541437212374" duration="1051000" />
+      <workItem from="1541445187448" duration="7655000" />
+      <workItem from="1541494302215" duration="2861000" />
+      <workItem from="1541504433522" duration="1260000" />
+      <workItem from="1541525749958" duration="7109000" />
+      <workItem from="1541533613903" duration="2549000" />
+      <workItem from="1541581097199" duration="10919000" />
+      <workItem from="1541603053180" duration="1494000" />
+      <workItem from="1541663687446" duration="10000" />
+      <workItem from="1541663963013" duration="9110000" />
+      <workItem from="1541680130947" duration="8524000" />
+      <workItem from="1541753447531" duration="9937000" />
+      <workItem from="1541790446563" duration="11107000" />
+      <workItem from="1541851921316" duration="6698000" />
+      <workItem from="1541868015053" duration="12067000" />
+      <workItem from="1541939398472" duration="12013000" />
+      <workItem from="1542010947033" duration="10832000" />
+      <workItem from="1542101213197" duration="755000" />
+      <workItem from="1542104381684" duration="4232000" />
+      <workItem from="1542184813855" duration="1616000" />
+      <workItem from="1542197321554" duration="11884000" />
+      <workItem from="1542356508749" duration="17340000" />
+      <workItem from="1542390348938" duration="963000" />
+      <workItem from="1542391666343" duration="4803000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 12m 29s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest_HttpTest_Download_Test - 2018.11.16 at 19h 11m 31s.xml">
+      <configuration name="HttpTest.HttpTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 12m 55s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest_HttpTest_Download_Test - 2018.11.16 at 19h 12m 01s.xml">
+      <configuration name="HttpTest.HttpTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 15m 12s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest_HttpTest_Download_Test - 2018.11.16 at 19h 12m 13s.xml">
+      <configuration name="HttpTest.HttpTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 16m 49s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 16m 10s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 19m 24s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 20m 37s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 20m 03s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest_HttpTest_Delete_Test - 2018.11.16 at 19h 22m 20s.xml">
+      <configuration name="HttpTest.HttpTest_Delete_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download_Test - 2018.11.04 at 20h 22m 07s.xml">
-      <configuration name="CliTest.CliTest_Download_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 22m 47s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download2_Test - 2018.11.04 at 20h 22m 29s.xml">
-      <configuration name="CliTest.CliTest_Download2_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 25m 00s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_Download2_Test - 2018.11.04 at 20h 25m 38s.xml">
-      <configuration name="CliTest.CliTest_Download2_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 25m 43s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="CliTest_CliTest_EXIT_Test - 2018.11.04 at 20h 32m 05s.xml">
-      <configuration name="CliTest.CliTest_EXIT_Test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="HttpTest - 2018.11.16 at 19h 26m 35s.xml">
+      <configuration name="HttpTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15019000" />
+    <option name="totallyTimeSpent" value="171808000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1829" height="966" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20705092" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49403748" visible="true" weight="0.17627308" />
+      <window_info id="Structure" order="1" sideWeight="0.50687283" side_tool="true" weight="0.22719643" />
+      <window_info id="Favorites" order="2" sideWeight="0.50596255" weight="0.23614997" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32951945" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993135" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32951945" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49860102" weight="0.3340961" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39816934" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32951945" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32951945" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32951945" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49860102" weight="0.32951945" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.501399" side_tool="true" weight="0.3340961" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.33867276" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32951945" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49804142" weight="0.32837528" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20481254" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49403748" visible="true" weight="0.25517628" />
+      <window_info id="Structure" order="1" sideWeight="0.50687283" side_tool="true" weight="0.22719643" />
+      <window_info id="Favorites" order="2" sideWeight="0.50596255" weight="0.23614997" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32951945" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993135" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32951945" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49860102" weight="0.3340961" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39816934" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32951945" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32998884" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32951945" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49860102" weight="0.32951945" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.501399" side_tool="true" weight="0.3340961" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.33867276" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32951945" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49804142" visible="true" weight="0.32837528" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -527,49 +535,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/Cli.cpp</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/Cli.cpp</url>
-          <line>56</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp</url>
-          <line>13</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/Client.cpp</url>
-          <line>36</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/Cli.cpp</url>
-          <line>63</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/Cli.cpp</url>
-          <line>24</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h</url>
-          <line>33</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/src/JsonParser.cpp</url>
-          <line>130</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Cli.h</url>
-          <line>43</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/mediaFW/inc/Connection.h</url>
+          <line>7</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -580,10 +548,52 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/json/json.hpp">
+    <entry file="file:///usr/include/c++/8/bits/stl_queue.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83936">
-          <caret line="218" lean-forward="true" selection-start-line="218" selection-end-line="218" />
+        <state relative-caret-position="186">
+          <caret line="283" column="6" selection-start-line="283" selection-start-column="6" selection-end-line="283" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/future">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="1744" column="4" selection-start-line="1744" selection-start-column="4" selection-end-line="1744" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/bits/std_mutex.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/functional">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-399">
+          <caret line="204" column="2" selection-start-line="204" selection-start-column="2" selection-end-line="204" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/condition_variable">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/thread">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="113" column="18" lean-forward="true" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/CommandLineParser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -594,261 +604,322 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Observer.h">
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/Observer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/test/test_main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/JsonParser2.h" />
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/Parser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="e#93#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/JsonParser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#102#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Json.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-139">
-          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/Database.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="83" column="18" lean-forward="true" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
+        <state relative-caret-position="330">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/SeriesDatabase.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding>
-            <element signature="e#109#130#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/MovieDatabase.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-347">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="1080">
+          <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
           <folding>
-            <element signature="e#248#269#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/SshConnector.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/8/bits/std_function.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="687" selection-start-line="687" selection-end-line="687" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/8/future">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="404" selection-start-line="404" selection-end-line="404" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/8/thread">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="242" selection-start-line="242" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/x86_64-linux-gnu/c++/8/bits/gthr-default.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="701" selection-start-line="701" selection-end-line="701" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/8/mutex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="698" selection-start-line="698" selection-end-line="698" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/8/bits/invoke.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/data/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Client.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#92#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/unittests/Test_Cli.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="85" column="63" selection-start-line="85" selection-start-column="63" selection-end-line="85" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/Client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/MediaHandler.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="85" column="27" lean-forward="true" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
-          <folding>
-            <element signature="e#106#127#0" expanded="true" />
+            <element signature="e#248#273#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/DatabaseItem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#193#210#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="435">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/8/bits/stl_vector.h">
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/database/Database.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="1011" selection-start-line="1011" selection-end-line="1011" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        <state relative-caret-position="900">
+          <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Database.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="32" column="62" lean-forward="true" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+        <state relative-caret-position="990">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ConnectionStream.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/MediaHandler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/SshConnector.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/Connector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/sched.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/SshConnector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Client.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/data/package.json" />
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ConfigParser.h" />
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/ConfigParser.cpp" />
+    <entry file="file://$PROJECT_DIR$/mediaFW/data/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/Parser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/algorithm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/bits/stl_iterator_base_funcs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Connection.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#101#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/StatusLogger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/Client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+          <folding>
+            <element signature="e#42#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="43" column="47" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/test/test_main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/ifc/Logger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+          <folding>
+            <element signature="e#121#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#1#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/MediaHandler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding>
+            <element signature="e#106#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/Cli.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/StatusLogger.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Util.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Request.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mediaFW/src/JsonParser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        <state relative-caret-position="158">
+          <caret line="147" column="8" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
           <folding>
-            <element signature="e#46#69#0" expanded="true" />
+            <element signature="e#87#106#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/src/Cli.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1358">
-          <caret line="91" column="19" lean-forward="true" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
-          <folding>
-            <element signature="e#43#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="71">
+          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_Cli.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+        <state relative-caret-position="300">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+          <folding>
+            <element signature="e#124#148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/unistd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="289" column="11" selection-start-line="289" selection-start-column="11" selection-end-line="289" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/bits/stl_map.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="505" selection-start-line="505" selection-end-line="505" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/8/bits/basic_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="927" selection-start-line="927" selection-end-line="927" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/Request.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#96#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/data/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/contrib/googletest/src/gtest.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="2444" selection-start-line="2444" selection-end-line="2444" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/HttpConnector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#108#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/unittests/Test_HttpConnector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="38" lean-forward="true" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+          <folding>
+            <element signature="e#118#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/HttpConnector.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="e#43#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/inc/JsonParser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="114" column="23" lean-forward="true" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediaFW/src/JsonParser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1358">
+          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
         </state>
       </provider>
     </entry>

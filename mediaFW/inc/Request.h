@@ -50,7 +50,21 @@ public:
     std::vector<std::string> const getActors() { return m_actors; }
     Category const getCategory() const { return m_category; }
 
-    std::vector<std::string> m_properties = {"title", m_title, "genre", m_genre, "director", m_director, "actor", m_actors.front(), "filename", m_filename};
+    std::map<std::string, std::string> getProperties() {
+        std::map<std::string, std::string> map;
+        if(!m_title.empty())
+            map["title"] = m_title;
+        if(!m_genre.empty())
+            map["genre"] = m_genre;
+        if(!m_director.empty())
+            map["director"] = m_director;
+        if(!m_filename.empty())
+            map["filename"] = m_filename;
+        if(!m_actors.empty())
+            map["actor"] = m_actors.front();
+        return map;
+    }
+
     std::map<std::string, std::vector<std::string>> getMultipleResult() { return m_multipleResult; }
 
 private:

@@ -3,6 +3,7 @@
 //
 
 #include <sys/wait.h>
+#include <unistd.h>
 #include <iterator>
 #include <algorithm>
 #include <JsonParser.h>
@@ -10,8 +11,9 @@
 
 std::string HttpConnector::compileLogin() {
 
-    const auto filename = "~/syno/config.yaml";
-    if(access( filename, F_OK ) == RET::ERROR) {
+    const auto filename = "../data/config.json"; //"~/syno/config.yaml";
+    int a = access( filename, F_OK );
+    if(a != RET::OK) {
         m_logger->TRACE(Logger::ERR, "Http config file not found");
         return const_cast<char *>("");
     }
@@ -22,16 +24,15 @@ std::string HttpConnector::compileLogin() {
         m_logger->TRACE(Logger::ERR, "No configuration file loaded");
     }
 
-    m_pwd = result["config"].at(0);
-    m_name = result["config"].at(1);
-    m_port = result["config"].at(2);
-    m_server = result["config"].at(3);
+    m_pwd = result["config"].at(3);
+    m_name = result["config"].at(2);
+    m_port = result["config"].at(1);
+    m_server = result["config"].at(0);
 
     std::string opt = " --url ";
     std::string style = " --pretty";
 
-    std::string argv = opt + m_name + ":" + m_pwd + "@" + m_server + ":" + m_port + style;
-    return argv;
+    return style + opt + "http://" + m_name + ":" + m_pwd + "@" + m_server + ":" + m_port;
 }
 
 std::string HttpConnector::compilePayload(Request &request) {
@@ -59,7 +60,8 @@ std::string HttpConnector::compilePayload(Request &request) {
 
     std::string property;
     std::string val;
-    auto requestProp = request.m_properties;
+    auto mapProp = request.getProperties();
+
     std::vector<std::string> searchVec;
     std::vector<std::string>::iterator it;
     if(event == Event::UPLOAD) {
@@ -73,19 +75,16 @@ std::string HttpConnector::compilePayload(Request &request) {
     }
 
     for(it = searchVec.begin(); it != searchVec.end(); it++) {
-        auto found = std::find(requestProp.begin(), requestProp.end(), *it);
-        if(found == requestProp.end()) {
-            request.setError(RET::ERROR);
-            request.setErrorDesc("Failed to find correct property");
+        if(!mapProp[*it].empty()) {
+            property = *it;
+            val = mapProp[*it];
+            break;
         }
-
-        property = *found;
-        found++;
-        val = *found;
     }
 
     std::string payloadStr = "'{" + property + ":" + val + "}'";
-    return method + payload + payloadStr;
+    auto result = method + payload + payloadStr;
+    return result;
 }
 
 std::string HttpConnector::compile(Request &request) {

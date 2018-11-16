@@ -142,7 +142,7 @@ void JsonParser::load(const Category &category)
             m_seriesMap[title] = m_parsed;
         }
     } else if (category == Category::Config) {
-        std::ifstream db_file("../data/configs.json", std::ifstream::binary);
+        std::ifstream db_file("../data/config.json", std::ifstream::binary);
         db_file >> root;
         db_file.close();
         m_parsed.clear();
