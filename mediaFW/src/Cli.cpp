@@ -71,12 +71,17 @@ Request Cli::interprete(std::vector<std::string> &input)
 
 
     if(event == Event::EXIT) { return request; }
+    else if(event == Event::SSH) {
+        return request;
+    }
+
     Category category;
     if(RET::ERROR == checkValidCategory(input, category)){
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid category entered");
         return request;
     }
+
     request.setCategory(category);
 
     if(RET::ERROR == getTypeOfValue(input, type))

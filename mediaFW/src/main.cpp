@@ -16,15 +16,9 @@ void threadCaller(MediaHandler *handler) {
 int main(int argc, char **argv) {
 
     std::string args = *argv;
-    Category category = Category::Movie;
 
     if(argc < 3){
-        std::cout << "Normal mode: " << category << "\n" << std::endl;
-        if(args.find("series") != std::string::npos) {
-            category = Category::Series;
-        }
-
-        auto *handler = new MediaHandler(category);
+        auto *handler = new MediaHandler();
         auto fut = std::async(threadCaller, handler);
         fut.get();
         std::unique_lock<std::mutex> lock(mtx);

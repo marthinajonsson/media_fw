@@ -108,11 +108,15 @@ private:
      */
     const std::string EXIT = "exit";
 
+    /*! \var SSH "ssh"
+     * @brief used to refer to @enum Event
+     */
+    const std::string SSH = "ssh";
 
     /*! \var EVENT_ARGS
      * @brief contain all valid @enum Event using @property
      */
-    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT};
+    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT, SSH}; //TODO add LIST and STREAM
 
     /*! \private Cli::split
      *

@@ -18,14 +18,14 @@ protected:
     std::string TEST_FILE = FILE_DIR + "testfile.txt";
     Category cat2 = Category::Series;
     Category cat = Category::Movie;
-    void SetUp()
+    void SetUp() override
     {
         cli = new Cli;
         JsonParser::getInstance().load(cat);
         JsonParser::getInstance().load(cat2);
     }
 
-    void TearDown()
+    void TearDown() override
     {
         delete cli;
         JsonParser::getInstance().clear();

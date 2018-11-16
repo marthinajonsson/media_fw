@@ -25,9 +25,7 @@ public:
     Client *p_client;
     std::map<Event, const char*> m_eventMap;
     std::map<Progress, const char*> m_progressMap;
-    MediaHandler () = default;
-
-    MediaHandler(Category &category) : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
+    MediaHandler() : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
 
         map_init(m_eventMap)

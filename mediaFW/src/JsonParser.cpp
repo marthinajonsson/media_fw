@@ -91,13 +91,13 @@ void JsonParser::load(const Category &category)
 {
     Json::Value root;
 
-    std::ifstream db_file("../data/db.json", std::ifstream::binary);
-    db_file >> root;
-    db_file.close();
-
-    m_root = root;
-
     if(category == Category::Movie) {
+
+        std::ifstream db_file("../data/db.json", std::ifstream::binary);
+        db_file >> root;
+        db_file.close();
+        m_root = root;
+
         m_movieMap.clear();
         root = root[ITEMS][MOVIES];
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
@@ -117,7 +117,12 @@ void JsonParser::load(const Category &category)
             m_movieMap[title] = m_parsed;
         }
     }
-    else {
+    else if(category == Category::Series){
+        std::ifstream db_file("../data/db.json", std::ifstream::binary);
+        db_file >> root;
+        db_file.close();
+        m_root = root;
+
         m_seriesMap.clear();
         root = root[ITEMS][SERIES];
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
@@ -136,6 +141,20 @@ void JsonParser::load(const Category &category)
             }
             m_seriesMap[title] = m_parsed;
         }
+    } else if (category == Category::Config) {
+        std::ifstream db_file("../data/configs.json", std::ifstream::binary);
+        db_file >> root;
+        db_file.close();
+        m_parsed.clear();
+        auto url = root["url"].asString();
+        auto port = root["port"].asString();
+        auto user = root["user"].asString();
+        auto pwd = root["pwd"].asString();
+        m_parsed.push_back(url);
+        m_parsed.push_back(port);
+        m_parsed.push_back(user);
+        m_parsed.push_back(pwd);
+        m_resultMap["config"] = m_parsed;
     }
 }
 

@@ -19,12 +19,15 @@ public:
         m_progess = Todo;
     }
 
+
     Request(const int code, const std::string desc) : m_error(code), m_errDesc(desc) {
         m_progess = Todo;
     }
-    Request() = default;
+    Request() {}
+
     ~Request() = default;
 
+    void setEvent(Event e) { m_event = e; }
     void setCategory(Category cat) { m_category = cat; }
     void setProgress(Progress progress) { m_progess = progress; }
     void setErrorDesc(const std::string &_desc) { m_errDesc = _desc; }
@@ -46,6 +49,8 @@ public:
     std::string const getDirector() { return m_director; }
     std::vector<std::string> const getActors() { return m_actors; }
     Category const getCategory() const { return m_category; }
+
+    std::vector<std::string> m_properties = {"title", m_title, "genre", m_genre, "director", m_director, "actor", m_actors.front(), "filename", m_filename};
     std::map<std::string, std::vector<std::string>> getMultipleResult() { return m_multipleResult; }
 
 private:

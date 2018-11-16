@@ -51,7 +51,8 @@ enum ORDER {
 enum Category {
     Movie = 0,
     Series = 1,
-    All = 2
+    Config = 2,
+    All = 3
 };
 
 
@@ -86,8 +87,11 @@ enum Event {
     SEARCH = 2,
     DELETE = 3,
     HELP = 4,
-    EXIT = 5,
-    UNDEFINED = 6
+    LIST = 5,
+    STREAM = 6,
+    EXIT = 7,
+    SSH = 8,
+    UNDEFINED = 9
 };
 
 
@@ -109,9 +113,9 @@ void pop_front(std::vector<T>& vec)
 }
 
 /*! \struct map_init_helper
- *@brief map @Level_e to std::string in @m_levelMap
- * @tparam T type of enum
- */
+* @brief map @Level_e to std::string in @m_levelMap
+* @tparam T type of enum
+*/
 template<typename T> struct map_init_helper
 {
     T& data;
@@ -124,15 +128,14 @@ template<typename T> struct map_init_helper
 };
 
 /*! \protected map_init
- * @brief wrapper for @struct map_init_helper
- * @tparam T type of enum
- * @param item the enum
- * @return type usually std::strings
- */
+* @brief wrapper for @struct map_init_helper
+* @tparam T type of enum
+* @param item the enum
+* @return type usually std::strings
+*/
 template<typename T> map_init_helper<T> map_init(T& item)
 {
     return map_init_helper<T>(item);
 }
-
 
 #endif //MEDIAFW_UTIL_H

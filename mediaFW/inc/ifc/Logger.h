@@ -87,7 +87,7 @@ protected:
     }
 
     /*! \struct map_init_helper
-     *@brief map @Level_e to std::string in @m_levelMap
+     *@brief map @Level_e to std::string in m_levelMap
      * @tparam T type of enum
      */
     template<typename T> struct map_init_helper

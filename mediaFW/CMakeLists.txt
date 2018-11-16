@@ -28,9 +28,10 @@ include_directories(inc/unittests)
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
 
-    set(DOXYGEN_INPUT ${SOURCE_FILES})
+    set(DOXYGEN_INPUT ${CMAKE_CURRENT_LIST_DIR}/docs/doxy.config)
     set(DOXYGEN_OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-
+    message(STATUS, ${DOXYGEN_INPUT})
+    message(STATUS, ${DOXYGEN_OUTPUT})
     add_custom_command(
             OUTPUT ${DOXYGEN_OUTPUT}
             COMMAND ${CMAKE_COMMAND} -E echo_append "Building API Documentation..."
@@ -59,7 +60,8 @@ set(SrcFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/src/JsonParser.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/json/jsoncpp.cpp
         ${CMAKE_CURRENT_LIST_DIR}/src/MediaHandler.cpp
-        ${CMAKE_CURRENT_LIST_DIR}/src/SshConnector.cpp)
+        ${CMAKE_CURRENT_LIST_DIR}/src/SshConnector.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/src/HttpConnector.cpp)
 
 set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Cli.h
@@ -80,9 +82,11 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/ConnectionStream.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/SshConnector.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/Request.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/database/SeriesDatabase.h inc/ifc/CommandLineParser.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/ifc/CommandLineParser.h
+        ${CMAKE_CURRENT_LIST_DIR}/inc/HttpConnector.h)
 
 set(TestFilesToInclude
+        ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_HttpConnector.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Database.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Json.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_Logger.h
@@ -96,6 +100,7 @@ set(TestFilesToInclude
 enable_testing()
 add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
 add_subdirectory("contrib/googletest")
+
 
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude} ${TestFilesToInclude})
 target_link_libraries(mediaFW googlemock)

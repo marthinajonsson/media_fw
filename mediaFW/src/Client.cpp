@@ -72,8 +72,16 @@ void Client::handleRequestThread(std::promise <int>* exit)
             notifyObservers(request);
 
             std::string result;
-            std::string testcommand = "ls";
-            //p_conn->sendServerRequest(testcommand, result);
+            if(event == Event::SSH) {
+                std::promise<int> exitssh;
+                std::future<int> futureObj = exitssh.get_future();
+
+                std::thread thSsh(&Connection::goSsh, p_conn, &exitssh);
+                thSsh.join();
+            }
+            else {
+                p_conn->sendServerRequest(request, result);
+            }
             request.setProgress(Progress::Done);
             notifyObservers(request);
         }
