@@ -71,6 +71,8 @@ public:
      */
     std::map<std::string, metadata> getLatestResult() { return  m_mediaMap; }
 
+    std::map<std::string, metadata> getLatestFilteredResult() { return  m_resultMap; }
+
 private:
 
     metadata m;

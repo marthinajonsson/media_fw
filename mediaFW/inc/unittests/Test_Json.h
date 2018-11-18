@@ -16,11 +16,10 @@ protected:
     std::map<std::string, metadata> m_loadedSeriesMap;
 
     void SetUp() override {
-        Category cat = Category::Movie;
-        JsonParser::getInstance().load(cat);
+        JsonParser::getInstance().load(Category::Movie);
         m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
-        cat = Category::Series;
-        JsonParser::getInstance().load(cat);
+
+        JsonParser::getInstance().load(Category::Series);
         m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     }
 
@@ -42,15 +41,16 @@ TEST_F(JsonTest, JsonTest_FindMovie_Test) {
     std::string findTitle = "The Proposal";
     std::string findActor = "Thomas Beaudoin";
     std::string notInDB = "not_in_db";
-    std::string romance = "romance";
+    std::string romance = "Romance";
     std::string dir = "David Jackson";
     Category cat = Category::Movie;
+    JsonParser::getInstance().load(Category::Movie);
     bool found = JsonParser::getInstance().find(cat, findTitle);
     ASSERT_TRUE(found);
     found = JsonParser::getInstance().find(cat, findActor);
     ASSERT_TRUE(found);
     found = JsonParser::getInstance().find(cat, romance);
-    ASSERT_TRUE(!found);
+    ASSERT_TRUE(found);
     found = JsonParser::getInstance().find(cat, notInDB);
     ASSERT_FALSE(found);
     found = JsonParser::getInstance().find(cat, dir);
@@ -62,6 +62,7 @@ TEST_F(JsonTest, JsonTest_FindSeries_Test) {
     std::string findActor = "James Franco";
     std::string notInDB = "not_in_db";
     Category cat = Category::Series;
+    JsonParser::getInstance().load(Category::Series);
     bool found = JsonParser::getInstance().find(cat, findTitle);
     ASSERT_TRUE(found);
     found = JsonParser::getInstance().find(cat, findActor);

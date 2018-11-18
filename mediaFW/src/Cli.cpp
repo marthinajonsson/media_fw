@@ -112,7 +112,7 @@ Request Cli::interprete(std::vector<std::string> &input)
     }
 
     if(event == Event::DOWNLOAD || event == Event::DELETE) {
-        auto items = JsonParser::getInstance().getLatestResult();
+        auto items = JsonParser::getInstance().getLatestFilteredResult();
 
         if(items.size() == 1) {
             auto item = items.begin()->second;

@@ -41,7 +41,9 @@ public:
 
 
     void setEvent(Event e) { m_event = e; }
-    void setCategory(Category cat) { meta.s_category = cat; }
+    void setCategory(Category cat) {
+        meta.category = cat;
+    }
     void setProgress(Progress progress) { m_progess = progress; }
     void setErrorDesc(const std::string &_desc) { m_errDesc = _desc; }
     void setError(const int &_err) { m_error = _err; }

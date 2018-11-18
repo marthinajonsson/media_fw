@@ -80,7 +80,7 @@ TEST_F(CliTest, CliTest_Download4__Test) {
 
 TEST_F(CliTest, CliTest_Search_Test) {
     std::string test = "search:movie:genre:Romance";
-    JsonParser::getInstance().load(Category::Series);
+    JsonParser::getInstance().load(Category::Movie);
     auto output = cli->process(test);
     auto items = output.getMultipleResult();
 
@@ -93,18 +93,16 @@ TEST_F(CliTest, CliTest_Search_Test) {
 
 TEST_F(CliTest, CliTest_Search2_Test) {
     std::string test = "search:series:genre:Romance";
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
+    ASSERT_TRUE(output.getError() == RET::ERROR);
     auto items = output.getMultipleResult();
-    auto err = output.getError();
-    auto desc = output.getErrorDesc();
-
     ASSERT_TRUE(items.empty());
-    ASSERT_TRUE(err == RET::OK);
-    ASSERT_TRUE(desc.empty());
 }
 
 TEST_F(CliTest, CliTest_Search3_Test) {
     std::string test = "search:series:director:James Franco";
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
     auto items = output.getMultipleResult();
     auto err = output.getError();
@@ -122,10 +120,12 @@ TEST_F(CliTest, CliTest_Upload_Test) {
     m.s_genre = "horror";
     m.s_director = "dtest";
     m.s_actors = {"test_act"};
+    m.category = Category::Series;
     auto compare = m;
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
     cli->verifyUploadTest(output, m);
-    auto t = output.getTitle();
+
     ASSERT_TRUE(output.getTitle() == compare.s_title);
     ASSERT_TRUE(output.getGenre() == compare.s_genre);
     ASSERT_TRUE(output.getDirector() == compare.s_director);
@@ -141,6 +141,7 @@ TEST_F(CliTest, CliTest_Upload2_Test) {
     m.s_genre = "horror";
     m.s_director = "dtest";
     m.s_actors = {"test_act"};
+    m.category = Category::Movie;
     auto compare = m;
     auto output = cli->process(test);
     cli->verifyUploadTest(output, m);
@@ -155,6 +156,7 @@ TEST_F(CliTest, CliTest_Upload2_Test) {
 
 TEST_F(CliTest, CliTest_Delete_Test) {
     std::string test = "delete:movie:title:The Proposal";
+    JsonParser::getInstance().load(Category::Movie);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
     ASSERT_TRUE("The Proposal" == output.getTitle());
@@ -165,6 +167,7 @@ TEST_F(CliTest, CliTest_Delete_Test) {
 
 TEST_F(CliTest, CliTest_Delete2_Test) {
     std::string test = "delete:series:title:Dummy";
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
     ASSERT_FALSE("Anne Fletcher" == output.getDirector());

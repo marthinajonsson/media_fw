@@ -116,7 +116,7 @@ private:
     /*! \var EVENT_ARGS
      * @brief contain all valid @enum Event using @property
      */
-    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, HELP, EXIT, SSH}; //TODO add LIST and STREAM
+    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, EXIT, HELP, SSH}; //TODO add LIST and STREAM
 
     /*! \private Cli::split
      *

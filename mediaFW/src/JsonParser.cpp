@@ -141,7 +141,7 @@ bool JsonParser::find(Category &category, const std::string &val)
     for (auto it: map) {
         auto props = it.second;
 
-        if(val != props.s_title || val != props.s_genre || val != props.s_director) {
+        if(val != props.s_title && val != props.s_genre && val != props.s_director) {
 
             auto actor_it = std::find(it.second.s_actors.begin(), it.second.s_actors.end(), val);
 

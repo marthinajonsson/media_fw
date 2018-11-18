@@ -86,11 +86,11 @@ enum Event {
     DOWNLOAD = 1,
     SEARCH = 2,
     DELETE = 3,
-    HELP = 4,
-    LIST = 5,
-    STREAM = 6,
-    EXIT = 7,
-    SSH = 8,
+    EXIT = 4,
+    HELP = 5,
+    SSH = 6,
+    LIST = 7,
+    STREAM = 8,
     UNDEFINED = 9
 };
 
