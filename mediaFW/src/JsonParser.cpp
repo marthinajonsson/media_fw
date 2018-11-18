@@ -3,15 +3,14 @@
 //
 //
 
-#include "JsonParser.h"
-#include "json/json.h"
-#include "Util.h"
 #include <string>
 #include <sstream>
 #include <algorithm>
 #include <iostream>
 #include <fstream>
 
+#include <JsonParser.h>
+#include <Util.h>
 
 std::vector<std::string> split(const std::string& s, char delimiter)
 {
@@ -26,8 +25,7 @@ std::vector<std::string> split(const std::string& s, char delimiter)
 }
 
 void JsonParser::clear() {
-    m_seriesMap.clear();
-    m_movieMap.clear();
+    m_mediaMap.clear();
 }
 
 void JsonParser::add(const Category &category, DatabaseItem &item) {
@@ -91,70 +89,46 @@ void JsonParser::load(const Category &category)
 {
     Json::Value root;
 
-    if(category == Category::Movie) {
+    if(category == Category::Movie || category == Category::Series) {
 
         std::ifstream db_file("../data/db.json", std::ifstream::binary);
         db_file >> root;
         db_file.close();
         m_root = root;
 
-        m_movieMap.clear();
-        root = root[ITEMS][MOVIES];
+        m_mediaMap.clear();
+        if(category == Category::Series) {
+            root = root[ITEMS][SERIES];
+        }else {
+            root = root[ITEMS][MOVIES];
+        }
+
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
-            m_parsed.clear();
-            auto title = root[i][TITLE].asString();
-            auto genre = root[i][GENRE].asString();
-            auto director = root[i][DIRECTOR].asString();
+            metadata m;
+            m.s_title = root[i][TITLE].asString();
+            m.s_genre = root[i][GENRE].asString();
+            m.s_director = root[i][DIRECTOR].asString();
+            m.s_category = category;
             auto actors = root[i][ACTORS].asString();
-            auto path = root[i][PATH].asString();
-            m_parsed.push_back(genre);
-            m_parsed.push_back(director);
-            m_parsed.push_back(path);
+
             auto result = split(actors, ',');
             for (const auto &s : result) {
-                m_parsed.push_back(s);
+                m.s_actors.push_back(s);
             }
-            m_movieMap[title] = m_parsed;
+            m_mediaMap[m.s_title] = m;
         }
     }
-    else if(category == Category::Series){
-        std::ifstream db_file("../data/db.json", std::ifstream::binary);
-        db_file >> root;
-        db_file.close();
-        m_root = root;
-
-        m_seriesMap.clear();
-        root = root[ITEMS][SERIES];
-        for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
-            m_parsed.clear();
-            auto title = root[i][TITLE].asString();
-            auto genre = root[i][GENRE].asString();
-            auto director = root[i][DIRECTOR].asString();
-            auto actors = root[i][ACTORS].asString();
-
-            m_parsed.push_back(genre);
-            m_parsed.push_back(director);
-
-            auto result = split(actors, ',');
-            for (const auto &s : result) {
-                m_parsed.push_back(s);
-            }
-            m_seriesMap[title] = m_parsed;
-        }
-    } else if (category == Category::Config) {
+    else if (category == Category::Config) {
         std::ifstream db_file("../data/config.json", std::ifstream::binary);
         db_file >> root;
         db_file.close();
-        m_parsed.clear();
-        auto url = root["url"].asString();
-        auto port = root["port"].asString();
-        auto user = root["user"].asString();
-        auto pwd = root["pwd"].asString();
-        m_parsed.push_back(url);
-        m_parsed.push_back(port);
-        m_parsed.push_back(user);
-        m_parsed.push_back(pwd);
-        m_resultMap["config"] = m_parsed;
+        JsonParser::config c;
+        m_configMap.clear();
+        c.s_url = root["url"].asString();
+        c.s_port = root["port"].asString();
+        c.s_user = root["user"].asString();
+        c.s_pwd = root["pwd"].asString();
+        m_configMap["config"] = c;
     }
 }
 
@@ -162,28 +136,21 @@ bool JsonParser::find(Category &category, const std::string &val)
 {
     m_resultMap.clear();
     bool result = false;
-    auto map = getMovieParsed();
-    if(category == Category::Series) { map = m_seriesMap; }
+    auto map = getLatestResult();
 
     for (auto it: map) {
-        std::vector<std::string>::iterator p_it;
-        temp_title = it.first;
         auto props = it.second;
 
-        if(temp_title != val)
-        {
-            p_it = std::find(it.second.begin(), it.second.end(), val);
+        if(val != props.s_title || val != props.s_genre || val != props.s_director) {
 
-            if(p_it == it.second.end())
+            auto actor_it = std::find(it.second.s_actors.begin(), it.second.s_actors.end(), val);
+
+            if(actor_it == it.second.s_actors.end())
             {
                 continue;
             }
         }
-
-        std::vector<std::string> vec;
-        vec.push_back(temp_title);
-        vec.insert(vec.end(), it.second.begin(), it.second.end());
-        m_resultMap.insert(std::pair(temp_title, vec));
+        m_resultMap.insert(std::pair(it.second.s_title, it.second));
         result = true;
     }
     return result;

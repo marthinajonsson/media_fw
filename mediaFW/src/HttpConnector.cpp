@@ -18,16 +18,16 @@ std::string HttpConnector::compileLogin() {
         return const_cast<char *>("");
     }
     JsonParser::getInstance().load(Category::Config);
-    auto result = JsonParser::getInstance().getLatestResult();
+    auto result = JsonParser::getInstance().getConfig();
 
-    if(result["config"].empty()){
+    if(result.size() == 0){
         m_logger->TRACE(Logger::ERR, "No configuration file loaded");
     }
 
-    m_pwd = result["config"].at(3);
-    m_name = result["config"].at(2);
-    m_port = result["config"].at(1);
-    m_server = result["config"].at(0);
+    m_pwd = result["config"].s_pwd;
+    m_name = result["config"].s_user;
+    m_port = result["config"].s_port;
+    m_server = result["config"].s_url;
 
     std::string opt = " --url ";
     std::string style = " --pretty";

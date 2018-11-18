@@ -12,21 +12,16 @@
 class JsonTest : public ::testing::Test
 {
 protected:
-    std::map<std::string, std::vector<std::string>> m_loadedMovieMap;
-    std::map<std::string, std::vector<std::string>> m_loadedSeriesMap;
-
-    const std::string TITLE = "title";
-    const std::string GENRE = "genre";
-    const std::string ACTOR = "actor";
-    const std::string DIRECTOR = "director";
+    std::map<std::string, metadata> m_loadedMovieMap;
+    std::map<std::string, metadata> m_loadedSeriesMap;
 
     void SetUp() override {
         Category cat = Category::Movie;
         JsonParser::getInstance().load(cat);
+        m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
         cat = Category::Series;
         JsonParser::getInstance().load(cat);
-        m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
-        m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+        m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     }
 
     void TearDown() override {
@@ -89,17 +84,17 @@ TEST_F(JsonTest, JsonTest_AddRemoveMovie_Test) {
 
     JsonParser::getInstance().add(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
+    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
-    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     ASSERT_TRUE(m_loadedMovieMap.size() == 3);
     ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
 
-    JsonParser::getInstance().remove(Category::Movie, item);;
+    JsonParser::getInstance().remove(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
+    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
-    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     ASSERT_TRUE(m_loadedMovieMap.size() == 2);
     ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
 }
@@ -118,17 +113,17 @@ TEST_F(JsonTest, JsonTest_AddRemoveSeries_Test) {
 
     JsonParser::getInstance().add(Category::Series, item);
     JsonParser::getInstance().load(Category::Movie);
+    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
-    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     ASSERT_TRUE(m_loadedMovieMap.size() == 2);
     ASSERT_TRUE(m_loadedSeriesMap.size() == 2);
 
     JsonParser::getInstance().remove(Category::Series, item);;
     JsonParser::getInstance().load(Category::Movie);
+    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedMovieMap = JsonParser::getInstance().getMovieParsed();
-    m_loadedSeriesMap = JsonParser::getInstance().getSeriesParsed();
+    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
     ASSERT_TRUE(m_loadedMovieMap.size() == 2);
     ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
 }

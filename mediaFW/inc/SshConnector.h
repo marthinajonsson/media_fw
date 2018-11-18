@@ -12,7 +12,8 @@
 
 #include <ifc/Connector.h>
 #include <ConnectionStream.h>
-#include "StatusLogger.h"
+#include <StatusLogger.h>
+#define LIBSSH_STATIC 1
 #include <libssh/libssh.h>
 #include <iostream>
 #include <cstring>

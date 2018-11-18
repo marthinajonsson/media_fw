@@ -11,15 +11,14 @@
 
 #include <string>
 #include <vector>
-
-#include "Request.h"
-#include "Util.h"
+#include <Request.h>
+#include <Util.h>
 
 class DatabaseItem{
 public:
 
     DatabaseItem () = default;
-    DatabaseItem(std::vector<std::string> &_actors, std::string &_title, std::string &_genre, std::string &_director, Category &_cat)
+    DatabaseItem(std::vector<std::string> &_actors, std::string &_title, std::string &_genre, std::string &_director, const Category &_cat)
         : m_actors(_actors), m_title(_title), m_genre(_genre), m_director(_director), m_category(_cat)
     {
     };

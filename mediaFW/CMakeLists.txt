@@ -7,6 +7,9 @@ set(CMAKE_CXX_STANDARD 17)
 find_path(LIBSSH_INCLUDE_DIR libssh.h)
 find_package(LIBSSH REQUIRED CONFIG)
 
+find_package(OpenSSL)
+#add_subdirectory("/home/marthina/libssh/" ssh)
+
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
@@ -19,7 +22,7 @@ include_directories(inc/database)
 # JSON
 include_directories(inc/json)
 # GOOGLE TEST
-include_directories(contrib/googletest)
+include_directories(contrib/googlemock)
 include_directories(src/unittests)
 include_directories(inc/unittests)
 
@@ -98,15 +101,14 @@ set(TestFilesToInclude
 
 # GOOGLE TEST
 enable_testing()
-add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
-add_subdirectory("contrib/googletest")
+#add_custom_target(check COMMAND GTEST_COLOR=1 ${CMAKE_CTEST_COMMAND} --verbose)
+add_subdirectory("contrib/googlemock")
 
 
 add_executable(mediaFW ${IncFilesToInclude} ${SrcFilesToInclude} ${TestFilesToInclude})
-target_link_libraries(mediaFW googlemock)
-target_link_libraries(mediaFW googletest)
-target_link_libraries(mediaFW ssh)
+target_link_libraries(mediaFW gmock_main)
 target_link_libraries(mediaFW jsoncpp)
+target_link_libraries(mediaFW ssh)
 ## add the binary tree to the search path for include files
 ## so that we will find TutorialConfig.h
 #include_directories("${PROJECT_BINARY_DIR}")

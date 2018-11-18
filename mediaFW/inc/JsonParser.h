@@ -10,11 +10,8 @@
 #include <map>
 
 #include <json/json.h>
-
 #include "ifc/Subject.h"
 #include <ifc/Parser.h>
-#include <database/DatabaseItem.h>
-
 
 class JsonParser : Parser {
 public:
@@ -55,24 +52,28 @@ public:
      */
     bool find(Category&, const std::string &) override;
 
-    /*! \public getMovieParsed
+    struct config {
+        std::string s_url;
+        std::string s_port;
+        std::string s_user;
+        std::string s_pwd;
+    };
+
+    /*! \public getConfig
      *
-     * @return @var m_movieMap
+     * @return @var m_configMap
      */
-    std::map<std::string, std::vector<std::string>> getMovieParsed() { return  m_movieMap; }
-    /*! \public getSeriesParsed
-     *
-     * @return @var m_seriesMap
-     */
-    std::map<std::string, std::vector<std::string>> getSeriesParsed() { return  m_seriesMap; }
+    std::map<std::string, config> getConfig() { return  m_configMap; }
+
     /*! \public getLatestResult
      * @brief returns latest result after find()
-     * @return @var m_resultMap
+     * @return @var m_mediaMap
      */
-    std::map<std::string, std::vector<std::string>> getLatestResult() { return  m_resultMap; }
-
+    std::map<std::string, metadata> getLatestResult() { return  m_mediaMap; }
 
 private:
+
+    metadata m;
 
     /*! \var TITLE "title"
      *
@@ -105,22 +106,19 @@ private:
     std::string SERIES = "Series";
 
     Json::Value m_root;
-    std::string temp_title;
-    std::vector<std::string> m_parsed;
 
-    /*! \var m_resultMap
+    /*! \var m_configMap
      *
      */
-    std::map<std::string, std::vector<std::string>> m_resultMap;
-    /*! \var m_movieMap
+    std::map<std::string, config> m_configMap;
+    /*! \var m_mediaMap
      *
      */
-    std::map<std::string, std::vector<std::string>> m_movieMap;
-    /*! \var m_seriesMap
-     *
-     */
-    std::map<std::string, std::vector<std::string>> m_seriesMap;
-
+    std::map<std::string, metadata> m_mediaMap;
+    /*! \var m_mediaMap
+  *
+  */
+    std::map<std::string, metadata> m_resultMap;
 };
 
 #endif //MEDIAFW_JSONPARSER_H

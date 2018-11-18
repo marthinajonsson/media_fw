@@ -11,10 +11,10 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Util.h"
-#include "Request.h"
-#include "JsonParser.h"
-#include "ifc/CommandLineParser.h"
+#include <Util.h>
+#include <Request.h>
+#include <JsonParser.h>
+#include <ifc/CommandLineParser.h>
 
 /*! \class Cli Cli.h "inc/Cli.h"
  * @brief Module handling everything related to our Command line interface.
@@ -48,7 +48,7 @@ public:
      * @return Vector of strings containing output from stdin.
      */
     Request process(std::string &) override;
-    void verifyUploadTest(Request &request, std::vector<std::string> &i) {
+    void verifyUploadTest(Request &request, metadata &i) {
         setProperties(request, i);
     }
 private:
@@ -287,16 +287,11 @@ private:
      * @param request
      * @param item
      */
-    void setProperties(Request &request, std::vector<std::string> &item) {
-        request.setTitle(item.at(ORDER::TITLE_POS));
-        request.setGenre(item.at(ORDER::GENRE_POS));
-        request.setDirector(item.at(ORDER::DIRECTOR_POS));
-        pop_front(item); // not relevant anymore
-        pop_front(item);
-        pop_front(item);
-        std::vector<std::string> vec;
-        vec.insert(vec.begin(), item.begin(), item.end());
-        request.setActors(vec);
+    void setProperties(Request &request,metadata  &item) {
+        request.setTitle(item.s_title);
+        request.setGenre(item.s_genre);
+        request.setDirector(item.s_director);
+        request.setActors(item.s_actors);
     }
 
     /*! \private Cli::verifyUpload
@@ -334,8 +329,17 @@ private:
         if(answer == "n"){
             return RET::ERROR;
         }
-
-        setProperties(request, parsedInfo);
+        metadata m;
+        m.s_title = parsedInfo.front();
+        m.s_genre = parsedInfo.at(1);
+        m.s_director = parsedInfo.at(2);
+        pop_front(parsedInfo);
+        pop_front(parsedInfo);
+        pop_front(parsedInfo);
+        for(auto p : parsedInfo) {
+            m.s_actors.push_back(p);
+        }
+        setProperties(request, m);
         return RET::OK;
     }
 

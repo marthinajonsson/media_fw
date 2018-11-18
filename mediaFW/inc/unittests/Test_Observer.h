@@ -39,7 +39,8 @@ public:
 
     MockObserver() = default;
     ~MockObserver() = default;
-    MOCK_METHOD1(update, int(Request &));
+
+//   MOCK_METHOD1(update, int(Request &));
 };
 
 TEST_F(ObserverTest, ObserverTest_GetDownloadNotification_Test) {

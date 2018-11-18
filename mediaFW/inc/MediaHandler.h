@@ -6,12 +6,11 @@
 #define MEDIAFW_MEDIAHANDLER_H
 
 #include <functional>
-#include "database/Database.h"
-#include "database/MovieDatabase.h"
-#include "database/SeriesDatabase.h"
-#include "Cli.h"
-#include "Client.h"
-#include "StatusLogger.h"
+#include <database/Database.h>
+#include <database/MovieDatabase.h>
+#include <Cli.h>
+#include <Client.h>
+#include <StatusLogger.h>
 
 
 /*! \class MediaHandler - handle for a user instance

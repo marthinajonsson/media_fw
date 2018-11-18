@@ -63,21 +63,18 @@ public:
      * @brief Reads local db.json and save to Database
      */
     void syncLocalDatabase() override {
-        Category cat = Category::Movie;
-        JsonParser::getInstance().load(cat);
-        m_saved = JsonParser::getInstance().getMovieParsed();
-        // TODO can not handle both movie and series
+        JsonParser::getInstance().load(Category::Movie);
+        m_saved = JsonParser::getInstance().getLatestResult();
         for(auto s : m_saved) {
-            auto title = s.first;
-            auto genre = s.second[0];
-            auto director = s.second[1];
-            std::vector<std::string> actors;
+            auto cat = s.second.s_category;
+            DatabaseItem newItem {s.second.s_actors, s.second.s_title, s.second.s_genre, s.second.s_director, Category::Movie};
+            pushItem(newItem);
+        }
 
-            for(auto it = s.second.begin() + 2; it != s.second.end(); ++it) {
-                actors.push_back(*it);
-            }
-
-            DatabaseItem newItem {actors, title, genre, director, cat};
+        JsonParser::getInstance().load(Category::Series);
+        m_saved = JsonParser::getInstance().getLatestResult();
+        for(auto s : m_saved) {
+            DatabaseItem newItem {s.second.s_actors, s.second.s_title, s.second.s_genre, s.second.s_director, Category::Series};
             pushItem(newItem);
         }
     }

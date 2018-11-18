@@ -86,7 +86,7 @@ protected:
     /// <summary>
     /// A protected vector of strings with info for the DatabaseItems.
     /// </summary>
-    std::map<std::string, std::vector<std::string>>  m_saved;
+    std::map<std::string, metadata>  m_saved;
     /// <summary>
     /// A protected mutex for threadsafe r/w of DatabaseItems.
     /// </summary>

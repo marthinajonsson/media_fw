@@ -63,12 +63,6 @@ TEST_F(CliTest, CliTest_Download3__Test) {
     ASSERT_TRUE(output.getError() == RET::ERROR);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getMultipleResult().size() > 1);
-    for(auto result : output.getMultipleResult()) {
-        for (auto s : result.second ) {
-            std::cout << s << std::endl;
-        }
-        std::cout << "\n";
-    }
 }
 
 TEST_F(CliTest, CliTest_Download4__Test) {
@@ -90,7 +84,7 @@ TEST_F(CliTest, CliTest_Search_Test) {
 
     ASSERT_TRUE(items.size() == 2);
     for(auto i : items) {
-        auto g = i.second.at(1);
+        auto g = i.second.s_genre;
         ASSERT_TRUE(g == "Romance");
     }
 }
@@ -121,31 +115,39 @@ TEST_F(CliTest, CliTest_Search3_Test) {
 
 TEST_F(CliTest, CliTest_Upload_Test) {
     std::string test = "upload:series:filename:" + TEST_FILE;
-    std::vector<std::string> test2 = {"test_title","horror","test_director","test_actor"};
-    auto compare = test2;
+    metadata m;
+    m.s_title = "test";
+    m.s_genre = "horror";
+    m.s_director = "dtest";
+    m.s_actors = {"test_act"};
+    auto compare = m;
     auto output = cli->process(test);
-    cli->verifyUploadTest(output, test2);
+    cli->verifyUploadTest(output, m);
     auto t = output.getTitle();
-    ASSERT_TRUE(output.getTitle() == compare.front());
-    ASSERT_TRUE(output.getGenre() == compare.at(1));
-    ASSERT_TRUE(output.getDirector() == compare.at(2));
+    ASSERT_TRUE(output.getTitle() == compare.s_title);
+    ASSERT_TRUE(output.getGenre() == compare.s_genre);
+    ASSERT_TRUE(output.getDirector() == compare.s_director);
     ASSERT_TRUE(output.getActors().size() == 1);
-    ASSERT_TRUE(output.getActors().front() == compare.back());
+    ASSERT_TRUE(output.getActors() == compare.s_actors);
     ASSERT_TRUE(output.getCategory() == Category::Series);
 }
 
 TEST_F(CliTest, CliTest_Upload2_Test) {
     std::string test = "upload:movie:filename:" + TEST_FILE;
-    std::vector<std::string> test2 = {"test_title","horror","test_director","test_actor"};
-    auto compare = test2;
+    metadata m;
+    m.s_title = "test";
+    m.s_genre = "horror";
+    m.s_director = "dtest";
+    m.s_actors = {"test_act"};
+    auto compare = m;
     auto output = cli->process(test);
-    cli->verifyUploadTest(output, test2);
+    cli->verifyUploadTest(output, m);
     auto t = output.getTitle();
-    ASSERT_TRUE(output.getTitle() == compare.front());
-    ASSERT_TRUE(output.getGenre() == compare.at(1));
-    ASSERT_TRUE(output.getDirector() == compare.at(2));
+    ASSERT_TRUE(output.getTitle() == compare.s_title);
+    ASSERT_TRUE(output.getGenre() == compare.s_genre);
+    ASSERT_TRUE(output.getDirector() == compare.s_director);
     ASSERT_TRUE(output.getActors().size() == 1);
-    ASSERT_TRUE(output.getActors().front() == compare.back());
+    ASSERT_TRUE(output.getActors() == compare.s_actors);
     ASSERT_TRUE(output.getCategory() == Category::Movie);
 }
 

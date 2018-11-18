@@ -1,2 +1,0 @@
-/usr/bin/ar qc libgoogletest.a  CMakeFiles/googletest.dir/src/gtest-all.o
-/usr/bin/ranlib libgoogletest.a

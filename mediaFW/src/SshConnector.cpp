@@ -51,14 +51,15 @@ ConnectionStream* SshConnector::connect(const uint16_t port, const std::string s
 int SshConnector::resolveHost(ssh_session session) {
 
     enum ssh_known_hosts_e _state;
-    ssh_key _srvPubkey = nullptr;
+    ssh_key srv_pubkey = nullptr;
     size_t _hLen;
 
-    if (ssh_get_server_publickey(session, &_srvPubkey) < 0) {
+    if (ssh_get_server_publickey(session, &srv_pubkey) < 0) {
         return SSH_ERROR;
     }
-    auto _result = ssh_get_publickey_hash(_srvPubkey, SSH_PUBLICKEY_HASH_SHA1, &m_hash, &_hLen);
-    ssh_key_free(_srvPubkey);
+
+    auto _result = ssh_get_publickey_hash(srv_pubkey, SSH_PUBLICKEY_HASH_SHA1, &m_hash, &_hLen);
+    ssh_key_free(srv_pubkey);
     if (_result < 0) {
         return SSH_ERROR;
     }
