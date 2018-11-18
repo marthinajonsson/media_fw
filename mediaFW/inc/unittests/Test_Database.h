@@ -9,7 +9,6 @@
 //#include "Fixtures.h"
 
 #include "gtest/gtest.h"
-
 #include "Database.h"
 #include "MovieDatabase.h"
 
@@ -27,7 +26,7 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
     db = new MovieDatabase();
     db->printAll();
     long numberOfItems = db->getNumberOfItem();
-    ASSERT_TRUE(numberOfItems == 2);
+    ASSERT_TRUE(numberOfItems == 3);
     delete db;
 }
 

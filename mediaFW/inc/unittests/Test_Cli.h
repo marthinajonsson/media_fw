@@ -4,7 +4,7 @@
 
 #ifndef MEDIAFW_TEST_CLI_H
 #define MEDIAFW_TEST_CLI_H
-//#include "gmock/gmock.h"
+
 #include "gtest/gtest.h"
 #include "Cli.h"
 #include "JsonParser.h"
@@ -16,13 +16,10 @@ protected:
     Cli* cli;
     std::string FILE_DIR = "~/repo/media_fw/mediaFW/data/";
     std::string TEST_FILE = FILE_DIR + "testfile.txt";
-    Category cat2 = Category::Series;
-    Category cat = Category::Movie;
+
     void SetUp() override
     {
         cli = new Cli;
-        JsonParser::getInstance().load(cat);
-        JsonParser::getInstance().load(cat2);
     }
 
     void TearDown() override
@@ -36,6 +33,7 @@ protected:
 TEST_F(CliTest, CliTest_Download_Test) {
 
     std::string test = "download:movie:title:The Proposal";
+    JsonParser::getInstance().load(Category::Movie);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE("The Proposal" == output.getTitle());
@@ -46,6 +44,7 @@ TEST_F(CliTest, CliTest_Download_Test) {
 
 TEST_F(CliTest, CliTest_Download2_Test) {
     std::string test = "download:movie:actor:Thomas Beaudoin";
+    JsonParser::getInstance().load(Category::Movie);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getTitle() == "The Spirit of Christmas");
@@ -59,6 +58,7 @@ TEST_F(CliTest, CliTest_Download2_Test) {
 
 TEST_F(CliTest, CliTest_Download3__Test) {
     std::string test = "download:movie:genre:Romance";
+    JsonParser::getInstance().load(Category::Movie);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getError() == RET::ERROR);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
@@ -67,6 +67,7 @@ TEST_F(CliTest, CliTest_Download3__Test) {
 
 TEST_F(CliTest, CliTest_Download4__Test) {
     std::string test = "download:series:genre:Mystery";
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getMultipleResult().size() == 0);
@@ -79,6 +80,7 @@ TEST_F(CliTest, CliTest_Download4__Test) {
 
 TEST_F(CliTest, CliTest_Search_Test) {
     std::string test = "search:movie:genre:Romance";
+    JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
     auto items = output.getMultipleResult();
 
