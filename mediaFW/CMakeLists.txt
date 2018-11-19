@@ -87,7 +87,7 @@ set(IncFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/Request.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/ifc/Parser.h inc/ifc/CommandLineParser.h
         ${CMAKE_CURRENT_LIST_DIR}/inc/HttpConnector.h
-        ${CMAKE_CURRENT_LIST_DIR}/inc/InputParser.h inc/Metadata.h)
+        ${CMAKE_CURRENT_LIST_DIR}/inc/InputParser.h inc/Metadata.h inc/JsonUtils.h)
 
 set(TestFilesToInclude
         ${CMAKE_CURRENT_LIST_DIR}/inc/unittests/Test_HttpConnector.h

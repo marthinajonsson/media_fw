@@ -9,6 +9,22 @@
 #include "DatabaseItem.h"
 #include "gtest/gtest.h"
 
+class JsonTest : public ::testing::Test
+{
+protected:
+
+    void SetUp() override
+    {
+        JsonParser::getInstance().clear();
+    }
+
+    void TearDown() override
+    {
+        std::cout << "teardown" << std::endl;
+    }
+};
+
+
 TEST(JsonTest, JsonTest_Load_Test) {
     JsonParser::getInstance().load(Category::Movie);
     auto movies = JsonParser::getInstance().getLatestResult();
@@ -18,7 +34,6 @@ TEST(JsonTest, JsonTest_Load_Test) {
     ASSERT_TRUE(movies.size() == 2);
 
     ASSERT_TRUE(series.size() == 1);
-    JsonParser::getInstance().clear();
 }
 
 TEST(JsonTest, JsonTest_FindMovie_Test) {
@@ -39,8 +54,6 @@ TEST(JsonTest, JsonTest_FindMovie_Test) {
     ASSERT_FALSE(found);
     found = JsonParser::getInstance().find(cat, dir);
     ASSERT_TRUE(found);
-
-    JsonParser::getInstance().clear();
 }
 
 TEST(JsonTest, JsonTest_FindSeries_Test) {

@@ -14,19 +14,13 @@ void threadCaller(MediaHandler *handler) {
     cv.notify_one();
 }
 
-
-
 int main(int argc, char **argv) {
 
     InputParser input(argc, argv);
-
     StartGoogleTest(input, argc ,argv);
-
     return 0;
-    std::string arg = *argv;
-    std::cout << "ARGV " << arg << std::endl;
-    const std::string &help = input.getCmdOption("-h");
-    if (!help.empty()){
+    bool help = input.cmdOptionExists("-h");
+    if (help){
         std::cout << "Run all unittests: \n" << "./mediaFW -t gtest " << std::endl;
         std::cout << "Run specific unittests: \n" << "./mediaFW -t gtest -f <val>";
         std::cout << "\t <val> => json, cli, http, db, logger" << std::endl;

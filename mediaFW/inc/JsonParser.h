@@ -8,11 +8,15 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <mutex>
 
-#include <json/json.h>
+#include "json/json.h"
+
+#include "Metadata.h"
+#include "JsonUtils.h"
 #include "ifc/Subject.h"
-#include <ifc/Parser.h>
-#include <Metadata.h>
+#include "ifc/Parser.h"
+
 
 class JsonParser : Parser {
 public:
@@ -22,67 +26,10 @@ public:
         std::string s_user;
         std::string s_pwd;
     };
-private:
 
-    /*! \var TITLE "title"
-     *
-     */
-    const std::string TITLE = "title";
-    /*! \var GENRE "genre"
-     *
-     */
-    const std::string GENRE = "genre";
-    /*! \var ACTORS "actors"
-     *
-     */
-    const std::string ACTORS = "actors";
-    /*! \var DIRECTOR "director"
-     *
-     */
-    const std::string DIRECTOR = "director";
-    const std::string PATH = "path";
-    /*! \var ITEMS "items"
-     *
-     */
-    const std::string ITEMS = "items";
-    /*! \var MOVIES "Movies"
-     *
-     */
-    std::string MOVIES = "Movies";
-    /*! \var SERIES "Series"
-     *
-     */
-    std::string SERIES = "Series";
-
-
-    Json::Value m_root;
-
-    /*! \var m_configMap
-     *
-     */
-    std::map<std::string, config> m_configMap;
-    /*! \var m_mediaMap
-     *
-     */
-    std::map<std::string, Metadata> m_mediaMap;
-    /*! \var m_mediaMap
-  *
-  */
-    std::map<std::string, Metadata> m_resultMap;
-
-
-public:
-    static JsonParser& getInstance()
-    {
-        static JsonParser instance;
-        return instance;
-    }
-    JsonParser() = default;
-
+    static JsonParser& getInstance();
     JsonParser(JsonParser const&) = delete;
     void operator=(JsonParser const&) = delete;
-
-    ~JsonParser() = default;
 
     /*! \public clear
      * @brief clear @var m_movieMap and @var m_seriesMap
@@ -122,6 +69,41 @@ public:
     std::map<std::string, Metadata> getLatestResult() { return  m_mediaMap; }
 
     std::map<std::string, Metadata> getLatestFilteredResult() { return  m_resultMap; }
+
+private:
+
+    JsonParser() = default;
+    ~JsonParser() = default;
+
+    Json::Value m_root;
+
+    /*! \var m_configMap
+    *
+    */
+    std::map<std::string, config> m_configMap;
+
+    /*! \var m_mediaMap
+    *
+    */
+    std::map<std::string, Metadata> m_mediaMap;
+
+    /*! \var m_mediaMap
+    *
+    */
+    std::map<std::string, Metadata> m_resultMap;
+
+    /*! \var ITEMS "items"
+    *
+    */
+    const std::string ITEMS = "items";
+    /*! \var MOVIES "Movies"
+     *
+     */
+    const std::string MOVIES = "Movies";
+    /*! \var SERIES "Series"
+    *
+    */
+    const std::string SERIES = "Series";
 
 };
 

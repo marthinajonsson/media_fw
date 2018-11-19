@@ -97,7 +97,7 @@ public:
     Event getEvent() const {return m_event; }
     Progress getProgress() { return m_progess; }
     std::string const getFileName() { return m_filename; }
-    std::string const getTitle() const { return meta->getTitle(); }
+    std::string const getTitle() { return meta->getTitle(); }
     std::string const getGenre() { return meta->getGenre(); }
     std::string const getDirector() { return meta->getDirector(); }
     std::vector<std::string> const getActors() { return meta->getActors(); }

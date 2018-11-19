@@ -8,9 +8,23 @@
 #include <algorithm>
 #include <iostream>
 #include <fstream>
+#include <mutex>
 
 #include <JsonParser.h>
 #include <Util.h>
+
+
+std::mutex single;
+static JsonParser *instance;
+
+JsonParser& JsonParser::getInstance()
+{
+    std::lock_guard<std::mutex> lock(single);
+    if(!instance) {
+        instance = new JsonParser();
+    }
+    return *instance;
+}
 
 std::vector<std::string> split(const std::string& s, char delimiter)
 {
@@ -137,7 +151,6 @@ bool JsonParser::find(Category &category, const std::string &val)
     auto map = getLatestResult();
 
     for (auto it: map) {
-        auto props = it.second;
         auto t = it.second.getTitle();
         auto g = it.second.getGenre();
         auto d = it.second.getDirector();

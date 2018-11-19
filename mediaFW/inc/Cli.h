@@ -133,7 +133,7 @@ private:
         std::stringstream m_stream(input);
         std::vector<std::string> seglist;
         std::string segment;
-        seglist.reserve(15);
+        seglist.reserve(50);
         seglist.clear();
 
         while(std::getline(m_stream, segment, delim))
