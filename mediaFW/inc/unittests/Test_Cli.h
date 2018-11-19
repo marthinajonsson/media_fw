@@ -86,7 +86,7 @@ TEST_F(CliTest, CliTest_Search_Test) {
 
     ASSERT_TRUE(items.size() == 2);
     for(auto i : items) {
-        auto g = i.second.s_genre;
+        auto g = i.second.getGenre();
         ASSERT_TRUE(g == "Romance");
     }
 }
@@ -115,42 +115,31 @@ TEST_F(CliTest, CliTest_Search3_Test) {
 
 TEST_F(CliTest, CliTest_Upload_Test) {
     std::string test = "upload:series:filename:" + TEST_FILE;
-    metadata m;
-    m.s_title = "test";
-    m.s_genre = "horror";
-    m.s_director = "dtest";
-    m.s_actors = {"test_act"};
-    m.category = Category::Series;
-    auto compare = m;
+
+    Metadata meta("test", "horror", "dtest", {"test_act"}, Category::Series);
+
     JsonParser::getInstance().load(Category::Series);
     auto output = cli->process(test);
-    cli->verifyUploadTest(output, m);
-
-    ASSERT_TRUE(output.getTitle() == compare.s_title);
-    ASSERT_TRUE(output.getGenre() == compare.s_genre);
-    ASSERT_TRUE(output.getDirector() == compare.s_director);
+    cli->verifyUploadTest(output, meta);
+    ASSERT_TRUE(output.getTitle() == meta.getTitle());
+    ASSERT_TRUE(output.getGenre() == meta.getGenre());
+    ASSERT_TRUE(output.getDirector() == meta.getDirector());
     ASSERT_TRUE(output.getActors().size() == 1);
-    ASSERT_TRUE(output.getActors() == compare.s_actors);
+    ASSERT_TRUE(output.getActors() == meta.getActors());
     ASSERT_TRUE(output.getCategory() == Category::Series);
 }
 
 TEST_F(CliTest, CliTest_Upload2_Test) {
     std::string test = "upload:movie:filename:" + TEST_FILE;
-    metadata m;
-    m.s_title = "test";
-    m.s_genre = "horror";
-    m.s_director = "dtest";
-    m.s_actors = {"test_act"};
-    m.category = Category::Movie;
-    auto compare = m;
+    Metadata meta ("test", "horror", "dtest", {"test_act"}, Category::Movie);
     auto output = cli->process(test);
-    cli->verifyUploadTest(output, m);
+    cli->verifyUploadTest(output, meta);
     auto t = output.getTitle();
-    ASSERT_TRUE(output.getTitle() == compare.s_title);
-    ASSERT_TRUE(output.getGenre() == compare.s_genre);
-    ASSERT_TRUE(output.getDirector() == compare.s_director);
+    ASSERT_TRUE(output.getTitle() == meta.getTitle());
+    ASSERT_TRUE(output.getGenre() == meta.getGenre());
+    ASSERT_TRUE(output.getDirector() == meta.getDirector());
     ASSERT_TRUE(output.getActors().size() == 1);
-    ASSERT_TRUE(output.getActors() == compare.s_actors);
+    ASSERT_TRUE(output.getActors() == meta.getActors());
     ASSERT_TRUE(output.getCategory() == Category::Movie);
 }
 

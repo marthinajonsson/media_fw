@@ -12,6 +12,7 @@
 #include <algorithm>
 
 #include <Util.h>
+#include <Metadata.h>
 #include <Request.h>
 #include <JsonParser.h>
 #include <ifc/CommandLineParser.h>
@@ -21,40 +22,10 @@
  */
 class Cli : CommandLineParser
 {
-public:
-    Cli() = default;
-    ~Cli() = default;
-
-    /*! \public Client::process()
-     * @implements the interface of CommandLineParser
-     * @brief Public method processing input from stdin.
-     * @
-     * @return Vector of strings containing output from stdin.
-     */
-    Request process() override;
-
-    /*! \public Client::interprete
-     * @brief translate incoming user request and save in request object
-     * @implements the interface of CommandLineParser
-     * @param std::vector<std::string>& vector of string arguments to be translated
-     * @return the translated request object
-     */
-    Request interprete(std::vector<std::string> &) override;
-
-    /*! \public Client::process()
-     * @implements the interface of CommandLineParser
-     * @brief Public method processing input from stdin.
-     * @param std::string& fixed string used for unit testing mocking stdin
-     * @return Vector of strings containing output from stdin.
-     */
-    Request process(std::string &) override;
-    void verifyUploadTest(Request &request, metadata &i) {
-        setProperties(request, i);
-    }
 private:
     /*! \var TITLE "title"
-     *  @brief used to refer to @property title
-     */
+    *  @brief used to refer to @property title
+    */
     const std::string TITLE = "title";
     /*! \var GENRE "genre"
      *  @brief used to refer to @property genre
@@ -111,12 +82,46 @@ private:
     /*! \var SSH "ssh"
      * @brief used to refer to @enum Event
      */
-    const std::string SSH = "ssh";
+    const std::string STREAM = "stream";
 
     /*! \var EVENT_ARGS
      * @brief contain all valid @enum Event using @property
      */
-    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, EXIT, HELP, SSH}; //TODO add LIST and STREAM
+    const std::vector<std::string> EVENT_ARGS = {UPLOAD, DOWNLOAD, SEARCH, DELETE, EXIT, HELP, STREAM};
+
+public:
+    Cli() = default;
+    ~Cli() = default;
+
+    /*! \public Client::process()
+     * @implements the interface of CommandLineParser
+     * @brief Public method processing input from stdin.
+     * @
+     * @return Vector of strings containing output from stdin.
+     */
+    Request process() override;
+
+    /*! \public Client::interprete
+     * @brief translate incoming user request and save in request object
+     * @implements the interface of CommandLineParser
+     * @param std::vector<std::string>& vector of string arguments to be translated
+     * @return the translated request object
+     */
+    Request interprete(std::vector<std::string> &) override;
+
+    /*! \public Client::process()
+     * @implements the interface of CommandLineParser
+     * @brief Public method processing input from stdin.
+     * @param std::string& fixed string used for unit testing mocking stdin
+     * @return Vector of strings containing output from stdin.
+     */
+    Request process(std::string &) override;
+
+    void verifyUploadTest(Request &request, Metadata &meta) {
+        setProperties(request, meta);
+    }
+
+private:
 
     /*! \private Cli::split
      *
@@ -287,11 +292,9 @@ private:
      * @param request
      * @param item
      */
-    void setProperties(Request &request,metadata  &item) {
-        request.setTitle(item.s_title);
-        request.setGenre(item.s_genre);
-        request.setDirector(item.s_director);
-        request.setActors(item.s_actors);
+    void setProperties(Request &request, Metadata &meta) {
+        request.setProperties(meta.getTitle(), meta.getGenre(), meta.getDirector());
+        request.setActors(meta.getActors());
     }
 
     /*! \private Cli::verifyUpload
@@ -329,17 +332,12 @@ private:
         if(answer == "n"){
             return RET::ERROR;
         }
-        metadata m;
-        m.s_title = parsedInfo.front();
-        m.s_genre = parsedInfo.at(1);
-        m.s_director = parsedInfo.at(2);
+
+        request.setProperties(parsedInfo.front(), parsedInfo.at(1), parsedInfo.at(2));
         pop_front(parsedInfo);
         pop_front(parsedInfo);
         pop_front(parsedInfo);
-        for(auto p : parsedInfo) {
-            m.s_actors.push_back(p);
-        }
-        setProperties(request, m);
+        request.setActors(parsedInfo);
         return RET::OK;
     }
 

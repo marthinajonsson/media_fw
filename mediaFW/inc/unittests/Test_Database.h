@@ -21,7 +21,7 @@ TEST(DatabaseTest, DatabaseTest_BaseTest__Test) {
     delete db;
 }
 
-TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
+TEST(DatabaseTest, MovieDatabaseTest_Startup_Test) {
     Database *db;
     db = new MovieDatabase();
     db->printAll();
@@ -30,15 +30,16 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_Startup_Test) {
     delete db;
 }
 
-TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
+TEST(DatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     Database *db;
     db = new MovieDatabase();
     Category cat = Category::Movie;
     Request req(Event::UPLOAD);
+    std::string t = "aTitle";
+    std::string g = "horror";
+    std::string d = "dir";
+    req.setProperties(t, g, d);
     req.setActors({"actor1", "actor2"});
-    req.setTitle("aTitle");
-    req.setGenre("horror");
-    req.setDirector("spielberg");
     req.setCategory(cat);
     DatabaseItem newItem;
     newItem.setFeature(req);
@@ -58,15 +59,13 @@ TEST(MovieDatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     delete db;
 }
 
-TEST(MovieDatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
+TEST(DatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
     Database *db;
     db = new MovieDatabase();
     Category cat = Category::Movie;
     Request req(Event::UPLOAD);
     req.setActors({"actor1", "actor2"});
-    req.setTitle("aTitle");
-    req.setGenre("horror");
-    req.setDirector("spielberg");
+    req.setProperties("aTitle", "horror", "Spielberg");
     req.setCategory(cat);
     DatabaseItem newItem;
     newItem.setFeature(req);

@@ -88,10 +88,8 @@ enum Event {
     DELETE = 3,
     EXIT = 4,
     HELP = 5,
-    SSH = 6,
-    LIST = 7,
-    STREAM = 8,
-    UNDEFINED = 9
+    STREAM = 6,
+    UNDEFINED = 7
 };
 
 
@@ -137,16 +135,5 @@ template<typename T> map_init_helper<T> map_init(T& item)
 {
     return map_init_helper<T>(item);
 }
-
-struct metadata {
-    std::string s_title;
-    std::string s_genre;
-    std::string s_director;
-    std::string s_id;
-    std::string s_year;
-    std::string s_category;
-    Category category;
-    std::vector<std::string> s_actors;
-};
 
 #endif //MEDIAFW_UTIL_H

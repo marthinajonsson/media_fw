@@ -72,16 +72,8 @@ void Client::handleRequestThread(std::promise <int>* exit)
             notifyObservers(request);
 
             std::string result;
-            if(event == Event::SSH) {
-                std::promise<int> exitssh;
-                std::future<int> futureObj = exitssh.get_future();
+            p_conn->sendServerRequest(request, result);
 
-                std::thread thSsh(&Connection::goSsh, p_conn, &exitssh);
-                thSsh.join();
-            }
-            else {
-                p_conn->sendServerRequest(request, result);
-            }
             request.setProgress(Progress::Done);
             notifyObservers(request);
         }

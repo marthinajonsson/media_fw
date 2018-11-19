@@ -12,8 +12,65 @@
 #include <json/json.h>
 #include "ifc/Subject.h"
 #include <ifc/Parser.h>
+#include <Metadata.h>
 
 class JsonParser : Parser {
+public:
+    struct config {
+        std::string s_url;
+        std::string s_port;
+        std::string s_user;
+        std::string s_pwd;
+    };
+private:
+
+    /*! \var TITLE "title"
+     *
+     */
+    const std::string TITLE = "title";
+    /*! \var GENRE "genre"
+     *
+     */
+    const std::string GENRE = "genre";
+    /*! \var ACTORS "actors"
+     *
+     */
+    const std::string ACTORS = "actors";
+    /*! \var DIRECTOR "director"
+     *
+     */
+    const std::string DIRECTOR = "director";
+    const std::string PATH = "path";
+    /*! \var ITEMS "items"
+     *
+     */
+    const std::string ITEMS = "items";
+    /*! \var MOVIES "Movies"
+     *
+     */
+    std::string MOVIES = "Movies";
+    /*! \var SERIES "Series"
+     *
+     */
+    std::string SERIES = "Series";
+
+
+    Json::Value m_root;
+
+    /*! \var m_configMap
+     *
+     */
+    std::map<std::string, config> m_configMap;
+    /*! \var m_mediaMap
+     *
+     */
+    std::map<std::string, Metadata> m_mediaMap;
+    /*! \var m_mediaMap
+  *
+  */
+    std::map<std::string, Metadata> m_resultMap;
+
+
 public:
     static JsonParser& getInstance()
     {
@@ -52,13 +109,6 @@ public:
      */
     bool find(Category&, const std::string &) override;
 
-    struct config {
-        std::string s_url;
-        std::string s_port;
-        std::string s_user;
-        std::string s_pwd;
-    };
-
     /*! \public getConfig
      *
      * @return @var m_configMap
@@ -69,58 +119,10 @@ public:
      * @brief returns latest result after find()
      * @return @var m_mediaMap
      */
-    std::map<std::string, metadata> getLatestResult() { return  m_mediaMap; }
+    std::map<std::string, Metadata> getLatestResult() { return  m_mediaMap; }
 
-    std::map<std::string, metadata> getLatestFilteredResult() { return  m_resultMap; }
+    std::map<std::string, Metadata> getLatestFilteredResult() { return  m_resultMap; }
 
-private:
-
-    metadata m;
-
-    /*! \var TITLE "title"
-     *
-     */
-    const std::string TITLE = "title";
-    /*! \var GENRE "genre"
-     *
-     */
-    const std::string GENRE = "genre";
-    /*! \var ACTORS "actors"
-     *
-     */
-    const std::string ACTORS = "actors";
-    /*! \var DIRECTOR "director"
-     *
-     */
-    const std::string DIRECTOR = "director";
-    const std::string PATH = "path";
-    /*! \var ITEMS "items"
-     *
-     */
-    const std::string ITEMS = "items";
-    /*! \var MOVIES "Movies"
-     *
-     */
-    std::string MOVIES = "Movies";
-    /*! \var SERIES "Series"
-     *
-     */
-    std::string SERIES = "Series";
-
-    Json::Value m_root;
-
-    /*! \var m_configMap
-     *
-     */
-    std::map<std::string, config> m_configMap;
-    /*! \var m_mediaMap
-     *
-     */
-    std::map<std::string, metadata> m_mediaMap;
-    /*! \var m_mediaMap
-  *
-  */
-    std::map<std::string, metadata> m_resultMap;
 };
 
 #endif //MEDIAFW_JSONPARSER_H

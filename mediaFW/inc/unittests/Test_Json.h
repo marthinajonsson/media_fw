@@ -9,35 +9,19 @@
 #include "DatabaseItem.h"
 #include "gtest/gtest.h"
 
-class JsonTest : public ::testing::Test
-{
-protected:
-    std::map<std::string, metadata> m_loadedMovieMap;
-    std::map<std::string, metadata> m_loadedSeriesMap;
+TEST(JsonTest, JsonTest_Load_Test) {
+    JsonParser::getInstance().load(Category::Movie);
+    auto movies = JsonParser::getInstance().getLatestResult();
 
-    void SetUp() override {
-        JsonParser::getInstance().load(Category::Movie);
-        m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
+    JsonParser::getInstance().load(Category::Series);
+    auto series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
 
-        JsonParser::getInstance().load(Category::Series);
-        m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
-    }
-
-    void TearDown() override {
-        JsonParser::getInstance().clear();
-    }
-};
-
-/*
- *  All work
- */
-
-TEST_F(JsonTest, JsonTest_Load_Test) {
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    ASSERT_TRUE(series.size() == 1);
+    JsonParser::getInstance().clear();
 }
 
-TEST_F(JsonTest, JsonTest_FindMovie_Test) {
+TEST(JsonTest, JsonTest_FindMovie_Test) {
     std::string findTitle = "The Proposal";
     std::string findActor = "Thomas Beaudoin";
     std::string notInDB = "not_in_db";
@@ -55,9 +39,11 @@ TEST_F(JsonTest, JsonTest_FindMovie_Test) {
     ASSERT_FALSE(found);
     found = JsonParser::getInstance().find(cat, dir);
     ASSERT_TRUE(found);
+
+    JsonParser::getInstance().clear();
 }
 
-TEST_F(JsonTest, JsonTest_FindSeries_Test) {
+TEST(JsonTest, JsonTest_FindSeries_Test) {
     std::string findTitle = "11.22.63";
     std::string findActor = "James Franco";
     std::string notInDB = "not_in_db";
@@ -69,63 +55,77 @@ TEST_F(JsonTest, JsonTest_FindSeries_Test) {
     ASSERT_TRUE(found);
     found = JsonParser::getInstance().find(cat, notInDB);
     ASSERT_TRUE(!found);
+
+    JsonParser::getInstance().clear();
 }
 
-TEST_F(JsonTest, JsonTest_AddRemoveMovie_Test) {
+TEST(JsonTest, JsonTest_AddRemoveMovie_Test) {
     DatabaseItem item;
     Request request(Event::UPLOAD);
-    request.setTitle("titleT");
-    request.setGenre("horror");
-    request.setDirector("Marthina");
+    request.setProperties("titleT", "horror", "Marthina");
     request.setActors({"Trazan", "Banarne"});
 
     item.setFeature(request);
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    JsonParser::getInstance().load(Category::Movie);
+    auto movies = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
+
+    JsonParser::getInstance().load(Category::Series);
+    auto series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().add(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
-    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
-    ASSERT_TRUE(m_loadedMovieMap.size() == 3);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 3);
+    ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().remove(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
-    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
+    ASSERT_TRUE(series.size() == 1);
+
+    JsonParser::getInstance().clear();
 }
 
-TEST_F(JsonTest, JsonTest_AddRemoveSeries_Test) {
+TEST(JsonTest, JsonTest_AddRemoveSeries_Test) {
     DatabaseItem item;
     Request request(Event::UPLOAD);
-    request.setTitle("titleT");
-    request.setGenre("horror");
-    request.setDirector("Marthina");
+    request.setProperties("titleT", "horror", "Marthina");
     request.setActors({"Trazan", "Banarne"});
 
     item.setFeature(request);
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    JsonParser::getInstance().load(Category::Movie);
+    auto movies = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
+
+    JsonParser::getInstance().load(Category::Series);
+    auto series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(series.size() == 1);
+    ASSERT_TRUE(movies.size() == 2);
+    ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().add(Category::Series, item);
     JsonParser::getInstance().load(Category::Movie);
-    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 2);
+    series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
+    ASSERT_TRUE(series.size() == 2);
 
     JsonParser::getInstance().remove(Category::Series, item);;
     JsonParser::getInstance().load(Category::Movie);
-    m_loadedMovieMap = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLatestResult();
     JsonParser::getInstance().load(Category::Series);
-    m_loadedSeriesMap = JsonParser::getInstance().getLatestResult();
-    ASSERT_TRUE(m_loadedMovieMap.size() == 2);
-    ASSERT_TRUE(m_loadedSeriesMap.size() == 1);
+    series = JsonParser::getInstance().getLatestResult();
+    ASSERT_TRUE(movies.size() == 2);
+    ASSERT_TRUE(series.size() == 1);
+
+    JsonParser::getInstance().clear();
 }
 #endif //MEDIAFW_TEST_JSON_H

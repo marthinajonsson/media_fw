@@ -66,15 +66,15 @@ public:
         JsonParser::getInstance().load(Category::Movie);
         m_saved = JsonParser::getInstance().getLatestResult();
         for(auto s : m_saved) {
-            auto cat = s.second.s_category;
-            DatabaseItem newItem {s.second.s_actors, s.second.s_title, s.second.s_genre, s.second.s_director, Category::Movie};
+            auto cat = s.second.getCategory();
+            DatabaseItem newItem {s.second.getActors(), s.second.getTitle(), s.second.getGenre(), s.second.getDirector(), Category::Movie};
             pushItem(newItem);
         }
 
         JsonParser::getInstance().load(Category::Series);
         m_saved = JsonParser::getInstance().getLatestResult();
         for(auto s : m_saved) {
-            DatabaseItem newItem {s.second.s_actors, s.second.s_title, s.second.s_genre, s.second.s_director, Category::Series};
+            DatabaseItem newItem {s.second.getActors(), s.second.getTitle(), s.second.getGenre(), s.second.getDirector(), Category::Series};
             pushItem(newItem);
         }
     }

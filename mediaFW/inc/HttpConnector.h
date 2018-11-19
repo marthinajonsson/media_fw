@@ -22,7 +22,6 @@ public:
                 (Event::DOWNLOAD, {"downloadMovie", "downloadTvShow"})
                 (Event::SEARCH, {"searchMovie", "searchTvShow"})
                 (Event::DELETE, {"deleteMovie", "deleteTvShow"})
-                (Event::LIST, {"listMovies", "listTvShows"})
                 (Event::STREAM, {"playMovie", "playTvShow"})
                 ;
     }

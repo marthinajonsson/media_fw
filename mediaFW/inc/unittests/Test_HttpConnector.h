@@ -17,7 +17,7 @@ protected:
     void SetUp() override
     {
         request.setError(RET::OK);
-        request.setDirector("Hitchcock");
+        request.setProperties("t", "g", "Hitchcock");
     }
 
     void TearDown() override

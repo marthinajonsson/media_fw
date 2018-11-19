@@ -31,11 +31,11 @@ int MediaHandler::update(Request &request)
     if (event == Event ::SEARCH && progress == Progress::Done) {
 
         for (auto result : request.getMultipleResult()) {
-            std::cout << "\nTITLE: " << result.second.s_title << std::endl;
-            std::cout << "GENRE: " << result.second.s_genre << std::endl;;
-            std::cout << "DIRECTOR: " << result.second.s_director << std::endl;;
+            std::cout << "\nTITLE: " << result.second.getTitle() << std::endl;
+            std::cout << "GENRE: " << result.second.getGenre() << std::endl;;
+            std::cout << "DIRECTOR: " << result.second.getDirector() << std::endl;;
 
-            for (const auto &s : result.second.s_actors) {
+            for (const auto &s : result.second.getActors()) {
                 std::cout << "ACTOR: " << s << std::endl;
             }
             std::cout << "\n\n";

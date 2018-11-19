@@ -5,6 +5,7 @@
 #ifndef MEDIAFW_TEST_STARTUP_H
 #define MEDIAFW_TEST_STARTUP_H
 
-int StartGoogleTest(int argc, char** argv);
+#include "InputParser.h"
+int StartGoogleTest(InputParser &input, int argc, char** argv);
 
 #endif //MEDIAFW_TEST_STARTUP_H

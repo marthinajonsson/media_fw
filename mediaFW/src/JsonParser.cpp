@@ -104,18 +104,16 @@ void JsonParser::load(const Category &category)
         }
 
         for (Json::ArrayIndex i = 0; root.isValidIndex(i); i++) {
-            metadata m;
-            m.s_title = root[i][TITLE].asString();
-            m.s_genre = root[i][GENRE].asString();
-            m.s_director = root[i][DIRECTOR].asString();
-            m.s_category = category;
+            auto t = root[i][TITLE].asString();
+            auto g = root[i][GENRE].asString();
+            auto d = root[i][DIRECTOR].asString();
+            auto y = "1970";
+            auto id = "1";
             auto actors = root[i][ACTORS].asString();
-
+            Metadata meta(t, g, d, category);
             auto result = split(actors, ',');
-            for (const auto &s : result) {
-                m.s_actors.push_back(s);
-            }
-            m_mediaMap[m.s_title] = m;
+            meta.setActors(result);
+            m_mediaMap[t] = meta;
         }
     }
     else if (category == Category::Config) {
@@ -140,17 +138,20 @@ bool JsonParser::find(Category &category, const std::string &val)
 
     for (auto it: map) {
         auto props = it.second;
+        auto t = it.second.getTitle();
+        auto g = it.second.getGenre();
+        auto d = it.second.getDirector();
+        auto a = it.second.getActors();
+        if(val != t && val != g && val != d) {
 
-        if(val != props.s_title && val != props.s_genre && val != props.s_director) {
+            auto actor_it = std::find(a.begin(), a.end(), val);
 
-            auto actor_it = std::find(it.second.s_actors.begin(), it.second.s_actors.end(), val);
-
-            if(actor_it == it.second.s_actors.end())
+            if(actor_it == a.end())
             {
                 continue;
             }
         }
-        m_resultMap.insert(std::pair(it.second.s_title, it.second));
+        m_resultMap.insert(std::pair(t, it.second));
         result = true;
     }
     return result;

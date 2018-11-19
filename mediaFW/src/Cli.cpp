@@ -71,9 +71,6 @@ Request Cli::interprete(std::vector<std::string> &input)
 
 
     if(event == Event::EXIT) { return request; }
-    else if(event == Event::SSH) {
-        return request;
-    }
 
     Category category;
     if(RET::ERROR == checkValidCategory(input, category)){
@@ -115,8 +112,10 @@ Request Cli::interprete(std::vector<std::string> &input)
         auto items = JsonParser::getInstance().getLatestFilteredResult();
 
         if(items.size() == 1) {
-            auto item = items.begin()->second;
-            setProperties(request, item);
+
+            auto meta = items.begin()->second;
+
+            setProperties(request, meta);
         }
         else {
             request.setMultipleResult(items);
