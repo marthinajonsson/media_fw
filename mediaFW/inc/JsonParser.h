@@ -10,8 +10,6 @@
 #include <map>
 #include <mutex>
 
-#include "json/json.h"
-
 #include "Metadata.h"
 #include "JsonUtils.h"
 #include "ifc/Subject.h"
@@ -39,7 +37,7 @@ public:
      * @brief parses and saves information from db.json to m_movieMap and m_seriesMap
      * @param Category instance of @enum Category
      */
-    void load(const Category &) override;
+    void load(Category) override;
     /*! \public add
      * @brief adds database item to db.json
      * @param instance of @enum Category and an instance of @class DatabaseItem
@@ -74,8 +72,6 @@ private:
 
     JsonParser() = default;
     ~JsonParser() = default;
-
-    Json::Value m_root;
 
     /*! \var m_configMap
     *

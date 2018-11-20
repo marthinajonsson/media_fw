@@ -11,7 +11,7 @@ class CommandLineParser {
 public:
     virtual Request process() = 0;
     virtual Request process(std::string &) = 0;
-    virtual Request interprete(std::vector<std::string> &) = 0;
+    virtual int interprete(std::vector<std::string> &, Request&) = 0;
 };
 
 #endif //MEDIAFW_COMMANDLINEPARSER_H

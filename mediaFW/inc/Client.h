@@ -21,9 +21,9 @@ class Client : Subject {
 
 public:
 
-    Client() {};
+    Client() = default;
 
-    const Client & operator = (const Client &t)
+    const Client & operator = ( Client &t)
     {
         std::cout<<"Assignment operator called "<<std::endl;
         return t;

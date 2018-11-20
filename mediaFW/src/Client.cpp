@@ -24,7 +24,8 @@ bool Client::isRequestInQueue() { return  !m_requests.empty(); }
  *
  */
 Request Client::getCliInput(Cli* p_cli) {
-    return p_cli->process();
+    Request received(p_cli->process());
+    return received;
 }
 
 

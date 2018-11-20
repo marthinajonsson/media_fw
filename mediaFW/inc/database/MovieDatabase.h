@@ -23,7 +23,7 @@ public:
         syncLocalDatabase();
     }
 
-    MovieDatabase (Client *p_client) {
+    explicit MovieDatabase (Client *p_client) {
         syncLocalDatabase();
         m_client = *p_client;
         m_client.registerObserver(this);
@@ -53,31 +53,49 @@ public:
             purgeItem(item);
         }
         else if(e == Event::SEARCH) {
-            auto title = request.getTitle();
+            auto title = request.getMetadata().m_title;
             fetchItem(title);
         }
         return RET::OK;
     }
 
-    /*! \public syncLocalDatabase
-     * @brief Reads local db.json and save to Database
-     */
-    void syncLocalDatabase() override {
-        JsonParser::getInstance().load(Category::Movie);
-        m_saved = JsonParser::getInstance().getLatestResult();
-        for(auto s : m_saved) {
-            auto cat = s.second.getCategory();
-            DatabaseItem newItem {s.second.getActors(), s.second.getTitle(), s.second.getGenre(), s.second.getDirector(), Category::Movie};
-            pushItem(newItem);
+    DatabaseItem fetchItemByKey(const std::string& key, const std::string &val) {
+        std::unique_lock<std::mutex>  m_lock;
+        if(m_items.empty()){
+            std::cout << "Database is empty" << std::endl;
         }
+        DatabaseItem noFound;
+        std::list<DatabaseItem>::iterator it;
+        for (it = m_items.begin(); it != m_items.end(); ++it){
+            if(key == "title") {
+                auto found = val.find(it->getTitle());
+                if(std::string::npos != found) {
+                    return *it;
+                }
+            }else if (key == "genre") {
+                auto found = val.find(it->getGenre());
+                if(std::string::npos != found) {
+                    return *it;
+                }
 
-        JsonParser::getInstance().load(Category::Series);
-        m_saved = JsonParser::getInstance().getLatestResult();
-        for(auto s : m_saved) {
-            DatabaseItem newItem {s.second.getActors(), s.second.getTitle(), s.second.getGenre(), s.second.getDirector(), Category::Series};
-            pushItem(newItem);
+            }else if (key == "director") {
+                auto found = val.find(it->getDirector());
+                if(std::string::npos != found) {
+                    return *it;
+                }
+            }
+            else if (key == "actor") {
+                for (const auto &act : it->getActors()) {
+                    auto found = val.find(act);
+                    if(std::string::npos != found) {
+                        return *it;
+                    }
+                }
+            }
         }
+        return *it;
     }
+
 
     /// <summary>
     /// Implementation for virtual member of Database.h
@@ -127,7 +145,7 @@ public:
 
     bool isSame(DatabaseItem item, std::list<DatabaseItem>::iterator it) {
         return it->getTitle() == item.getTitle() &&
-        it->getDirector() == item.getDirector();
+               it->getDirector() == item.getDirector();
     }
 
     /// <summary>
@@ -139,6 +157,7 @@ public:
         std::unique_lock<std::mutex>  m_lock;
         std::list<DatabaseItem>::iterator it;
         std::list<DatabaseItem> temp_list;
+
         int numLoops = 1;
         // TODO m_items.end() does not work seem to be extended?
         for (it = m_items.begin(); it != m_items.end(); it++) {
@@ -169,6 +188,26 @@ public:
                 result += s + " ";
             }
             std::cout << result << std::endl;
+        }
+    }
+private:
+    /*! \public syncLocalDatabase
+     * @brief Reads local db.json and save to Database
+     */
+    void syncLocalDatabase() override {
+        JsonParser::getInstance().load(Category::Movie);
+        m_saved = JsonParser::getInstance().getLatestResult();
+        for(auto s : m_saved) {
+            auto cat = s.second.m_category;
+            DatabaseItem newItem {s.second.m_actors, s.second.m_title, s.second.m_genre, s.second.m_director, Category::Movie};
+            pushItem(newItem);
+        }
+
+        JsonParser::getInstance().load(Category::Series);
+        m_saved = JsonParser::getInstance().getLatestResult();
+        for(auto s : m_saved) {
+            DatabaseItem newItem {s.second.m_actors, s.second.m_title, s.second.m_genre, s.second.m_director, Category::Series};
+            pushItem(newItem);
         }
     }
 };

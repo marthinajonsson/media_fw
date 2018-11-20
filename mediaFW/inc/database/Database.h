@@ -33,15 +33,6 @@ public:
 class Database {
 public:
 
-    /*! \public Database()
-     * @brief Default constructor.
-     */
-    Database() = default;
-    /*! \public ~Database()
-     * @brief Default deconstructor.
-     */
-    ~Database() = default;
-
     /*! \public Database::syncDatabase()
      * @brief Sync info from json file and saves it to a list of database objects.
      */

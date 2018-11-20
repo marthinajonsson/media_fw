@@ -28,14 +28,15 @@ int MediaHandler::update(Request &request)
         m_logger->TRACE(Logger::INFO, str);
     }
 
+
     if (event == Event ::SEARCH && progress == Progress::Done) {
 
         for (auto result : request.getMultipleResult()) {
-            std::cout << "\nTITLE: " << result.second.getTitle() << std::endl;
-            std::cout << "GENRE: " << result.second.getGenre() << std::endl;;
-            std::cout << "DIRECTOR: " << result.second.getDirector() << std::endl;;
+            std::cout << "\nTITLE: " << result.second.m_title << std::endl;
+            std::cout << "GENRE: " << result.second.m_genre << std::endl;;
+            std::cout << "DIRECTOR: " << result.second.m_director << std::endl;;
 
-            for (const auto &s : result.second.getActors()) {
+            for (const auto &s : result.second.m_actors) {
                 std::cout << "ACTOR: " << s << std::endl;
             }
             std::cout << "\n\n";

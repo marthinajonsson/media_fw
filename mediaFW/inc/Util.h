@@ -26,19 +26,19 @@ enum RET {
 
 
 /*! \section Common Enums
- *  \enum ORDER
+ *  \enum Property
  *  \brief Defines the order of common properties that is saved in vectors
  *  throughout the code.
- *  \var TITLE_POS the position of the property @property title
- *  \var GENRE_POS the position of the property @property genre
- *  \var DIRECTOR_POS the position of the property @property director
- *  \var ACTORS_POS the start position of the property @property actors
+ *  \var TITLE the position of the property @property title
+ *  \var GENRE the position of the property @property genre
+ *  \var DIRECTOR the position of the property @property director
+ *  \var ACTORS the start position of the property @property actors
  */
-enum ORDER {
-    TITLE_POS = 0,
-    GENRE_POS = 1,
-    DIRECTOR_POS = 2,
-    ACTORS_POS = 3
+enum Property {
+    TITLE_P = 0,
+    GENRE_P = 1,
+    DIRECTOR_P = 2,
+    ACTORS_P = 3
 };
 
 
@@ -117,7 +117,8 @@ void pop_front(std::vector<T>& vec)
 template<typename T> struct map_init_helper
 {
     T& data;
-    map_init_helper(T& d) : data(d) {}
+
+    explicit map_init_helper(T& d) : data(d) {}
     map_init_helper& operator() (typename T::key_type const& key, typename T::mapped_type const& value)
     {
         data[key] = value;

@@ -107,7 +107,7 @@ public:
      * @param std::vector<std::string>& vector of string arguments to be translated
      * @return the translated request object
      */
-    Request interprete(std::vector<std::string> &) override;
+    int interprete(std::vector<std::string> &, Request&) override;
 
     /*! \public Client::process()
      * @implements the interface of CommandLineParser
@@ -293,8 +293,8 @@ private:
      * @param item
      */
     void setProperties(Request &request, Metadata &meta) {
-        request.setProperties(meta.getTitle(), meta.getGenre(), meta.getDirector());
-        request.setActors(meta.getActors());
+        request.setProperties(meta.m_title, meta.m_genre, meta.m_director);
+        request.setActors(meta.m_actors);
     }
 
     /*! \private Cli::verifyUpload

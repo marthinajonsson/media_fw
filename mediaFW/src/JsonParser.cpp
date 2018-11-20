@@ -10,8 +10,9 @@
 #include <fstream>
 #include <mutex>
 
-#include <JsonParser.h>
-#include <Util.h>
+#include "json/json.h"
+#include "JsonParser.h"
+#include "Util.h"
 
 
 std::mutex single;
@@ -43,8 +44,11 @@ void JsonParser::clear() {
 }
 
 void JsonParser::add(const Category &category, DatabaseItem &item) {
-
+    Json::Value root;
     Json::Value add;
+    std::ifstream db_read("../data/db.json", std::ifstream::binary);
+    db_read >> root;
+    db_read.close();
     add[TITLE] = item.getTitle();
     add[GENRE] = item.getGenre();
     add[DIRECTOR] = item.getDirector();
@@ -53,22 +57,26 @@ void JsonParser::add(const Category &category, DatabaseItem &item) {
     }
 
     if (category == Category::Movie) {
-        m_root[ITEMS][MOVIES].append(add);
+        root[ITEMS][MOVIES].append(add);
     }
     else {
-        m_root[ITEMS][SERIES].append(add);
+        root[ITEMS][SERIES].append(add);
     }
 
 
-    std::ofstream db_file("../data/db.json", std::ios::trunc);
-    std::cout << m_root << std::endl;
-    db_file << m_root;
-    db_file.close();
+    std::ofstream db_write("../data/db.json", std::ios::trunc);
+    std::cout << root << std::endl;
+    db_write << root;
+    db_write.close();
 }
 
 void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
 
     Json::Value remove;
+    Json::Value root;
+    std::ifstream db_read("../data/db.json", std::ifstream::binary);
+    db_read >> root;
+    db_read.close();
     remove[TITLE] = _item.getTitle();
     remove[GENRE] = _item.getGenre();
     remove[DIRECTOR] = _item.getDirector();
@@ -79,39 +87,36 @@ void JsonParser::remove(const Category &_category, DatabaseItem &_item) {
     std::string cat = MOVIES;
     if(_category == Category::Series) { cat = SERIES; }
 
-    for (Json::ArrayIndex i = 0; m_root[ITEMS][cat].isValidIndex(i); i++) {
-        auto title = m_root[ITEMS][cat][i][TITLE].asString();
-        auto genre = m_root[ITEMS][cat][i][GENRE].asString();
-        auto director = m_root[ITEMS][cat][i][DIRECTOR].asString();
-        auto actors = m_root[ITEMS][cat][i][ACTORS].asString();
+    for (Json::ArrayIndex i = 0; root[ITEMS][cat].isValidIndex(i); i++) {
+        auto title = root[ITEMS][cat][i][TITLE].asString();
+        auto genre = root[ITEMS][cat][i][GENRE].asString();
+        auto director = root[ITEMS][cat][i][DIRECTOR].asString();
+        auto actors = root[ITEMS][cat][i][ACTORS].asString();
 
         if(_item.getTitle() == title && _item.getDirector() == director) {
-            m_root[ITEMS][cat].removeIndex(i, &remove);
+            root[ITEMS][cat].removeIndex(i, &remove);
         }
     }
 
-    std::ofstream db_file("../data/db.json", std::ios::trunc);
-    std::cout << m_root << std::endl;
-    db_file << m_root;
-    db_file.close();
+    std::ofstream db_write("../data/db.json", std::ios::trunc);
+    std::cout << root << std::endl;
+    db_write << root;
+    db_write.close();
 }
 
-/* TODO change so that what is loaded goes straight to Queue in MovieDatabase and that info is used.
- * not these maps.
- */
-void JsonParser::load(const Category &category)
+
+void JsonParser::load(Category category)
 {
     Json::Value root;
-
-    if(category == Category::Movie || category == Category::Series) {
+    Category cat = category;
+    if(cat == Category::Movie || cat == Category::Series) {
 
         std::ifstream db_file("../data/db.json", std::ifstream::binary);
         db_file >> root;
         db_file.close();
-        m_root = root;
 
         m_mediaMap.clear();
-        if(category == Category::Series) {
+        if(cat == Category::Series) {
             root = root[ITEMS][SERIES];
         }else {
             root = root[ITEMS][MOVIES];
@@ -121,16 +126,15 @@ void JsonParser::load(const Category &category)
             auto t = root[i][TITLE].asString();
             auto g = root[i][GENRE].asString();
             auto d = root[i][DIRECTOR].asString();
-            auto y = "1970";
-            auto id = "1";
+
             auto actors = root[i][ACTORS].asString();
-            Metadata meta(t, g, d, category);
+            Metadata meta(t, g, d, cat);
             auto result = split(actors, ',');
-            meta.setActors(result);
-            m_mediaMap[t] = meta;
+            meta.m_actors = result;
+            m_mediaMap.insert(std::pair(t, meta));
         }
     }
-    else if (category == Category::Config) {
+    else if (cat == Category::Config) {
         std::ifstream db_file("../data/config.json", std::ifstream::binary);
         db_file >> root;
         db_file.close();
@@ -148,13 +152,14 @@ bool JsonParser::find(Category &category, const std::string &val)
 {
     m_resultMap.clear();
     bool result = false;
+
     auto map = getLatestResult();
 
-    for (auto it: map) {
-        auto t = it.second.getTitle();
-        auto g = it.second.getGenre();
-        auto d = it.second.getDirector();
-        auto a = it.second.getActors();
+    for (auto it : map) {
+        auto t = it.second.m_title;
+        auto g = it.second.m_genre;
+        auto d = it.second.m_director;
+        auto a = it.second.m_actors;
         if(val != t && val != g && val != d) {
 
             auto actor_it = std::find(a.begin(), a.end(), val);

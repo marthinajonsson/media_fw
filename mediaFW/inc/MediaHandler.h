@@ -6,11 +6,11 @@
 #define MEDIAFW_MEDIAHANDLER_H
 
 #include <functional>
-#include <database/Database.h>
-#include <database/MovieDatabase.h>
-#include <Cli.h>
-#include <Client.h>
-#include <StatusLogger.h>
+#include "database/Database.h"
+#include "database/MovieDatabase.h"
+#include "Cli.h"
+#include "Client.h"
+#include "StatusLogger.h"
 
 
 /*! \class MediaHandler - handle for a user instance
@@ -24,7 +24,7 @@ public:
     Client *p_client;
     std::map<Event, const char*> m_eventMap;
     std::map<Progress, const char*> m_progressMap;
-    MediaHandler() : m_logger(new StatusLogger), p_cli(new Cli), p_conn(new Connection) {
+    MediaHandler() : m_logger(new StatusLogger), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
 
         map_init(m_eventMap)
@@ -41,6 +41,7 @@ public:
                 (Progress::InProgress, "[IN PROGRESS] ")
                 (Progress::Done, "[DONE] ")
                 ;
+
         p_client = new Client(p_conn, p_cli);
         p_database = new MovieDatabase(p_client);
         p_client->registerObserver(this);
@@ -91,6 +92,7 @@ public:
     }
 
 private:
+
     /*! \var m_logger
      * @brief instance of @class StatusLogger
      */

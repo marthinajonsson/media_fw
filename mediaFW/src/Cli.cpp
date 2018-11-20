@@ -8,7 +8,7 @@
 #include <iterator>
 
 #include "Cli.h"
-#include <JsonParser.h>
+#include "JsonParser.h"
 
 /*! \class Cli cli.h "inc/cli.h"
  *  \brief Class implementing the functionality of a command line interface.
@@ -19,7 +19,8 @@
 Request Cli::process(std::string &line) {
     std::vector<std::string> parsed;
     parsed = split(line, ':');
-    Request request = interprete(parsed);
+    Request request;
+    interprete(parsed, request);
     return request;
 }
 
@@ -36,7 +37,8 @@ Request Cli::process()
         }
         else if (!line.empty()) {
             parsed = split(line, ':');
-            Request request = interprete(parsed);
+            Request request;
+            interprete(parsed, request);
 
             if(request.getEvent() == Event::UPLOAD)
             {
@@ -56,27 +58,28 @@ Request Cli::process()
 // download:<movie/series>:title:<value>
 // search:<movie/series>:actor/title/genre/director:<value>
 // <delete>:<movie/series>:title:<value>
-Request Cli::interprete(std::vector<std::string> &input)
+int Cli::interprete(std::vector<std::string> &input, Request &request)
 {
     Event event = Event::UNDEFINED;
     std::string val;
     std::string type;
     if(RET::ERROR == checkValidEvent(input, event)){
-        Request request(RET::ERROR, "No valid event entered");
-        return request;
+        request.setErrorDesc("No valid event entered");
+        request.setError(RET::ERROR);
+        return RET::ERROR;
     }
 
-    Request request (event);
+    request.setEvent(event);
     request.setError(RET::OK);
 
 
-    if(event == Event::EXIT) { return request; }
+    if(event == Event::EXIT) { return RET::OK; }
 
     Category category;
     if(RET::ERROR == checkValidCategory(input, category)){
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid category entered");
-        return request;
+        return RET::ERROR;
     }
 
     request.setCategory(category);
@@ -85,17 +88,19 @@ Request Cli::interprete(std::vector<std::string> &input)
     {
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid type entered");
-        return request;
+        return RET::ERROR;
     }
 
     if(RET::ERROR == checkValidType(request, type)) {
         request.setError(RET::ERROR);
         request.setErrorDesc("Type not valid to event");
+        return RET::ERROR;
     }
 
     if(RET::ERROR == getValueOfType(input, val)) {
         request.setError(RET::ERROR);
         request.setErrorDesc("No valid value");
+        return RET::ERROR;
     }
 
 
@@ -104,25 +109,20 @@ Request Cli::interprete(std::vector<std::string> &input)
         if (RET::ERROR == verifyObjectExists(category, val)) {
             request.setError(RET::ERROR);
             request.setErrorDesc("Object does not exists at server or database is unsynced");
-            return request;
+            return RET::ERROR;
         }
     }
 
     if(event == Event::DOWNLOAD || event == Event::DELETE) {
         auto items = JsonParser::getInstance().getLatestFilteredResult();
 
-        if(items.size() == 1) {
-
-            auto meta = items.begin()->second;
-
-            setProperties(request, meta);
-        }
-        else {
+        if(items.size() > 1) {
             request.setMultipleResult(items);
             request.setError(RET::ERROR);
             request.setErrorDesc("More than one item match. Please specify more explictly.");
-            return request;
+            return RET::ERROR;
         }
+        request.setProperty(type, val);
     }
     else if(event == Event::SEARCH) {
         auto items = JsonParser::getInstance().getLatestResult();
@@ -131,6 +131,6 @@ Request Cli::interprete(std::vector<std::string> &input)
     else if(Event::UPLOAD == event){
         setFileName(request, val);
     }
-    return request;
+    return RET::OK;
 }
 

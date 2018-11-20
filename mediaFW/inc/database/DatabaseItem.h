@@ -31,10 +31,10 @@ public:
      */
     void setFeature(Request feature){
         this->m_category = feature.getCategory();
-        this->m_actors = feature.getActors();
-        this->m_director = feature.getDirector();
-        this->m_title = feature.getTitle();
-        this->m_genre = feature.getGenre();
+        this->m_actors = feature.getMetadata().m_actors;
+        this->m_director = feature.getMetadata().m_director;
+        this->m_title = feature.getMetadata().m_title;
+        this->m_genre = feature.getMetadata().m_title;
     };
 
     /*! \public getActors

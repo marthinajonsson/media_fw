@@ -11,6 +11,7 @@ int StartGoogleTest(InputParser &input, int argc, char** argv)
 {
     ::testing::InitGoogleMock(&argc, argv);
 
+   ::testing::GTEST_FLAG(filter) = "JsonTest*";
     const std::string &option = input.getCmdOption("-f");
     if(option.find("json") != std::string::npos) {
         ::testing::GTEST_FLAG(filter) = "JsonTest*";
