@@ -5,10 +5,9 @@
 #ifndef MEDIAFW_JSONPARSER_H
 #define MEDIAFW_JSONPARSER_H
 
-#include <iostream>
+
 #include <vector>
 #include <map>
-#include <mutex>
 
 #include "Metadata.h"
 #include "JsonUtils.h"
@@ -64,9 +63,9 @@ public:
      * @brief returns latest result after find()
      * @return @var m_mediaMap
      */
-    std::map<std::string, Metadata> getLatestResult() { return  m_mediaMap; }
+    std::map<std::string, Metadata> getLoaded() { return  m_mediaMap; }
 
-    std::map<std::string, Metadata> getLatestFilteredResult() { return  m_resultMap; }
+    std::map<std::string, Metadata> getAllMatches() { return  m_allMatchesMap; }
 
 private:
 
@@ -86,7 +85,7 @@ private:
     /*! \var m_mediaMap
     *
     */
-    std::map<std::string, Metadata> m_resultMap;
+    std::map<std::string, Metadata> m_allMatchesMap;
 
     /*! \var ITEMS "items"
     *

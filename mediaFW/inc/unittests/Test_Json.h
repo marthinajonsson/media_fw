@@ -27,10 +27,10 @@ protected:
 
 TEST(JsonTest, JsonTest_Load_Test) {
     JsonParser::getInstance().load(Category::Movie);
-    auto movies = JsonParser::getInstance().getLatestResult();
+    auto movies = JsonParser::getInstance().getLoaded();
 
     JsonParser::getInstance().load(Category::Series);
-    auto series = JsonParser::getInstance().getLatestResult();
+    auto series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
 
     ASSERT_TRUE(series.size() == 1);
@@ -72,6 +72,7 @@ TEST(JsonTest, JsonTest_FindSeries_Test) {
     JsonParser::getInstance().clear();
 }
 
+
 TEST(JsonTest, JsonTest_AddRemoveMovie_Test) {
     DatabaseItem item;
     Request request(Event::UPLOAD);
@@ -80,26 +81,26 @@ TEST(JsonTest, JsonTest_AddRemoveMovie_Test) {
 
     item.setFeature(request);
     JsonParser::getInstance().load(Category::Movie);
-    auto movies = JsonParser::getInstance().getLatestResult();
+    auto movies = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
 
     JsonParser::getInstance().load(Category::Series);
-    auto series = JsonParser::getInstance().getLatestResult();
+    auto series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().add(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
-    movies = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLoaded();
     JsonParser::getInstance().load(Category::Series);
-    series = JsonParser::getInstance().getLatestResult();
+    series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 3);
     ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().remove(Category::Movie, item);
     JsonParser::getInstance().load(Category::Movie);
-    movies = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLoaded();
     JsonParser::getInstance().load(Category::Series);
-    series = JsonParser::getInstance().getLatestResult();
+    series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
     ASSERT_TRUE(series.size() == 1);
 
@@ -114,28 +115,28 @@ TEST(JsonTest, JsonTest_AddRemoveSeries_Test) {
 
     item.setFeature(request);
     JsonParser::getInstance().load(Category::Movie);
-    auto movies = JsonParser::getInstance().getLatestResult();
+    auto movies = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
 
     JsonParser::getInstance().load(Category::Series);
-    auto series = JsonParser::getInstance().getLatestResult();
+    auto series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(series.size() == 1);
     ASSERT_TRUE(movies.size() == 2);
     ASSERT_TRUE(series.size() == 1);
 
     JsonParser::getInstance().add(Category::Series, item);
     JsonParser::getInstance().load(Category::Movie);
-    movies = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLoaded();
     JsonParser::getInstance().load(Category::Series);
-    series = JsonParser::getInstance().getLatestResult();
+    series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
     ASSERT_TRUE(series.size() == 2);
 
     JsonParser::getInstance().remove(Category::Series, item);;
     JsonParser::getInstance().load(Category::Movie);
-    movies = JsonParser::getInstance().getLatestResult();
+    movies = JsonParser::getInstance().getLoaded();
     JsonParser::getInstance().load(Category::Series);
-    series = JsonParser::getInstance().getLatestResult();
+    series = JsonParser::getInstance().getLoaded();
     ASSERT_TRUE(movies.size() == 2);
     ASSERT_TRUE(series.size() == 1);
 

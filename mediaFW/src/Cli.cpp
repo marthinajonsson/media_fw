@@ -8,7 +8,6 @@
 #include <iterator>
 
 #include "Cli.h"
-#include "JsonParser.h"
 
 /*! \class Cli cli.h "inc/cli.h"
  *  \brief Class implementing the functionality of a command line interface.
@@ -114,7 +113,7 @@ int Cli::interprete(std::vector<std::string> &input, Request &request)
     }
 
     if(event == Event::DOWNLOAD || event == Event::DELETE) {
-        auto items = JsonParser::getInstance().getLatestFilteredResult();
+        auto items = JsonParser::getInstance().getAllMatches();
 
         if(items.size() > 1) {
             request.setMultipleResult(items);
@@ -125,7 +124,7 @@ int Cli::interprete(std::vector<std::string> &input, Request &request)
         request.setProperty(type, val);
     }
     else if(event == Event::SEARCH) {
-        auto items = JsonParser::getInstance().getLatestResult();
+        auto items = JsonParser::getInstance().getAllMatches();
         request.setMultipleResult(items);
     }
     else if(Event::UPLOAD == event){

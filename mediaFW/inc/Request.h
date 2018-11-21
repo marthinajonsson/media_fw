@@ -135,15 +135,15 @@ public:
     void setEvent(Event e) { m_event = e; }
     void setCategory(const Category &cat) { meta.m_category = cat; }
     void setProgress(Progress progress) { m_progess = progress; }
-    void setError(const int &_err) { m_error = _err; }
-    void setErrorDesc(const std::string &desc) { m_errDesc = desc; }
-    void setDirector(const std::string &director) { meta.m_director = director; }
-    void setGenre(const std::string &genre) { meta.m_genre = genre; }
-    void setTitle(const std::string &title) { meta.m_title = title; }
-    void setActors(const std::vector<std::string> &vec) { meta.m_actors = vec; }
-    void setFilename(const std::string &filename) { m_filename = filename; }
+    void setError(const int &err) { m_error = err; }
+    void setErrorDesc(std::string desc) { m_errDesc = std::move(desc); }
+    void setDirector(std::string director) { meta.m_director = std::move(director); }
+    void setGenre(std::string genre) { meta.m_genre = std::move(genre); }
+    void setTitle(std::string title) { meta.m_title = std::move(title); }
+    void setActors(std::vector<std::string> vec) { meta.m_actors = std::move(vec); }
+    void setFilename(std::string filename) { m_filename = std::move(filename); }
 
-    void setMultipleResult(const std::map<std::string, Metadata> &map) { m_multipleResult = map; }
+    void setMultipleResult(std::map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
 
     void setProperty(std::string &type, std::string& val) {
         if(type.find("title") != std::string::npos ) { this->meta.m_title = val; }
@@ -152,10 +152,10 @@ public:
         else if (type.find("actor") != std::string::npos ) { this->meta.m_actors.push_back(val); }
     }
 
-    void setProperties(const std::string& t, const std::string &g, const std::string &d) {
-        meta.m_title = t;
-        meta.m_genre = g;
-        meta.m_director = d;
+    void setProperties(std::string t, std::string g, std::string d) {
+        meta.m_title = std::move(t);
+        meta.m_genre = std::move(g);
+        meta.m_director = std::move(d);
     }
 
     /*

@@ -5,8 +5,8 @@
 
 #include <string>
 #include <sstream>
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <mutex>
 
@@ -34,7 +34,7 @@ std::vector<std::string> split(const std::string& s, char delimiter)
     std::istringstream tokenStream(s);
     while (std::getline(tokenStream, token, delimiter))
     {
-        tokens.push_back(token);
+        tokens.push_back(std::move(token));
     }
     return tokens;
 }
@@ -131,7 +131,7 @@ void JsonParser::load(Category category)
             Metadata meta(t, g, d, cat);
             auto result = split(actors, ',');
             meta.m_actors = result;
-            m_mediaMap.insert(std::pair(t, meta));
+            m_mediaMap.emplace(std::pair(t, meta));
         }
     }
     else if (cat == Category::Config) {
@@ -144,16 +144,16 @@ void JsonParser::load(Category category)
         c.s_port = root["port"].asString();
         c.s_user = root["user"].asString();
         c.s_pwd = root["pwd"].asString();
-        m_configMap["config"] = c;
+        m_configMap.emplace(std::make_pair("config",c));
     }
 }
 
 bool JsonParser::find(Category &category, const std::string &val)
 {
-    m_resultMap.clear();
+    m_allMatchesMap.clear();
     bool result = false;
 
-    auto map = getLatestResult();
+    auto map = getLoaded();
 
     for (auto it : map) {
         auto t = it.second.m_title;
@@ -169,7 +169,7 @@ bool JsonParser::find(Category &category, const std::string &val)
                 continue;
             }
         }
-        m_resultMap.insert(std::pair(t, it.second));
+        m_allMatchesMap.emplace(std::pair(t, it.second)); //remove?
         result = true;
     }
     return result;

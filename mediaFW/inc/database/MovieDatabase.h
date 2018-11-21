@@ -9,11 +9,11 @@
 #ifndef MEDIAFW_MOVIEDATABASE_H
 #define MEDIAFW_MOVIEDATABASE_H
 
+#include <algorithm>
+
 #include "ifc/Observer.h"
 #include "Database.h"
 #include "Client.h"
-#include <algorithm>
-
 
 class MovieDatabase : public Database, public Observer {
 public:
@@ -34,6 +34,7 @@ public:
     }
 
     int update(Request &request) override {
+
         Progress p = request.getProgress();
         Event e = request.getEvent();
 
@@ -196,7 +197,7 @@ private:
      */
     void syncLocalDatabase() override {
         JsonParser::getInstance().load(Category::Movie);
-        m_saved = JsonParser::getInstance().getLatestResult();
+        m_saved = JsonParser::getInstance().getLoaded();
         for(auto s : m_saved) {
             auto cat = s.second.m_category;
             DatabaseItem newItem {s.second.m_actors, s.second.m_title, s.second.m_genre, s.second.m_director, Category::Movie};
@@ -204,7 +205,7 @@ private:
         }
 
         JsonParser::getInstance().load(Category::Series);
-        m_saved = JsonParser::getInstance().getLatestResult();
+        m_saved = JsonParser::getInstance().getLoaded();
         for(auto s : m_saved) {
             DatabaseItem newItem {s.second.m_actors, s.second.m_title, s.second.m_genre, s.second.m_director, Category::Series};
             pushItem(newItem);

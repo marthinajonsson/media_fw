@@ -32,8 +32,9 @@ TEST(DatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     std::string t = "aTitle";
     std::string g = "horror";
     std::string d = "dir";
+    std::vector<std::string> vec = {"act1", "act2"};
     req.setProperties(t, g, d);
-    req.setActors({"actor1", "actor2"});
+    req.setActors(vec);
     req.setCategory(cat);
     DatabaseItem newItem;
     newItem.setFeature(req);
@@ -55,7 +56,8 @@ TEST(DatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
     MovieDatabase db;
     Category cat = Category::Movie;
     Request req(Event::UPLOAD);
-    req.setActors({"actor1", "actor2"});
+    std::vector<std::string> vec = {"actor1", "actor2"};
+    req.setActors(vec);
     req.setProperties("aTitle", "horror", "Spielberg");
     req.setCategory(cat);
     DatabaseItem newItem;

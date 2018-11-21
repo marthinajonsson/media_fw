@@ -11,11 +11,10 @@
 #include <iostream>
 #include <algorithm>
 
-#include <Util.h>
-#include <Metadata.h>
-#include <Request.h>
-#include <JsonParser.h>
-#include <ifc/CommandLineParser.h>
+#include "Metadata.h"
+#include "Request.h"
+#include "JsonParser.h"
+#include "ifc/CommandLineParser.h"
 
 /*! \class Cli Cli.h "inc/Cli.h"
  * @brief Module handling everything related to our Command line interface.
@@ -138,7 +137,7 @@ private:
 
         while(std::getline(m_stream, segment, delim))
         {
-            seglist.push_back(segment);
+            seglist.push_back(std::move(segment));
         }
         return seglist;
     }
@@ -281,10 +280,10 @@ private:
      * @param request object to update
      * @param val value to save to @property filename
      */
-    void setFileName(Request &request, std::string &val) {
+    void setFileName(Request &request, std::string val) {
         std::string path = "../data/";
         val = path + val;
-        request.setFilename(val);
+        request.setFilename(std::move(val));
     }
 
     /*! \private Cli::setProperties
@@ -292,8 +291,8 @@ private:
      * @param request
      * @param item
      */
-    void setProperties(Request &request, Metadata &meta) {
-        request.setProperties(meta.m_title, meta.m_genre, meta.m_director);
+    void setProperties(Request &request, Metadata meta) {
+        request.setProperties(std::move(meta.m_title), std::move(meta.m_genre), std::move(meta.m_director));
         request.setActors(meta.m_actors);
     }
 
