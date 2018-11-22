@@ -9,6 +9,7 @@
 
 #include <map>
 #include <algorithm>
+#include <functional>
 #include "Util.h"
 #include "Metadata.h"
 
@@ -42,9 +43,23 @@ private:
      */
     Map<std::string, Metadata> m_multipleResult;
 
+    std::string getTitle() {
+        return meta.m_title;
+    }
 
+
+    template<typename ftor>
+    void install_command(std::string name, ftor && handler)
+    {
+        commands.insert({
+                                std::move(name),
+                                std::forward<ftor>(handler)
+                        });
+    }
 
 public:
+    Map<std::string, std::function<std::string()>> commands;
+
     Request(Event event, std::string &title, std::string &genre, std::string &director, Vec<std::string> &actors)
     {
 
@@ -113,6 +128,7 @@ public:
                 ;
 
     }
+
     Request() {
         m_error = RET::OK;
         m_progess = Progress::Todo;
@@ -125,6 +141,8 @@ public:
                 (ACTOR, Property::ACTORS_P)
                 ;
 
+        std::function<std::string()> func = std::bind(&Request::getTitle, this);
+        install_command(TITLE, func);
     }
 
     ~Request() = default;
@@ -167,6 +185,7 @@ public:
     Metadata getMetadata() {
         return meta;
     }
+
 
     Map<std::string, Metadata>& getMultipleResult() {
         return m_multipleResult;
