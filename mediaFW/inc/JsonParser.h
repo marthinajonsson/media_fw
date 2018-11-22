@@ -10,7 +10,6 @@
 #include <map>
 
 #include "Metadata.h"
-#include "JsonUtils.h"
 #include "ifc/Subject.h"
 #include "ifc/Parser.h"
 

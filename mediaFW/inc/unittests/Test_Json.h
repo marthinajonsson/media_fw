@@ -5,7 +5,7 @@
 #ifndef MEDIAFW_TEST_JSON_H
 #define MEDIAFW_TEST_JSON_H
 
-#include <JsonParser.h>
+#include "JsonParser.h"
 #include "DatabaseItem.h"
 #include "gtest/gtest.h"
 

@@ -14,8 +14,9 @@
 
 #include "ifc/Subject.h"
 #include "Connection.h"
-#include "Cli.h"
 #include "StatusLogger.h"
+
+#include "Cli.h"
 
 class Client : Subject {
 

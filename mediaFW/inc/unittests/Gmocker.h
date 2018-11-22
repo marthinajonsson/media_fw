@@ -10,8 +10,10 @@
 
 class MockObserver : public MediaHandler, public ::testing::Mock {
 public:
+    MockObserver() {};
+    ~MockObserver() override {};
 
-  //  MOCK_METHOD1(update, int(Request& req));
+    MOCK_METHOD1(update, int(Request& req));
 
 };
 #endif //MEDIAFW_GMOCKER_H

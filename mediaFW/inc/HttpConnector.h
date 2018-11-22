@@ -8,7 +8,6 @@
 #include <string>
 #include "Request.h"
 #include "StatusLogger.h"
-#include "Util.h"
 
 class HttpConnector {
 
@@ -45,10 +44,10 @@ private:
 
 
     Vec<std::string> uploadProperties {"filename"};
-    Vec<std::string> downloadProperties {"title"};
-    Vec<std::string> searchProperties {"title", "genre", "director", "actor"};
-    Vec<std::string> deleteProperties {"title"};
-    Vec<std::string> playProperties {"title", "id"};
+    Vec<std::string> downloadProperties {TITLE};
+    Vec<std::string> searchProperties {TITLE, GENRE, DIRECTOR, ACTOR};
+    Vec<std::string> deleteProperties {TITLE};
+    Vec<std::string> playProperties {TITLE, "id"};
 
 };
 

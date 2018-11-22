@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <iterator>
 #include <algorithm>
-#include <JsonParser.h>
+
+#include "JsonParser.h"
 #include "HttpConnector.h"
 
 std::string HttpConnector::compileLogin() {

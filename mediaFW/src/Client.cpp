@@ -3,7 +3,6 @@
 //
 
 #include "Client.h"
-#include "Util.h"
 
 /*! \class Client client.h "inc/client.h"
  *  \brief Class implementing the functionality of a client.

@@ -26,5 +26,8 @@ int StartGoogleTest(InputParser &input, int argc, char** argv)
     else  if(option.find("logger") != std::string::npos) {
         ::testing::GTEST_FLAG(filter) = "LoggerTest*";
     }
+    else  if(option.find("observer") != std::string::npos) {
+        ::testing::GTEST_FLAG(filter) = "ObserverTest*";
+    }
     return RUN_ALL_TESTS();
 }

@@ -22,22 +22,7 @@
 class Cli : CommandLineParser
 {
 private:
-    /*! \var TITLE "title"
-    *  @brief used to refer to @property title
-    */
-    const std::string TITLE = "title";
-    /*! \var GENRE "genre"
-     *  @brief used to refer to @property genre
-     */
-    const std::string GENRE = "genre";
-    /*! \var ACTOR "actor"
-     *  @brief used to refer to @property actor
-     */
-    const std::string ACTOR = "actor";
-    /*! \var DIRECTOR "director"
-     *  @brief used to refer to @property director
-     */
-    const std::string DIRECTOR = "director";
+
     /*! \var FILENAME "filename
      *  @brief used to refer to @property filename
      */

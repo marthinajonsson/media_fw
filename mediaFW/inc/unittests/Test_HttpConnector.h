@@ -5,7 +5,7 @@
 #ifndef MEDIAFW_TEST_HTTPCONNECTOR_H
 #define MEDIAFW_TEST_HTTPCONNECTOR_H
 
-#include <HttpConnector.h>
+#include "HttpConnector.h"
 #include "gtest/gtest.h"
 
 class HttpTest : public ::testing::Test

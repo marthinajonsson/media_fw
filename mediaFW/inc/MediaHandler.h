@@ -6,12 +6,13 @@
 #define MEDIAFW_MEDIAHANDLER_H
 
 #include <functional>
-#include "database/Database.h"
-#include "database/MovieDatabase.h"
+
+
 #include "Cli.h"
 #include "Client.h"
 #include "StatusLogger.h"
-
+#include "database/Database.h"
+#include "database/MovieDatabase.h"
 
 /*! \class MediaHandler - handle for a user instance
  * @brief Synchronizes information from server and database,
@@ -20,8 +21,11 @@
 
 class MediaHandler : public Observer{
 public:
-
+    /*! \var p_client
+    * @brief instance of @class Client
+    */
     Client *p_client;
+
     Map<Event, const char*> m_eventMap;
     Map<Progress, const char*> m_progressMap;
     MediaHandler() : m_logger(new StatusLogger), p_conn(new Connection) {
@@ -41,13 +45,13 @@ public:
                 (Progress::InProgress, "[IN PROGRESS] ")
                 (Progress::Done, "[DONE] ")
                 ;
-
+        p_cli = new Cli();
         p_client = new Client(p_conn, p_cli);
         p_database = new MovieDatabase(p_client);
         p_client->registerObserver(this);
     };
 
-    ~MediaHandler() {
+    virtual ~MediaHandler() {
         delete m_logger;
         delete p_cli;
         delete p_client;
@@ -93,6 +97,10 @@ public:
 
 private:
 
+    /*! \var p_cli
+    * @brief instance of @class Cli
+    */
+    Cli *p_cli;
     /*! \var m_logger
      * @brief instance of @class StatusLogger
      */
@@ -101,10 +109,7 @@ private:
      * @brief instance of @class Connection
      */
     Connection *p_conn;
-    /*! \var p_cli
-     * @brief instance of @class Cli
-     */
-    Cli *p_cli;
+
     /*! \var p_database
      * @brief instance of @class MovieDatabase should be renamed to be more generic
      */

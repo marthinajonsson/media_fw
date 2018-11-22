@@ -14,6 +14,31 @@
 #include <iostream>
 #include <map>
 
+/*! \property TITLE
+ *
+ */
+const std::string TITLE = "title";
+
+/*! \property GENRE
+ *
+ */
+const std::string GENRE = "genre";
+
+/*! \property DIRECTOR
+ *
+ */
+const std::string DIRECTOR = "director";
+
+/*! \property ACTOR
+ *
+ */
+const std::string ACTOR = "actor";
+
+/*! \property ACTORS
+ *
+ */
+const std::string ACTORS = "actors";
+
 /*! \section Common Enums
  *  \enum RET
  *  \brief Defines results from operations
@@ -140,6 +165,8 @@ template<typename T> map_init_helper<T> map_init(T& item)
 
 template<typename T1, typename T2> using Map = std::map<T1, T2>;
 template<typename T1> using Vec = std::vector<T1>;
+
+
 
 
 #endif //MEDIAFW_UTIL_H

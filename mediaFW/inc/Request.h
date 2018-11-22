@@ -34,7 +34,7 @@ private:
      */
     Progress m_progess;
 
-    Map<const char*, Property> m_propertyMap;
+    Map<std::string, Property> m_propertyMap;
 
     /*! \property multipleResult
      *  @brief in case operation result in multiple items such in a Event::SEARCH
@@ -79,10 +79,10 @@ public:
         m_error = RET::OK; m_progess = Todo;
 
         map_init(m_propertyMap)
-                ("title", Property::TITLE_P)
-                ("genre", Property::GENRE_P)
-                ("director", Property::DIRECTOR_P)
-                ("actor", Property::ACTORS_P)
+                (TITLE, Property::TITLE_P)
+                (GENRE, Property::GENRE_P)
+                (DIRECTOR, Property::DIRECTOR_P)
+                (ACTOR, Property::ACTORS_P)
                 ;
 
     }
@@ -92,10 +92,10 @@ public:
         m_error = RET::OK;
 
         map_init(m_propertyMap)
-                ("title", Property::TITLE_P)
-                ("genre", Property::GENRE_P)
-                ("director", Property::DIRECTOR_P)
-                ("actor", Property::ACTORS_P)
+                (TITLE, Property::TITLE_P)
+                (GENRE, Property::GENRE_P)
+                (DIRECTOR, Property::DIRECTOR_P)
+                (ACTOR, Property::ACTORS_P)
                 ;
 
     }
@@ -106,10 +106,10 @@ public:
         m_event = Event::UNDEFINED;
 
         map_init(m_propertyMap)
-                ("title", Property::TITLE_P)
-                ("genre", Property::GENRE_P)
-                ("director", Property::DIRECTOR_P)
-                ("actor", Property::ACTORS_P)
+                (TITLE, Property::TITLE_P)
+                (GENRE, Property::GENRE_P)
+                (DIRECTOR, Property::DIRECTOR_P)
+                (ACTOR, Property::ACTORS_P)
                 ;
 
     }
@@ -119,10 +119,10 @@ public:
         m_event = Event::UNDEFINED;
 
         map_init(m_propertyMap)
-                ("title", Property::TITLE_P)
-                ("genre", Property::GENRE_P)
-                ("director", Property::DIRECTOR_P)
-                ("actor", Property::ACTORS_P)
+                (TITLE, Property::TITLE_P)
+                (GENRE, Property::GENRE_P)
+                (DIRECTOR, Property::DIRECTOR_P)
+                (ACTOR, Property::ACTORS_P)
                 ;
 
     }
@@ -148,10 +148,10 @@ public:
     void setMultipleResult(Map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
 
     void setProperty(std::string &type, std::string& val) {
-        if(type.find("title") != std::string::npos ) { this->meta.m_title = val; }
-        else if(type.find("genre") != std::string::npos ) { this->meta.m_genre = val; }
-        else if(type.find("director") != std::string::npos ) { this->meta.m_director = val; }
-        else if (type.find("actor") != std::string::npos ) { this->meta.m_actors.emplace_back(val); }
+        if(type.find(TITLE) != std::string::npos ) { this->meta.m_title = val; }
+        else if(type.find(GENRE) != std::string::npos ) { this->meta.m_genre = val; }
+        else if(type.find(DIRECTOR) != std::string::npos ) { this->meta.m_director = val; }
+        else if (type.find(ACTOR) != std::string::npos ) { this->meta.m_actors.emplace_back(val); }
     }
 
     void setProperties(std::string t, std::string g, std::string d) {
