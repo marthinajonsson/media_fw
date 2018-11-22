@@ -107,7 +107,7 @@ public:
     /*! \public observers
      * @var observers, a vector of registered observers
      */
-    std::vector<Observer *> observers;
+    Vec<Observer *> observers;
 
 private:
     /*! \var m_queueEmpty

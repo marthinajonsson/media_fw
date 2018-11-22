@@ -22,8 +22,8 @@ class MediaHandler : public Observer{
 public:
 
     Client *p_client;
-    std::map<Event, const char*> m_eventMap;
-    std::map<Progress, const char*> m_progressMap;
+    Map<Event, const char*> m_eventMap;
+    Map<Progress, const char*> m_progressMap;
     MediaHandler() : m_logger(new StatusLogger), p_conn(new Connection) {
         std::cout << "Mediahandler constructor" << std::endl;
 

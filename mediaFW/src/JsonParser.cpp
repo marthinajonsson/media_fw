@@ -155,7 +155,7 @@ bool JsonParser::find(Category &category, const std::string &val)
 
     auto map = getLoaded();
 
-    for (auto it : map) {
+    for (auto &it : map) {
         auto t = it.second.m_title;
         auto g = it.second.m_genre;
         auto d = it.second.m_director;

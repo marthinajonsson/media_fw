@@ -54,8 +54,17 @@ public:
             purgeItem(item);
         }
         else if(e == Event::SEARCH) {
-            auto title = request.getMetadata().m_title;
-            fetchItem(title);
+            auto result = request.getMultipleResult();
+            if(result.empty()) {
+                return RET::ERROR;
+            }
+            for(auto r : result){
+                auto title = r.second.m_title;
+                auto item = fetchItem(title);
+                std::cout << "DB: " << item.getTitle() << "\t" << item.getGenre() << std::endl;
+                std::cout << "DB: " << item.getDirector() << std::endl;
+            }
+
         }
         return RET::OK;
     }
@@ -109,7 +118,7 @@ public:
         if(m_items.empty()) {
             m_emptyList.notify_one();
         }
-        m_items.push_back(m_item);
+        m_items.emplace_back(m_item);
     }
 
     /// <summary>
@@ -169,7 +178,7 @@ public:
                 m_items.erase(it);
             }
             else {
-                temp_list.push_back(*it);
+                temp_list.emplace_back(*it);
             }
             numLoops++;
         }

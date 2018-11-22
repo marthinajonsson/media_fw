@@ -62,8 +62,8 @@ std::string HttpConnector::compilePayload(Request &request) {
     std::string val;
     auto mapProp = request.getProperties();
 
-    std::vector<std::string> searchVec;
-    std::vector<std::string>::iterator it;
+    Vec<std::string> searchVec;
+    Vec<std::string>::iterator it;
     if(event == Event::UPLOAD) {
         searchVec = uploadProperties;
     }else if(event == Event::DOWNLOAD) {

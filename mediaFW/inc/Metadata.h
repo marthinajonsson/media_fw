@@ -34,9 +34,9 @@ public:
     std::string m_title = "UNDEFINED";
     std::string m_genre = "UNDEFINED";
     std::string m_director = "UNDEFINED";
-    std::vector<std::string> m_actors = {"UNDEFINED"};
+    Vec<std::string> m_actors = {"UNDEFINED"};
 
-    Category m_category = Category::All;
+    Category m_category = Category::Undefined;
 };
 
 #endif //MEDIAFW_METADATA_H

@@ -106,7 +106,7 @@ public:
      * @param std::vector<std::string>& vector of string arguments to be translated
      * @return the translated request object
      */
-    int interprete(std::vector<std::string> &, Request&) override;
+    int interprete(Vec<std::string> &, Request&) override;
 
     /*! \public Client::process()
      * @implements the interface of CommandLineParser
@@ -128,9 +128,9 @@ private:
      * @param delim delimiter used to split @param input
      * @return @param input splitted into multiple strings saved in a std::vector
      */
-    std::vector<std::string> split(std::string &input, char delim) {
+    Vec<std::string> split(std::string &input, char delim) {
         std::stringstream m_stream(input);
-        std::vector<std::string> seglist;
+        Vec<std::string> seglist;
         std::string segment;
         seglist.reserve(50);
         seglist.clear();
@@ -149,7 +149,7 @@ private:
      * @param event - interpreted event from cli input
      * @return - result of operation with @enum RET::OK or @enum RET::ERROR
      */
-    int checkValidEvent(std::vector<std::string> &input, Event &event){
+    int checkValidEvent(Vec<std::string> &input, Event &event){
         auto result = RET::ERROR;
         auto eventStr = input.front();
         std::transform(eventStr.begin(), eventStr.end(), eventStr.begin(), ::tolower);
@@ -171,7 +171,7 @@ private:
      * @param category undefined category that is being updated accordingly
      * @return result of operation with @enum RET::OK or @enum RET::ERROR
      */
-    int checkValidCategory(std::vector<std::string> &input, Category &category){
+    int checkValidCategory(Vec<std::string> &input, Category &category){
         auto result = RET::ERROR;
         auto vec = {MOVIE, SERIES};
         auto str = input.front();
@@ -242,7 +242,7 @@ private:
      * @param type type to process
      * @return result of operation with @enum RET::OK or @enum RET::ERROR
      */
-    int getTypeOfValue(std::vector<std::string> &input, std::string &type) {
+    int getTypeOfValue(Vec<std::string> &input, std::string &type) {
         type = input.front();
 
         std::transform(type.begin(), type.end(), type.begin(), ::tolower);
@@ -260,7 +260,7 @@ private:
      * @param val value fetched
      * @return result of operation with @enum RET::OK or @enum RET::ERROR
      */
-    int getValueOfType(std::vector<std::string> &input, std::string &val) {
+    int getValueOfType(Vec<std::string> &input, std::string &val) {
 
         if(input.size() > 1) {
             return RET::ERROR;

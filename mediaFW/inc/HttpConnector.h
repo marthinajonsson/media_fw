@@ -13,7 +13,7 @@
 class HttpConnector {
 
 public:
-    std::map<Event, std::vector<std::string>> m_mapMethod;
+    Map<Event, Vec<std::string>> m_mapMethod;
 
     HttpConnector() : m_logger(new StatusLogger) {
 
@@ -44,11 +44,11 @@ private:
     std::string compilePayload(Request&);
 
 
-    std::vector<std::string> uploadProperties {"filename"};
-    std::vector<std::string> downloadProperties {"title"};
-    std::vector<std::string> searchProperties {"title", "genre", "director", "actor"};
-    std::vector<std::string> deleteProperties {"title"};
-    std::vector<std::string> playProperties {"title", "id"};
+    Vec<std::string> uploadProperties {"filename"};
+    Vec<std::string> downloadProperties {"title"};
+    Vec<std::string> searchProperties {"title", "genre", "director", "actor"};
+    Vec<std::string> deleteProperties {"title"};
+    Vec<std::string> playProperties {"title", "id"};
 
 };
 

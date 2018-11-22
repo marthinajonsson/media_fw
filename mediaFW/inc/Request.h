@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by mjonsson on 10/31/18.
 //
@@ -32,25 +34,25 @@ private:
      */
     Progress m_progess;
 
-    std::map<const char*, Property> m_propertyMap;
+    Map<const char*, Property> m_propertyMap;
 
     /*! \property multipleResult
      *  @brief in case operation result in multiple items such in a Event::SEARCH
      *  the result is being saved
      */
-    std::map<std::string, Metadata> m_multipleResult;
+    Map<std::string, Metadata> m_multipleResult;
 
 
 
 public:
-    Request(Event event, std::string &title, std::string &genre, std::string &director, std::vector<std::string> &actors)
+    Request(Event event, std::string &title, std::string &genre, std::string &director, Vec<std::string> &actors)
     {
 
         meta.m_title = title;
         meta.m_genre = genre;
         meta.m_director = director;
         meta.m_actors = actors;
-        meta.m_category = Category::All;
+        meta.m_category = Category::Undefined;
         m_event = event;
         m_error = RET::OK;
         m_progess = Todo;
@@ -73,7 +75,7 @@ public:
     Request(Event event, std::string &title) : m_event(event)
     {
         meta.m_title = title;
-        meta.m_category = Category::All;
+        meta.m_category = Category::Undefined;
         m_error = RET::OK; m_progess = Todo;
 
         map_init(m_propertyMap)
@@ -99,7 +101,7 @@ public:
     }
 
 
-    Request(RET code, std::string desc) : m_error(code), m_errDesc(desc) {
+    Request(RET code, std::string desc) : m_error(code), m_errDesc(std::move(desc)) {
         m_progess = Todo;
         m_event = Event::UNDEFINED;
 
@@ -140,16 +142,16 @@ public:
     void setDirector(std::string director) { meta.m_director = std::move(director); }
     void setGenre(std::string genre) { meta.m_genre = std::move(genre); }
     void setTitle(std::string title) { meta.m_title = std::move(title); }
-    void setActors(std::vector<std::string> vec) { meta.m_actors = std::move(vec); }
+    void setActors(Vec<std::string> vec) { meta.m_actors = std::move(vec); }
     void setFilename(std::string filename) { m_filename = std::move(filename); }
 
-    void setMultipleResult(std::map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
+    void setMultipleResult(Map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
 
     void setProperty(std::string &type, std::string& val) {
         if(type.find("title") != std::string::npos ) { this->meta.m_title = val; }
         else if(type.find("genre") != std::string::npos ) { this->meta.m_genre = val; }
         else if(type.find("director") != std::string::npos ) { this->meta.m_director = val; }
-        else if (type.find("actor") != std::string::npos ) { this->meta.m_actors.push_back(val); }
+        else if (type.find("actor") != std::string::npos ) { this->meta.m_actors.emplace_back(val); }
     }
 
     void setProperties(std::string t, std::string g, std::string d) {
@@ -166,21 +168,21 @@ public:
         return meta;
     }
 
-    std::map<std::string, Metadata>& getMultipleResult() {
+    Map<std::string, Metadata>& getMultipleResult() {
         return m_multipleResult;
     }
 
-    std::map<std::string, std::string> getProperties() {
-        std::map<std::string, std::string> map;
-        if(!meta.m_title.empty())
+    Map<std::string, std::string> getProperties() {
+        Map<std::string, std::string> map;
+        if(meta.m_title.find(UNDEF) == std::string::npos)
             map["title"] = meta.m_title;
-        if(!meta.m_genre.empty())
+        if(meta.m_genre.find(UNDEF) == std::string::npos)
             map["genre"] = meta.m_genre;
-        if(!meta.m_director.empty())
+        if(meta.m_director.find(UNDEF) == std::string::npos)
             map["director"] = meta.m_director;
         if(!m_filename.empty())
             map["filename"] = m_filename;
-        if(!meta.m_actors.empty())
+        if(meta.m_actors.front().find(UNDEF) == std::string::npos)
             map["actor"] = meta.m_actors.front();
         return map;
     }

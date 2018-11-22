@@ -14,11 +14,11 @@
 #include <Request.h>
 #include <Util.h>
 
-class DatabaseItem{
+class DatabaseItem {
 public:
 
     DatabaseItem () = default;
-    DatabaseItem(std::vector<std::string> &_actors, std::string &_title, std::string &_genre, std::string &_director, const Category &_cat)
+    DatabaseItem(Vec<std::string> &_actors, std::string &_title, std::string &_genre, std::string &_director, const Category &_cat)
         : m_actors(_actors), m_title(_title), m_genre(_genre), m_director(_director), m_category(_cat)
     {
     };
@@ -41,7 +41,7 @@ public:
      * @property Get
      * @return vector of actors @var m_actors
      */
-    std::vector<std::string> getActors(){ return m_actors;}
+    Vec<std::string> getActors(){ return m_actors;}
     /*! \public getTitle
      * @property Get
      * @return string @var m_title
@@ -91,7 +91,7 @@ private:
     /*! \var m_actors
      * @brief vector of actor names
      */
-    std::vector<std::string> m_actors;
+    Vec<std::string> m_actors;
 };
 
 

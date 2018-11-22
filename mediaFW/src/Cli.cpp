@@ -16,7 +16,7 @@
  */
 
 Request Cli::process(std::string &line) {
-    std::vector<std::string> parsed;
+    Vec<std::string> parsed;
     parsed = split(line, ':');
     Request request;
     interprete(parsed, request);
@@ -25,7 +25,7 @@ Request Cli::process(std::string &line) {
 
 Request Cli::process()
 {
-    std::vector<std::string> parsed;
+    Vec<std::string> parsed;
     for (std::string line; std::cout << "MEDIAFW > " && std::getline(std::cin, line); )
     {
         if (line.find(HELP) != std::string::npos) {
@@ -57,7 +57,7 @@ Request Cli::process()
 // download:<movie/series>:title:<value>
 // search:<movie/series>:actor/title/genre/director:<value>
 // <delete>:<movie/series>:title:<value>
-int Cli::interprete(std::vector<std::string> &input, Request &request)
+int Cli::interprete(Vec<std::string> &input, Request &request)
 {
     Event event = Event::UNDEFINED;
     std::string val;
@@ -126,6 +126,7 @@ int Cli::interprete(std::vector<std::string> &input, Request &request)
     else if(event == Event::SEARCH) {
         auto items = JsonParser::getInstance().getAllMatches();
         request.setMultipleResult(items);
+        request.setProperty(type, val);
     }
     else if(Event::UPLOAD == event){
         setFileName(request, val);

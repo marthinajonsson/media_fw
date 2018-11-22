@@ -12,6 +12,7 @@
 #include <vector>
 #include <assert.h>
 #include <iostream>
+#include <map>
 
 /*! \section Common Enums
  *  \enum RET
@@ -52,7 +53,7 @@ enum Category {
     Movie = 0,
     Series = 1,
     Config = 2,
-    All = 3
+    Undefined = 3
 };
 
 
@@ -136,5 +137,9 @@ template<typename T> map_init_helper<T> map_init(T& item)
 {
     return map_init_helper<T>(item);
 }
+
+template<typename T1, typename T2> using Map = std::map<T1, T2>;
+template<typename T1> using Vec = std::vector<T1>;
+
 
 #endif //MEDIAFW_UTIL_H

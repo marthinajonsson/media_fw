@@ -57,15 +57,15 @@ public:
      *
      * @return @var m_configMap
      */
-    std::map<std::string, config> getConfig() { return  m_configMap; }
+    Map<std::string, config> getConfig() { return  m_configMap; }
 
     /*! \public getLatestResult
      * @brief returns latest result after find()
      * @return @var m_mediaMap
      */
-    std::map<std::string, Metadata> getLoaded() { return  m_mediaMap; }
+    Map<std::string, Metadata> getLoaded() { return  m_mediaMap; }
 
-    std::map<std::string, Metadata> getAllMatches() { return  m_allMatchesMap; }
+    Map<std::string, Metadata> getAllMatches() { return  m_allMatchesMap; }
 
 private:
 
@@ -75,17 +75,17 @@ private:
     /*! \var m_configMap
     *
     */
-    std::map<std::string, config> m_configMap;
+    Map<std::string, config> m_configMap;
 
     /*! \var m_mediaMap
     *
     */
-    std::map<std::string, Metadata> m_mediaMap;
+    Map<std::string, Metadata> m_mediaMap;
 
     /*! \var m_mediaMap
     *
     */
-    std::map<std::string, Metadata> m_allMatchesMap;
+    Map<std::string, Metadata> m_allMatchesMap;
 
     /*! \var ITEMS "items"
     *
