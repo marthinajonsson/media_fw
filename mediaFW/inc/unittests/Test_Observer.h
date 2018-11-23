@@ -16,12 +16,14 @@ inline bool operator==(const Request& lhs, const Request& rhs)
     return true;
 }
 
+std::string t = "The Proposal";
+
 TEST(ObserverTest, ObserverTest_GetSearchNotification_Test) {
     MockObserver observer;
     MockObserver::Mock::VerifyAndClearExpectations(&observer);
     Request request;
     request.setEvent(Event::SEARCH);
-    request.setTitle("The Proposal");
+    request.set(TITLE, t);
 
     observer.p_client->registerObserver(&observer);
     std::size_t numObservers = observer.p_client->observers.size();
@@ -34,7 +36,7 @@ TEST(ObserverTest, ObserverTest_GetSearchNotification_Test) {
 TEST(ObserverTest, ObserverTest_GetDeleteNotification_Test) {
     MockObserver observer;
     Request request(Event::DELETE);
-    request.setTitle("The Proposal");
+    request.set(TITLE, t);
 
     observer.p_client->registerObserver(&observer);
     ASSERT_TRUE(observer.p_client->observers.size() == 2);
@@ -45,7 +47,7 @@ TEST(ObserverTest, ObserverTest_GetDeleteNotification_Test) {
 TEST(ObserverTest, ObserverTest_GetDownloadNotification_Test) {
     MockObserver observer;
     Request request(Event::DOWNLOAD);
-    request.setTitle("The Proposal");
+    request.set(TITLE, t);
 
     observer.p_client->registerObserver(&observer);
     ASSERT_TRUE(observer.p_client->observers.size() == 2);

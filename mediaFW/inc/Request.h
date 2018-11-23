@@ -43,22 +43,104 @@ private:
      */
     Map<std::string, Metadata> m_multipleResult;
 
+    Map<std::string, std::function<std::string()>> getCommands;
+
+    Map<std::string, std::function<void(std::string&)>> setCommands;
+
+    void setActor(std::string actor) {
+        if(meta.m_actors.front() == UNDEF) {
+            Vec<std::string> v2 = {actor};
+            meta.m_actors.swap(v2);
+        }
+        else {
+            meta.m_actors.emplace_back(std::move(actor));
+        }
+    }
+    void setDirector(std::string director) { meta.m_director = std::move(director); }
+    void setGenre(std::string genre) { meta.m_genre = std::move(genre); }
+    void setTitle(std::string title) { meta.m_title = std::move(title); }
+    void setFilename(std::string filename) { m_filename = std::move(filename); }
+
     std::string getTitle() {
         return meta.m_title;
+    }
+    std::string getGenre() {
+        return meta.m_genre;
+    }
+    std::string getDirector() {
+        return meta.m_director;
+    }
+    std::string getActor() {
+        return meta.m_actors.front();
+    }
+    std::string getFilename() {
+        return m_filename;
     }
 
 
     template<typename ftor>
-    void install_command(std::string name, ftor && handler)
+    void install_getCommand(std::string name, ftor && handler)
     {
-        commands.insert({
+        getCommands.insert({
                                 std::move(name),
                                 std::forward<ftor>(handler)
                         });
     }
+    template<typename ftor>
+    void install_setCommand(std::string name, ftor && handler) {
+        setCommands.insert({
+                                   std::move(name),
+                                   std::forward<ftor>(handler)
+                           });
+    }
+
+    void mapper() {
+        map_init(m_propertyMap)
+                (TITLE, Property::TITLE_P)
+                (GENRE, Property::GENRE_P)
+                (DIRECTOR, Property::DIRECTOR_P)
+                (ACTOR, Property::ACTORS_P)
+                (PROGRESS, Property::PROGRESS_P)
+                (CATEGORY, Property::CATEGORY_P)
+                (EVENT, Property::EVENT_P)
+                ;
+    }
+
+    void bindFunc() {
+        std::function<std::string()> func = std::bind(&Request::getTitle, this);
+        install_getCommand(TITLE, func);
+
+        func = std::bind(&Request::getGenre, this);
+        install_getCommand(GENRE, func);
+
+        func = std::bind(&Request::getDirector, this);
+        install_getCommand(DIRECTOR, func);
+
+        func = std::bind(&Request::getActor, this);
+        install_getCommand(ACTOR, func);
+
+        func = std::bind(&Request::getFilename, this);
+        install_getCommand(FILENAME, func);
+
+        using std::placeholders::_1;
+        std::function<void(std::string&)> foo = std::bind( &Request::setTitle, this, _1);
+        install_setCommand(TITLE, foo);
+
+        foo = std::bind( &Request::setGenre, this, _1);
+        install_setCommand(GENRE, foo);
+
+        foo = std::bind( &Request::setDirector, this, _1);
+        install_setCommand(DIRECTOR, foo);
+
+        foo = std::bind( &Request::setActor, this, _1);
+        install_setCommand(ACTOR, foo);
+
+        foo = std::bind( &Request::setFilename, this, _1);
+        install_setCommand(FILENAME, foo);
+    }
 
 public:
-    Map<std::string, std::function<std::string()>> commands;
+
 
     Request(Event event, std::string &title, std::string &genre, std::string &director, Vec<std::string> &actors)
     {
@@ -71,14 +153,8 @@ public:
         m_event = event;
         m_error = RET::OK;
         m_progess = Todo;
-
-        map_init(m_propertyMap)
-                ("title", Property::TITLE_P)
-                ("genre", Property::GENRE_P)
-                ("director", Property::DIRECTOR_P)
-                ("actor", Property::ACTORS_P)
-                ;
-
+        mapper();
+        bindFunc();
     }
 
     const Request & operator = (const Request &t)
@@ -92,60 +168,37 @@ public:
         meta.m_title = title;
         meta.m_category = Category::Undefined;
         m_error = RET::OK; m_progess = Todo;
-
-        map_init(m_propertyMap)
-                (TITLE, Property::TITLE_P)
-                (GENRE, Property::GENRE_P)
-                (DIRECTOR, Property::DIRECTOR_P)
-                (ACTOR, Property::ACTORS_P)
-                ;
-
+        mapper();
+        bindFunc();
     }
 
     explicit Request(Event event) : m_event(event) {
         m_progess = Todo;
         m_error = RET::OK;
-
-        map_init(m_propertyMap)
-                (TITLE, Property::TITLE_P)
-                (GENRE, Property::GENRE_P)
-                (DIRECTOR, Property::DIRECTOR_P)
-                (ACTOR, Property::ACTORS_P)
-                ;
-
+        mapper();
+        bindFunc();
     }
 
 
     Request(RET code, std::string desc) : m_error(code), m_errDesc(std::move(desc)) {
         m_progess = Todo;
         m_event = Event::UNDEFINED;
-
-        map_init(m_propertyMap)
-                (TITLE, Property::TITLE_P)
-                (GENRE, Property::GENRE_P)
-                (DIRECTOR, Property::DIRECTOR_P)
-                (ACTOR, Property::ACTORS_P)
-                ;
-
+        mapper();
+        bindFunc();
     }
 
     Request() {
         m_error = RET::OK;
         m_progess = Progress::Todo;
         m_event = Event::UNDEFINED;
+        mapper();
+        bindFunc();
 
-        map_init(m_propertyMap)
-                (TITLE, Property::TITLE_P)
-                (GENRE, Property::GENRE_P)
-                (DIRECTOR, Property::DIRECTOR_P)
-                (ACTOR, Property::ACTORS_P)
-                ;
-
-        std::function<std::string()> func = std::bind(&Request::getTitle, this);
-        install_command(TITLE, func);
     }
 
     ~Request() = default;
+
+
 
     /*
      * SET
@@ -157,26 +210,16 @@ public:
     void setProgress(Progress progress) { m_progess = progress; }
     void setError(const int &err) { m_error = err; }
     void setErrorDesc(std::string desc) { m_errDesc = std::move(desc); }
-    void setDirector(std::string director) { meta.m_director = std::move(director); }
-    void setGenre(std::string genre) { meta.m_genre = std::move(genre); }
-    void setTitle(std::string title) { meta.m_title = std::move(title); }
+
     void setActors(Vec<std::string> vec) { meta.m_actors = std::move(vec); }
-    void setFilename(std::string filename) { m_filename = std::move(filename); }
 
     void setMultipleResult(Map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
 
-    void setProperty(std::string &type, std::string& val) {
-        if(type.find(TITLE) != std::string::npos ) { this->meta.m_title = val; }
-        else if(type.find(GENRE) != std::string::npos ) { this->meta.m_genre = val; }
-        else if(type.find(DIRECTOR) != std::string::npos ) { this->meta.m_director = val; }
-        else if (type.find(ACTOR) != std::string::npos ) { this->meta.m_actors.emplace_back(val); }
+    void set(const std::string& cmd, std::string& value) {
+        auto func = setCommands.at(cmd);
+        func(value);
     }
 
-    void setProperties(std::string t, std::string g, std::string d) {
-        meta.m_title = std::move(t);
-        meta.m_genre = std::move(g);
-        meta.m_director = std::move(d);
-    }
 
     /*
      *  GET
@@ -184,6 +227,11 @@ public:
      * */
     Metadata getMetadata() {
         return meta;
+    }
+
+    std::string get(const std::string& cmd) {
+        auto func = getCommands.at(cmd);
+        return func();
     }
 
 
@@ -212,7 +260,6 @@ public:
 
     int getError() { return m_error; }
     std::string getErrorDesc() { return m_errDesc; }
-    std::string const getFileName() { return m_filename; }
 
 };
 #endif //MEDIAFW_REQUEST_H

@@ -39,6 +39,26 @@ const std::string ACTOR = "actor";
  */
 const std::string ACTORS = "actors";
 
+/*! \property FILENAME
+ *
+ */
+const std::string FILENAME = "filename";
+
+/*! \property PROGRESS
+ *
+ */
+const std::string PROGRESS = "progress";
+
+/*! \property CATEGORY
+ *
+ */
+const std::string CATEGORY = "category";
+
+/*! \property EVENT
+ *
+ */
+const std::string EVENT = "event";
+
 /*! \section Common Enums
  *  \enum RET
  *  \brief Defines results from operations
@@ -64,7 +84,10 @@ enum Property {
     TITLE_P = 0,
     GENRE_P = 1,
     DIRECTOR_P = 2,
-    ACTORS_P = 3
+    ACTORS_P = 3,
+    PROGRESS_P,
+    CATEGORY_P,
+    EVENT_P
 };
 
 

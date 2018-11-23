@@ -76,7 +76,12 @@ TEST(JsonTest, JsonTest_FindSeries_Test) {
 TEST(JsonTest, JsonTest_AddRemoveMovie_Test) {
     DatabaseItem item;
     Request request(Event::UPLOAD);
-    request.setProperties("titleT", "horror", "Marthina");
+    std::string t = "titleT";
+    std::string g = "horror";
+    std::string d = "Marthina";
+    request.set(TITLE, t);
+    request.set(GENRE, g);
+    request.set(DIRECTOR, d);
     request.setActors({"Trazan", "Banarne"});
 
     item.setFeature(request);
@@ -110,7 +115,12 @@ TEST(JsonTest, JsonTest_AddRemoveMovie_Test) {
 TEST(JsonTest, JsonTest_AddRemoveSeries_Test) {
     DatabaseItem item;
     Request request(Event::UPLOAD);
-    request.setProperties("titleT", "horror", "Marthina");
+    std::string t = "titleT";
+    std::string g = "horror";
+    std::string d = "Marthina";
+    request.set(TITLE, t);
+    request.set(GENRE, g);
+    request.set(DIRECTOR, d);
     request.setActors({"Trazan", "Banarne"});
 
     item.setFeature(request);

@@ -30,10 +30,21 @@ protected:
 
 TEST_F(RequestTest, RequestTest_Title_Test) {
     Request request;
-    request.setProperties("testT", "testG", "testD");
-    auto func = request.commands.at(TITLE);
-    auto s = func();
-    auto t = request.getMetadata().m_title;
+    std::string t = "testT";
+    std::string g = "testG";
+    std::string d = "testD";
+    request.set(TITLE, t);
+    request.set(GENRE, g);
+    request.set(DIRECTOR, d);
+    request.setActors({"act1", "act2"});
+    t = request.get(TITLE);
+    g = request.get(GENRE);
+    d = request.get(DIRECTOR);
+    auto a = request.get(ACTOR);
     ASSERT_TRUE(t == "testT");
+    ASSERT_TRUE(g == "testG");
+    ASSERT_TRUE(d == "testD");
+    ASSERT_TRUE(a == "act1");
+
 }
 #endif //MEDIAFW_TEST_REQUEST_H

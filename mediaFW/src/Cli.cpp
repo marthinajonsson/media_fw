@@ -121,12 +121,12 @@ int Cli::interprete(Vec<std::string> &input, Request &request)
             request.setErrorDesc("More than one item match. Please specify more explictly.");
             return RET::ERROR;
         }
-        request.setProperty(type, val);
+        request.set(type, val);
     }
     else if(event == Event::SEARCH) {
         auto items = JsonParser::getInstance().getAllMatches();
         request.setMultipleResult(items);
-        request.setProperty(type, val);
+        request.set(type, val);
     }
     else if(Event::UPLOAD == event){
         setFileName(request, val);

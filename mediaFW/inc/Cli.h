@@ -265,10 +265,10 @@ private:
      * @param request object to update
      * @param val value to save to @property filename
      */
-    void setFileName(Request &request, std::string val) {
+    void setFileName(Request &request, std::string& val) {
         std::string path = "../data/";
         val = path + val;
-        request.setFilename(std::move(val));
+        request.set(FILENAME, val);
     }
 
     /*! \private Cli::setProperties
@@ -277,8 +277,13 @@ private:
      * @param item
      */
     void setProperties(Request &request, Metadata meta) {
-        request.setProperties(std::move(meta.m_title), std::move(meta.m_genre), std::move(meta.m_director));
-        request.setActors(meta.m_actors);
+
+        for(auto &a : meta.m_actors) {
+            request.set(ACTOR, a);
+        }
+        request.set(DIRECTOR, meta.m_director);
+        request.set(GENRE, meta.m_genre);
+        request.set(TITLE, meta.m_title);
     }
 
     /*! \private Cli::verifyUpload
@@ -288,7 +293,7 @@ private:
      */
     int verifyUpload(Request &request) {
 
-        const auto filename = request.getFileName();
+        const auto filename = request.get(FILENAME);
         if (filename.empty()) { return false; }
         if(access( filename.c_str(), F_OK ) == RET::ERROR) {
             request.setError(RET::ERROR);
@@ -317,11 +322,15 @@ private:
             return RET::ERROR;
         }
 
-        request.setProperties(parsedInfo.front(), parsedInfo.at(1), parsedInfo.at(2));
+        request.set(TITLE, parsedInfo.front());
+        request.set(GENRE, parsedInfo.at(1));
+        request.set(DIRECTOR, parsedInfo.at(2));
         pop_front(parsedInfo);
         pop_front(parsedInfo);
         pop_front(parsedInfo);
-        request.setActors(parsedInfo);
+        for(auto &a : parsedInfo) {
+            request.set(ACTOR, a);
+        }
         return RET::OK;
     }
 

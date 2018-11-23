@@ -50,8 +50,9 @@ TEST_F(DatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
     MovieDatabase db;
     Category cat = Category::Movie;
     Request req(Event::UPLOAD);
-
-    req.setProperties(t, g, d);
+    req.set(TITLE, t);
+    req.set(GENRE, g);
+    req.set(DIRECTOR, d);
     req.setActors(vec);
     req.setCategory(cat);
     DatabaseItem newItem;
@@ -75,7 +76,9 @@ TEST_F(DatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
     Category cat = Category::Movie;
     Request req(Event::UPLOAD);
     req.setActors(vec);
-    req.setProperties(t, g, d);
+    req.set(TITLE, t);
+    req.set(GENRE, g);
+    req.set(DIRECTOR, d);
     req.setCategory(cat);
     DatabaseItem newItem;
     newItem.setFeature(req);
