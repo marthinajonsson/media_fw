@@ -25,6 +25,11 @@ public:
 
     ~DatabaseItem() = default;
 
+    bool operator==(const DatabaseItem& rhs) {
+        return m_title == rhs.m_title && m_genre == rhs.m_genre &&
+    m_director == rhs.m_director && m_actors.front() == rhs.m_actors.front();
+    }
+
     /*! \public
      * @property Set
      * @param feature object of @class Request
@@ -35,7 +40,7 @@ public:
         this->m_actors = meta.m_actors;
         this->m_director = meta.m_director;
         this->m_title = meta.m_title;
-        this->m_genre = meta.m_title;
+        this->m_genre = meta.m_genre;
     };
 
     /*! \public getActors
@@ -58,11 +63,6 @@ public:
      * @return string of m_genre
      */
     std::string getGenre(){ return m_genre;}
-    /*! \public getDir
-     * @property Get
-     * @return string of m_directory
-     */
-    std::string getDir(){ return m_directory;}
     /*! \public getCategory
      * @property Get
      * @return @var m_category
@@ -74,10 +74,6 @@ private:
      * @brief movie or series see @enum Category
      */
     Category m_category;
-    /*! \var m_directory
-     * @brief not used at the moment
-     */
-    std::string m_directory;
     /*! \var m_title
      */
     std::string m_title;

@@ -28,7 +28,7 @@ protected:
     }
 };
 
-TEST_F(RequestTest, RequestTest_Title_Test) {
+TEST_F(RequestTest, RequestTest_Construct1_Test) {
     Request request;
     std::string t = "testT";
     std::string g = "testG";
@@ -45,6 +45,12 @@ TEST_F(RequestTest, RequestTest_Title_Test) {
     ASSERT_TRUE(g == "testG");
     ASSERT_TRUE(d == "testD");
     ASSERT_TRUE(a == "act1");
+
+}
+
+TEST_F(RequestTest, RequestTest_Construct2_Test) {
+    Request request(Event::SEARCH);
+    ASSERT_TRUE(request.getEvent() == Event::SEARCH);
 
 }
 #endif //MEDIAFW_TEST_REQUEST_H

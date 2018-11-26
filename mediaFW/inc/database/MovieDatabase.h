@@ -15,6 +15,8 @@
 #include "Database.h"
 #include "Client.h"
 
+
+// TODO Create one for series as an observer if it is possible to filter what is observed by category
 class MovieDatabase : public Database, public Observer {
 public:
 
@@ -165,24 +167,11 @@ public:
     /// <param>A const reference to a database item</param>
     void purgeItem(const DatabaseItem &m_item) override {
         std::unique_lock<std::mutex>  m_lock;
-        std::list<DatabaseItem>::iterator it;
-        std::list<DatabaseItem> temp_list;
+        auto it = std::find(m_items.begin(), m_items.end(), m_item);
 
-        int numLoops = 1;
-        // TODO m_items.end() does not work seem to be extended?
-        for (it = m_items.begin(); it != m_items.end(); it++) {
-
-            if(numLoops  > m_items.size()) { break; }
-
-            if(it->getTitle() == m_item.getTitle()) {
-                m_items.erase(it);
-            }
-            else {
-                temp_list.emplace_back(*it);
-            }
-            numLoops++;
+        if (it != m_items.end()) {
+            m_items.erase(it);
         }
-        m_items = temp_list;
     }
 
     /// <summary>

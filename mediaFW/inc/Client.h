@@ -30,9 +30,7 @@ public:
         return t;
     }
 
-    ~Client()  {
-        std::cout << "client deconstructor" << std::endl;
-    };
+    ~Client() = default;
 
     Client(Connection *_conn, Cli* _cli) : p_conn(_conn), p_cli(_cli),  m_logger(new StatusLogger), m_queueEmpty(false) {};
 

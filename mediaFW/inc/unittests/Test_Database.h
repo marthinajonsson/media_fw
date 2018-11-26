@@ -37,7 +37,7 @@ TEST_F(DatabaseTest, DatabaseTest_BaseTest__Test) {
     MovieDatabase db;
     db.getNumberOfItem();
     DatabaseItem item = db.fetchItem("The Proposal");
-    ASSERT_EQ(item.getTitle(), "The Proposal");
+    ASSERT_TRUE(item.getTitle() == "The Proposal");
 }
 
 TEST_F(DatabaseTest, MovieDatabaseTest_Startup_Test) {
@@ -65,10 +65,10 @@ TEST_F(DatabaseTest, MovieDatabaseTest_FetchAndPush_Test) {
 
     DatabaseItem anotherItem;
     anotherItem = db.fetchItem(t);
-    ASSERT_EQ(anotherItem.getTitle(), newItem.getTitle());
-    ASSERT_EQ(anotherItem.getGenre(), newItem.getGenre());
-    ASSERT_EQ(anotherItem.getDirector(), newItem.getDirector());
-    ASSERT_EQ(anotherItem.getActors(), newItem.getActors());
+    ASSERT_TRUE(anotherItem.getTitle() == newItem.getTitle());
+    ASSERT_TRUE(anotherItem.getGenre() == newItem.getGenre());
+    ASSERT_TRUE(anotherItem.getDirector() == newItem.getDirector());
+    ASSERT_TRUE(anotherItem.getActors() == newItem.getActors());
 }
 
 TEST_F(DatabaseTest, MovieDatabaseTest_PushAndPurgeItems_Test) {
