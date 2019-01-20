@@ -14,7 +14,6 @@
 #include <iostream>
 #include <map>
 #include <memory>
-#include "Metadata.h"
 
 /*! \property TITLE
  *
@@ -191,18 +190,18 @@ template<typename T> map_init_helper<T> map_init(T& item)
 template<typename T1, typename T2> using Map = std::map<T1, T2>;
 template<typename T1> using Vec = std::vector<T1>;
 
-
-void useMyWeakPointer(std::weak_ptr<Metadata> wp)
-{
-    if (std::shared_ptr<int> sp = wp.lock())
-    {
-        // the resource is still here and can be used
-    }
-    else
-    {
-        // the resource is no longer here
-    }
-}
+//
+//void useMyWeakPointer(std::weak_ptr<Metadata> wp)
+//{
+//    if (std::shared_ptr<int> sp = wp.lock())
+//    {
+//        // the resource is still here and can be used
+//    }
+//    else
+//    {
+//        // the resource is no longer here
+//    }
+//}
 
 
 #endif //MEDIAFW_UTIL_H

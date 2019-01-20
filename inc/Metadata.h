@@ -7,7 +7,10 @@
 
 #include <string>
 #include <vector>
+
+#ifndef MEDIAFW_UTIL_H
 #include "Util.h"
+#endif
 
 class Metadata {
 public:

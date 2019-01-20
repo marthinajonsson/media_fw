@@ -1,4 +1,3 @@
-#include <utility>
 
 //
 // Created by mjonsson on 10/31/18.
@@ -6,10 +5,13 @@
 
 #ifndef MEDIAFW_REQUEST_H
 #define MEDIAFW_REQUEST_H
+
 #include <memory>
 #include <map>
 #include <algorithm>
 #include <functional>
+#include <utility>
+
 
 #include "Util.h"
 #include "Metadata.h"
