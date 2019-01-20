@@ -5,6 +5,7 @@
 #include "Test_HttpConnector.h"
 #include "Test_Observer.h"
 #include "Test_Logger.h"
+#include "Test_LargerScope.h"
 #include "Test_Request.h"
 #include "InputParser.h"
 

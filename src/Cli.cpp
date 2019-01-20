@@ -131,6 +131,7 @@ int Cli::interprete(Vec<std::string> &input, Request &request)
     else if(Event::UPLOAD == event){
         setFileName(request, val);
     }
+    std::cout << "CLI OK" << std::endl;
     return RET::OK;
 }
 

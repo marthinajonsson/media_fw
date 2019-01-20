@@ -352,13 +352,13 @@ private:
         auto cfmsearch = "\t Found the following matches..\n\n";
         auto search2 {"<search>:<movie/series>:genre:Romance. \n \t "};
 
-        auto deleted {"<delete>:<movie/series><title>\n"};
+        auto deleted {"\n<delete>:<movie/series><title>\n"};
         auto cfmdelete = "\t Sure you want to delete, Y or n? \n\n";
 
         auto disconnect = "Write 'exit' to disconnect\n";
 
         std::cout << choice << "\nExample input..\n\n" << upload << cmfupload << download << cfmdownload << search
-                  << cfmsearch << search2 << deleted << cfmdelete << std::endl;
+                  << cfmsearch << search2 << cfmsearch << deleted << cfmdelete << std::endl;
         std::cout << disconnect << std::endl;
     }
 };

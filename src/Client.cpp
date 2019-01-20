@@ -101,7 +101,7 @@ Request Client::popRequest() {
     if (m_requests.size() == 1) {
         m_queueEmpty = false; // it is now empty again
     }
-    auto popped = m_requests.front();
+    Request popped(std::move(m_requests.front()));
     m_requests.pop();
     return popped;
 }

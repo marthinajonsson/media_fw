@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/media_fw.iml" filepath="$PROJECT_DIR$/.idea/media_fw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mediaFW.iml" filepath="$PROJECT_DIR$/.idea/mediaFW.iml" />
     </modules>
   </component>
 </project>

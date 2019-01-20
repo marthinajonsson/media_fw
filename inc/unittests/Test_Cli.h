@@ -34,7 +34,7 @@ TEST_F(CliTest, CliTest_Download_Test) {
     JsonParser::getInstance().load(Category::Movie);
     Cli cli;
     auto output = cli.process(test);
-    auto title = output.getMetadata().m_title;
+    auto title = output.getMetadata()->m_title;
     auto e = output.getEvent();
     auto err = output.getError();
     auto errStr = output.getErrorDesc();
@@ -50,8 +50,8 @@ TEST_F(CliTest, CliTest_Download2_Test) {
     Cli cli;
     auto output = cli.process(test);
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
-    ASSERT_FALSE(output.getMetadata().m_title == "The Spirit of Christmas");
-    auto act = output.getMetadata().m_actors;
+    ASSERT_FALSE(output.getMetadata()->m_title == "The Spirit of Christmas");
+    auto act = output.getMetadata()->m_actors;
     auto it = std::find(act.begin(), act.end(), "Thomas Beaudoin");
     bool found = it != act.end();
     ASSERT_FALSE(found);
@@ -76,10 +76,10 @@ TEST_F(CliTest, CliTest_Download4__Test) {
     auto metadata = output.getMetadata();
     ASSERT_TRUE(output.getEvent() == Event::DOWNLOAD);
     ASSERT_TRUE(output.getMultipleResult().empty());
-    ASSERT_TRUE(metadata.m_title == "11.22.63");
-    ASSERT_FALSE(metadata.m_genre == "Mystery");
-    ASSERT_FALSE(metadata.m_director == "James Franco");
-    ASSERT_TRUE(metadata.m_actors.size() == 1);
+    ASSERT_TRUE(metadata->m_title == "11.22.63");
+    ASSERT_FALSE(metadata->m_genre == "Mystery");
+    ASSERT_FALSE(metadata->m_director == "James Franco");
+    ASSERT_TRUE(metadata->m_actors.size() == 1);
 }
 
 
@@ -134,17 +134,18 @@ TEST_F(CliTest, CliTest_Upload_Test) {
     auto output = cli.process(test);
     cli.verifyUploadTest(output, meta);
     auto outputMeta = output.getMetadata();
-    ASSERT_TRUE(outputMeta.m_title == meta.m_title);
-    ASSERT_TRUE(outputMeta.m_genre == meta.m_genre);
-    ASSERT_TRUE(outputMeta.m_director == meta.m_director);
-    ASSERT_TRUE(outputMeta.m_actors.size() == 1);
-    ASSERT_TRUE(outputMeta.m_actors == meta.m_actors);
-    ASSERT_TRUE(outputMeta.m_category == Category::Series);
+    ASSERT_TRUE(outputMeta->m_title == meta.m_title);
+    ASSERT_TRUE(outputMeta->m_genre == meta.m_genre);
+    ASSERT_TRUE(outputMeta->m_director == meta.m_director);
+    ASSERT_TRUE(outputMeta->m_actors.size() == 1);
+    ASSERT_TRUE(outputMeta->m_actors == meta.m_actors);
+    ASSERT_TRUE(outputMeta->m_category == Category::Series);
 }
 
 TEST_F(CliTest, CliTest_Upload2_Test) {
     Cli cli;
-    std::string test = "upload:movie:filename:" + TEST_FILE;    Metadata meta;
+    std::string test = "upload:movie:filename:" + TEST_FILE;
+    Metadata meta;
     meta.m_title = "test";
     meta.m_genre = "horror";
     meta.m_director = "dtest";
@@ -154,12 +155,12 @@ TEST_F(CliTest, CliTest_Upload2_Test) {
     cli.verifyUploadTest(output, meta);
 
     auto outputMeta = output.getMetadata();
-    ASSERT_TRUE(outputMeta.m_title == meta.m_title);
-    ASSERT_TRUE(outputMeta.m_genre == meta.m_genre);
-    ASSERT_TRUE(outputMeta.m_director == meta.m_director);
-    ASSERT_TRUE(outputMeta.m_actors.size() == 1);
-    ASSERT_TRUE(outputMeta.m_actors == meta.m_actors);
-    ASSERT_TRUE(outputMeta.m_category == Category::Movie);
+    ASSERT_TRUE(outputMeta->m_title == meta.m_title);
+    ASSERT_TRUE(outputMeta->m_genre == meta.m_genre);
+    ASSERT_TRUE(outputMeta->m_director == meta.m_director);
+    ASSERT_TRUE(outputMeta->m_actors.size() == 1);
+    ASSERT_TRUE(outputMeta->m_actors == meta.m_actors);
+    ASSERT_TRUE(outputMeta->m_category == Category::Movie);
 }
 
 TEST_F(CliTest, CliTest_Delete_Test) {
@@ -169,8 +170,8 @@ TEST_F(CliTest, CliTest_Delete_Test) {
     auto output = cli.process(test);
     auto outputMeta = output.getMetadata();
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
-    ASSERT_TRUE("The Proposal" == outputMeta.m_title);
-    ASSERT_FALSE("Anne Fletcher" == outputMeta.m_director);
+    ASSERT_TRUE("The Proposal" == outputMeta->m_title);
+    ASSERT_FALSE("Anne Fletcher" == outputMeta->m_director);
     ASSERT_TRUE(output.getError() == RET::OK);
     ASSERT_TRUE(output.getErrorDesc().empty());
 }
@@ -183,7 +184,7 @@ TEST_F(CliTest, CliTest_Delete2_Test) {
 
     auto outputMeta = output.getMetadata();
     ASSERT_TRUE(output.getEvent() == Event::DELETE);
-    ASSERT_FALSE("Anne Fletcher" == outputMeta.m_director);
+    ASSERT_FALSE("Anne Fletcher" == outputMeta->m_director);
     ASSERT_FALSE(output.getError() == RET::OK);
     ASSERT_FALSE(output.getErrorDesc().empty());
 }

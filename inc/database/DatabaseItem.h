@@ -34,13 +34,13 @@ public:
      * @property Set
      * @param feature object of @class Request
      */
-    void setFeature(Request feature){
-        Metadata meta = feature.getMetadata();
+    void setFeature(Request &feature){
+        Metadata* meta = feature.getMetadata();
         this->m_category = feature.getCategory();
-        this->m_actors = meta.m_actors;
-        this->m_director = meta.m_director;
-        this->m_title = meta.m_title;
-        this->m_genre = meta.m_genre;
+        this->m_actors = meta->m_actors;
+        this->m_director = meta->m_director;
+        this->m_title = meta->m_title;
+        this->m_genre = meta->m_genre;
     };
 
     /*! \public getActors

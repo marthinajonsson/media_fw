@@ -6,17 +6,18 @@
 
 #ifndef MEDIAFW_REQUEST_H
 #define MEDIAFW_REQUEST_H
-
+#include <memory>
 #include <map>
 #include <algorithm>
 #include <functional>
+
 #include "Util.h"
 #include "Metadata.h"
 
 class Request {
 private:
     std::string UNDEF = "UNDEFINED";
-    Metadata meta;
+    std::unique_ptr<Metadata> p_meta = std::make_unique<Metadata>();
     int m_error;
     std::string m_errDesc;
 
@@ -48,30 +49,30 @@ private:
     Map<std::string, std::function<void(std::string&)>> setCommands;
 
     void setActor(std::string actor) {
-        if(meta.m_actors.front() == UNDEF) {
+        if(p_meta->m_actors.front() == UNDEF) {
             Vec<std::string> v2 = {actor};
-            meta.m_actors.swap(v2);
+            p_meta->m_actors.swap(v2);
         }
         else {
-            meta.m_actors.emplace_back(std::move(actor));
+            p_meta->m_actors.emplace_back(std::move(actor));
         }
     }
-    void setDirector(std::string director) { meta.m_director = std::move(director); }
-    void setGenre(std::string genre) { meta.m_genre = std::move(genre); }
-    void setTitle(std::string title) { meta.m_title = std::move(title); }
+    void setDirector(std::string director) { p_meta->m_director = std::move(director); }
+    void setGenre(std::string genre) { p_meta->m_genre = std::move(genre); }
+    void setTitle(std::string title) { p_meta->m_title = std::move(title); }
     void setFilename(std::string filename) { m_filename = std::move(filename); }
 
     std::string getTitle() {
-        return meta.m_title;
+        return p_meta->m_title;
     }
     std::string getGenre() {
-        return meta.m_genre;
+        return p_meta->m_genre;
     }
     std::string getDirector() {
-        return meta.m_director;
+        return p_meta->m_director;
     }
     std::string getActor() {
-        return meta.m_actors.front();
+        return p_meta->m_actors.front();
     }
     std::string getFilename() {
         return m_filename;
@@ -141,48 +142,16 @@ private:
 
 public:
 
-
-    Request(Event event, std::string &title, std::string &genre, std::string &director, Vec<std::string> &actors)
-    {
-
-        meta.m_title = title;
-        meta.m_genre = genre;
-        meta.m_director = director;
-        meta.m_actors = actors;
-        meta.m_category = Category::Undefined;
-        m_event = event;
-        m_error = RET::OK;
-        m_progess = Todo;
-        mapper();
-        bindFunc();
-    }
-
-    const Request & operator = (const Request &t)
-    {
-        std::cout<<"Assignment operator called "<<std::endl;
-        return t;
-    }
-
-    Request(Event event, std::string &title) : m_event(event)
-    {
-        meta.m_title = title;
-        meta.m_category = Category::Undefined;
-        m_error = RET::OK; m_progess = Todo;
-        mapper();
-        bindFunc();
-    }
-
-    explicit Request(Event event) : m_event(event) {
-        m_progess = Todo;
-        m_error = RET::OK;
-        mapper();
-        bindFunc();
-    }
-
-
     Request(RET code, std::string desc) : m_error(code), m_errDesc(std::move(desc)) {
         m_progess = Todo;
         m_event = Event::UNDEFINED;
+        mapper();
+        bindFunc();
+    }
+
+    explicit Request(Event &&event) : m_event(event) {
+        m_progess = Todo;
+        m_error = RET::OK;
         mapper();
         bindFunc();
     }
@@ -196,7 +165,89 @@ public:
 
     }
 
-    ~Request() = default;
+    Request(const Request & obj) {
+        p_meta->m_title = obj.p_meta->m_title;
+        p_meta->m_genre = obj.p_meta->m_genre;
+        p_meta->m_director = obj.p_meta->m_director;
+        p_meta->m_actors = obj.p_meta->m_actors;
+        p_meta->m_category = obj.p_meta->m_category;
+
+        m_event = obj.m_event;
+        m_progess = obj.m_progess;
+        m_filename = obj.m_filename;
+        m_error = obj.m_error;
+        m_errDesc = obj.m_errDesc;
+        m_multipleResult = obj.m_multipleResult;
+
+        std::cout << "Copy constructor: Allocation new meta" << std::endl;
+    }
+
+    Request & operator=(const Request & obj) {
+
+        if(this != &obj)
+        {
+            p_meta->m_title = obj.p_meta->m_title;
+            p_meta->m_genre = obj.p_meta->m_genre;
+            p_meta->m_director = obj.p_meta->m_director;
+            p_meta->m_actors = obj.p_meta->m_actors;
+            p_meta->m_category = obj.p_meta->m_category;
+
+            m_event = obj.m_event;
+            m_progess = obj.m_progess;
+            m_filename = obj.m_filename;
+            m_error = obj.m_error;
+            m_errDesc = obj.m_errDesc;
+            m_multipleResult = obj.m_multipleResult;
+
+            std::cout << "Assigment Operator: Allocation new meta" << std::endl;
+        }
+        return *this;
+    }
+
+    Request(Request && obj)
+    {
+        p_meta->m_title = obj.p_meta.get()->m_title;
+        p_meta->m_category = obj.p_meta.get()->m_category;
+        p_meta->m_genre = obj.p_meta.get()->m_genre;
+        p_meta->m_director = obj.p_meta.get()->m_director;
+        p_meta->m_actors = obj.p_meta.get()->m_actors;
+        m_event = std::move(obj.m_event);
+        m_progess = std::move(obj.m_progess);
+        m_filename = std::move(obj.m_filename);
+        m_error = std::move(obj.m_error);
+        m_errDesc = std::move(obj.m_errDesc);
+        m_multipleResult = std::move(obj.m_multipleResult);
+
+        obj.p_meta = NULL;
+
+        std::cout<<"Move Constructor"<<std::endl;
+    }
+
+    Request& operator=(Request &&obj)
+    {
+        if(this != &obj)
+        {
+            p_meta->m_title = obj.p_meta.get()->m_title;
+            p_meta->m_category = obj.p_meta.get()->m_category;
+            p_meta->m_genre = obj.p_meta.get()->m_genre;
+            p_meta->m_director = obj.p_meta.get()->m_director;
+            p_meta->m_actors = obj.p_meta.get()->m_actors;
+            m_event = std::move(obj.m_event);
+            m_progess = std::move(obj.m_progess);
+            m_filename = std::move(obj.m_filename);
+            m_error = std::move(obj.m_error);
+            m_errDesc = std::move(obj.m_errDesc);
+            m_multipleResult = std::move(obj.m_multipleResult);
+
+            obj.p_meta = NULL;
+            std::cout<<"Move Assignment Operator"<<std::endl;
+        }
+        return *this;
+    }
+
+    ~Request() {
+        this->m_multipleResult.clear();
+    };
 
 
 
@@ -206,12 +257,12 @@ public:
      * */
 
     void setEvent(Event e) { m_event = e; }
-    void setCategory(const Category &cat) { meta.m_category = cat; }
+    void setCategory(const Category &cat) { p_meta->m_category = cat; }
     void setProgress(Progress progress) { m_progess = progress; }
     void setError(const int &err) { m_error = err; }
     void setErrorDesc(std::string desc) { m_errDesc = std::move(desc); }
 
-    void setActors(Vec<std::string> vec) { meta.m_actors = std::move(vec); }
+    void setActors(Vec<std::string> vec) { p_meta->m_actors = std::move(vec); }
 
     void setMultipleResult(Map<std::string, Metadata> map) { m_multipleResult = std::move(map); }
 
@@ -225,8 +276,8 @@ public:
      *  GET
      *
      * */
-    Metadata getMetadata() {
-        return meta;
+    Metadata* getMetadata() {
+        return p_meta.get();
     }
 
     std::string get(const std::string& cmd) {
@@ -241,22 +292,22 @@ public:
 
     Map<std::string, std::string> getProperties() {
         Map<std::string, std::string> map;
-        if(meta.m_title.find(UNDEF) == std::string::npos)
-            map["title"] = meta.m_title;
-        if(meta.m_genre.find(UNDEF) == std::string::npos)
-            map["genre"] = meta.m_genre;
-        if(meta.m_director.find(UNDEF) == std::string::npos)
-            map["director"] = meta.m_director;
+        if(p_meta->m_title.find(UNDEF) == std::string::npos)
+            map["title"] = p_meta->m_title;
+        if(p_meta->m_genre.find(UNDEF) == std::string::npos)
+            map["genre"] = p_meta->m_genre;
+        if(p_meta->m_director.find(UNDEF) == std::string::npos)
+            map["director"] = p_meta->m_director;
         if(!m_filename.empty())
             map["filename"] = m_filename;
-        if(meta.m_actors.front().find(UNDEF) == std::string::npos)
-            map["actor"] = meta.m_actors.front();
+        if(p_meta->m_actors.front().find(UNDEF) == std::string::npos)
+            map["actor"] = p_meta->m_actors.front();
         return map;
     }
 
     Event getEvent() const {return m_event; }
     Progress getProgress() { return m_progess; }
-    Category const getCategory() const { return meta.m_category; }
+    Category const getCategory() const { return p_meta->m_category; }
 
     int getError() { return m_error; }
     std::string getErrorDesc() { return m_errDesc; }
