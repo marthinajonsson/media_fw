@@ -1,6 +1,6 @@
 {
-  "url": "192.168.0.107",
+  "url": "192.168.0.101",
   "port": "5000",
   "user": "TestUser",
-  "pwd": "xhfypf6C"
+  "pwd": "testpwd"
 }
